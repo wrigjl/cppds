@@ -841,12 +841,12 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix-4">The first technique that we will consider uses the notion of a fully parenthesized expression that was discussed earlier. Recall that A + B * C can be written as (A + (B * C)) to show explicitly that the multiplication has precedence over the addition. On closer observation, however, you can see that each parenthesis pair also denotes the beginning and the end of an operand pair with the corresponding operator in the middle.</div>
 <div class="para" id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix-5">Look at the right parenthesis in the subexpression (B * C) above. If we were to move the multiplication symbol to that position and remove the matching left parenthesis, giving us B C *, we would in effect have converted the subexpression to postfix notation. If the addition operator were also moved to its corresponding right parenthesis position and the matching left parenthesis were removed, the complete postfix expression would result (see <a href="linear-basic_infix-prefix-and-postfix-expressions.html#xfix_fig-moveright" class="xref" data-knowl="./knowl/xref/xfix_fig-moveright.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.9.6">Figure 3.9.6</a>).</div>
 <figure class="figure figure-like" id="xfix_fig-moveright"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/moveright.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.6<span class="period">.</span></span><span class="space"> </span>Figure 6: Moving Operators to the Right for Postfix Notation</figcaption></figure><div class="para" id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix-7">If we do the same thing but instead of moving the symbol to the position of the right parenthesis, we move it to the left, we get prefix notation (see <a href="linear-basic_infix-prefix-and-postfix-expressions.html#xfix_fig-moveleft" class="xref" data-knowl="./knowl/xref/xfix_fig-moveleft.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.9.7">Figure 3.9.7</a>). The position of the parenthesis pair is actually a clue to the final position of the enclosed operator.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.6<span class="period">.</span></span><span class="space"> </span>Moving Operators to the Right for Postfix Notation</figcaption></figure><div class="para" id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix-7">If we do the same thing but instead of moving the symbol to the position of the right parenthesis, we move it to the left, we get prefix notation (see <a href="linear-basic_infix-prefix-and-postfix-expressions.html#xfix_fig-moveleft" class="xref" data-knowl="./knowl/xref/xfix_fig-moveleft.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.9.7">Figure 3.9.7</a>). The position of the parenthesis pair is actually a clue to the final position of the enclosed operator.</div>
 <figure class="figure figure-like" id="xfix_fig-moveleft"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/moveleft.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.7<span class="period">.</span></span><span class="space"> </span>Figure 7: Moving Operators to the Left for Prefix Notation</figcaption></figure><div class="para" id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix-9">So in order to convert an expression, no matter how complex, to either prefix or postfix notation, fully parenthesize the expression using the order of operations. Then move the enclosed operator to the position of either the left or the right parenthesis depending on whether you want prefix or postfix notation.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.7<span class="period">.</span></span><span class="space"> </span>Moving Operators to the Left for Prefix Notation</figcaption></figure><div class="para" id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix-9">So in order to convert an expression, no matter how complex, to either prefix or postfix notation, fully parenthesize the expression using the order of operations. Then move the enclosed operator to the position of either the left or the right parenthesis depending on whether you want prefix or postfix notation.</div>
 <div class="para" id="linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix-10">Here is a more complex expression: (A + B) * C - (D - E) * (F + G). <a href="linear-basic_infix-prefix-and-postfix-expressions.html#xfix_fig-complexmove" class="xref" data-knowl="./knowl/xref/xfix_fig-complexmove.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.9.8">Figure 3.9.8</a> shows the conversion to postfix and prefix notations.</div>
 <figure class="figure figure-like" id="xfix_fig-complexmove"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/complexmove.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.8<span class="period">.</span></span><span class="space"> </span>Figure 8: Converting a Complex Expression to Prefix and Postfix Notations</figcaption></figure></section><section class="subsection" id="linear-basic_general-infix-to-postfix-conversion"><h3 class="heading hide-type">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.8<span class="period">.</span></span><span class="space"> </span>Converting a Complex Expression to Prefix and Postfix Notations</figcaption></figure></section><section class="subsection" id="linear-basic_general-infix-to-postfix-conversion"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.9.2</span><span class="space"> </span><span class="title">General Infix-to-Postfix Conversion</span>
 </h3>
 <article class="definition definition-like" id="def-postfix-expression"><h4 class="heading">
@@ -873,7 +873,14 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="linear-basic_general-infix-to-postfix-conversion-10">
 <a href="linear-basic_infix-prefix-and-postfix-expressions.html#xfix_fig-intopost" class="xref" data-knowl="./knowl/xref/xfix_fig-intopost.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.9.10">Figure 3.9.10</a> shows the conversion algorithm working on the expression A * B + C * D. Note that the first * operator is removed upon seeing the + operator. Also, + stays on the stack when the second * occurs, since multiplication has precedence over addition. At the end of the infix expression the stack is popped twice, removing both operators and placing + as the last operator in the postfix expression.</div>
 <figure class="figure figure-like" id="xfix_fig-intopost"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/intopost.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.10<span class="period">.</span></span><span class="space"> </span>Figure 9: Converting A * B + C * D to Postfix Notation</figcaption></figure><div class="para" id="linear-basic_general-infix-to-postfix-conversion-12">In order to code the algorithm in C++, we will use a hash map called <code class="code-inline tex2jax_ignore">prec</code> to hold the precedence values for the operators which will be implemented with an unordered map. This hash map will map each operator char to an integer that can be compared against the precedence levels of other operators (we have arbitrarily used the integers 3, 2, and 1). The left parenthesis will receive the lowest value possible. This way any operator that is compared against it will have higher precedence and will be placed on top of it. Line 18 defines the operands to be any upper-case character or digit. The complete conversion function is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-intopost" missing or not unique]</code>.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.10<span class="period">.</span></span><span class="space"> </span>Converting A * B + C * D to Postfix Notation</figcaption></figure><div class="para" id="linear-basic_general-infix-to-postfix-conversion-12">In order to code the algorithm in C++, we will use a hash map called <code class="code-inline tex2jax_ignore">prec</code> to hold the precedence values for the operators which will be implemented with an unordered map. This hash map will map each operator char to an integer that can be compared against the precedence levels of other operators (we have arbitrarily used the integers 3, 2, and 1). The left parenthesis will receive the lowest value possible. This way any operator that is compared against it will have higher precedence and will be placed on top of it. Line 18 defines the operands to be any upper-case character or digit. The complete conversion function is shown in <a href="linear-basic_infix-prefix-and-postfix-expressions.html#lst-intopost-cpp" class="xref" data-knowl="./knowl/xref/lst-intopost-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.9.1.a: C++ Implementation">Task 3.9.1.a</a>.</div>
+<article class="exploration project-like" id="expl-lst-intopost-cpp"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.9.1</span><span class="period">.</span><span class="space"> </span><span class="title">Infix to Postfix Conversion.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-intopost-cpp">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-intopost-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
 <pre class="program"><code class="language-cpp">//Converts an infix expression to a postfix expression.
 
 #include &lt;iostream&gt;
@@ -943,7 +950,10 @@ int main() {
 
     return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-intopost-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="intopost"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="intopost_editor" data-question_label="" data-codelens="true">#Converts an infix expression to a postfix expression.
 
 from pythonds.basic.stack import Stack
@@ -986,8 +996,8 @@ def main():
     print(infixToPostfix("A * B + C * D"))
     print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
 main()
-</textarea></div></div></div>
-<div class="para" id="linear-basic_general-infix-to-postfix-conversion-16">A few more results of execution are shown below.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="linear-basic_general-infix-to-postfix-conversion-15">A few more results of execution are shown below.</div>
 <pre class="code-block tex2jax_ignore">&gt;&gt;&gt; infixtopostfix("( A + B ) * ( C + D )")
 'A B + C D + *'
 &gt;&gt;&gt; infixtopostfix("( A + B ) * C")
@@ -1003,10 +1013,10 @@ main()
 <div class="para" id="linear-basic_postfix-evaluation-4">In this case, the next symbol is another operand. So, as before, push it and check the next symbol. Now we see an operator, *. This means that the two most recent operands need to be used in a multiplication operation. By popping the stack twice, we can get the proper operands and then perform the multiplication (in this case getting the result 30).</div>
 <div class="para" id="linear-basic_postfix-evaluation-5">We can now handle this result by placing it back on the stack so that it can be used as an operand for the later operators in the expression. When the final operator is processed, there will be only one value left on the stack. Pop and return it as the result of the expression. <a href="linear-basic_infix-prefix-and-postfix-expressions.html#xfix_fig-evalpost1" class="xref" data-knowl="./knowl/xref/xfix_fig-evalpost1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.9.11">Figure 3.9.11</a> shows the stack contents as this entire example expression is being processed.</div>
 <figure class="figure figure-like" id="xfix_fig-evalpost1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/evalpostfix1.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.11<span class="period">.</span></span><span class="space"> </span>Figure 10: Stack Contents During Evaluation</figcaption></figure><div class="para" id="linear-basic_postfix-evaluation-7">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.11<span class="period">.</span></span><span class="space"> </span>Stack Contents During Evaluation</figcaption></figure><div class="para" id="linear-basic_postfix-evaluation-7">
 <a href="linear-basic_infix-prefix-and-postfix-expressions.html#xfix_fig-evalpost2" class="xref" data-knowl="./knowl/xref/xfix_fig-evalpost2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.9.12">Figure 3.9.12</a> shows a slightly more complex example, 7 8 + 3 2 + /. There are two things to note in this example. First, the stack size grows, shrinks, and then grows again as the subexpressions are evaluated. Second, the division operation needs to be handled carefully. Recall that the operands in the postfix expression are in their original order since postfix changes only the placement of operators. When the operands for the division are popped from the stack, they are reversed. Since division is <em class="emphasis">not</em> a commutative operator, in other words <span class="process-math">\(15/5\)</span> is not the same as <span class="process-math">\(5/15\text{,}\)</span> we must be sure that the order of the operands is not switched.</div>
 <figure class="figure figure-like" id="xfix_fig-evalpost2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/evalpostfix2.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.12<span class="period">.</span></span><span class="space"> </span>Figure 11: A More Complex Example of Evaluation</figcaption></figure><div class="para" id="linear-basic_postfix-evaluation-9">Assume the postfix expression is a string of tokens delimited by spaces. The operators are *, /, +, and - and the operands are assumed to be single-digit integer values. The output will be an integer result.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.9.12<span class="period">.</span></span><span class="space"> </span>A More Complex Example of Evaluation</figcaption></figure><div class="para" id="linear-basic_postfix-evaluation-9">Assume the postfix expression is a string of tokens delimited by spaces. The operators are *, /, +, and - and the operands are assumed to be single-digit integer values. The output will be an integer result.</div>
 <div class="para logical" id="linear-basic_postfix-evaluation-10"><ol class="decimal" id="linear-basic_postfix-evaluation-10-1">
 <li id="linear-basic_postfix-evaluation-10-1-1"><div class="para" id="linear-basic_postfix-evaluation-10-1-1-1">Create an empty stack called <code class="code-inline tex2jax_ignore">operandStack</code>.</div></li>
 <li id="linear-basic_postfix-evaluation-10-1-2"><div class="para" id="linear-basic_postfix-evaluation-10-1-2-1">Iterate across the input using a for loop.</div></li>
@@ -1019,7 +1029,14 @@ main()
 </li>
 <li id="linear-basic_postfix-evaluation-10-1-4"><div class="para" id="linear-basic_postfix-evaluation-10-1-4-1">When the input expression has been completely processed, the result is on the stack. Pop the <code class="code-inline tex2jax_ignore">operandStack</code> and return the value.</div></li>
 </ol></div>
-<div class="para" id="linear-basic_postfix-evaluation-11">The complete function for the evaluation of postfix expressions is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-postfixeval" missing or not unique]</code>. To assist with the arithmetic, a helper function <code class="code-inline tex2jax_ignore">doMath</code> is defined that will take two operands and an operator and then perform the proper arithmetic operation.</div>
+<div class="para" id="linear-basic_postfix-evaluation-11">The complete function for the evaluation of postfix expressions is shown in <a href="linear-basic_infix-prefix-and-postfix-expressions.html#lst-postfixeval-cpp" class="xref" data-knowl="./knowl/xref/lst-postfixeval-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.9.2.a: C++ Implementation">Task 3.9.2.a</a>. To assist with the arithmetic, a helper function <code class="code-inline tex2jax_ignore">doMath</code> is defined that will take two operands and an operator and then perform the proper arithmetic operation.</div>
+<article class="exploration project-like" id="expl-lst-postfixeval-cpp"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.9.2</span><span class="period">.</span><span class="space"> </span><span class="title">Postfix Expression Evaluator.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-postfixeval-cpp">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-postfixeval-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
 <pre class="program"><code class="language-cpp">//Solves a postfix math problem.
 
 #include &lt;iostream&gt;
@@ -1067,7 +1084,10 @@ int main() {
 
     return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-postfixeval-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="postfixeval"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="postfixeval_editor" data-question_label="" data-codelens="true">#Solves a postfix math problem.
 
 from pythonds.basic.stack import Stack
@@ -1100,8 +1120,8 @@ def doMath(op, op1, op2):
 def main():
     print(postfixEval('7 8 + 3 2 + /'))
 main()
-</textarea></div></div></div>
-<div class="para" id="linear-basic_postfix-evaluation-14">It is important to note that in both the postfix conversion and the postfix evaluation programs we assumed that there were no errors in the input expression. Using these programs as a starting point, you can easily see how error detection and reporting can be included. We leave this as an exercise at the end of the chapter.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="linear-basic_postfix-evaluation-13">It is important to note that in both the postfix conversion and the postfix evaluation programs we assumed that there were no errors in the input expression. Using these programs as a starting point, you can easily see how error detection and reporting can be included. We leave this as an exercise at the end of the chapter.</div>
 <section class="reading-questions" id="rq-decimal-to-binary"><h4 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h4>

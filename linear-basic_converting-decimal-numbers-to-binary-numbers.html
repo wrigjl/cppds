@@ -784,7 +784,14 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-7">But how can we easily convert integer values into binary numbers? The answer is an algorithm called “Divide by 2” that uses a stack to keep track of the digits for the binary result.</div>
 <div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-8">The Divide by 2 algorithm assumes that we start with an integer greater than 0. A simple iteration then continually uses integer division to divide the decimal number by 2 and to keep track of the remainder. The first division by 2 gives information as to whether the value is even or odd. An even value will have a remainder of 0. It will have the digit 0 in the 1s place. An odd value will have a remainder of 1 and will have the digit 1 in the 1s place. We think about building our binary number as a sequence of digits; the first remainder we compute will actually be the last digit in the sequence. As shown in <a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#fig-decbin" class="xref" data-knowl="./knowl/xref/fig-decbin.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.8.1">Figure 3.8.1</a>, we again see the reversal property that signals that a stack is likely to be the appropriate data structure for solving the problem.</div>
 <figure class="figure figure-like" id="fig-decbin"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/dectobin.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.8.1<span class="period">.</span></span><span class="space"> </span>Figure 5: Decimal-to-Binary Conversion</figcaption></figure><div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-10">The code in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-binconverter" missing or not unique]</code> implements the Divide by 2 algorithm. The function <code class="code-inline tex2jax_ignore">divideBy2</code> takes an argument that is a decimal number and repeatedly divides it by 2. Line 11 uses the built-in modulo operator, %, to extract the remainder and line 12 then pushes it on the stack. After the division process reaches 0, a binary string is constructed in lines 16-19. Line 16 creates an empty string. The binary digits are popped from the stack one at a time and appended to the right-hand end of the string. The binary string is then returned.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.8.1<span class="period">.</span></span><span class="space"> </span>Decimal-to-Binary Conversion</figcaption></figure><div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-10">The code in <a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#lst-binconverter-cpp" class="xref" data-knowl="./knowl/xref/lst-binconverter-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.8.1.a: C++ Implementation">Task 3.8.1.a</a> implements the Divide by 2 algorithm. The function <code class="code-inline tex2jax_ignore">divideBy2</code> takes an argument that is a decimal number and repeatedly divides it by 2. Line 11 uses the built-in modulo operator, %, to extract the remainder and line 12 then pushes it on the stack. After the division process reaches 0, a binary string is constructed in lines 16-19. Line 16 creates an empty string. The binary digits are popped from the stack one at a time and appended to the right-hand end of the string. The binary string is then returned.</div>
+<article class="exploration project-like" id="expl-lst-binconverter"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.8.1</span><span class="period">.</span><span class="space"> </span><span class="title">Divide By 2 Algorithm.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-binconverter">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-binconverter-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">//converts a given decimal number into binary.
 
 #include &lt;iostream&gt;
@@ -820,7 +827,10 @@ int main() {
 
   return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-binconverter-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="binconvert_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="binconvert_py_editor" data-question_label="" data-codelens="true">#converts a given decimal number into binary.
 
 from pythonds.basic.stack import Stack
@@ -845,14 +855,19 @@ def divideBy2(decNumber):
 def main():
     print(divideBy2(42))
 main()
-</textarea></div></div></div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-13">The algorithm for binary conversion can easily be extended to perform the conversion for any base. In computer science it is common to use a number of different base encodings for integers. The most common of these are binary (base 2), octal (base 8), and hexadecimal (base 16).</div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-14">The decimal number <span class="process-math">\(233\)</span> and its corresponding octal and hexadecimal equivalents <span class="process-math">\(351_{8}\)</span> and <span class="process-math">\(E9_{16}\)</span> are interpreted as:</div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-15"><span class="process-math">\(3\times8^{2} + 5\times8^{1} + 1\times8^{0}\)</span></div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-16">and</div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-17"><span class="process-math">\(14\times16^{1} + 9\times16^{0}\)</span></div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-18">The function <code class="code-inline tex2jax_ignore">divideBy2</code> can be modified to accept not only a decimal value but also a base for the intended conversion. The “Divide by 2” idea is simply replaced with a more general “Divide by base.” A new function called <code class="code-inline tex2jax_ignore">baseConverter</code>, shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-baseconverter" missing or not unique]</code>, takes a decimal number and any base between 2 and 16 as parameters. The remainders are still pushed onto the stack until the value being converted becomes 0. The same left-to-right string construction technique can be used with one slight change. Base 2 through base 10 numbers require a maximum of 10 digits, so the typical digit characters 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9 work fine. The problem comes when we go beyond base 10. We can no longer simply use these remainders as digits, because they are themselves represented as two-digit decimal numbers. Instead we need to create a set of digits that can be used to represent those remainders beyond 9.</div>
-<pre class="program"><code class="language-cpp">//converts a decimal number into desired base 1-16.
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-12">The algorithm for binary conversion can easily be extended to perform the conversion for any base. In computer science it is common to use a number of different base encodings for integers. The most common of these are binary (base 2), octal (base 8), and hexadecimal (base 16).</div>
+<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-13">The decimal number <span class="process-math">\(233\)</span> and its corresponding octal and hexadecimal equivalents <span class="process-math">\(351_{8}\)</span> and <span class="process-math">\(E9_{16}\)</span> are interpreted as:</div>
+<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-14"><span class="process-math">\(3\times8^{2} + 5\times8^{1} + 1\times8^{0}\)</span></div>
+<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-15">and</div>
+<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-16"><span class="process-math">\(14\times16^{1} + 9\times16^{0}\)</span></div>
+<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-17">The function <code class="code-inline tex2jax_ignore">divideBy2</code> can be modified to accept not only a decimal value but also a base for the intended conversion. The “Divide by 2” idea is simply replaced with a more general “Divide by base.” A new function called <code class="code-inline tex2jax_ignore">baseConverter</code>, shown in <a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#lst-baseconverter-cpp" class="xref" data-knowl="./knowl/xref/lst-baseconverter-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.8.2.a">Task 3.8.2.a</a>, takes a decimal number and any base between 2 and 16 as parameters. The remainders are still pushed onto the stack until the value being converted becomes 0. The same left-to-right string construction technique can be used with one slight change. Base 2 through base 10 numbers require a maximum of 10 digits, so the typical digit characters 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9 work fine. The problem comes when we go beyond base 10. We can no longer simply use these remainders as digits, because they are themselves represented as two-digit decimal numbers. Instead we need to create a set of digits that can be used to represent those remainders beyond 9.</div>
+<article class="exploration project-like" id="linear-basic_converting-decimal-numbers-to-binary-numbers-18"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.8.2</span><span class="period">.</span><span class="space"> </span><span class="title">Implementation of <code class="code-inline tex2jax_ignore">baseConverter</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-baseconverter-cpp"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<pre class="program line-numbers"><code class="language-cpp">//converts a decimal number into desired base 1-16.
 
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
@@ -890,7 +905,10 @@ int main() {
 
   return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-baseconverter-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="baseconvert"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="baseconvert_editor" data-question_label="" data-codelens="true">#converts a decimal number into desired base 1-16.
 
 from pythonds.basic.stack import Stack
@@ -919,8 +937,8 @@ def main():
     print(baseConverter(imynum, 2))
     print(baseConverter(imynum, 16))
 main()
-</textarea></div></div></div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-21">A solution to this problem is to extend the digit set to include some additional characters to represent digits. For example, hexadecimal uses the ten decimal digits along with the first six alphabet characters for the 16 digits. To implement this, a digit string is created (line 8 in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-baseconverter" missing or not unique]</code>) that stores the digits in their corresponding positions. The digit 0 is at string position 0, 1 is at position 1, A is at position 10, B is at position 11, and so on. When a remainder is removed from the stack, it can be used to index into the digit string and the correct resulting digit can be appended to the answer. For example, if the remainder 13 is removed from the stack, the digit D is appended to the resulting string.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-19">A solution to this problem is to extend the digit set to include some additional characters to represent digits. For example, hexadecimal uses the ten decimal digits along with the first six alphabet characters for the 16 digits. To implement this, a digit string is created (line 11 in <a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#lst-baseconverter-cpp" class="xref" data-knowl="./knowl/xref/lst-baseconverter-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.8.2.a">Task 3.8.2.a</a>) that stores the digits in their corresponding positions. The digit 0 is at string position 0, 1 is at position 1, A is at position 10, B is at position 11, and so on. When a remainder is removed from the stack, it can be used to index into the digit string and the correct resulting digit can be appended to the answer. For example, if the remainder 13 is removed from the stack, the digit D is appended to the resulting string.</div>
 <section class="reading-questions" id="rq-converting-decimal-num-binary-num"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h3>
@@ -939,7 +957,7 @@ main()
 <div class="para" id="rq-converting-decimal-num-binary-num-4-1-1">What is value of 26 expressed in base 26? <input type="text" placeholder="Number">
 </div>
 <script type="application/json">[[{"number": [[10, 10], [10, 10]], "feedback": "<div class=\"para\" id=\"rq-converting-decimal-num-binary-num-4-2-1-2-1-1\">Correct because 26 = 1x26^1.<\/div>"}]]</script>
-</div></div></div></article></section><div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-23"></div></section></div>
+</div></div></div></article></section><div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-21"></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="linear-basic_balanced-symbols-a-general-case.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="linear-basic_infix-prefix-and-postfix-expressions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

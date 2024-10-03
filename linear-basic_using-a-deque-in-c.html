@@ -776,7 +776,14 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="linear-basic_using-a-deque-in-c"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">3.17</span><span class="space"> </span><span class="title">Using a Deque in C++</span>
 </h2>
-<div class="para" id="linear-basic_using-a-deque-in-c-2">As we have done in previous sections, we will use the Standard Template Library (STL) of C++ to use a Deque. Again, the Deque library from STL will provide a very nice set of methods upon which to build the details of the deque. Our code (<code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-dequecode" missing or not unique]</code>) will assume that the front of the deque is at position 0 in the array.</div>
+<div class="para" id="linear-basic_using-a-deque-in-c-2">As we have done in previous sections, we will use the Standard Template Library (STL) of C++ to use a Deque. Again, the Deque library from STL will provide a very nice set of methods upon which to build the details of the deque. Our code (<a href="linear-basic_using-a-deque-in-c.html#lst-dequecode-cpp" class="xref" data-knowl="./knowl/xref/lst-dequecode-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.17.1.a: C++ Implementation">Task 3.17.1.a</a>) will assume that the front of the deque is at position 0 in the array.</div>
+<article class="exploration project-like" id="expl-lst-dequecode-cpp"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.17.1</span><span class="period">.</span><span class="space"> </span><span class="title">Postfix Expression Evaluator.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-dequecode-cpp">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-dequecode-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">//Example code of a deque.
 
 #include &lt;iostream&gt;
@@ -825,7 +832,10 @@ int main() {
     return 0;
     }
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-dequecode-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="dequecode_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="dequecode_py_editor" data-question_label="" data-codelens="true">#Example code of a deque.
 
 class Deque:
@@ -896,9 +906,9 @@ def main():
         print(d.at(i), end=" ")
     print("\n")
 main()
-</textarea></div></div></div>
-<div class="para" id="linear-basic_using-a-deque-in-c-5">You can see many similarities to C++ code already used for stacks and queues. You are also likely to observe that in this implementation adding and removing items from the back is O(1) whereas adding and removing from the front is O(n). This is to be expected given the common operations that appear for adding and removing items. Again, the important thing is to be certain that we know where the front and rear are assigned in the implementation.</div>
-<div class="para" id="linear-basic_using-a-deque-in-c-6"></div></section></div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="linear-basic_using-a-deque-in-c-4">You can see many similarities to C++ code already used for stacks and queues. You are also likely to observe that in this implementation adding and removing items from the back is O(1) whereas adding and removing from the front is O(n). This is to be expected given the common operations that appear for adding and removing items. Again, the important thing is to be certain that we know where the front and rear are assigned in the implementation.</div>
+<div class="para" id="linear-basic_using-a-deque-in-c-5"></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="linear-basic_the-deque-abstract-data-type.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="linear-basic_palindrome-checker.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

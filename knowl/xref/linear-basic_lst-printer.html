@@ -11,8 +11,41 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para"><dfn class="terminology">Listing 2</dfn></div>
-<span class="incontext"><a class="internal" href="linear-basic_simulation-printing-tasks.html#linear-basic_lst-printer">in-context</a></span>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Printer {
+public:
+    Printer(int pagesPerMinute) {
+        pagerate = pagesPerMinute;
+        timeRemaining=0;
+        working = false;
+    }
+
+    void tick() {
+        //Performed once per second in the simulation.
+
+        if (working) { // If we're working on something...
+            timeRemaining--;// Subtract the remaining time.
+            if (timeRemaining &lt;= 0)
+                working = false; // When finished, stop working.
+        }
+    }
+
+    bool busy() {
+        return working;
+    }
+
+    void startNext(Task newtask) {
+        currentTask=newtask;
+        timeRemaining=newtask.getPages()*60/pagerate;
+        working = true;
+    }
+
+private:
+    int pagerate; // unit is pages per minute.
+    Task currentTask = {0};// Current task. default is a dummy value.
+    bool working; // Are we working on the current task?
+    int timeRemaining; // Time remaining, in "seconds".
+};
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.14.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><span class="incontext"><a class="internal" href="linear-basic_simulation-printing-tasks.html#linear-basic_lst-printer">in-context</a></span>
 </body>
 </html>
