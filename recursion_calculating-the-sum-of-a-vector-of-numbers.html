@@ -776,7 +776,14 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="recursion_calculating-the-sum-of-a-vector-of-numbers"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">5.3</span><span class="space"> </span><span class="title">Calculating the Sum of a Vector of Numbers</span>
 </h2>
-<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-2">We will begin our investigation with a simple problem that you already know how to solve without using recursion. Suppose that you want to calculate the sum of a vector of numbers such as: <span class="process-math">\([1, 3, 5, 7, 9]\text{.}\)</span> An iterative function that computes the sum is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-itsumcpp" missing or not unique]</code>. The function uses an accumulator variable (<code class="code-inline tex2jax_ignore">theSum</code>) to compute a running total of all the numbers in the vector by starting with <span class="process-math">\(0\)</span> and adding each number in the vector.</div>
+<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-2">We will begin our investigation with a simple problem that you already know how to solve without using recursion. Suppose that you want to calculate the sum of a vector of numbers such as: <span class="process-math">\([1, 3, 5, 7, 9]\text{.}\)</span> An iterative function that computes the sum is shown in <a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html#lst-itsum-cpp" class="xref" data-knowl="./knowl/xref/lst-itsum-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.3.1.a: C++ Implementation">Task 5.3.1.a</a>. The function uses an accumulator variable (<code class="code-inline tex2jax_ignore">theSum</code>) to compute a running total of all the numbers in the vector by starting with <span class="process-math">\(0\)</span> and adding each number in the vector.</div>
+<article class="exploration project-like" id="expl-lst-itsum"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Iterative Sum of Vector.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-itsum">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-itsum-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">//Example of summing up a vector without using recursion.
 
 #include &lt;iostream&gt;
@@ -796,7 +803,10 @@ int main() {
 
     return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-itsum-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_itsumpy"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_itsumpy_editor" data-question_label="" data-codelens="true">#Example of summing up a list without using recursion.
 
 def listsum(numList):
@@ -811,16 +821,23 @@ def main():
     print(listsum([1, 3, 5, 7, 9]))
 
 main()
-</textarea></div></div></div>
-<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-5">Pretend for a minute that you do not have <code class="code-inline tex2jax_ignore">while</code> loops or <code class="code-inline tex2jax_ignore">for</code> loops. How would you compute the sum of a vector of numbers? If you were a mathematician you might start by recalling that addition is a function that is defined for two parameters, a pair of numbers. To redefine the problem from adding a vector to adding pairs of numbers, we could rewrite the vector as a fully parenthesized expression. Such an expression looks like this:</div>
-<span class="process-math">\(((((1 + 3) + 5) + 7) + 9)\)</span><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-7">We can also parenthesize the expression the other way around,</div>
-<span class="process-math">\((1 + (3 + (5 + (7 + 9))))\)</span><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-9">Notice that the innermost set of parentheses, <span class="process-math">\((7 + 9)\text{,}\)</span> is a problem that we can solve without a loop or any special constructs. In fact, we can use the following sequence of simplifications to compute a final sum.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-4">Pretend for a minute that you do not have <code class="code-inline tex2jax_ignore">while</code> loops or <code class="code-inline tex2jax_ignore">for</code> loops. How would you compute the sum of a vector of numbers? If you were a mathematician you might start by recalling that addition is a function that is defined for two parameters, a pair of numbers. To redefine the problem from adding a vector to adding pairs of numbers, we could rewrite the vector as a fully parenthesized expression. Such an expression looks like this:</div>
+<span class="process-math">\(((((1 + 3) + 5) + 7) + 9)\)</span><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-6">We can also parenthesize the expression the other way around,</div>
+<span class="process-math">\((1 + (3 + (5 + (7 + 9))))\)</span><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-8">Notice that the innermost set of parentheses, <span class="process-math">\((7 + 9)\text{,}\)</span> is a problem that we can solve without a loop or any special constructs. In fact, we can use the following sequence of simplifications to compute a final sum.</div>
 <span class="process-math">\(total = \  (1 + (3 + (5 + (7 + 9)))) \\
 total = \  (1 + (3 + (5 + 16))) \\
 total = \  (1 + (3 + 21)) \\
 total = \  (1 + 24) \\
-total = \  25\)</span><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-11">How can we take this idea and turn it into a C++ program? First, let’s restate the sum problem in terms of C++ arrays. We might say the sum of the vector <code class="code-inline tex2jax_ignore">numVect</code> is the sum of the first element of the vector (<code class="code-inline tex2jax_ignore">numVect[0]</code>), and the sum of the numbers in the rest of the array (<code class="code-inline tex2jax_ignore">numVect.erase(numVect.begin()+0)</code>).</div>
-<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-12">In this equation <span class="process-math">\(first(numVect)\)</span> returns the first element of the array and <span class="process-math">\(rest(numVect)\)</span> returns an array of everything but the first element. This is easily expressed in C++ as shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-recsumcpp" missing or not unique]</code>.</div>
+total = \  25\)</span><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-10">How can we take this idea and turn it into a C++ program? First, let’s restate the sum problem in terms of C++ arrays. We might say the sum of the vector <code class="code-inline tex2jax_ignore">numVect</code> is the sum of the first element of the vector (<code class="code-inline tex2jax_ignore">numVect[0]</code>), and the sum of the numbers in the rest of the array (<code class="code-inline tex2jax_ignore">numVect.erase(numVect.begin()+0)</code>).</div>
+<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-11">In this equation <span class="process-math">\(first(numVect)\)</span> returns the first element of the array and <span class="process-math">\(rest(numVect)\)</span> returns an array of everything but the first element. This is easily expressed in C++ as shown in <a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html#lst-recsum-cpp" class="xref" data-knowl="./knowl/xref/lst-recsum-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.3.2.a: C++ Implementation">Task 5.3.2.a</a>.</div>
+<article class="exploration project-like" id="expl-lst-recsum-cpp"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Recursive Sum of Vector.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-recsum-cpp">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-recsum-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">//Example of summing a vector by using recursion.
 
 #include &lt;iostream&gt;
@@ -844,7 +861,10 @@ int main() {
 
     return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-recsum-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_recsumpy"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_recsumpy_editor" data-question_label="" data-codelens="true">#Example of summing a list using recurison.
 
 def listsum(numList):
@@ -857,12 +877,12 @@ def main():
     print(listsum([1, 3, 5, 7, 9]))
 
 main()
-</textarea></div></div></div>
-<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-15">There are a few key ideas while using vector to look at. First, on line 6 we are checking to see if the vector is one element long. This check is crucial and is our escape clause from the function. The sum of a vector of length 1 is trivial; it is just the number in the vector. Second, on line 11 our function calls itself! This is the reason that we call the <code class="code-inline tex2jax_ignore">vectsum</code> algorithm recursive. A recursive function is a function that calls itself.</div>
-<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-16">
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-13">There are a few key ideas while using vector to look at. First, on line 6 we are checking to see if the vector is one element long. This check is crucial and is our escape clause from the function. The sum of a vector of length 1 is trivial; it is just the number in the vector. Second, on line 11 our function calls itself! This is the reason that we call the <code class="code-inline tex2jax_ignore">vectsum</code> algorithm recursive. A recursive function is a function that calls itself.</div>
+<div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-14">
 <a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html#fig-recsumin" class="xref" data-knowl="./knowl/xref/fig-recsumin.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.3.1">Figure 5.3.1</a> shows the series of\ <dfn class="terminology">recursive calls</dfn> that are needed to sum the vector <span class="process-math">\([1, 3, 5, 7, 9]\text{.}\)</span>  You should think of this series of calls as a series of simplifications. Each time we make a recursive call we are solving a smaller problem, until we reach the point where the problem cannot get any smaller.</div>
 <figure class="figure figure-like" id="fig-recsumin"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Recursion/sumlistIn.png" class="contained" alt="Stacked visualization of recursive function calls to sum a list of numbers. The top box shows ’sum(1,3,5,7,9)’ with an arrow pointing to ’1 +’. The next box down shows ’sum(3,5,7,9)’ with an arrow pointing to ’3 +’, followed by boxes for ’sum(5,7,9)’ with ’5 +’, ’sum(7,9)’ with ’7 +’, and the last box ’sum(9)’ with just ’9’. Each box is connected to the next, representing the recursive nature of the calls."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.1<span class="period">.</span></span><span class="space"> </span>Series of Recursive Calls Adding a List of Numbers.</figcaption></figure><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-18">When we reach the point where the problem is as simple as it can get, we begin to piece together the solutions of each of the small problems until the initial problem is solved. <a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html#fig-recsumout" class="xref" data-knowl="./knowl/xref/fig-recsumout.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.3.2">Figure 5.3.2</a> shows the additions that are performed as <code class="code-inline tex2jax_ignore">vectsum</code> works its way backward through the series of calls. When <code class="code-inline tex2jax_ignore">vectsum</code> returns from the topmost problem, we have the solution to the whole problem.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.1<span class="period">.</span></span><span class="space"> </span>Series of Recursive Calls Adding a List of Numbers.</figcaption></figure><div class="para" id="recursion_calculating-the-sum-of-a-vector-of-numbers-16">When we reach the point where the problem is as simple as it can get, we begin to piece together the solutions of each of the small problems until the initial problem is solved. <a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html#fig-recsumout" class="xref" data-knowl="./knowl/xref/fig-recsumout.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.3.2">Figure 5.3.2</a> shows the additions that are performed as <code class="code-inline tex2jax_ignore">vectsum</code> works its way backward through the series of calls. When <code class="code-inline tex2jax_ignore">vectsum</code> returns from the topmost problem, we have the solution to the whole problem.</div>
 <figure class="figure figure-like" id="fig-recsumout"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Recursion/sumlistOut.png" class="contained" alt="Diagram illustrating the resolution of recursive function calls summing a list of numbers. The bottom box shows ’sum(9)’ equaling ’9’, with an arrow pointing left to the next box ’sum(7,9)’ showing ’7 + 9’. Above that, ’sum(5,7,9)’ equals ’5 + 16’, then ’sum(3,5,7,9)’ with ’3 + 21’, and at the top, ’sum(1,3,5,7,9)’ resulting in ’1 + 24’. Each function call resolves to a value that is used in the computation of the previous call, with the final sum at the top being ’25’."></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.2<span class="period">.</span></span><span class="space"> </span>Series of Recursive Returns from Adding a List of Numbers.</figcaption></figure></section></div>
 <div class="ptx-content-footer">
