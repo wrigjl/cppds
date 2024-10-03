@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DS Inheritance in C++</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.4.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.00db6230172ad960.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.04737dc219c2d2eb.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f64dcc3632d7a0c3.css">
+<style>
+#introduction_accessing-values-from-pointers-18-1 { counter-set: introduction_accessing-values-from-pointers-18-1 0; }
+#introduction_accessing-values-from-pointers-18-1 > li::marker { content: ""counter(introduction_accessing-values-from-pointers-18-1,decimal)""; }
+#introduction_accessing-values-from-pointers-18-1 > li { counter-increment: introduction_accessing-values-from-pointers-18-1; }
+#introduction_arrays-4-1-1 { counter-set: introduction_arrays-4-1-1 0; }
+#introduction_arrays-4-1-1 > li::marker { content: ""counter(introduction_arrays-4-1-1,decimal)""; }
+#introduction_arrays-4-1-1 > li { counter-increment: introduction_arrays-4-1-1; }
+#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 { counter-set: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 0; }
+#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li::marker { content: ""counter(introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1,decimal)""; }
+#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li { counter-increment: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1; }
+#introduction_discussion-questions-2-1 { counter-set: introduction_discussion-questions-2-1 0; }
+#introduction_discussion-questions-2-1 > li::marker { content: ""counter(introduction_discussion-questions-2-1,decimal)""; }
+#introduction_discussion-questions-2-1 > li { counter-increment: introduction_discussion-questions-2-1; }
+#introduction_programming-exercises-2-1 { counter-set: introduction_programming-exercises-2-1 0; }
+#introduction_programming-exercises-2-1 > li::marker { content: ""counter(introduction_programming-exercises-2-1,decimal)""; }
+#introduction_programming-exercises-2-1 > li { counter-increment: introduction_programming-exercises-2-1; }
+#algorithm-analysis_discussion-questions-2-1 { counter-set: algorithm-analysis_discussion-questions-2-1 0; }
+#algorithm-analysis_discussion-questions-2-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-2-1,decimal)""; }
+#algorithm-analysis_discussion-questions-2-1 > li { counter-increment: algorithm-analysis_discussion-questions-2-1; }
+#algorithm-analysis_discussion-questions-4-1 { counter-set: algorithm-analysis_discussion-questions-4-1 0; }
+#algorithm-analysis_discussion-questions-4-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-4-1,decimal)""; }
+#algorithm-analysis_discussion-questions-4-1 > li { counter-increment: algorithm-analysis_discussion-questions-4-1; }
+#algorithm-analysis_discussion-questions-6-1 { counter-set: algorithm-analysis_discussion-questions-6-1 0; }
+#algorithm-analysis_discussion-questions-6-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-6-1,decimal)""; }
+#algorithm-analysis_discussion-questions-6-1 > li { counter-increment: algorithm-analysis_discussion-questions-6-1; }
+#algorithm-analysis_discussion-questions-8-1 { counter-set: algorithm-analysis_discussion-questions-8-1 0; }
+#algorithm-analysis_discussion-questions-8-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-8-1,decimal)""; }
+#algorithm-analysis_discussion-questions-8-1 > li { counter-increment: algorithm-analysis_discussion-questions-8-1; }
+#algorithm-analysis_discussion-questions-10-1 { counter-set: algorithm-analysis_discussion-questions-10-1 0; }
+#algorithm-analysis_discussion-questions-10-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-10-1,decimal)""; }
+#algorithm-analysis_discussion-questions-10-1 > li { counter-increment: algorithm-analysis_discussion-questions-10-1; }
+#algorithm-analysis_programming-exercises-2-1 { counter-set: algorithm-analysis_programming-exercises-2-1 0; }
+#algorithm-analysis_programming-exercises-2-1 > li::marker { content: ""counter(algorithm-analysis_programming-exercises-2-1,decimal)""; }
+#algorithm-analysis_programming-exercises-2-1 > li { counter-increment: algorithm-analysis_programming-exercises-2-1; }
+#linear-basic_general-infix-to-postfix-conversion-9-1 { counter-set: linear-basic_general-infix-to-postfix-conversion-9-1 0; }
+#linear-basic_general-infix-to-postfix-conversion-9-1 > li::marker { content: ""counter(linear-basic_general-infix-to-postfix-conversion-9-1,decimal)""; }
+#linear-basic_general-infix-to-postfix-conversion-9-1 > li { counter-increment: linear-basic_general-infix-to-postfix-conversion-9-1; }
+#linear-basic_postfix-evaluation-10-1 { counter-set: linear-basic_postfix-evaluation-10-1 0; }
+#linear-basic_postfix-evaluation-10-1 > li::marker { content: ""counter(linear-basic_postfix-evaluation-10-1,decimal)""; }
+#linear-basic_postfix-evaluation-10-1 > li { counter-increment: linear-basic_postfix-evaluation-10-1; }
+#linear-basic_main-simulation-steps-3-1 { counter-set: linear-basic_main-simulation-steps-3-1 0; }
+#linear-basic_main-simulation-steps-3-1 > li::marker { content: ""counter(linear-basic_main-simulation-steps-3-1,decimal)""; }
+#linear-basic_main-simulation-steps-3-1 > li { counter-increment: linear-basic_main-simulation-steps-3-1; }
+#linear-basic_discussion-questions-2-1 { counter-set: linear-basic_discussion-questions-2-1 0; }
+#linear-basic_discussion-questions-2-1 > li::marker { content: ""counter(linear-basic_discussion-questions-2-1,decimal)""; }
+#linear-basic_discussion-questions-2-1 > li { counter-increment: linear-basic_discussion-questions-2-1; }
+#linear-basic_programming-exercises-2-1 { counter-set: linear-basic_programming-exercises-2-1 0; }
+#linear-basic_programming-exercises-2-1 > li::marker { content: ""counter(linear-basic_programming-exercises-2-1,decimal)""; }
+#linear-basic_programming-exercises-2-1 > li { counter-increment: linear-basic_programming-exercises-2-1; }
+#linear-linked_discussion-questions-2-1 { counter-set: linear-linked_discussion-questions-2-1 0; }
+#linear-linked_discussion-questions-2-1 > li::marker { content: ""counter(linear-linked_discussion-questions-2-1,decimal)""; }
+#linear-linked_discussion-questions-2-1 > li { counter-increment: linear-linked_discussion-questions-2-1; }
+#linear-linked_programming-exercises-2-1 { counter-set: linear-linked_programming-exercises-2-1 0; }
+#linear-linked_programming-exercises-2-1 > li::marker { content: ""counter(linear-linked_programming-exercises-2-1,decimal)""; }
+#linear-linked_programming-exercises-2-1 > li { counter-increment: linear-linked_programming-exercises-2-1; }
+#recursion_the-three-laws-of-recursion-3-1-1 { counter-set: recursion_the-three-laws-of-recursion-3-1-1 0; }
+#recursion_the-three-laws-of-recursion-3-1-1 > li::marker { content: ""counter(recursion_the-three-laws-of-recursion-3-1-1,decimal)""; }
+#recursion_the-three-laws-of-recursion-3-1-1 > li { counter-increment: recursion_the-three-laws-of-recursion-3-1-1; }
+#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 { counter-set: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 0; }
+#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li::marker { content: ""counter(recursion_converting-an-integer-to-a-string-in-any-base-5-1-1,decimal)""; }
+#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li { counter-increment: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1; }
+#recursion_tower-of-hanoi-8-1 { counter-set: recursion_tower-of-hanoi-8-1 0; }
+#recursion_tower-of-hanoi-8-1 > li::marker { content: ""counter(recursion_tower-of-hanoi-8-1,decimal)""; }
+#recursion_tower-of-hanoi-8-1 > li { counter-increment: recursion_tower-of-hanoi-8-1; }
+#recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
+#recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
+#recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
+#recursion_dynamic-programming-23-1 { counter-set: recursion_dynamic-programming-23-1 0; }
+#recursion_dynamic-programming-23-1 > li::marker { content: ""counter(recursion_dynamic-programming-23-1,decimal)""; }
+#recursion_dynamic-programming-23-1 > li { counter-increment: recursion_dynamic-programming-23-1; }
+#recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
+#recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
+#recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
+#recursion_programming-exercises-2-1 { counter-set: recursion_programming-exercises-2-1 0; }
+#recursion_programming-exercises-2-1 > li::marker { content: ""counter(recursion_programming-exercises-2-1,decimal)""; }
+#recursion_programming-exercises-2-1 > li { counter-increment: recursion_programming-exercises-2-1; }
+#search-hash_discussion-questions-2-1 { counter-set: search-hash_discussion-questions-2-1 0; }
+#search-hash_discussion-questions-2-1 > li::marker { content: ""counter(search-hash_discussion-questions-2-1,decimal)""; }
+#search-hash_discussion-questions-2-1 > li { counter-increment: search-hash_discussion-questions-2-1; }
+#search-hash_programming-exercises-2-1 { counter-set: search-hash_programming-exercises-2-1 0; }
+#search-hash_programming-exercises-2-1 > li::marker { content: ""counter(search-hash_programming-exercises-2-1,decimal)""; }
+#search-hash_programming-exercises-2-1 > li { counter-increment: search-hash_programming-exercises-2-1; }
+#sort_discussion-questions-2-1 { counter-set: sort_discussion-questions-2-1 0; }
+#sort_discussion-questions-2-1 > li::marker { content: ""counter(sort_discussion-questions-2-1,decimal)""; }
+#sort_discussion-questions-2-1 > li { counter-increment: sort_discussion-questions-2-1; }
+#sort_programming-exercises-2-1 { counter-set: sort_programming-exercises-2-1 0; }
+#sort_programming-exercises-2-1 > li::marker { content: ""counter(sort_programming-exercises-2-1,decimal)""; }
+#sort_programming-exercises-2-1 > li { counter-increment: sort_programming-exercises-2-1; }
+#trees_parse-tree-12-1 { counter-set: trees_parse-tree-12-1 0; }
+#trees_parse-tree-12-1 > li::marker { content: ""counter(trees_parse-tree-12-1,decimal)""; }
+#trees_parse-tree-12-1 > li { counter-increment: trees_parse-tree-12-1; }
+#trees_parse-tree-16-1 { counter-set: trees_parse-tree-16-1 0; }
+#trees_parse-tree-16-1 > li::marker { content: ""counter(trees_parse-tree-16-1,lower-alpha)""; }
+#trees_parse-tree-16-1 > li { counter-increment: trees_parse-tree-16-1; }
+#trees_search-tree-implementation-29-1 { counter-set: trees_search-tree-implementation-29-1 0; }
+#trees_search-tree-implementation-29-1 > li::marker { content: ""counter(trees_search-tree-implementation-29-1,decimal)""; }
+#trees_search-tree-implementation-29-1 > li { counter-increment: trees_search-tree-implementation-29-1; }
+#trees_search-tree-implementation-35-1 { counter-set: trees_search-tree-implementation-35-1 0; }
+#trees_search-tree-implementation-35-1 > li::marker { content: ""counter(trees_search-tree-implementation-35-1,decimal)""; }
+#trees_search-tree-implementation-35-1 > li { counter-increment: trees_search-tree-implementation-35-1; }
+#trees_search-tree-implementation-45-1 { counter-set: trees_search-tree-implementation-45-1 0; }
+#trees_search-tree-implementation-45-1 > li::marker { content: ""counter(trees_search-tree-implementation-45-1,decimal)""; }
+#trees_search-tree-implementation-45-1 > li { counter-increment: trees_search-tree-implementation-45-1; }
+#trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
+#trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
+#trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
+#trees_discussion-questions-3-1 { counter-set: trees_discussion-questions-3-1 0; }
+#trees_discussion-questions-3-1 > li::marker { content: ""counter(trees_discussion-questions-3-1,decimal)""; }
+#trees_discussion-questions-3-1 > li { counter-increment: trees_discussion-questions-3-1; }
+#trees_discussion-questions-5-1 { counter-set: trees_discussion-questions-5-1 0; }
+#trees_discussion-questions-5-1 > li::marker { content: ""counter(trees_discussion-questions-5-1,decimal)""; }
+#trees_discussion-questions-5-1 > li { counter-increment: trees_discussion-questions-5-1; }
+#trees_discussion-questions-7-1 { counter-set: trees_discussion-questions-7-1 0; }
+#trees_discussion-questions-7-1 > li::marker { content: ""counter(trees_discussion-questions-7-1,decimal)""; }
+#trees_discussion-questions-7-1 > li { counter-increment: trees_discussion-questions-7-1; }
+#trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
+#trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
+#trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
+#graphs_implementing-breadth-first-search-8-1 { counter-set: graphs_implementing-breadth-first-search-8-1 0; }
+#graphs_implementing-breadth-first-search-8-1 > li::marker { content: ""counter(graphs_implementing-breadth-first-search-8-1,decimal)""; }
+#graphs_implementing-breadth-first-search-8-1 > li { counter-increment: graphs_implementing-breadth-first-search-8-1; }
+#graphs_topological-sorting-7-1 { counter-set: graphs_topological-sorting-7-1 0; }
+#graphs_topological-sorting-7-1 > li::marker { content: ""counter(graphs_topological-sorting-7-1,decimal)""; }
+#graphs_topological-sorting-7-1 > li { counter-increment: graphs_topological-sorting-7-1; }
+#graphs_strongly-connected-components-15-1 { counter-set: graphs_strongly-connected-components-15-1 0; }
+#graphs_strongly-connected-components-15-1 > li::marker { content: ""counter(graphs_strongly-connected-components-15-1,decimal)""; }
+#graphs_strongly-connected-components-15-1 > li { counter-increment: graphs_strongly-connected-components-15-1; }
+#graphs_discussion-questions-2-1 { counter-set: graphs_discussion-questions-2-1 0; }
+#graphs_discussion-questions-2-1 > li::marker { content: ""counter(graphs_discussion-questions-2-1,decimal)""; }
+#graphs_discussion-questions-2-1 > li { counter-increment: graphs_discussion-questions-2-1; }
+#graphs_discussion-questions-4-1 { counter-set: graphs_discussion-questions-4-1 0; }
+#graphs_discussion-questions-4-1 > li::marker { content: ""counter(graphs_discussion-questions-4-1,decimal)""; }
+#graphs_discussion-questions-4-1 > li { counter-increment: graphs_discussion-questions-4-1; }
+#graphs_programming-exercises-2-1 { counter-set: graphs_programming-exercises-2-1 0; }
+#graphs_programming-exercises-2-1 > li::marker { content: ""counter(graphs_programming-exercises-2-1,decimal)""; }
+#graphs_programming-exercises-2-1 > li { counter-increment: graphs_programming-exercises-2-1; }
+</style>
+</head>
+<body id="cppds2" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="introduction_object-oriented-programming-in-c-defining-classes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="cppds2-3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="introduction_optional-graphics-in-c.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="cppds2-3.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_objectives.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Getting Started</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_what-is-computer-science.html" class="internal"><span class="codenumber">1.3</span> <span class="title">What Is Computer Science?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_what-is-programming.html" class="internal"><span class="codenumber">1.4</span> <span class="title">What Is Programming?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_why-study-data-structures-and-abstract-data-types.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Why Study Data Structures and Abstract Data Types?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_why-study-algorithms.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Why Study Algorithms?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_reviewing-basic-c.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Reviewing Basic C++</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started-with-data.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Getting Started with Data</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Built-in Atomic Data Types</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_numeric-data" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Numeric Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_boolean-data" class="internal"><span class="codenumber">1.9.2</span> <span class="title">Boolean Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_character-data" class="internal"><span class="codenumber">1.9.3</span> <span class="title">Character Data</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointers" class="internal"><span class="codenumber">1.9.4</span> <span class="title">Pointers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointer-syntax" class="internal"><span class="codenumber">1.9.4.1</span> <span class="title">Pointer Syntax</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-address-of-operator" class="internal"><span class="codenumber">1.9.4.2</span> <span class="title">The address-of operator, <code class="code-inline tex2jax_ignore">&amp;</code></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_accessing-values-from-pointers" class="internal"><span class="codenumber">1.9.4.3</span> <span class="title">Accessing Values from Pointers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The NULL pointer</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_collections.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Collections</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_arrays" class="internal"><span class="codenumber">1.10.1</span> <span class="title">Arrays</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_vectors" class="internal"><span class="codenumber">1.10.2</span> <span class="title">Vectors</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_matching" class="internal"><span class="codenumber">1.10.2.1</span> <span class="title">Matching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_strings" class="internal"><span class="codenumber">1.10.3</span> <span class="title">Strings</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_id1" class="internal"><span class="codenumber">1.10.3.1</span> <span class="title">Matching</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_hash-tables" class="internal"><span class="codenumber">1.10.4</span> <span class="title">Hash Tables</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_unordered-sets" class="internal"><span class="codenumber">1.10.5</span> <span class="title">Unordered Sets</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_collections.html#rq-collection-data" class="internal"><span class="codenumber">1.10.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_defining-c-functions.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Defining C++ Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_parameter-passing-by-value-versus-by-reference" class="internal"><span class="codenumber">1.11.1</span> <span class="title">Parameter Passing: by Value versus by Reference</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_arrays-as-parameters-in-functions" class="internal"><span class="codenumber">1.11.2</span> <span class="title">Arrays as Parameters in Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_function-overloading" class="internal"><span class="codenumber">1.11.3</span> <span class="title">Function Overloading</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#rq-defining-function" class="internal"><span class="codenumber">1.11.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Object-Oriented Programming in C++: Defining Classes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_a-fraction-class" class="internal"><span class="codenumber">1.12.1</span> <span class="title">A <code class="code-inline tex2jax_ignore">Fraction</code> Class</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_abstraction-and-encapsulation" class="internal"><span class="codenumber">1.12.2</span> <span class="title">Abstraction and Encapsulation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_polymorphism" class="internal"><span class="codenumber">1.12.3</span> <span class="title">Polymorphism</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_self-check" class="internal"><span class="codenumber">1.12.4</span> <span class="title"></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#rq-oop" class="internal"><span class="codenumber">1.12.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="introduction_inheritance-in-c.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Inheritance in C++</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_inheritance-in-c.html#introduction_logic-gates-and-circuits" class="internal"><span class="codenumber">1.13.1</span> <span class="title">Logic Gates and Circuits</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_inheritance-in-c.html#introduction_building-circuits" class="internal"><span class="codenumber">1.13.2</span> <span class="title">Building Circuits</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_inheritance-in-c.html#rq-oop-derived-classes" class="internal"><span class="codenumber">1.13.2</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html" class="internal"><span class="codenumber">1.14</span> <span class="title"><dfn class="terminology">Optional</dfn>: Graphics in C++</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_introduction-to-turtles" class="internal"><span class="codenumber">1.14.1</span> <span class="title">Introduction to Turtles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_turtle-turtlescreen" class="internal"><span class="codenumber">1.14.2</span> <span class="title">Turtle &amp; TurtleScreen</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_geometry-shapes-and-stamps" class="internal"><span class="codenumber">1.14.3</span> <span class="title">Geometry, Shapes, and Stamps</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_advanced-features" class="internal"><span class="codenumber">1.14.4</span> <span class="title">Advanced Features</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#rq-graphics" class="internal"><span class="codenumber">1.14.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_summary.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_discussion-questions.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_programming-exercises.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_glossary.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="introduction_glossary.html#introduction_glossary-2" class="internal"><span class="codenumber">1.18</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_introduction_matching.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-4.html" class="internal"><span class="codenumber">2</span> <span class="title">Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_objectives.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html" class="internal"><span class="codenumber">2.2</span> <span class="title">What Is Algorithm Analysis?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_some-needed-math-notation" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Some Needed Math Notation</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_applying-the-math-notation" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Applying the Math Notation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#rqs-what-algo-analysis" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_big-o-notation.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Big-O Notation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_big-o-notation.html#rq-big-o-notation" class="internal"><span class="codenumber">2.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html" class="internal"><span class="codenumber">2.4</span> <span class="title">An Anagram Detection Example</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-1-checking-off" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Solution 1: Checking Off</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-2-sort-and-compare" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Solution 2: Sort and Compare</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-3-brute-force" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Solution 3: Brute Force</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-4-count-and-compare" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Solution 4: Count and Compare</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#rq-alnagram-detection" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_performance-of-c-data-collections.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Performance of C++ Data Collections</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_analysis-of-array-and-vector-operators.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Analysis of Array and Vector Operators</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-array-and-vector-operators.html#rq-vector-analysis" class="internal"><span class="codenumber">2.6</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-string-operators.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Analysis of String Operators</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_analysis-of-hash-tables.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Analysis of Hash Tables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-hash-tables.html#rq-hashtable-analysis" class="internal"><span class="codenumber">2.8</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithmanalysis_algorithm-analysis_summary.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithmanalysis_algorithm-analysis_self-check.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Self Check</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_discussion-questions.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_programming-exercises.html" class="internal"><span class="codenumber">2.12</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_glossary.html" class="internal"><span class="codenumber">2.13</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="algorithm-analysis_glossary.html#algorithm-analysis_glossary-2" class="internal"><span class="codenumber">2.13</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithmanalysis_algorithm-analysis_matching.html" class="internal"><span class="codenumber">2.14</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-5.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_objectives.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-are-linear-structures.html" class="internal"><span class="codenumber">3.2</span> <span class="title">What Are Linear Structures?</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_what-is-a-stack.html" class="internal"><span class="codenumber">3.3</span> <span class="title">What is a Stack?</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_what-is-a-stack.html#rq-stack-adt" class="internal"><span class="codenumber">3.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_the-stack-abstract-data-type.html" class="internal"><span class="codenumber">3.4</span> <span class="title">The Stack Abstract Data Type</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_the-stack-abstract-data-type.html#rq-what-is-stack" class="internal"><span class="codenumber">3.4</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_using-a-stack-in-c.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Using a Stack in C++</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_using-a-stack-in-c.html#rq-stack-implementation" class="internal"><span class="codenumber">3.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_simple-balanced-parentheses.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Simple Balanced Parentheses</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_balanced-symbols-a-general-case.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Balanced Symbols - A General Case</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_balanced-symbols-a-general-case.html#rq-balanced-sybols" class="internal"><span class="codenumber">3.7</span> <span class="title"><div class="para" id="rq-balanced-sybols-1-1">Reading Question</div></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Converting Decimal Numbers to Binary Numbers</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#rq-converting-decimal-num-binary-num" class="internal"><span class="codenumber">3.8</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Infix, Prefix and Postfix Expressions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix" class="internal"><span class="codenumber">3.9.1</span> <span class="title">Conversion of Infix Expressions to Prefix and Postfix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_general-infix-to-postfix-conversion" class="internal"><span class="codenumber">3.9.2</span> <span class="title">General Infix-to-Postfix Conversion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_postfix-evaluation" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Postfix Evaluation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#rq-decimal-to-binary" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-is-a-queue.html" class="internal"><span class="codenumber">3.10</span> <span class="title">What Is a Queue?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_the-queue-abstract-data-type.html" class="internal"><span class="codenumber">3.11</span> <span class="title">The Queue Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_using-a-queue-in-c.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Using a Queue in C++</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_using-a-queue-in-c.html#rqs-implementing-queue" class="internal"><span class="codenumber">3.12</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_simulation-hot-potato.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Simulation: Hot Potato</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html" class="internal"><span class="codenumber">3.14</span> <span class="title">Simulation: Printing Tasks</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_main-simulation-steps" class="internal"><span class="codenumber">3.14.1</span> <span class="title">Main Simulation Steps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_c-implementation" class="internal"><span class="codenumber">3.14.2</span> <span class="title">C++ Implementation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_discussion" class="internal"><span class="codenumber">3.14.3</span> <span class="title">Discussion</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-is-a-deque.html" class="internal"><span class="codenumber">3.15</span> <span class="title">What Is a Deque?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_the-deque-abstract-data-type.html" class="internal"><span class="codenumber">3.16</span> <span class="title">The Deque Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_using-a-deque-in-c.html" class="internal"><span class="codenumber">3.17</span> <span class="title">Using a Deque in C++</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_palindrome-checker.html" class="internal"><span class="codenumber">3.18</span> <span class="title">Palindrome-Checker</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_palindrome-checker.html#rqs-" class="internal"><span class="codenumber">3.18</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_summary.html" class="internal"><span class="codenumber">3.19</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_discussion-questions.html" class="internal"><span class="codenumber">3.20</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_programming-exercises.html" class="internal"><span class="codenumber">3.21</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_glossary.html" class="internal"><span class="codenumber">3.22</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="linear-basic_glossary.html#linear-basic_glossary-2" class="internal"><span class="codenumber">3.22</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linearbasic_linear-basic_matching.html" class="internal"><span class="codenumber">3.23</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-6.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Linked Structures</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_objectives.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_what-are-linked-structures.html" class="internal"><span class="codenumber">4.2</span> <span class="title">What Are Linked Structures?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_implementing-an-unordered-linked-list.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Implementing an Unordered Linked List</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_the-node-class.html" class="internal"><span class="codenumber">4.4</span> <span class="title">The <code class="code-inline tex2jax_ignore">Node</code> Class</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_implementing-an-ordered-linked-list.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Implementing an Ordered Linked List</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_implementing-an-ordered-linked-list.html#linear-linked_analysis-of-linked-lists" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Analysis of Linked Lists</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html" class="internal"><span class="codenumber">4.6</span> <span class="title">The Ordered List Abstract Data Type</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html#linear-linked_forward-lists" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Forward lists</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html#linear-linked_lists" class="internal"><span class="codenumber">4.6.2</span> <span class="title">Lists</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_summary.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_discussion-questions.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_programming-exercises.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_glossary.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="linear-linked_glossary.html#linear-linked_glossary-2" class="internal"><span class="codenumber">4.10</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-7.html" class="internal"><span class="codenumber">5</span> <span class="title">Recursion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_objectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_what-is-recursion.html" class="internal"><span class="codenumber">5.2</span> <span class="title">What Is Recursion?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Calculating the Sum of a Vector of Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_the-three-laws-of-recursion.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Three Laws of Recursion</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_the-three-laws-of-recursion.html#rq-three-laws-recursion" class="internal"><span class="codenumber">5.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_converting-an-integer-to-a-string-in-any-base.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Converting an Integer to a String in Any Base</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_converting-an-integer-to-a-string-in-any-base.html#rq-converting-integer-to-string" class="internal"><span class="codenumber">5.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_stack-frames-implementing-recursion.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Stack Frames: Implementing Recursion</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_introduction-visualizing-recursion.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Introduction: Visualizing Recursion</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_introduction-visualizing-recursion.html#rq-visualizing-recursion" class="internal"><span class="codenumber">5.7</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_sierpinski-triangle.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Sierpinski Triangle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_complex-recursive-problems.html" class="internal"><span class="codenumber">5.9</span> <span class="title">Complex Recursive Problems</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_tower-of-hanoi.html" class="internal"><span class="codenumber">5.10</span> <span class="title">Tower of Hanoi</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_tower-of-hanoi.html#rq-tower-hanoi" class="internal"><span class="codenumber">5.10</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_exploring-a-maze.html" class="internal"><span class="codenumber">5.11</span> <span class="title">Exploring a Maze</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_dynamic-programming.html" class="internal"><span class="codenumber">5.12</span> <span class="title">Dynamic Programming</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_recursion_summary.html" class="internal"><span class="codenumber">5.13</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_recursion_self-check.html" class="internal"><span class="codenumber">5.14</span> <span class="title">Self-check</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_discussion-questions.html" class="internal"><span class="codenumber">5.15</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_programming-exercises.html" class="internal"><span class="codenumber">5.16</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_glossary.html" class="internal"><span class="codenumber">5.17</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="recursion_glossary.html#recursion_glossary-2" class="internal"><span class="codenumber">5.17</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_recursion_matching.html" class="internal"><span class="codenumber">5.18</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-8.html" class="internal"><span class="codenumber">6</span> <span class="title">Searching and Hashing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_objectives.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_searching.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Searching</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_the-sequential-search.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Sequential Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="search-hash_the-sequential-search.html#search-hash_analysis-of-sequential-search" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Analysis of Sequential Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="search-hash_the-sequential-search.html#rq-squential-search" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_the-binary-search.html" class="internal"><span class="codenumber">6.4</span> <span class="title">The Binary Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="search-hash_the-binary-search.html#search-hash_analysis-of-binary-search" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Analysis of Binary Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="search-hash_the-binary-search.html#rq-binary-search" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_hashing.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Hashing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_hash-functions" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Hash Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_collision-resolution" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Collision Resolution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_implementing-the-map-abstract-data-type" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Implementing the <code class="code-inline tex2jax_ignore">Map</code> Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_analysis-of-hashing" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Analysis of Hashing</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="search-hash_hashing.html#rq-hashing-search" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-SelfCheck.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Self Check</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_summary.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_discussion-questions.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_programming-exercises.html" class="internal"><span class="codenumber">6.9</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_glossary.html" class="internal"><span class="codenumber">6.10</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="search-hash_glossary.html#search-hash_glossary-2" class="internal"><span class="codenumber">6.10</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="searchhash_search-hash_matching.html" class="internal"><span class="codenumber">6.11</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-9.html" class="internal"><span class="codenumber">7</span> <span class="title">Sorting</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_objectives.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_sorting.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Sorting</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-bubble-sort.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Bubble Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-bubble-sort.html#rq-buble-sort" class="internal"><span class="codenumber">7.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-selection-sort.html" class="internal"><span class="codenumber">7.4</span> <span class="title">The Selection Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-selection-sort.html#rq-selection-sort" class="internal"><span class="codenumber">7.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-insertion-sort.html" class="internal"><span class="codenumber">7.5</span> <span class="title">The Insertion Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-insertion-sort.html#rq-insertion-sort" class="internal"><span class="codenumber">7.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-shell-sort.html" class="internal"><span class="codenumber">7.6</span> <span class="title">The Shell Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-shell-sort.html#rq-shell-sort" class="internal"><span class="codenumber">7.6</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-merge-sort.html" class="internal"><span class="codenumber">7.7</span> <span class="title">The Merge Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-merge-sort.html#rq-merge-sort" class="internal"><span class="codenumber">7.7</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-quick-sort.html" class="internal"><span class="codenumber">7.8</span> <span class="title">The Quick Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-quick-sort.html#rq-quick-sort" class="internal"><span class="codenumber">7.8</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_summary.html" class="internal"><span class="codenumber">7.9</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_discussion-questions.html" class="internal"><span class="codenumber">7.10</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_programming-exercises.html" class="internal"><span class="codenumber">7.11</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_glossary.html" class="internal"><span class="codenumber">7.12</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="sort_glossary.html#sort_glossary-2" class="internal"><span class="codenumber">7.12</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_sort_matching.html" class="internal"><span class="codenumber">7.13</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-10.html" class="internal"><span class="codenumber">8</span> <span class="title">Trees and Tree Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_objectives.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_examples-of-trees.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Examples of Trees</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_examples-of-trees.html#rq-example-tree" class="internal"><span class="codenumber">8.2</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_vocabulary-and-definitions.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Vocabulary and Definitions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_vocabulary-and-definitions.html#rq-vocabulary-tree" class="internal"><span class="codenumber">8.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_nodes-and-references.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Nodes and References</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_nodes-and-references.html#rq-nodes-and-references" class="internal"><span class="codenumber">8.4</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_parse-tree.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Parse Tree</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_parse-tree.html#rq-parse-tree" class="internal"><span class="codenumber">8.5</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_tree-traversals.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Tree Traversals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_tree-traversals.html#rq-tree-traversal" class="internal"><span class="codenumber">8.6</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_priority-queues-with-binary-heaps.html" class="internal"><span class="codenumber">8.7</span> <span class="title">Priority Queues with Binary Heaps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_priority-queues-with-binary-heaps-example.html" class="internal"><span class="codenumber">8.8</span> <span class="title">Priority Queues with Binary Heaps Example</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_binary-heap-operations.html" class="internal"><span class="codenumber">8.9</span> <span class="title">Binary Heap Operations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_binary-heap-implementation.html" class="internal"><span class="codenumber">8.10</span> <span class="title">Binary Heap Implementation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_the-structure-property" class="internal"><span class="codenumber">8.10.1</span> <span class="title">The Structure Property</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_the-heap-order-property" class="internal"><span class="codenumber">8.10.2</span> <span class="title">The Heap Order Property</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_heap-operations" class="internal"><span class="codenumber">8.10.3</span> <span class="title">Heap Operations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#rq-binary-heap-implementation" class="internal"><span class="codenumber">8.10.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_binary-search-trees.html" class="internal"><span class="codenumber">8.11</span> <span class="title">Binary Search Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_search-tree-operations.html" class="internal"><span class="codenumber">8.12</span> <span class="title">Search Tree Operations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_search-tree-implementation.html" class="internal"><span class="codenumber">8.13</span> <span class="title">Search Tree Implementation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_search-tree-implementation.html#rq-search-tree-impl" class="internal"><span class="codenumber">8.13</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_search-tree-analysis.html" class="internal"><span class="codenumber">8.14</span> <span class="title">Search Tree Analysis</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_search-tree-analysis.html#rq-search-tree-analysis" class="internal"><span class="codenumber">8.14</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_balanced-binary-search-trees.html" class="internal"><span class="codenumber">8.15</span> <span class="title">Balanced Binary Search Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_avl-tree-performance.html" class="internal"><span class="codenumber">8.16</span> <span class="title">AVL Tree Performance</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_avl-tree-implementation.html" class="internal"><span class="codenumber">8.17</span> <span class="title">AVL Tree Implementation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_avl-tree-implementation.html#rqs-avl-tree-impl" class="internal"><span class="codenumber">8.17</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_summary-of-map-adt-implementations.html" class="internal"><span class="codenumber">8.18</span> <span class="title">Summary of Map ADT Implementations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_summary.html" class="internal"><span class="codenumber">8.19</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_discussion-questions.html" class="internal"><span class="codenumber">8.20</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_programming-exercises.html" class="internal"><span class="codenumber">8.21</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_glossary.html" class="internal"><span class="codenumber">8.22</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="trees_glossary.html#trees_glossary-2" class="internal"><span class="codenumber">8.22</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_trees_matching.html" class="internal"><span class="codenumber">8.23</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-11.html" class="internal"><span class="codenumber">9</span> <span class="title">Graphs and Graph Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_objectives.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_vocabulary-and-definitions.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Vocabulary and Definitions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_the-graph-abstract-data-type.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Graph Abstract Data Type</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_the-graph-abstract-data-type.html#rq-graph-adt" class="internal"><span class="codenumber">9.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_an-adjacency-matrix.html" class="internal"><span class="codenumber">9.4</span> <span class="title">An Adjacency Matrix</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_an-adjacency-list.html" class="internal"><span class="codenumber">9.5</span> <span class="title">An Adjacency List</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_implementation.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Implementation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_the-word-ladder-problem.html" class="internal"><span class="codenumber">9.7</span> <span class="title">The Word Ladder Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_building-the-word-ladder-graph.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Building the Word Ladder Graph</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_implementing-breadth-first-search.html" class="internal"><span class="codenumber">9.9</span> <span class="title">Implementing Breadth First Search</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_breadth-first-search-analysis.html" class="internal"><span class="codenumber">9.10</span> <span class="title">Breadth First Search Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_the-knights-tour-problem.html" class="internal"><span class="codenumber">9.11</span> <span class="title">The Knight’s Tour Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_building-the-knights-tour-graph.html" class="internal"><span class="codenumber">9.12</span> <span class="title">Building the Knight’s Tour Graph</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_implementing-knights-tour.html" class="internal"><span class="codenumber">9.13</span> <span class="title">Implementing Knight’s Tour</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_implementing-knights-tour.html#rq-knights-tour-imp" class="internal"><span class="codenumber">9.13</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_knights-tour-analysis.html" class="internal"><span class="codenumber">9.14</span> <span class="title">Knight’s Tour Analysis</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_knights-tour-analysis.html#rq-knights-tour-impl" class="internal"><span class="codenumber">9.14</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_general-depth-first-search.html" class="internal"><span class="codenumber">9.15</span> <span class="title">General Depth First Search</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_depth-first-search-analysis.html" class="internal"><span class="codenumber">9.16</span> <span class="title">Depth First Search Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_topological-sorting.html" class="internal"><span class="codenumber">9.17</span> <span class="title">Topological Sorting</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_strongly-connected-components.html" class="internal"><span class="codenumber">9.18</span> <span class="title">Strongly Connected Components</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_shortest-path-problems.html" class="internal"><span class="codenumber">9.19</span> <span class="title">Shortest Path Problems</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_dijkstras-algorithm.html" class="internal"><span class="codenumber">9.20</span> <span class="title">Dijkstra’s Algorithm</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_dijkstras-algorithm.html#rq-dijkstras-algo" class="internal"><span class="codenumber">9.20</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_analysis-of-dijkstras-algorithm.html" class="internal"><span class="codenumber">9.21</span> <span class="title">Analysis of Dijkstra’s Algorithm</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_prims-spanning-tree-algorithm.html" class="internal"><span class="codenumber">9.22</span> <span class="title">Prim’s Spanning Tree Algorithm</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_prims-spanning-tree-algorithm.html#rq-prims-span-tree-algo" class="internal"><span class="codenumber">9.22</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_summary.html" class="internal"><span class="codenumber">9.23</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_discussion-questions.html" class="internal"><span class="codenumber">9.24</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_programming-exercises.html" class="internal"><span class="codenumber">9.25</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_glossary.html" class="internal"><span class="codenumber">9.26</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="graphs_glossary.html#graphs_glossary-2" class="internal"><span class="codenumber">9.26</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_graphs_matching.html" class="internal"><span class="codenumber">9.27</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="cppds2-12.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-index"><div class="toc-title-box"><a href="cppds2-12-1.html" class="internal"><span class="title">Index</span></a></div></li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="introduction_inheritance-in-c"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.13</span><span class="space"> </span><span class="title">Inheritance in C++</span>
+</h2>
+<section class="introduction" id="introduction_inheritance-in-c-2"><div class="para" id="introduction_inheritance-in-c-2-1">In this section we introduce another important aspect of object-oriented programming. <dfn class="terminology">Inheritance</dfn> is the ability for one class to be related to another class in much the same way that people can be related to one another. Children inherit characteristics from their parents. Similarly, C++ child classes can inherit characteristic data and/or behaviors from a parent class. The child classes are often referred to as <dfn class="terminology">subclasses</dfn> or <dfn class="terminology">derived classes</dfn>, and the parent class is often called the <dfn class="terminology">base class</dfn> or <dfn class="terminology">superclass</dfn>.</div> <div class="para" id="introduction_inheritance-in-c-2-2">
+<a href="introduction_inheritance-in-c.html#fig-inherit1" class="xref" data-knowl="./knowl/xref/fig-inherit1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.13.1">Figure 1.13.1</a> shows the built-in C++ collections and their relationships to one another. We call a relationship structure such as this an <dfn class="terminology">inheritance hierarchy</dfn>. For example, the string is a child of the sequential collection. In this case, we call the string the child and the sequence the parent (or subclass string and superclass sequence). This is often referred to as an <code class="code-inline tex2jax_ignore">IS-A Relationship</code> (the string <dfn class="terminology">IS-A</dfn> sequential collection). This implies that strings inherit important characteristics from sequences, namely the ordering of the underlying data and operations such as concatenation, repetition, and indexing.</div> <figure class="figure figure-like" id="fig-inherit1"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/Introduction/inheritance1.png" class="contained" alt="Hierarchy chart showing the classification of C++ containers. The top of the hierarchy is labeled ’C++ Containers’, branching into ’Sequence Containers’ on the left and ’Associative Containers’ on the right. Under ’Sequence Containers’, there are three sub-categories: ’Arrays’, ’Vectors’, and ’Strings’. ’Associative Containers’ has a single sub-category labeled ’Unordered Maps’. The layout suggests an inheritance structure where sequence and associative containers are types of C++ containers."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.1<span class="period">.</span></span><span class="space"> </span>An Inheritance Hierarchy for C++ Collections</figcaption></figure> <div class="para" id="introduction_inheritance-in-c-2-4">Vectors, arrays, and strings are all types of sequential collections. They all inherit common data organization and operations. However, each of them is distinct as well. The children all gain from their parents but distinguish themselves by adding additional characteristics.</div> <div class="para" id="introduction_inheritance-in-c-2-5">By organizing classes in this hierarchical fashion, object-oriented programming languages allow previously written code to be extended to meet the needs of a new situation. In addition, by organizing data in this hierarchical manner, we can better understand the relationships that exist. We can be more efficient in building our abstract representations.</div> <div class="para" id="introduction_inheritance-in-c-2-6">A child class inherits both behaviors and properties from the parent subject to some access restrictions. These variables and functions become members of the derived class. A virtual function is a member function which is declared within a base class and is overwritten by a derived class. In C++, the keyword <code class="code-inline tex2jax_ignore">virtual</code> is used. A simple example of using a virtual function in C++ is shown in <a href="introduction_inheritance-in-c.html#virtualfunction" class="xref" data-knowl="./knowl/xref/virtualfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.13.2">Listing 1.13.2</a>. In this example, the two derived subclasses inherit the <code class="code-inline tex2jax_ignore">printType</code> method from the Base class.</div> <details id="virtualfunction" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+public:
+
+        virtual void printType() { // Creates function called  printType
+                subfunction();
+                cout &lt;&lt; "I'm inherited!" &lt;&lt; endl &lt;&lt; endl;
+        }
+
+        virtual void subfunction(){
+        // empty
+        }
+};
+
+class SubFirst : public Base {
+virtual void subfunction() {
+        cout &lt;&lt; "I'm one type of sub-class!" &lt;&lt; endl;
+}
+};
+
+class SubSecond : public Base {
+virtual void subfunction() {
+        cout &lt;&lt; "I'm another type of sub class!" &lt;&lt; endl;
+}
+};
+
+int main() {
+        SubFirst first;       // runs  subfirst class using printType virtual function
+        first.printType();    // calls Subfirst class, and runs virtual function on it's own
+
+        SubSecond second;    // runs  subsecond class using printType virtual function
+        second.printType();  // calls Subsecond class, and runs virtual function on it's own
+
+        return 0;
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details></section><section class="subsection" id="introduction_logic-gates-and-circuits"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.13.1</span><span class="space"> </span><span class="title">Logic Gates and Circuits</span>
+</h3>
+<div class="para" id="introduction_logic-gates-and-circuits-2">To explore this idea further, we will construct a <dfn class="terminology">simulation</dfn>, an application to simulate digital circuits. The basic building block for this simulation will be the logic gate. These electronic switches represent Boolean algebra relationships between their input and their output. In general, gates have a single output line. The value of the output is dependent on the values given on the input lines.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-3">
+<dfn class="terminology">AND</dfn> gates have two input lines, each of which can be either 0 or 1, representing <code class="code-inline tex2jax_ignore">false</code> or <code class="code-inline tex2jax_ignore">true</code>, respectively. If both of the input lines have the value 1, the resulting output is 1. However, if either or both of the input lines is 0, the result is 0. <dfn class="terminology">OR</dfn> gates also have two input lines and produce a 1 if one or both of the input values is a 1. In the case where both input lines are 0, the result is 0.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-4">
+<dfn class="terminology">NOT</dfn> gates differ from the other two gates in that they only have a single input line. The output value is simply the opposite of the input value. If 0 appears on the input, 1 is produced on the output. Similarly, 1 produces 0. <a href="introduction_inheritance-in-c.html#ooderive_fig-truthtable" class="xref" data-knowl="./knowl/xref/ooderive_fig-truthtable.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.13.3">Figure 1.13.3</a> shows how each of these gates is typically represented. Each gate also has a <dfn class="terminology">truth table</dfn> of values showing the input-to-output mapping that is performed by the gate.</div>
+<figure class="figure figure-like" id="ooderive_fig-truthtable"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/truthtable.png" class="contained" alt="Image depicting three types of logic gates and their corresponding truth tables. On the left is the ’AND’ gate symbol with a two-input truth table below it, showing outputs of ’0’ for all inputs except ’1’ and ’1’. The center shows the ’OR’ gate symbol with a truth table, displaying ’1’ when at least one input is ’1’. On the right, the ’NOT’ gate symbol is presented with a single-input truth table, showing an output inverse to the input."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.3<span class="period">.</span></span><span class="space"> </span>Three Types of Logic Gates</figcaption></figure><div class="para" id="introduction_logic-gates-and-circuits-6">By combining these gates in various patterns and then applying a set of input values, we can build circuits that have logical functions. <a href="introduction_inheritance-in-c.html#ooderive_fig-circuit1" class="xref" data-knowl="./knowl/xref/ooderive_fig-circuit1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.13.4">Figure 1.13.4</a> shows a circuit consisting of two <dfn class="terminology">AND</dfn> gates, one <dfn class="terminology">OR</dfn> gate, and a <dfn class="terminology">NOT</dfn> gate. The output lines from the two <dfn class="terminology">AND</dfn> gates feed directly into the <dfn class="terminology">OR</dfn> gate, and the resulting output from the <dfn class="terminology">OR</dfn> gate is given to the <dfn class="terminology">NOT</dfn> gate. If we apply a set of input values to the four input lines (two inputs for each <dfn class="terminology">AND</dfn> gate), the values are processed and a result appears at the output of the <dfn class="terminology">NOT</dfn> gate. <a href="introduction_inheritance-in-c.html#ooderive_fig-circuit1" class="xref" data-knowl="./knowl/xref/ooderive_fig-circuit1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.13.4">Figure 1.13.4</a> also shows an example with values.</div>
+<figure class="figure figure-like" id="ooderive_fig-circuit1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/circuit1.png" class="contained" alt="Diagram of a logic circuit with labeled gates and sample inputs/outputs. The top part shows two ’AND’ gates labeled ’g1’ and ’g2’ feeding into an ’OR’ gate labeled ’g3’, which in turn feeds into a ’NOT’ gate labeled ’g4’. Below, the same circuit is shown with binary inputs and the resulting outputs: ’AND’ gates receiving ’0, 1’ and ’1, 1’ inputs with ’0’ and ’1’ outputs respectively; the ’OR’ gate then combines the two to output ’1’, which is inverted to ’0’ by the ’NOT’ gate."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.4<span class="period">.</span></span><span class="space"> </span>Circuit</figcaption></figure><div class="para" id="introduction_logic-gates-and-circuits-8">In order to implement a circuit such as <a href="introduction_inheritance-in-c.html#ooderive_fig-circuit0" class="xref" data-knowl="./knowl/xref/ooderive_fig-circuit0.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.13.5">Figure 1.13.5</a>, we will first build a representation for logic gates. Logic gates are easily organized into a class inheritance hierarchy as shown in <a href="introduction_inheritance-in-c.html#ooderive_fig-gates" class="xref" data-knowl="./knowl/xref/ooderive_fig-gates.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.13.6">Figure 1.13.6</a>. At the top of the hierarchy, the <code class="code-inline tex2jax_ignore">LogicGate</code> class represents the most general characteristics of logic gates: namely, a label for the gate and an output line. The next level of subclasses breaks the logic gates into two families, those that have one input line and those that have two. Below that, the specific logic functions of each appear.</div>
+<figure class="figure figure-like" id="ooderive_fig-circuit0"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/logicquestion.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><figure class="figure figure-like" id="ooderive_fig-gates"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/gates.png" class="contained" alt="Flowchart representing an inheritance hierarchy for logic gates. The topmost block is labeled ’Logic Gate’, which branches down into two categories: ’Binary Gate’ and ’Unary Gate’. Under ’Binary Gate’, two further blocks represent ’AND’ and ’OR’ gates, each accompanied by their respective symbols. To the right, under ’Unary Gate’, there’s a block for the ’NOT’ gate with its symbol. The structure implies that ’AND’ and ’OR’ gates inherit from ’Binary Gate’, which along with ’Unary Gate’ inherits from ’Logic Gate’."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.6<span class="period">.</span></span><span class="space"> </span>An Inheritance Hierarchy for Logic Gates</figcaption></figure><div class="para" id="introduction_logic-gates-and-circuits-11">We can now start to implement the classes by starting with the most general, <code class="code-inline tex2jax_ignore">LogicGate</code>. As noted earlier, each gate has a label for identification and a single output line. In addition, we need methods to allow a user of a gate to ask the gate for its label.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-12">The other behavior that every logic gate needs is the ability to know its output value. This will require that the gate perform the appropriate logic based on the current input. In order to produce output, the gate needs to know specifically what that logic is. This means calling a method to perform the logic computation. The complete class is shown in <a href="introduction_inheritance-in-c.html#introduction_lst-logicgateclass" class="xref" data-knowl="./knowl/xref/introduction_lst-logicgateclass.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.13.1.a: C++ implementation">Task 1.13.1.a</a>.</div>
+<article class="exploration project-like" id="introduction_expl-logicgateclass"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.13.1</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">LogicGate</code> class.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="introduction_expl-logicgateclass">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-logicgateclass"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class LogicGate {
+public:
+        LogicGate(string n) {
+                        label = n;
+        }
+        string getLabel() {
+                        return label;
+        }
+        bool getOutput() {
+                output = performGateLogic();
+                return output;
+        }
+protected:
+        string label;
+        bool output;
+};
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introduction_lst-logicgateclass-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">class LogicGate:
+        def __init__(self,n):
+                self.label = n
+                self.output = None
+
+        def getLabel(self):
+                return self.label
+
+        def getOutput(self):
+                self.output = self.performGateLogic()
+                return self.output
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_logic-gates-and-circuits-14">A protected member variable or function is similar to a private member but it has the additional benefit that they can be accessed by derived classes. The access keyword <code class="code-inline tex2jax_ignore">protected</code> is used for this.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-15">At this point, we will not implement the <code class="code-inline tex2jax_ignore">performGateLogic</code> function. The reason for this is that we do not know how each gate will perform its own logic operation. Those details will be included by each individual gate that is added to the hierarchy. This is a very powerful idea in object-oriented programming. We are writing a method that will use code that does not exist yet. The parameter <code class="code-inline tex2jax_ignore">virtual</code> is a reference to the actual gate object invoking the method. Any new logic gate that gets added to the hierarchy will simply need to implement the <code class="code-inline tex2jax_ignore">performGateLogic</code> function and it will be used at the appropriate time. Once done, the gate can provide its output value. This ability to extend a hierarchy that currently exists and provide the specific functions that the hierarchy needs to use the new class is extremely important for reusing existing code.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-16">We categorized the logic gates based on the number of input lines. The AND gate has two input lines. The OR gate also has two input lines. NOT gates have one input line. The <code class="code-inline tex2jax_ignore">BinaryGate</code> class will be a subclass of <code class="code-inline tex2jax_ignore">LogicGate</code> and will add two input lines. The <code class="code-inline tex2jax_ignore">UnaryGate</code> class will also subclass <code class="code-inline tex2jax_ignore">LogicGate</code> but will have only a single input line. In computer circuit design, these lines are sometimes called “pins” so we will use that terminology in our implementation.</div>
+<article class="exploration project-like" id="introduction_expl-binarygateclass"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.13.2</span><span class="period">.</span><span class="space"> </span><span class="title">Implementation of <code class="code-inline tex2jax_ignore">BinaryGate</code>.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="introduction_expl-binarygateclass">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-binarygateclass"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class BinaryGate : public LogicGate {
+public:
+        BinaryGate(string n) : LogicGate(n) { // When we create an instance of
+        // BinaryGate, data inherited from LogicGate are initialized with n;
+                pinATaken = false;
+                pinBTaken = false;
+        }
+
+        bool getPinA() {
+                if (pinATaken==false) {
+                        cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; " : ";
+                        cin &gt;&gt; pinA;
+                        pinATaken = true;
+                }
+                return pinA;
+        }
+
+        bool getPinB() {
+                if (pinBTaken==false ) {
+                        cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; " : ";
+                        cin &gt;&gt; pinB;
+                        pinBTaken = true;
+                }
+                return pinB;
+        }
+
+protected:
+        bool pinA;
+        bool pinATaken;
+        bool pinB;
+        bool pinBTaken;
+};
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introduction_lst-binarygateclass-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">class BinaryGate(LogicGate):
+
+        def __init__(self,n):
+                LogicGate.__init__(self,n)
+
+                self.pinA = None
+                self.pinB = None
+
+        def getPinA(self):
+                return int(input("Enter Pin A input for gate "+ self.getLabel()+"-&gt;"))
+
+        def getPinB(self):
+                return int(input("Enter Pin B input for gate "+ self.getLabel()+"-&gt;"))
+</code></pre></div></article></div>
+</div></div></div></article><article class="exploration project-like" id="introduction_expl-unarygateclass"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.13.3</span><span class="period">.</span><span class="space"> </span><span class="title">Implementation of <code class="code-inline tex2jax_ignore">UnaryGate</code>.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="introduction_expl-unarygateclass">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-unarygateclass"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class UnaryGate : public LogicGate {
+public:
+        UnaryGate(string n) : LogicGate(n) {
+                pinTaken = false;
+        }
+        bool getPin() {
+                if (pinTaken==false) {
+                        cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                        cin &gt;&gt; pin;
+                        pinTaken = true;
+                }
+                return pin;
+        }
+protected:
+        bool pin;
+        bool pinTaken;
+};
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introduction_lst-unarygateclass-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">class UnaryGate(LogicGate):
+
+        def __init__(self,n):
+                LogicGate.__init__(self,n)
+
+                self.pin = None
+
+        def getPin(self):
+                return int(input("Enter Pin input for gate "+ self.getLabel()+"-&gt;"))
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_logic-gates-and-circuits-19">
+<a href="introduction_inheritance-in-c.html#introduction_lst-binarygateclass" class="xref" data-knowl="./knowl/xref/introduction_lst-binarygateclass.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.13.2.a: C++ implementation">Task 1.13.2.a</a> and <a href="introduction_inheritance-in-c.html#introduction_lst-unarygateclass" class="xref" data-knowl="./knowl/xref/introduction_lst-unarygateclass.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.13.3.a: C++ implementation">Task 1.13.3.a</a> implement these two classes. The constructors in both of these classes start with an explicit call to the constructor of the parent class using the parent’s name method. When creating an instance of the <code class="code-inline tex2jax_ignore">BinaryGate</code> class, we first want to initialize any data items that are inherited from <code class="code-inline tex2jax_ignore">LogicGate</code>. In this case, that means the label for the gate. The constructor then goes on to add the two input lines (<code class="code-inline tex2jax_ignore">pinA</code> and <code class="code-inline tex2jax_ignore">pinB</code>). This is a very common pattern that you should always use when building class hierarchies. Child class constructors need to call parent class constructors and then move on to their own distinguishing data.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-20">The only behavior that the <code class="code-inline tex2jax_ignore">BinaryGate</code> class adds is the ability to get the values from the two input lines. Since these values come from some external place, we will simply ask the user via an input statement to provide them. The same implementation occurs for the <code class="code-inline tex2jax_ignore">UnaryGate</code> class except that there is only one input line.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-21">Now that we have a general class for gates depending on the number of input lines, we can build specific gates that have unique behavior. For example, the <code class="code-inline tex2jax_ignore">AndGate</code> class will be a subclass of <code class="code-inline tex2jax_ignore">BinaryGate</code> since AND gates have two input lines. As before, the first line of the constructor calls upon the parent class constructor (<code class="code-inline tex2jax_ignore">BinaryGate</code>), which in turn calls its parent class constructor (<code class="code-inline tex2jax_ignore">LogicGate</code>). Note that the <code class="code-inline tex2jax_ignore">AndGate</code> class does not provide any new data since it inherits two input lines, one output line, and a label.</div>
+<article class="exploration project-like" id="introduction_expl-andgateclass"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.13.4</span><span class="period">.</span><span class="space"> </span><span class="title">Implementation of <code class="code-inline tex2jax_ignore">AndGate</code>.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="introduction_expl-andgateclass">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-andgateclass"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class AndGate : public BinaryGate {
+public:
+        AndGate(string n) : BinaryGate(n) {};
+
+        virtual bool performGateLogic() {
+                bool a = getPinA();
+                bool b = getPinB();
+                if (a == 1 &amp;&amp; b == 1) {
+                        return true;
+                }
+                else {
+                        return false;
+                }
+        }
+};
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introduction_lst-andgateclass-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">class AndGate(BinaryGate):
+
+        def __init__(self,n):
+                super(AndGate,self).__init__(n)
+
+        def performGateLogic(self):
+
+                a = self.getPinA()
+                b = self.getPinB()
+                if a==1 and b==1:
+                        return 1
+                else:
+                        return 0
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_logic-gates-and-circuits-23">The only thing <code class="code-inline tex2jax_ignore">AndGate</code> needs to add is the specific behavior that performs the Boolean operation that was described earlier. This is the place where we can provide the <code class="code-inline tex2jax_ignore">performGateLogic</code> method. For an <dfn class="terminology">AND</dfn> gate, this method first must get the two input values and then only return 1 if both input values are 1. The complete class is shown in <a href="introduction_inheritance-in-c.html#introduction_lst-andgateclass" class="xref" data-knowl="./knowl/xref/introduction_lst-andgateclass.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.13.4.a: C++ implementation">Task 1.13.4.a</a>.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-24">We can show the <code class="code-inline tex2jax_ignore">AndGate</code> class in action by creating an instance and asking it to compute its output. The following session shows an <code class="code-inline tex2jax_ignore">AndGate</code> object, <code class="code-inline tex2jax_ignore">gand1</code>, that has an internal label <code class="code-inline tex2jax_ignore">"gand1"</code>. When we invoke the <code class="code-inline tex2jax_ignore">getOutput</code> method, the object must first call its <code class="code-inline tex2jax_ignore">performGateLogic</code> method which in turn queries the two input lines. Once the values are provided, the correct output is shown.</div>
+<details id="introduction_fig-andusage" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&gt;&gt;&gt; AndGate gand2("gand2")
+&gt;&gt;&gt; gand2.getOutput()
+Enter Pin A input for gate gand2: 1
+Enter Pin B input for gate gand2: 1
+1
+&gt;&gt;&gt; gand2.getOutput()
+Enter Pin A input for gate gand2: 0
+Enter Pin B input for gate gand2: 0
+0
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details><div class="para" id="introduction_logic-gates-and-circuits-26">The same development can be done for <dfn class="terminology">OR</dfn> gates and <dfn class="terminology">NOT</dfn> gates. The <code class="code-inline tex2jax_ignore">OrGate</code> class will also be a subclass of <code class="code-inline tex2jax_ignore">BinaryGate</code> and the <code class="code-inline tex2jax_ignore">NotGate</code> class will extend the <code class="code-inline tex2jax_ignore">UnaryGate</code> class. Both of these classes will need to provide their own <code class="code-inline tex2jax_ignore">performGateLogic</code> functions, as this is their specific behavior.</div>
+<div class="para" id="introduction_logic-gates-and-circuits-27">We can use a single gate by first constructing an instance of one of the gate classes and then asking the gate for its output (which will in turn need inputs to be provided). For example:</div>
+<details id="introduction_fig-ornotusage" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&gt;&gt;&gt; g2 = OrGate("G2")
+&gt;&gt;&gt; g2.getOutput()
+Enter Pin A input for gate G2-&gt;1
+Enter Pin B input for gate G2-&gt;1
+1
+&gt;&gt;&gt; g2.getOutput()
+Enter Pin A input for gate G2-&gt;0
+Enter Pin B input for gate G2-&gt;0
+0
+&gt;&gt;&gt; g3 = NotGate("G3")
+&gt;&gt;&gt; g3.getOutput()
+Enter Pin input for gate G3-&gt;0
+1
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details></section><section class="subsection" id="introduction_building-circuits"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.13.2</span><span class="space"> </span><span class="title">Building Circuits</span>
+</h3>
+<div class="para" id="introduction_building-circuits-2">Now that we have the basic gates working, we can turn our attention to building circuits. In order to create a circuit, we need to connect gates together, the output of one flowing into the input of another. To do this, we will implement a new class called <code class="code-inline tex2jax_ignore">Connector</code>.</div>
+<div class="para" id="introduction_building-circuits-3">The <code class="code-inline tex2jax_ignore">Connector</code> class will not reside in the gate hierarchy. It will, however, use the gate hierarchy in that each connector will have two gates, one on either end (see <a href="introduction_inheritance-in-c.html#ooderive_fig-connector" class="xref" data-knowl="./knowl/xref/ooderive_fig-connector.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.13.9">Figure 1.13.9</a>). This relationship is very important in object-oriented programming. It is called the <dfn class="terminology">HAS-A Relationship</dfn>. Recall earlier that we used the phrase “IS-A Relationship” to say that a child class is related to a parent class, for example <code class="code-inline tex2jax_ignore">UnaryGate</code> IS-A <code class="code-inline tex2jax_ignore">LogicGate</code>.</div>
+<figure class="figure figure-like" id="ooderive_fig-connector"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/connector.png" class="contained" alt="Diagram showing two logic gate symbols, ’AND’ and ’OR’, connected by a line labeled ’connector’. The ’AND’ gate is on the left with an arrow pointing from its output to the ’connector’. Another arrow extends from the ’connector’ to the input of the ’OR’ gate on the right. This illustrates how the output of one gate serves as the input to another."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.9<span class="period">.</span></span><span class="space"> </span>A Connector Connects the Output of One Gate to the Input of Another</figcaption></figure><div class="para" id="introduction_building-circuits-5">Now, with the <code class="code-inline tex2jax_ignore">Connector</code> class, we say that a <code class="code-inline tex2jax_ignore">Connector</code> HAS-A <code class="code-inline tex2jax_ignore">LogicGate</code> meaning that connectors will have instances of the <code class="code-inline tex2jax_ignore">LogicGate</code> class within them but are not part of the hierarchy. When designing classes, it is very important to distinguish between those that have the IS-A relationship (which requires inheritance) and those that have HAS-A relationships (with no inheritance).</div>
+<div class="para" id="introduction_building-circuits-6">
+<a href="introduction_inheritance-in-c.html#ooderive_program" class="xref" data-knowl="./knowl/xref/ooderive_program.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.13.11">Listing 1.13.11</a> shows the <code class="code-inline tex2jax_ignore">Connector</code> class. The two gate instances within each connector object will be referred to as the <code class="code-inline tex2jax_ignore">fromgate</code> and the <code class="code-inline tex2jax_ignore">togate</code>, recognizing that data values will “flow” from the output of one gate into an input line of the next. The call to <code class="code-inline tex2jax_ignore">setNextPin</code> is very important for making connections (see <a href="introduction_inheritance-in-c.html#ooderive_program" class="xref" data-knowl="./knowl/xref/ooderive_program.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.13.11">Listing 1.13.11</a>). We need to add this method to our gate classes so that each <code class="code-inline tex2jax_ignore">togate</code> can choose the proper input line for the connection.</div>
+<figure class="figure figure-like" id="ooderive_fig-desired-circuit"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/Introduction/desired_circuit.png" class="contained" alt="Circuit diagram illustrating a logical expression with labeled components. Two ’AND’ gates, labeled ’gand1’ and ’gand2’, are connected to an ’OR’ gate labeled ’gor3’ via lines labeled ’connector’. The output of ’gor3’ is then fed into a ’NOT’ gate labeled ’gnot4’. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d)."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.10<span class="period">.</span></span><span class="space"> </span>Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</figcaption></figure><details id="ooderive_program" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+// creates a class with a logic gate that returns the label, and boolean value
+class LogicGate {
+    public:
+            LogicGate(string n){
+                    label = n;
+            }
+            string getLabel(){
+                    return label;
+            }
+            bool getOutput(){
+                    output = performGateLogic();
+                    return output;
+            }
+            virtual bool performGateLogic(){
+                    cout &lt;&lt; "ERROR! performGateLogic BASE" &lt;&lt; endl;
+                    return false;
+            }
+
+            virtual void setNextPin(bool source) {
+                    cout &lt;&lt; "ERROR! setNextPin BASE" &lt;&lt; endl;
+            }
+    private:
+            string label;
+            bool output;
+};
+
+    //class that allows for the gates to have two inputs
+class BinaryGate : public LogicGate {
+    public:
+            BinaryGate(string n) : LogicGate(n) {
+                    pinATaken = false;
+                    pinBTaken = false;
+            }
+            bool getPinA() {
+                    if (pinATaken == false) {
+                            cout &lt;&lt; "Enter Pin A input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                            cin &gt;&gt; pinA;
+                            pinATaken = true;
+                    }
+                    return pinA;
+            }
+            bool getPinB() {
+                    if (pinBTaken == false) {
+                            cout &lt;&lt; "Enter Pin B input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                            cin &gt;&gt; pinB;
+                            pinBTaken = true;
+                    }
+                    return pinB;
+            }
+            virtual void setNextPin(bool source) {
+                    if (pinATaken == false) {
+                            pinA = source;
+                            this-&gt;pinATaken = true;
+                    }
+                    else if (pinBTaken == false) {
+                            pinB = source;
+                            this-&gt;pinBTaken = true;
+                    }
+            }
+    private:
+            bool pinA, pinATaken, pinB, pinBTaken;
+};
+
+    //allows for the creation of a logic gate with  one input
+class UnaryGate : public LogicGate {
+    public:
+            UnaryGate(string n) : LogicGate(n) {
+                    pinTaken = false;
+            }
+            bool getPin() {
+                    if (pinTaken == false) {
+                            cout &lt;&lt; "Enter Pin input for gate " &lt;&lt; getLabel() &lt;&lt; ": ";
+                            cin &gt;&gt; pin;
+                            pinTaken = true;
+                    }
+                    return pin;
+            }
+            virtual void setNextPin(bool source) {
+                    if (pinTaken == false) {
+                            pin = source;
+                            pinTaken = true;
+                    }
+                    else {
+                            return;
+                    }
+            }
+    private:
+            bool pin, pinTaken;
+};
+
+//Class that sets up the logic for an "and" gate
+    class AndGate : public BinaryGate{
+    public:
+            AndGate(string n) : BinaryGate(n) {};
+
+            virtual bool performGateLogic(){
+                    bool a = getPinA();
+                    bool b = getPinB();
+                    if (a == 1 &amp;&amp; b == 1) {
+                            return true;
+                    }
+                    else {
+                            return false;
+                    }
+            }
+};
+
+//class that sets up the logic for an "or" gate
+    class OrGate : public BinaryGate {
+    public:
+            OrGate(string n) : BinaryGate(n) {};
+
+            virtual bool performGateLogic() {
+                    bool a = getPinA();
+                    bool b = getPinB();
+                    if (a == 1 || b == 1) {
+                            return true;
+                    }
+                    else {
+                            return false;
+                    }
+            }
+};
+
+//class that sets up the logic for a "not" gate
+    class NotGate : public UnaryGate {
+    public:
+            NotGate(string n) : UnaryGate(n) {};
+
+            virtual bool performGateLogic() {
+                    if (getPin()) {
+                            return false;
+                    }
+                    else {
+                            return true;
+                    }
+            }
+};
+
+// class that sets up logic for the connection of one gate to another
+    class Connector{
+    public:
+            Connector(LogicGate *fgate, LogicGate *tgate) {
+                    fromgate = fgate;
+                    togate = tgate;
+                    tgate-&gt;setNextPin(fromgate-&gt;getOutput());
+            }
+            LogicGate *getFrom() {
+                    return fromgate;
+            }
+            LogicGate *getTo() {
+                    return togate;
+            }
+    private:
+            LogicGate *fromgate, *togate;
+};
+
+int main() {
+
+    char stopme;
+
+    //Setting labels
+    AndGate gand1(" AND1 ");
+    AndGate gand2(" AND2 ");
+    OrGate  gor3(" OR ");
+    NotGate gnot4(" NOT ");
+
+    // The inputs can be changed here!
+    gand1.setNextPin(0);
+    gand1.setNextPin(0);
+    gand2.setNextPin(0);
+    gand2.setNextPin(0);
+
+    //making comnnections
+    Connector c1(&amp;gand1, &amp;gor3);
+    Connector c2(&amp;gand2, &amp;gor3);
+    Connector c3(&amp;gor3, &amp;gnot4);
+
+    // The output shows order of operators
+    cout &lt;&lt; gnot4.getLabel() &lt;&lt; "(";
+    cout &lt;&lt; "(" &lt;&lt; gand1.getPinA() &lt;&lt; gand1.getLabel() &lt;&lt; gand1.getPinB() &lt;&lt; ")";
+    cout &lt;&lt; gor3.getLabel();
+    cout &lt;&lt; "(" &lt;&lt; gand2.getPinA() &lt;&lt; gand2.getLabel() &lt;&lt; gand2.getPinB() &lt;&lt; ")";
+    cout &lt;&lt; ") results in " &lt;&lt; gnot4.getOutput() &lt;&lt; endl;
+
+    cin &gt;&gt; stopme; //holds open window under some conditions.
+    return 0;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details><section class="reading-questions" id="rq-oop-derived-classes"><h4 class="heading hide-type">
+<span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
+</h4>
+<article class="exercise exercise-like" id="rq-oop-derived-classes-2"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone fillintheblank_section"><div data-component="fillintheblank" data-question_label="" id="">
+<div class="para" id="rq-oop-derived-classes-2-1-1">What will the logic gate yield (1 / 0)? <input type="text" placeholder="Number">
+</div>
+<script type="application/json">[[{"number": [[0], [0]], "feedback": "<div class=\"para\" id=\"rq-oop-derived-classes-2-2-1-1-1-1\">Correct!<\/div>"}, {"number": [[1], [1]], "feedback": "<div class=\"para\" id=\"rq-oop-derived-classes-2-2-1-2-1-1\">Take a closer look at the logic gates.<\/div>"}]]</script>
+</div></div></div></article><article class="exercise exercise-like" id="mc_IS-A_HAS-A"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="mc_IS-A_HAS-A" data-multipleanswers="true">
+<div class="para" id="mc_IS-A_HAS-A-1-1">What is the difference between HAS-A and IS-A relationships? Select all that apply.</div>
+<li data-component="answer" id="mc_IS-A_HAS-A_opt_a" data-correct=""><div class="para" id="mc_IS-A_HAS-A-2-1-1-1">An IS-A class object is an instance of an inherited class.</div></li>
+<li data-component="feedback" id="mc_IS-A_HAS-A_opt_a"><div class="para" id="mc_IS-A_HAS-A-2-1-2-1">Correct!</div></li>
+<li data-component="answer" id="mc_IS-A_HAS-A_opt_b"><div class="para" id="mc_IS-A_HAS-A-2-2-1-1">A HAS-A class object has all of the methods of another class.</div></li>
+<li data-component="feedback" id="mc_IS-A_HAS-A_opt_b"><div class="para" id="mc_IS-A_HAS-A-2-2-2-1">No. HAS-A relationships do not mean that one class is copying another class.</div></li>
+<li data-component="answer" id="mc_IS-A_HAS-A_opt_c"><div class="para" id="mc_IS-A_HAS-A-2-3-1-1">An IS-A class object contains instances of another class.</div></li>
+<li data-component="feedback" id="mc_IS-A_HAS-A_opt_c"><div class="para" id="mc_IS-A_HAS-A-2-3-2-1">No. IS-A relationships do not mean that an object contains different class instances.</div></li>
+<li data-component="answer" id="mc_IS-A_HAS-A_opt_d"><div class="para" id="mc_IS-A_HAS-A-2-4-1-1">A HAS-A class object is an instance of an inherited class.</div></li>
+<li data-component="feedback" id="mc_IS-A_HAS-A_opt_d"><div class="para" id="mc_IS-A_HAS-A-2-4-2-1">No, HAS-A reltionships do not use inheritance.</div></li>
+<li data-component="answer" id="mc_IS-A_HAS-A_opt_e" data-correct=""><div class="para" id="mc_IS-A_HAS-A-2-5-1-1">A HAS-A class object contains instances of another class.</div></li>
+<li data-component="feedback" id="mc_IS-A_HAS-A_opt_e"><div class="para" id="mc_IS-A_HAS-A-2-5-2-1">Correct!</div></li>
+</ul></div></div></article><article class="note remark-like" id="rq-oop-derived-classes-4"><h5 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">1.13.12</span><span class="period">.</span><span class="space"> </span><span class="title">Self  Check Challenge.</span>
+</h5> <div class="para" id="rq-oop-derived-classes-4-2">One of the fundamental building blocks of a computer is something called a flip flop.  It’s not something that computer science professors wear on their feet, but rather a kind of circuit that is stable and stores the last piece of data that was put on it.  A simple flip-flop can be made from two <dfn class="terminology">NOR</dfn> gates (a combination <dfn class="terminology">OR</dfn> and <dfn class="terminology">NOT</dfn>) that are tied together as in the following diagram. Create a new gate class, called NorGate. NorGates work like OrGates that have a Not attached to the output. See if you can use your new class to implement this.</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/flipflop.png" class="contained"></div> <div class="para" id="rq-oop-derived-classes-4-4">Note if the initial inputs to Reset and Set are both 0 then the output of the flip-flop is 0.  But if the Set input is toggled to 1 then the output becomes 1.  The great thing is that when the set input goes to 0 the output stays 1, until the reset input is toggled to 1 which resets the output of the circuit back to zero.</div></article></section></section><section class="conclusion" id="introduction_inheritance-in-c-5"><div class="para" id="introduction_inheritance-in-c-5-1"></div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="introduction_object-oriented-programming-in-c-defining-classes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_optional-graphics-in-c.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

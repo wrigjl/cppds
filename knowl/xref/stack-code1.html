@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="para"><dfn class="terminology">C++ Implementation</dfn></div>
+<pre class="program"><code class="language-cpp">//Tests the push, empty, size, pop, and top methods of the stack library.
+
+#include &lt;iostream&gt;
+#include &lt;stack&gt;    // Calling Stack from the STL
+
+using namespace std;
+
+int main() {
+    stack&lt;int&gt; newStack;
+
+    newStack.push(3); //Adds 3 to the stack
+    newStack.push(8);
+    newStack.push(15);
+
+    // returns a boolean response depending on if the stack is empty or not
+    cout &lt;&lt; "Stack Empty? " &lt;&lt; newStack.empty() &lt;&lt; endl;
+
+    // returns the size of the stack itself
+    cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
+
+    // returns the topmost element of the stack
+    cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
+
+    // removes the topmost element of the stack
+    newStack.pop();
+
+    cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
+
+    cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre>
+<div class="para"><dfn class="terminology">Python Implementation</dfn></div>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="stack_1ac_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="stack_1ac_py_editor" data-question_label="" data-codelens="true">#Tests the push, empty, size, pop, and top methods of the stack library.
+
+class Stack:
+    def __init__(self): #initializes new stack instance
+        self.items = []
+
+    def isEmpty(self): #returns boolean
+        return self.items == []
+
+    def push(self, item): #pushes new item onto stack
+        self.items.append(item)
+
+    def pop(self): #removes topmost item from stack
+        return self.items.pop()
+
+    def top(self): #returns the topmost item from the stack
+        return self.items[len(self.items)-1]
+
+    def size(self): #returns the size of the stack
+        return len(self.items)
+
+def main():
+    newStack = Stack()
+    newStack.push(4)
+    newStack.push(8)
+    newStack.push(15)
+
+    print("Stack Empty? ", newStack.isEmpty())
+
+    print("Stack Size: ", newStack.size())
+
+    print("Top Element of the Stack: ", newStack.top())
+
+    newStack.pop();
+
+    print("Top Element of the Stack: ", newStack.top())
+main()
+</textarea></div></div></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.5.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><span class="incontext"><a class="internal" href="linear-basic_using-a-stack-in-c.html#stack-code1">in-context</a></span>
+</body>
+</html>

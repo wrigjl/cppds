@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">3.12.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;queue&gt; // Using an STL queue
+
+using namespace std;
+
+int main() {
+          queue&lt;int&gt; newQueue;
+
+          newQueue.push(3);
+          newQueue.push(8);
+          newQueue.push(15);
+
+          cout &lt;&lt; "Queue Empty? " &lt;&lt; newQueue.empty() &lt;&lt; endl;
+
+          cout &lt;&lt; "Queue Size: " &lt;&lt; newQueue.size() &lt;&lt; endl;
+
+          cout &lt;&lt; "Top Element of the Queue: " &lt;&lt; newQueue.front() &lt;&lt; endl;
+
+          newQueue.pop();
+
+          cout &lt;&lt; "Top Element of the Queue: " &lt;&lt; newQueue.front() &lt;&lt; endl;
+
+          return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="linear-basic_using-a-queue-in-c.html#lst-queuecode1-cpp">in-context</a></span>
+</body>
+</html>

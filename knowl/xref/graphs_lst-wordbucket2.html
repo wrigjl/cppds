@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><dfn class="terminology">Listing 2</dfn><pre class="code-block tex2jax_ignore">from pythonds.graphs import Graph, Vertex
+from pythonds.basic import Queue
+
+def bfs(g,start):
+    start.setDistance(0)
+    start.setPred(None)
+    vertQueue = Queue()
+    vertQueue.enqueue(start)
+    while (vertQueue.size() &gt; 0):
+        currentVert = vertQueue.dequeue()
+        for nbr in currentVert.getConnections():
+            if (nbr.getColor() == 'white'):
+                nbr.setColor('gray')
+                nbr.setDistance(currentVert.getDistance() + 1)
+                nbr.setPred(currentVert)
+                vertQueue.enqueue(nbr)
+        currentVert.setColor('black')
+
+Graph bfs(Graph g, Vertex *start) {
+    start-&gt;dist = 0;
+    start-&gt;pred = NULL;
+    queue&lt;Vertex *&gt; vertQueue;
+    vertQueue.push(start);
+    while (vertQueue.size() &gt; 0) {
+        Vertex *currentVert = vertQueue.front();
+        vertQueue.pop();
+    // For each neighbor of the current vertex
+        for (unsigned int nbr = 0; nbr &lt; currentVert-&gt;getConnections().size(); nbr++) {
+            if (g.vertList[currentVert-&gt;getConnections()[nbr]].color == 'w') {
+                g.vertList[currentVert-&gt;getConnections()[nbr]].color = 'g';
+                g.vertList[currentVert-&gt;getConnections()[nbr]].dist = currentVert-&gt;dist + 1;
+                g.vertList[currentVert-&gt;getConnections()[nbr]].pred = currentVert;
+                vertQueue.push(&amp;g.vertList[currentVert-&gt;getConnections()[nbr]]);
+            }
+        }
+        currentVert-&gt;color = 'b';
+    }
+    return g;
+}
+</pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.9.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><span class="incontext"><a class="internal" href="graphs_implementing-breadth-first-search.html#graphs_lst-wordbucket2">in-context</a></span>
+</body>
+</html>
