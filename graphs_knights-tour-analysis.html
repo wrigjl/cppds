@@ -439,7 +439,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="cppds2-5.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
+<div class="toc-title-box"><a href="ch-linear-basic.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_objectives.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-are-linear-structures.html" class="internal"><span class="codenumber">3.2</span> <span class="title">What Are Linear Structures?</span></a></div></li>
@@ -796,7 +796,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></div>
 <figure class="figure figure-like" id="graphs_knighttour-figvideo"><div class="video-box" style="width: 80%;padding-top: 45%; margin-left: 10%; margin-right: 10%;"><video id="graphs_knighttour-video" class="video" controls="" poster="external/Graphs/kt_vis_thumb.png"><source src="external/Graphs/knights_tour_vis.webm" type="video/webm"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.14.3<span class="period">.</span></span><span class="space"> </span>Knights tour visualization</figcaption></figure><dfn class="terminology">Listing 4</dfn><details id="graphs_lst-avail" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><dfn class="terminology">Listing 4</dfn><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def orderByAvail(n):
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.14.3<span class="period">.</span></span><span class="space"> </span>Knights tour visualization</figcaption></figure><dfn class="terminology">Listing 4</dfn><figure class="listing figure-like" id="graphs_lst-avail"><dfn class="terminology">Listing 4</dfn><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def orderByAvail(n):
     resList = []
     for v in n.getConnections():
         if v.getColor() == 'white':
@@ -808,7 +808,7 @@ eBookConfig.enable_chatcodes =  false;
     resList.sort(key=lambda x: x[0])
     return [y[1] for y in resList]
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.14.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details><section class="reading-questions" id="rq-knights-tour-impl"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.14.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure><section class="reading-questions" id="rq-knights-tour-impl"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Question</span>
 </h3>
 <article class="exercise exercise-like" id="knightO"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>

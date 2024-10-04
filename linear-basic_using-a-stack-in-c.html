@@ -276,7 +276,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="linear-basic_the-stack-abstract-data-type.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="cppds2-5.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="linear-basic_simple-balanced-parentheses.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="linear-basic_the-stack-abstract-data-type.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-linear-basic.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="linear-basic_simple-balanced-parentheses.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -439,7 +439,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a href="cppds2-5.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
+<div class="toc-title-box"><a href="ch-linear-basic.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_objectives.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-are-linear-structures.html" class="internal"><span class="codenumber">3.2</span> <span class="title">What Are Linear Structures?</span></a></div></li>
@@ -779,7 +779,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="linear-basic_using-a-stack-in-c-2">Now that we have clearly defined the stack as an abstract data type we will turn our attention to using a stack with the help of the Standard Template Library (STL) in C++. Recall that when we give an abstract data type a physical implementation we refer to the implementation as a data structure.</div>
 <div class="para" id="linear-basic_using-a-stack-in-c-3">As we described in Chapter 1, in C++, as in any object-oriented programming language, the implementation of choice for an abstract data type such as a stack is the creation of a new class. The stack operations are implemented as methods. However, the STL already has a well written implementation of the Stack class.</div>
 <div class="para" id="linear-basic_using-a-stack-in-c-4">The following stack implementation (<a href="linear-basic_using-a-stack-in-c.html#stack-code1" class="xref" data-knowl="./knowl/xref/stack-code1.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 3.5.1">Listing 3.5.1</a>) assumes that the end of the array will hold the top element of the stack. As the stack grows (as <code class="code-inline tex2jax_ignore">push</code> operations occur), new items will be added on the end of the array. <code class="code-inline tex2jax_ignore">pop</code> operations will manipulate that same end.</div>
-<details id="stack-code1" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="para" id="stack-code1-1"><dfn class="terminology">C++ Implementation</dfn></div>
+<figure class="listing figure-like" id="stack-code1"><div class="para" id="stack-code1-1"><dfn class="terminology">C++ Implementation</dfn></div>
 <pre class="program"><code class="language-cpp">//Tests the push, empty, size, pop, and top methods of the stack library.
 
 #include &lt;iostream&gt;
@@ -852,7 +852,7 @@ def main():
     print("Top Element of the Stack: ", newStack.top())
 main()
 </textarea></div></div></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.5.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details><section class="reading-questions" id="rq-stack-implementation"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.5.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><section class="reading-questions" id="rq-stack-implementation"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h3>
 <article class="exercise exercise-like" id="stack_1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>

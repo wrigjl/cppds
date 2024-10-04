@@ -439,7 +439,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="cppds2-5.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
+<div class="toc-title-box"><a href="ch-linear-basic.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_objectives.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-are-linear-structures.html" class="internal"><span class="codenumber">3.2</span> <span class="title">What Are Linear Structures?</span></a></div></li>
@@ -777,7 +777,7 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">4.4</span><span class="space"> </span><span class="title">The <code class="code-inline tex2jax_ignore">Node</code> Class</span>
 </h2>
 <div class="para" id="linear-linked_the-node-class-2">The basic building block for the linked list implementation is the <dfn class="terminology">node</dfn>. Each node object must hold at least two pieces of information. First, the node must contain the list item itself. We will call this the <dfn class="terminology">data field</dfn> of the node. In addition, each node must hold a reference to the next node. <a href="linear-linked_the-node-class.html#linear-linked_lst-nodeclass" class="xref" data-knowl="./knowl/xref/linear-linked_lst-nodeclass.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 4.4.1: Node Class">Listing 4.4.1</a> shows the C++ implementation. To construct a node, you need to supply the initial data value for the node. Evaluating the assignment statement below will yield a node object containing the value 93 (see <a href="linear-linked_the-node-class.html#id1-fig-node" class="xref" data-knowl="./knowl/xref/id1-fig-node.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.2">Figure 4.4.2</a>). You should note that we will typically represent a node object as shown in <a href="linear-linked_the-node-class.html#id2-fig-node2" class="xref" data-knowl="./knowl/xref/id2-fig-node2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.3">Figure 4.4.3</a>. The <code class="code-inline tex2jax_ignore">Node</code> class also includes the usual methods to access and modify the data and the next reference.</div>
-<details id="linear-linked_lst-nodeclass" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<figure class="listing figure-like" id="linear-linked_lst-nodeclass"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 class Node {
@@ -808,7 +808,7 @@ class Node {
             }
 };
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">4.4.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details><pre class="code-block tex2jax_ignore">&gt;&gt;&gt; temp = Node(93) //sets the nodes data to the integer 93
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">4.4.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><pre class="code-block tex2jax_ignore">&gt;&gt;&gt; temp = Node(93) //sets the nodes data to the integer 93
 &gt;&gt;&gt; temp.getData() // calls the getData() function.
 93
 </pre>

@@ -439,7 +439,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="cppds2-5.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
+<div class="toc-title-box"><a href="ch-linear-basic.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_objectives.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-are-linear-structures.html" class="internal"><span class="codenumber">3.2</span> <span class="title">What Are Linear Structures?</span></a></div></li>
@@ -783,7 +783,7 @@ eBookConfig.enable_chatcodes =  false;
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.1<span class="period">.</span></span><span class="space"> </span>An Inheritance Hierarchy for C++ Collections</figcaption></figure><div class="para" id="introduction_inheritance-in-c-2-4">Vectors, arrays, and strings are all types of sequential collections. They all inherit common data organization and operations. However, each of them is distinct as well. The children all gain from their parents but distinguish themselves by adding additional characteristics.</div>
 <div class="para" id="introduction_inheritance-in-c-2-5">By organizing classes in this hierarchical fashion, object-oriented programming languages allow previously written code to be extended to meet the needs of a new situation. In addition, by organizing data in this hierarchical manner, we can better understand the relationships that exist. We can be more efficient in building our abstract representations.</div>
 <div class="para" id="introduction_inheritance-in-c-2-6">A child class inherits both behaviors and properties from the parent subject to some access restrictions. These variables and functions become members of the derived class. A virtual function is a member function which is declared within a base class and is overwritten by a derived class. In C++, the keyword <code class="code-inline tex2jax_ignore">virtual</code> is used. A simple example of using a virtual function in C++ is shown in <a href="introduction_inheritance-in-c.html#virtualfunction" class="xref" data-knowl="./knowl/xref/virtualfunction.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.13.2">Listing 1.13.2</a>. In this example, the two derived subclasses inherit the <code class="code-inline tex2jax_ignore">printType</code> method from the Base class.</div>
-<details id="virtualfunction" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<figure class="listing figure-like" id="virtualfunction"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 class Base {
@@ -821,7 +821,7 @@ int main() {
         return 0;
 }
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details></section><section class="subsection" id="introduction_logic-gates-and-circuits"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></section><section class="subsection" id="introduction_logic-gates-and-circuits"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.13.1</span><span class="space"> </span><span class="title">Logic Gates and Circuits</span>
 </h3>
 <div class="para" id="introduction_logic-gates-and-circuits-2">To explore this idea further, we will construct a <dfn class="terminology">simulation</dfn>, an application to simulate digital circuits. The basic building block for this simulation will be the logic gate. These electronic switches represent Boolean algebra relationships between their input and their output. In general, gates have a single output line. The value of the output is dependent on the values given on the input lines.</div>
@@ -1020,7 +1020,7 @@ public:
 </code></pre></div></article></div>
 </div></div></div></article><div class="para" id="introduction_logic-gates-and-circuits-23">The only thing <code class="code-inline tex2jax_ignore">AndGate</code> needs to add is the specific behavior that performs the Boolean operation that was described earlier. This is the place where we can provide the <code class="code-inline tex2jax_ignore">performGateLogic</code> method. For an <dfn class="terminology">AND</dfn> gate, this method first must get the two input values and then only return 1 if both input values are 1. The complete class is shown in <a href="introduction_inheritance-in-c.html#introduction_lst-andgateclass" class="xref" data-knowl="./knowl/xref/introduction_lst-andgateclass.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.13.4.a: C++ implementation">Task 1.13.4.a</a>.</div>
 <div class="para" id="introduction_logic-gates-and-circuits-24">We can show the <code class="code-inline tex2jax_ignore">AndGate</code> class in action by creating an instance and asking it to compute its output. The following session shows an <code class="code-inline tex2jax_ignore">AndGate</code> object, <code class="code-inline tex2jax_ignore">gand1</code>, that has an internal label <code class="code-inline tex2jax_ignore">"gand1"</code>. When we invoke the <code class="code-inline tex2jax_ignore">getOutput</code> method, the object must first call its <code class="code-inline tex2jax_ignore">performGateLogic</code> method which in turn queries the two input lines. Once the values are provided, the correct output is shown.</div>
-<details id="introduction_fig-andusage" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&gt;&gt;&gt; AndGate gand2("gand2")
+<figure class="listing figure-like" id="introduction_fig-andusage"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&gt;&gt;&gt; AndGate gand2("gand2")
 &gt;&gt;&gt; gand2.getOutput()
 Enter Pin A input for gate gand2: 1
 Enter Pin B input for gate gand2: 1
@@ -1030,9 +1030,9 @@ Enter Pin A input for gate gand2: 0
 Enter Pin B input for gate gand2: 0
 0
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details><div class="para" id="introduction_logic-gates-and-circuits-26">The same development can be done for <dfn class="terminology">OR</dfn> gates and <dfn class="terminology">NOT</dfn> gates. The <code class="code-inline tex2jax_ignore">OrGate</code> class will also be a subclass of <code class="code-inline tex2jax_ignore">BinaryGate</code> and the <code class="code-inline tex2jax_ignore">NotGate</code> class will extend the <code class="code-inline tex2jax_ignore">UnaryGate</code> class. Both of these classes will need to provide their own <code class="code-inline tex2jax_ignore">performGateLogic</code> functions, as this is their specific behavior.</div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="introduction_logic-gates-and-circuits-26">The same development can be done for <dfn class="terminology">OR</dfn> gates and <dfn class="terminology">NOT</dfn> gates. The <code class="code-inline tex2jax_ignore">OrGate</code> class will also be a subclass of <code class="code-inline tex2jax_ignore">BinaryGate</code> and the <code class="code-inline tex2jax_ignore">NotGate</code> class will extend the <code class="code-inline tex2jax_ignore">UnaryGate</code> class. Both of these classes will need to provide their own <code class="code-inline tex2jax_ignore">performGateLogic</code> functions, as this is their specific behavior.</div>
 <div class="para" id="introduction_logic-gates-and-circuits-27">We can use a single gate by first constructing an instance of one of the gate classes and then asking the gate for its output (which will in turn need inputs to be provided). For example:</div>
-<details id="introduction_fig-ornotusage" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&gt;&gt;&gt; g2 = OrGate("G2")
+<figure class="listing figure-like" id="introduction_fig-ornotusage"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&gt;&gt;&gt; g2 = OrGate("G2")
 &gt;&gt;&gt; g2.getOutput()
 Enter Pin A input for gate G2-&gt;1
 Enter Pin B input for gate G2-&gt;1
@@ -1046,7 +1046,7 @@ Enter Pin B input for gate G2-&gt;0
 Enter Pin input for gate G3-&gt;0
 1
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details></section><section class="subsection" id="introduction_building-circuits"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure></section><section class="subsection" id="introduction_building-circuits"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.13.2</span><span class="space"> </span><span class="title">Building Circuits</span>
 </h3>
 <div class="para" id="introduction_building-circuits-2">Now that we have the basic gates working, we can turn our attention to building circuits. In order to create a circuit, we need to connect gates together, the output of one flowing into the input of another. To do this, we will implement a new class called <code class="code-inline tex2jax_ignore">Connector</code>.</div>
@@ -1056,7 +1056,7 @@ Enter Pin input for gate G3-&gt;0
 <div class="para" id="introduction_building-circuits-6">
 <a href="introduction_inheritance-in-c.html#ooderive_program" class="xref" data-knowl="./knowl/xref/ooderive_program.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.13.11">Listing 1.13.11</a> shows the <code class="code-inline tex2jax_ignore">Connector</code> class. The two gate instances within each connector object will be referred to as the <code class="code-inline tex2jax_ignore">fromgate</code> and the <code class="code-inline tex2jax_ignore">togate</code>, recognizing that data values will “flow” from the output of one gate into an input line of the next. The call to <code class="code-inline tex2jax_ignore">setNextPin</code> is very important for making connections (see <a href="introduction_inheritance-in-c.html#ooderive_program" class="xref" data-knowl="./knowl/xref/ooderive_program.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.13.11">Listing 1.13.11</a>). We need to add this method to our gate classes so that each <code class="code-inline tex2jax_ignore">togate</code> can choose the proper input line for the connection.</div>
 <figure class="figure figure-like" id="ooderive_fig-desired-circuit"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/Introduction/desired_circuit.png" class="contained" alt="Circuit diagram illustrating a logical expression with labeled components. Two ’AND’ gates, labeled ’gand1’ and ’gand2’, are connected to an ’OR’ gate labeled ’gor3’ via lines labeled ’connector’. The output of ’gor3’ is then fed into a ’NOT’ gate labeled ’gnot4’. The connections suggest the logical operation NOT(AND(a,b)) OR AND(c,d)."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.10<span class="period">.</span></span><span class="space"> </span>Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</figcaption></figure><details id="ooderive_program" class="listing figure-like born-hidden-knowl"><summary class="knowl__link"></summary><figure class="listing figure-like knowl__content"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.13.10<span class="period">.</span></span><span class="space"> </span>Circit of NOT(AND(ganda,gnadb)OR AND(gandc,gandd))</figcaption></figure><figure class="listing figure-like" id="ooderive_program"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
 
@@ -1249,7 +1249,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure></details><section class="reading-questions" id="rq-oop-derived-classes"><h4 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure><section class="reading-questions" id="rq-oop-derived-classes"><h4 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h4>
 <article class="exercise exercise-like" id="rq-oop-derived-classes-2"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
