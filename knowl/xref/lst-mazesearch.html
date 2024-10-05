@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def searchFrom(maze, startRow, startColumn):
+    #  Check for base cases (Steps 1, 2, and 3):
+
+    #  1. We have run into an obstacle, return false
+    if maze[startRow][startColumn] == MAZE_OBSTACLE:
+        return False
+    #  2. We have found a square that has already been explored
+    if maze[startRow][startColumn] == MAZE_TRIED:
+        return False
+
+    # 3. Success, an outside edge not occupied by an obstacle
+    if maze.isOnEdge(startRow, startColumn):
+        maze[startRow][startColumn] = MAZE_PATH
+        return True
+
+    # 4. Indicate that the currently visited space has been tried.
+    # Refer to step two.
+    maze[startRow][startColumn] = MAZE_TRIED
+
+    # 5. Otherwise, check each cardinal direction (North, south, east, and west).
+    # We are checking one space in each direction, thus the plus or minus one below.
+    found = searchFrom(maze, startRow - 1, startColumn) or \
+            searchFrom(maze, startRow + 1, startColumn) or \
+            searchFrom(maze, startRow, startColumn - 1) or \
+            searchFrom(maze, startRow, startColumn + 1)
+
+    # 6. Mark the location as either part of the path or a dead end,
+    # depending on whether or not an exit has been found.
+    if found:
+        maze[startRow][startColumn] = MAZE_PATH
+    else:
+        maze[startRow][startColumn] = MAZE_DEAD_END
+
+    return found
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.11.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><span class="incontext"><a class="internal" href="recursion_exploring-a-maze.html#lst-mazesearch">in-context</a></span>
+</body>
+</html>

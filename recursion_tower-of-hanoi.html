@@ -112,14 +112,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.1';
+eBookConfig.runestone_version = '7.4.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.00db6230172ad960.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.04737dc219c2d2eb.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<script src="_static/prefix-runtime.00db6230172ad960.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.aa624e4071d017c3.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f64dcc3632d7a0c3.css">
 <style>
 #introduction_accessing-values-from-pointers-18-1 { counter-set: introduction_accessing-values-from-pointers-18-1 0; }
@@ -788,9 +788,8 @@ eBookConfig.enable_chatcodes =  false;
 <li id="recursion_tower-of-hanoi-8-1-2"><div class="para" id="recursion_tower-of-hanoi-8-1-2-1">Move the remaining disk to the final pole.</div></li>
 <li id="recursion_tower-of-hanoi-8-1-3"><div class="para" id="recursion_tower-of-hanoi-8-1-3-1">Move the tower of height-1 from the intermediate pole to the final pole using the original pole.</div></li>
 </ol></div>
-<div class="para" id="recursion_tower-of-hanoi-9">As long as we always obey the rule that the larger disks remain on the bottom of the stack, we can use the three steps above recursively, treating any larger disks as though they were not even there. The only thing missing from the outline above is the identification of a base case. The simplest Tower of Hanoi problem is a tower of one disk. In this case, we need move only a single disk to its final destination. A tower of one disk will be our base case. In addition, the steps outlined above move us toward the base case by reducing the height of the tower in steps 1 and 3. <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-hanoicpp" missing or not unique]</code> shows the Python code to solve the Tower of Hanoi puzzle.</div>
-<div class="para" id="recursion_lst-hanoicpp"><dfn class="terminology">Listing 1</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int moveTower(int height, char fromPole, char toPole, char withPole){
+<div class="para" id="recursion_tower-of-hanoi-9">As long as we always obey the rule that the larger disks remain on the bottom of the stack, we can use the three steps above recursively, treating any larger disks as though they were not even there. The only thing missing from the outline above is the identification of a base case. The simplest Tower of Hanoi problem is a tower of one disk. In this case, we need move only a single disk to its final destination. A tower of one disk will be our base case. In addition, the steps outlined above move us toward the base case by reducing the height of the tower in steps 1 and 3. <a href="recursion_tower-of-hanoi.html#lst-movetower" class="xref" data-knowl="./knowl/xref/lst-movetower.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.10.2">Listing 5.10.2</a> shows the Python code to solve the Tower of Hanoi puzzle.</div>
+<figure class="listing figure-like" id="lst-movetower"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int moveTower(int height, char fromPole, char toPole, char withPole){
     if (height &gt;= 1){
         moveTower(height-1, fromPole, withPole, toPole);
         moveDisk(fromPole, toPole);
@@ -798,14 +797,22 @@ eBookConfig.enable_chatcodes =  false;
     }
 }
 </code></pre></div>
-<div class="para" id="recursion_tower-of-hanoi-12">Notice that the code in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-hanoicpp" missing or not unique]</code> is almost identical to the English description. The key to the simplicity of the algorithm is that we make two different recursive calls, one on line 3 and a second on line 5. On line 3 we move all but the bottom disk on the initial tower to an intermediate pole. The next line simply moves the bottom disk to its final resting place. Then on line 5 we move the tower from the intermediate pole to the top of the largest disk. The base case is detected when the tower height is 0; in this case there is nothing to do, so the <code class="code-inline tex2jax_ignore">moveTower</code> function simply returns. The important thing to remember about handling the base case this way is that simply returning from <code class="code-inline tex2jax_ignore">moveTower</code> is what finally allows the <code class="code-inline tex2jax_ignore">moveDisk</code> function to be called.</div>
-<div class="para" id="recursion_tower-of-hanoi-13">The function <code class="code-inline tex2jax_ignore">moveDisk</code>, shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-movediskcpp" missing or not unique]</code>, is very simple. All it does is print out that it is moving a disk from one pole to another. If you type in and run the <code class="code-inline tex2jax_ignore">moveTower</code> program you can see that it gives you a very efficient solution to the puzzle.</div>
-<div class="para" id="recursion_lst-movediskcpp"><dfn class="terminology">Listing 2</dfn></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.10.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">moveTower</code> Function</figcaption></figure><div class="para" id="recursion_tower-of-hanoi-11">Notice that the code in <a href="recursion_tower-of-hanoi.html#lst-movetower" class="xref" data-knowl="./knowl/xref/lst-movetower.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.10.2">Listing 5.10.2</a> is almost identical to the English description. The key to the simplicity of the algorithm is that we make two different recursive calls, one on line 3 and a second on line 5. On line 3 we move all but the bottom disk on the initial tower to an intermediate pole. The next line simply moves the bottom disk to its final resting place. Then on line 5 we move the tower from the intermediate pole to the top of the largest disk. The base case is detected when the tower height is 0; in this case there is nothing to do, so the <code class="code-inline tex2jax_ignore">moveTower</code> function simply returns. The important thing to remember about handling the base case this way is that simply returning from <code class="code-inline tex2jax_ignore">moveTower</code> is what finally allows the <code class="code-inline tex2jax_ignore">moveDisk</code> function to be called.</div>
+<div class="para" id="recursion_tower-of-hanoi-12">The function <code class="code-inline tex2jax_ignore">moveDisk</code>, shown in <a href="recursion_tower-of-hanoi.html#lst-movediskcpp" class="xref" data-knowl="./knowl/xref/lst-movediskcpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.10.1.a: C++ Implementation of moveDisk">Task 5.10.1.a</a>, is very simple. All it does is print out that it is moving a disk from one pole to another. If you type in and run the <code class="code-inline tex2jax_ignore">moveTower</code> program (in <a href="recursion_tower-of-hanoi.html#lst-hanoi-whole" class="xref" data-knowl="./knowl/xref/lst-hanoi-whole.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.10.1.b: C++ Solution to Towers of Hanoi">Task 5.10.1.b</a>) you can see that it gives you a very efficient solution to the puzzle.</div>
+<article class="exploration project-like" id="expl-hanoi"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Postfix Expression Evaluator.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-hanoi">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-movediskcpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation of <code class="code-inline tex2jax_ignore">moveDisk</code>.</span>
+</h4>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int moveDisk(char fp, char tp){
     cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
 }
-</code></pre></div>
-<div class="para" id="recursion_tower-of-hanoi-16">The program in ActiveCode 1 provides the entire solution for three disks.</div>
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-hanoi-whole"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">C++ Solution to Towers of Hanoi.</span>
+</h4>
 <pre class="program"><code class="language-cpp">//Simulation of the tower of hanoi.
 
 #include &lt;iostream&gt;
@@ -826,7 +833,10 @@ void moveTower(int height, char fromPole, char toPole, char withPole){
 int main() {
     moveTower(3, 'A', 'B', 'C');
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(c)"><article class="task exercise-like" id="lst_movediskpy"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Python Solution to Towers of Hanoi.</span>
+</h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="hanoipy"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="hanoipy_editor" data-question_label="" data-codelens="true">#Simulation of the tower of hanoi.
 
 def moveTower(height,fromPole, toPole, withPole):
@@ -842,14 +852,14 @@ def main():
     moveTower(3,"A","B","C")
 
 main()
-</textarea></div></div></div>
-<div class="para" id="recursion_tower-of-hanoi-19">Now that you have seen the code for both <code class="code-inline tex2jax_ignore">moveTower</code> and <code class="code-inline tex2jax_ignore">moveDisk</code>, you may be wondering why we do not have a data structure that explicitly keeps track of what disks are on what poles. Here is a hint: if you were going to explicitly keep track of the disks, you would probably use three <code class="code-inline tex2jax_ignore">Stack</code> objects, one for each pole. The answer is that C++ provides the stacks that we need implicitly through the call stack.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="recursion_tower-of-hanoi-14">Now that you have seen the code for both <code class="code-inline tex2jax_ignore">moveTower</code> and <code class="code-inline tex2jax_ignore">moveDisk</code>, you may be wondering why we do not have a data structure that explicitly keeps track of what disks are on what poles. Here is a hint: if you were going to explicitly keep track of the disks, you would probably use three <code class="code-inline tex2jax_ignore">Stack</code> objects, one for each pole. The answer is that C++ provides the stacks that we need implicitly through the call stack.</div>
 <section class="reading-questions" id="rq-tower-hanoi"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h3>
 <article class="exercise exercise-like" id="rq-tower-hanoi-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
 <div class="ptx-runestone-container"><div class="runestone fillintheblank_section"><div data-component="fillintheblank" data-question_label="" id="">
-<div class="para" id="rq-tower-hanoi-1-1-1">If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete the Hanoi tower? (Hint, try implementing a counter to return the correct number.) <input type="text" placeholder="Number">
+<div class="para" id="rq-tower-hanoi-1-1-1">If you change the tower height in Line 17 from 3 to 6, how many moves must you make to complete the Hanoi tower? (Hint, try implementing a counter to return the correct number.)<input type="text" placeholder="Number">
 </div>
 <script type="application/json">[[{"number": [[63, 63], [63, 63]], "feedback": "<div class=\"para\" id=\"rq-tower-hanoi-1-2-1-1-1-1\">Correct, you can make a global counter at line 3, and then cout the increasing total under line 11.<\/div>"}, {"number": [[62, 62], [62, 62]], "feedback": "<div class=\"para\" id=\"rq-tower-hanoi-1-2-1-2-1-1\">Technically you are correct but, you are off by one.<\/div>"}, {"regex": "^\\s*^\\s*.*\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"rq-tower-hanoi-1-2-1-3-1-1\">Please try again you need to add a statement at line 3, and under line 11.<\/div>"}]]</script>
 </div></div></div></article></section></section></div>

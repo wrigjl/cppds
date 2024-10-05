@@ -112,14 +112,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.1';
+eBookConfig.runestone_version = '7.4.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.00db6230172ad960.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.04737dc219c2d2eb.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<script src="_static/prefix-runtime.00db6230172ad960.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.aa624e4071d017c3.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f64dcc3632d7a0c3.css">
 <style>
 #introduction_accessing-values-from-pointers-18-1 { counter-set: introduction_accessing-values-from-pointers-18-1 0; }
@@ -808,9 +808,8 @@ eBookConfig.enable_chatcodes =  false;
 <code class="code-inline tex2jax_ignore">print</code> Prints the text of the maze to the screen.</div></li>
 </ul></div>
 <div class="para" id="recursion_exploring-a-maze-11">The <code class="code-inline tex2jax_ignore">Maze</code> class also overloads the index operator <code class="code-inline tex2jax_ignore">[]</code> so that our algorithm can easily access the status of any particular square.</div>
-<div class="para" id="recursion_exploring-a-maze-12">Let’s examine the code for the search function which we call <code class="code-inline tex2jax_ignore">searchFrom</code>. The code is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-mazesearch" missing or not unique]</code>. Notice that this function takes three parameters: a maze object, the starting row, and the starting column. This is important because as a recursive function the search logically starts again with each recursive call.</div>
-<div class="para" id="recursion_exploring-a-maze-13"><dfn class="terminology">Listing 3</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def searchFrom(maze, startRow, startColumn):
+<div class="para" id="recursion_exploring-a-maze-12">Let’s examine the code for the search function which we call <code class="code-inline tex2jax_ignore">searchFrom</code>. The code is shown in <a href="recursion_exploring-a-maze.html#lst-mazesearch" class="xref" data-knowl="./knowl/xref/lst-mazesearch.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.11.2">Listing 5.11.2</a>. Notice that this function takes three parameters: a maze object, the starting row, and the starting column. This is important because as a recursive function the search logically starts again with each recursive call.</div>
+<figure class="listing figure-like" id="lst-mazesearch"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def searchFrom(maze, startRow, startColumn):
     #  Check for base cases (Steps 1, 2, and 3):
 
     #  1. We have run into an obstacle, return false
@@ -845,10 +844,10 @@ eBookConfig.enable_chatcodes =  false;
 
     return found
 </code></pre></div>
-<div class="para" id="recursion_exploring-a-maze-15">As you look through the algorithm you will see that the first thing the code does (steps 1 and 2) is determine if the space <em class="emphasis">should be visited</em>. This is done by checking if the spot is an obstacle (<code class="code-inline tex2jax_ignore">MAZE_OBSTACLE</code>), or has already been visited (<code class="code-inline tex2jax_ignore">MAZE_TRIED</code>). The algorithm then determines if it has found an exit (step 3). If none of these cases are true, it continues the search recursively.</div>
-<div class="para" id="recursion_exploring-a-maze-16">You will notice that in the recursive step there are four recursive calls to <code class="code-inline tex2jax_ignore">searchFrom</code>. It is hard to predict how many of these recursive calls will be used since they are all connected by <code class="code-inline tex2jax_ignore">or</code> statements. If the first call to <code class="code-inline tex2jax_ignore">searchFrom</code> returns <code class="code-inline tex2jax_ignore">True</code> then none of the last three calls would be needed. You can interpret this as meaning that a step to <code class="code-inline tex2jax_ignore">(row-1,column)</code> (or North if you want to think geographically) is on the path leading out of the maze. If there is not a good path leading out of the maze to the North then the next recursive call is tried, this one to the South. If South fails then try West, and finally East. If all four recursive calls return false then we have found a dead end. You should download or type in the whole program and experiment with it by changing the order of these calls.</div>
-<div class="para" id="recursion_exploring-a-maze-17">The code for the <code class="code-inline tex2jax_ignore">Maze</code> class is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-maze" missing or not unique]</code>, <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-maze1" missing or not unique]</code>, and Listing 6. The <code class="code-inline tex2jax_ignore">__init__</code> method takes the name of a file as its only parameter. This file is a text file that represents a maze by using “+” characters for walls, spaces for open squares, and the letter “S” to indicate the starting position. <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig-exmaze" missing or not unique]</code> is an example of a maze data file. The internal representation of the maze is a list of lists. Each row of the <code class="code-inline tex2jax_ignore">mazeList</code> instance variable is also a list. This secondary list contains one character per square using the characters described above. For the data file in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig-exmaze" missing or not unique]</code> the internal representation looks like the following:</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">[['+','+','+','+',...,'+','+','+','+','+','+','+'],
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.11.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="recursion_exploring-a-maze-14">As you look through the algorithm you will see that the first thing the code does (steps 1 and 2) is determine if the space <em class="emphasis">should be visited</em>. This is done by checking if the spot is an obstacle (<code class="code-inline tex2jax_ignore">MAZE_OBSTACLE</code>), or has already been visited (<code class="code-inline tex2jax_ignore">MAZE_TRIED</code>). The algorithm then determines if it has found an exit (step 3). If none of these cases are true, it continues the search recursively.</div>
+<div class="para" id="recursion_exploring-a-maze-15">You will notice that in the recursive step there are four recursive calls to <code class="code-inline tex2jax_ignore">searchFrom</code>. It is hard to predict how many of these recursive calls will be used since they are all connected by <code class="code-inline tex2jax_ignore">or</code> statements. If the first call to <code class="code-inline tex2jax_ignore">searchFrom</code> returns <code class="code-inline tex2jax_ignore">True</code> then none of the last three calls would be needed. You can interpret this as meaning that a step to <code class="code-inline tex2jax_ignore">(row-1,column)</code> (or North if you want to think geographically) is on the path leading out of the maze. If there is not a good path leading out of the maze to the North then the next recursive call is tried, this one to the South. If South fails then try West, and finally East. If all four recursive calls return false then we have found a dead end. You should download or type in the whole program and experiment with it by changing the order of these calls.</div>
+<div class="para" id="recursion_exploring-a-maze-16">The code for the <code class="code-inline tex2jax_ignore">Maze</code> class is shown in <a href="recursion_exploring-a-maze.html#lst-maze" class="xref" data-knowl="./knowl/xref/lst-maze.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.11.5">Listing 5.11.5</a> and <a href="recursion_exploring-a-maze.html#completemaze" class="xref" data-knowl="./knowl/xref/completemaze.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.11.6">Listing 5.11.6</a>. The <code class="code-inline tex2jax_ignore">__init__</code> method takes the name of a file as its only parameter. This file is a text file that represents a maze by using “+” characters for walls, spaces for open squares, and the letter “S” to indicate the starting position. <a href="recursion_exploring-a-maze.html#fig-exmaze" class="xref" data-knowl="./knowl/xref/fig-exmaze.html" data-reveal-label="Reveal" data-close-label="Close" title="Data 5.11.4: Example Maze File">Data 5.11.4</a> is an example of a maze data file. The internal representation of the maze is a list of lists. Each row of the <code class="code-inline tex2jax_ignore">mazeList</code> instance variable is also a list. This secondary list contains one character per square using the characters described above. For the data file in <a href="recursion_exploring-a-maze.html#lst-exmaze" class="xref" data-knowl="./knowl/xref/lst-exmaze.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.11.3">Listing 5.11.3</a> the internal representation looks like the following:</div>
+<figure class="listing figure-like" id="lst-exmaze"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">[['+','+','+','+',...,'+','+','+','+','+','+','+'],
  ['+',' ',' ',' ',...,' ',' ',' ','+',' ',' ',' '],
  ['+',' ','+',' ',...,'+','+',' ','+',' ','+','+'],
  ['+',' ','+',' ',...,' ',' ',' ','+',' ','+','+'],
@@ -860,11 +859,27 @@ eBookConfig.enable_chatcodes =  false;
  ['+',' ',' ',' ',...,' ',' ','+',' ','+','+','+'],
  ['+','+','+','+',...,'+','+','+',' ','+','+','+']]
 </code></pre></div>
-<div class="para" id="recursion_exploring-a-maze-19">The <code class="code-inline tex2jax_ignore">searchFrom</code> method uses this internal representation to traverse throughout the maze.</div>
-<div class="para" id="recursion_fig-exmaze">Figure 3: An Example Maze Data File.</div>
-<div class="para" id="recursion_exploring-a-maze-22">Finally, the <code class="code-inline tex2jax_ignore">isOnEdge</code> method uses our current position to test for an exit condition. An exit condition occurs whenever we have navigated to the edge of the maze, either row zero or column zero, or the far right column or the bottom row.</div>
-<div class="para" id="recursion_lst-maze"><dfn class="terminology">Listing 4</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">MAZE_OBSTACLE = '+'
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.11.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="recursion_exploring-a-maze-18">The <code class="code-inline tex2jax_ignore">searchFrom</code> method uses this internal representation to traverse throughout the maze.</div>
+<article class="data computation-like" id="fig-exmaze"><h3 class="heading">
+<span class="type">Data</span><span class="space"> </span><span class="codenumber">5.11.4</span><span class="period">.</span><span class="space"> </span><span class="title">Example Maze File.</span>
+</h3>
+<div class="para" id="fig-exmaze-2">Some data about this data</div>
+<div class="runestone datafile">
+<div class="datafile_caption"><code class="code-inline tex2jax_ignore">Data: maze1.txt</code></div>
+<pre id="file-maze1" data-component="datafile" data-filename="maze1.txt" data-edit="false" data-rows="11" data-cols="22">++++++++++++++++++++++
++   +   ++ ++     +   
++ +   +       +++ + ++
++ + +  ++  ++++   + ++
++++ ++++++    +++ +  +
++          ++  ++    +
++++++ ++++++   +++++ +
++     +   +++++++  + +
++ +++++++      S +   +
++                + +++
+++++++++++++++++++ +++
+</pre>
+</div></article><div class="para" id="recursion_exploring-a-maze-20">Finally, the <code class="code-inline tex2jax_ignore">isOnEdge</code> method uses our current position to test for an exit condition. An exit condition occurs whenever we have navigated to the edge of the maze, either row zero or column zero, or the far right column or the bottom row.</div>
+<figure class="listing figure-like" id="lst-maze"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
 MAZE_PATH = 'O'
 MAZE_DEAD_END = '-'
@@ -928,8 +943,8 @@ class Maze:
     def __getitem__(self, index):
         return self.mazeList[index]
 </code></pre></div>
-<div class="para" id="recursion_lst-maze1">The complete program is shown in ActiveCode 1.  This program uses the data file <code class="code-inline tex2jax_ignore">maze1.txt</code> shown above. Feel free to also attempt to use <code class="code-inline tex2jax_ignore">maze2.txt</code> from up above. Note that it is a much more simple example file in that the exit is very close to the starting position.</div>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="completemaze"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="completemaze_editor" data-question_label="" data-codelens="true">MAZE_OBSTACLE = '+'
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.11.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="recursion_exploring-a-maze-22">The complete program is shown in <a href="recursion_exploring-a-maze.html#completemaze" class="xref" data-knowl="./knowl/xref/completemaze.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.11.6">Listing 5.11.6</a>.  This program uses the data file <code class="code-inline tex2jax_ignore">maze1.txt</code> shown above. Feel free to also attempt to use <code class="code-inline tex2jax_ignore">maze2.txt</code> from up above. Note that it is a much more simple example file in that the exit is very close to the starting position.</div>
+<figure class="listing figure-like" id="completemaze"><div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id=""><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="_editor" data-question_label="" data-codelens="true">MAZE_OBSTACLE = '+'
 MAZE_START = 'S'
 MAZE_PATH = 'O'
 MAZE_DEAD_END = '-'
@@ -1039,10 +1054,10 @@ def main():
 
 main()
 </textarea></div></div></div>
-<article class="note remark-like" id="recursion_exploring-a-maze-28"><h3 class="heading">
-<span class="type">Note</span><span class="space"> </span><span class="codenumber">5.11.2</span><span class="period">.</span><span class="space"> </span><span class="title">Self Check.</span>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.11.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="note remark-like" id="recursion_exploring-a-maze-25"><h3 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">5.11.7</span><span class="period">.</span><span class="space"> </span><span class="title">Self Check.</span>
 </h3>
-<div class="para" id="recursion_exploring-a-maze-28-2">Now that you’re familiar with this simple maze exploring algorithm, use what you’ve learned about file handling, classes, and IO to implement this in C++! To visualize the exploration, print out the characters using <code class="code-inline tex2jax_ignore">cout</code> to create an ASCII representation of your cave. For example, your program should be able to read and operate from a file formatted as follows: You can also use CTurtle to visualize the traversal throughout the maze.</div></article><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">7 5
+<div class="para" id="recursion_exploring-a-maze-25-2">Now that you’re familiar with this simple maze exploring algorithm, use what you’ve learned about file handling, classes, and IO to implement this in C++! To visualize the exploration, print out the characters using <code class="code-inline tex2jax_ignore">cout</code> to create an ASCII representation of your cave. For example, your program should be able to read and operate from a file formatted as follows: You can also use CTurtle to visualize the traversal throughout the maze.</div></article><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">7 5
 
 +++++++
 +  + S+
