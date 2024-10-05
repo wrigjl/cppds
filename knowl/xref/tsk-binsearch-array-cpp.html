@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h5 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">6.4.1.a</span><span class="period">.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+//Checks to see if item is in a vector
+//retruns true or false (1 or 0)
+//using binary Search and
+//uses start and end indices
+bool binarySearch(int arr[], int item, int start, int end) {
+    if (end &gt;= start) {
+        int mid = start + (end - start) / 2;
+        if (arr[mid] == item)
+            return true;
+        if (arr[mid] &gt; item)
+            return binarySearch(arr, item, start, mid - 1);
+        else {
+            return binarySearch(arr, item, mid + 1, end);
+        }
+    }
+
+    return false;
+}
+
+bool binarySearchHelper(int arr[], int size, int item) {
+    return binarySearch(arr, item, 0, size);
+}
+
+int main(void) {
+    int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+    int arrLength = sizeof(arr) / sizeof(arr[0]);
+
+    cout &lt;&lt; binarySearchHelper(arr, arrLength, 3) &lt;&lt; endl;
+    cout &lt;&lt; binarySearchHelper(arr, arrLength, 13) &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="search-hash_the-binary-search.html#tsk-binsearch-array-cpp">in-context</a></span>
+</body>
+</html>

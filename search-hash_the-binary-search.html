@@ -188,9 +188,9 @@ eBookConfig.enable_chatcodes =  false;
 #recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
 #recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
 #recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
-#recursion_dynamic-programming-23-1 { counter-set: recursion_dynamic-programming-23-1 0; }
-#recursion_dynamic-programming-23-1 > li::marker { content: ""counter(recursion_dynamic-programming-23-1,decimal)""; }
-#recursion_dynamic-programming-23-1 > li { counter-increment: recursion_dynamic-programming-23-1; }
+#recursion_dynamic-programming-20-1 { counter-set: recursion_dynamic-programming-20-1 0; }
+#recursion_dynamic-programming-20-1 > li::marker { content: ""counter(recursion_dynamic-programming-20-1,decimal)""; }
+#recursion_dynamic-programming-20-1 > li { counter-increment: recursion_dynamic-programming-20-1; }
 #recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
 #recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
 #recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
@@ -221,9 +221,9 @@ eBookConfig.enable_chatcodes =  false;
 #trees_search-tree-implementation-35-1 { counter-set: trees_search-tree-implementation-35-1 0; }
 #trees_search-tree-implementation-35-1 > li::marker { content: ""counter(trees_search-tree-implementation-35-1,decimal)""; }
 #trees_search-tree-implementation-35-1 > li { counter-increment: trees_search-tree-implementation-35-1; }
-#trees_search-tree-implementation-45-1 { counter-set: trees_search-tree-implementation-45-1 0; }
-#trees_search-tree-implementation-45-1 > li::marker { content: ""counter(trees_search-tree-implementation-45-1,decimal)""; }
-#trees_search-tree-implementation-45-1 > li { counter-increment: trees_search-tree-implementation-45-1; }
+#trees_search-tree-implementation-44-1 { counter-set: trees_search-tree-implementation-44-1 0; }
+#trees_search-tree-implementation-44-1 > li::marker { content: ""counter(trees_search-tree-implementation-44-1,decimal)""; }
+#trees_search-tree-implementation-44-1 > li { counter-increment: trees_search-tree-implementation-44-1; }
 #trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
 #trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
 #trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
@@ -893,8 +893,13 @@ int main() {
 </div>
 <div class="para" id="search-hash_analysis-of-binary-search-5">One additional analysis issue needs to be addressed. In the recursive solution shown above, the recursive call,</div>
 <div class="para" id="search-hash_analysis-of-binary-search-6"><code class="code-inline tex2jax_ignore">binarySearch(alist[:midpoint],item)</code></div>
-<div class="para" id="search-hash_analysis-of-binary-search-7">uses the slice operator to create the left half of the list that is then passed to the next invocation (similarly for the right half as well). The analysis that we did above assumed that the slice operator takes constant time. This means that the binary search using slice will not perform in strict logarithmic time. Luckily this can be remedied by passing the list along with the starting and ending indices. The indices can be calculated as we did in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-binarysearchpy" missing or not unique]</code>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. Below is an example of such an implementation.</div>
-<figure class="listing figure-like" id="binary_search_cpp-py_array"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<div class="para" id="search-hash_analysis-of-binary-search-7">uses the slice operator to create the left half of the list that is then passed to the next invocation (similarly for the right half as well). The analysis that we did above assumed that the slice operator takes constant time. This means that the binary search using slice will not perform in strict logarithmic time. Luckily this can be remedied by passing the list along with the starting and ending indices. The indices can be calculated as we did in <a href="search-hash_the-binary-search.html#binarysearch-1" class="xref" data-knowl="./knowl/xref/binarysearch-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.4.3">Listing 6.4.3</a>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. <a href="search-hash_the-binary-search.html#tsk-binsearch-array-cpp" class="xref" data-knowl="./knowl/xref/tsk-binsearch-array-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 6.4.1.a">Task 6.4.1.a</a> shows such an implementation.</div>
+<article class="exploration project-like" id="expl-binary_search_cpp_array"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Binary Search Using Array Optimization.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-binary_search_cpp_array">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="tsk-binsearch-array-cpp"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 //Checks to see if item is in a vector
@@ -929,7 +934,8 @@ int main(void) {
 
     return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="tsk-binsearch-array-py"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="binary_search_python_array"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="binary_search_python_array_editor" data-question_label="" data-codelens="true">'''Checks to see if item is in a list
 retruns true or false (1 or 0)
 using binary Search and
@@ -958,8 +964,8 @@ def main():
     b = binarySearch(array, 99, 0, len(array))
     print("answer is", b)
 main()
-</textarea></div></div></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.4.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="search-hash_analysis-of-binary-search-9">Even though a binary search is generally better than a sequential search, it is important to note that for small values of <em class="emphasis">n</em>, the additional cost of sorting is probably not worth it. In fact, we should always consider whether it is cost effective to take on the extra work of sorting to gain searching benefits. If we can sort once and then search many times, the cost of the sort is not so significant. However, for large lists, sorting even once can be so expensive that simply performing a sequential search from the start may be the best choice.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="search-hash_analysis-of-binary-search-9">Even though a binary search is generally better than a sequential search, it is important to note that for small values of <em class="emphasis">n</em>, the additional cost of sorting is probably not worth it. In fact, we should always consider whether it is cost effective to take on the extra work of sorting to gain searching benefits. If we can sort once and then search many times, the cost of the sort is not so significant. However, for large lists, sorting even once can be so expensive that simply performing a sequential search from the start may be the best choice.</div>
 <section class="reading-questions" id="rq-binary-search"><h4 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h4>

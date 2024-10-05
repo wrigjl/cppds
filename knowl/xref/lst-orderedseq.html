@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Checks to see if item is in a vector
+// retruns true or false (1 or 0)
+// using ordered sequential Search
+bool orderedSequentialSearch(vector&lt;int&gt; avector, int item) {
+    unsigned int pos = 0;
+    bool found = false;
+    bool stop = false;
+    while (pos &lt; avector.size() &amp;&amp; !found &amp;&amp; !stop) {
+        if (avector[pos] == item) {
+            found = true;
+        } else {
+            if (avector[pos] &gt; item) {
+                stop = true;
+            } else {
+                pos++;
+            }
+        }
+    }
+
+    return found;
+}
+
+int main() {
+    // Vector initialized using an array
+    int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+    vector&lt;int&gt; testvector(arr,arr+(sizeof(arr)/sizeof(arr[0])));
+
+    cout &lt;&lt; orderedSequentialSearch(testvector, 3) &lt;&lt; endl;
+    cout &lt;&lt; orderedSequentialSearch(testvector, 13) &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.3.6<span class="period">.</span></span><span class="space"> </span>Ordered Sequential Search</figcaption></figure><span class="incontext"><a class="internal" href="search-hash_the-sequential-search.html#lst-orderedseq">in-context</a></span>
+</body>
+</html>

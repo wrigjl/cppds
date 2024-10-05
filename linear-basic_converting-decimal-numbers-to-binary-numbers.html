@@ -188,9 +188,9 @@ eBookConfig.enable_chatcodes =  false;
 #recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
 #recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
 #recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
-#recursion_dynamic-programming-23-1 { counter-set: recursion_dynamic-programming-23-1 0; }
-#recursion_dynamic-programming-23-1 > li::marker { content: ""counter(recursion_dynamic-programming-23-1,decimal)""; }
-#recursion_dynamic-programming-23-1 > li { counter-increment: recursion_dynamic-programming-23-1; }
+#recursion_dynamic-programming-20-1 { counter-set: recursion_dynamic-programming-20-1 0; }
+#recursion_dynamic-programming-20-1 > li::marker { content: ""counter(recursion_dynamic-programming-20-1,decimal)""; }
+#recursion_dynamic-programming-20-1 > li { counter-increment: recursion_dynamic-programming-20-1; }
 #recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
 #recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
 #recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
@@ -221,9 +221,9 @@ eBookConfig.enable_chatcodes =  false;
 #trees_search-tree-implementation-35-1 { counter-set: trees_search-tree-implementation-35-1 0; }
 #trees_search-tree-implementation-35-1 > li::marker { content: ""counter(trees_search-tree-implementation-35-1,decimal)""; }
 #trees_search-tree-implementation-35-1 > li { counter-increment: trees_search-tree-implementation-35-1; }
-#trees_search-tree-implementation-45-1 { counter-set: trees_search-tree-implementation-45-1 0; }
-#trees_search-tree-implementation-45-1 > li::marker { content: ""counter(trees_search-tree-implementation-45-1,decimal)""; }
-#trees_search-tree-implementation-45-1 > li { counter-increment: trees_search-tree-implementation-45-1; }
+#trees_search-tree-implementation-44-1 { counter-set: trees_search-tree-implementation-44-1 0; }
+#trees_search-tree-implementation-44-1 > li::marker { content: ""counter(trees_search-tree-implementation-44-1,decimal)""; }
+#trees_search-tree-implementation-44-1 > li { counter-increment: trees_search-tree-implementation-44-1; }
 #trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
 #trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
 #trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
@@ -782,7 +782,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-5">and</div>
 <div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-6"><span class="process-math">\(1\times2^{7} + 1\times2^{6} + 1\times2^{5} + 0\times2^{4} + 1\times2^{3} + 0\times2^{2} + 0\times2^{1} + 1\times2^{0}\)</span></div>
 <div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-7">But how can we easily convert integer values into binary numbers? The answer is an algorithm called “Divide by 2” that uses a stack to keep track of the digits for the binary result.</div>
-<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-8">The Divide by 2 algorithm assumes that we start with an integer greater than 0. A simple iteration then continually uses integer division to divide the decimal number by 2 and to keep track of the remainder. The first division by 2 gives information as to whether the value is even or odd. An even value will have a remainder of 0. It will have the digit 0 in the 1s place. An odd value will have a remainder of 1 and will have the digit 1 in the 1s place. We think about building our binary number as a sequence of digits; the first remainder we compute will actually be the last digit in the sequence. As shown in <a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#fig-decbin" class="xref" data-knowl="./knowl/xref/fig-decbin.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.8.1">Figure 3.8.1</a>, we again see the reversal property that signals that a stack is likely to be the appropriate data structure for solving the problem.</div>
+<div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-8">The Divide by 2 algorithm assumes that we start with an integer greater than 0. A simple iteration then continually uses integer division to divide the decimal number by 2 and to keep track of the remainder. The first division by 2 gives information as to whether the value is even or odd. When the number is even, dividing it by 2 will leave a remainder of 0, meaning the binary representation of the number will have a 0 in the least significant bit. Conversely, when the number is odd, the remainder will be 1, indicating a 1 in the least significant bit. We think about building our binary number as a sequence of digits; the first remainder we compute will actually be the last digit in the sequence. As shown in <a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#fig-decbin" class="xref" data-knowl="./knowl/xref/fig-decbin.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.8.1">Figure 3.8.1</a>, we again see the reversal property that signals that a stack is likely to be the appropriate data structure for solving the problem.</div>
 <figure class="figure figure-like" id="fig-decbin"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/dectobin.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.8.1<span class="period">.</span></span><span class="space"> </span>Decimal-to-Binary Conversion</figcaption></figure><div class="para" id="linear-basic_converting-decimal-numbers-to-binary-numbers-10">The code in <a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#lst-binconverter-cpp" class="xref" data-knowl="./knowl/xref/lst-binconverter-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.8.1.a: C++ Implementation">Task 3.8.1.a</a> implements the Divide by 2 algorithm. The function <code class="code-inline tex2jax_ignore">divideBy2</code> takes an argument that is a decimal number and repeatedly divides it by 2. Line 11 uses the built-in modulo operator, %, to extract the remainder and line 12 then pushes it on the stack. After the division process reaches 0, a binary string is constructed in lines 16-19. Line 16 creates an empty string. The binary digits are popped from the stack one at a time and appended to the right-hand end of the string. The binary string is then returned.</div>
 <article class="exploration project-like" id="expl-lst-binconverter"><h3 class="heading">
