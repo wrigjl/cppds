@@ -112,7 +112,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.2';
+eBookConfig.runestone_version = '7.4.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -780,17 +780,24 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sort_the-bubble-sort-3">
 <a href="sort_the-bubble-sort.html#fig-bubblepass" class="xref" data-knowl="./knowl/xref/fig-bubblepass.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.3.1">Figure 7.3.1</a> shows the first pass of a bubble sort. The shaded items are being compared to see if they are out of order. If there are <em class="emphasis">n</em> items in the array, then there are <span class="process-math">\(n-1\)</span> pairs of items that need to be compared on the first pass. It is important to note that once the largest value in the array is part of a pair, it will continually be moved along until the pass is complete.</div>
 <figure class="figure figure-like" id="fig-bubblepass"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Sort/bubblepass.png" class="contained" alt="Illustration of bubble sort algorithm during the first pass. A series of arrays showing the step-by-step process of sorting numbers in ascending order. Starting with the array [54, 26, 93, 17, 77, 31, 44, 55, 20], subsequent arrays demonstrate swapping of elements, marked as ’Exchange’, or retention of position, marked as ’No Exchange’, to progressively move the highest number, 93, to the correct position at the end of the array after the first pass. The final array in the sequence is [26, 54, 17, 77, 31, 44, 55, 20, 93], with the note ’93 in place after first pass’ indicating the completion of this sorting stage."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.1<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">BubbleSort</code> The First Pass.</figcaption></figure><div class="para" id="sort_the-bubble-sort-5">At the start of the second pass, the largest value is now in place. There are <span class="process-math">\(n-1\)</span> items left to sort, meaning that there will be <span class="process-math">\(n-2\)</span> pairs. Since each pass places the next largest value in place, the total number of passes necessary will be <span class="process-math">\(n-1\text{.}\)</span> After completing the <span class="process-math">\(n-1\)</span> passes, the smallest item must be in the correct position with no further processing required. <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-bubble-cpp" missing or not unique]</code> shows the complete <code class="code-inline tex2jax_ignore">bubbleSort</code> function. It takes the array as a parameter, and modifies it by swapping items as necessary.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.1<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">BubbleSort</code> The First Pass.</figcaption></figure><div class="para" id="sort_the-bubble-sort-5">At the start of the second pass, the largest value is now in place. There are <span class="process-math">\(n-1\)</span> items left to sort, meaning that there will be <span class="process-math">\(n-2\)</span> pairs. Since each pass places the next largest value in place, the total number of passes necessary will be <span class="process-math">\(n-1\text{.}\)</span> After completing the <span class="process-math">\(n-1\)</span> passes, the smallest item must be in the correct position with no further processing required. <a href="sort_the-bubble-sort.html#lst-bubble-cpp" class="xref" data-knowl="./knowl/xref/lst-bubble-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 7.3.1.a: C++ Implementation">Task 7.3.1.a</a> shows the complete <code class="code-inline tex2jax_ignore">bubbleSort</code> function. It takes the array as a parameter, and modifies it by swapping items as necessary.</div>
 <div class="para" id="sort_the-bubble-sort-6">Typically, swapping two elements in an array requires a temporary storage location (an additional memory location). A code fragment such as</div>
 <pre class="code-block tex2jax_ignore">temp = alist[i];
 alist[i] = alist[j];
 alist[j] = temp;
 </pre>
 <div class="para" id="sort_the-bubble-sort-8">will exchange the ith and jth items in the array. Without the temporary storage, one of the values would be overwritten.</div>
-<div class="para" id="sort_the-bubble-sort-9">Lines 5-7 in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-bubble-cpp" missing or not unique]</code> perform the exchange of the <span class="process-math">\(i\)</span> and <span class="process-math">\((i+1)th\)</span> items using the three–step procedure described earlier. Note that we could also have used the simultaneous assignment to swap the items.</div>
+<div class="para" id="sort_the-bubble-sort-9">Lines 5-7 in <a href="sort_the-bubble-sort.html#lst-bubble-cpp" class="xref" data-knowl="./knowl/xref/lst-bubble-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 7.3.1.a: C++ Implementation">Task 7.3.1.a</a> perform the exchange of the <span class="process-math">\(i\)</span> and <span class="process-math">\((i+1)th\)</span> items using the three–step procedure described earlier. Note that we could also have used the simultaneous assignment to swap the items.</div>
 <figure class="figure figure-like" id="fig-pythonswap"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Sort/swap.png" class="contained" alt="A diagram explaining the process of exchanging two values in a programming language with an extra storage location, compared to Python where exchange can be done with two simultaneous assignments. The upper part of the image shows two array elements labeled ’i’ and ’j’ with values 93 and 44, and a ’temp’ variable used for the 3-step swap process. The lower part shows the simplified Python method where the values 93 and 44 are swapped in place without needing a temporary storage variable."></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.2<span class="period">.</span></span><span class="space"> </span>Exchanging Two Values in Python.</figcaption></figure><div class="para" id="sort_the-bubble-sort-11">The following activecode example shows the complete <code class="code-inline tex2jax_ignore">bubbleSort</code> function working on the array shown above.</div>
-<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<article class="exploration project-like" id="expl-lst-bubble"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">7.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Bubble Sort Implementation.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-bubble">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-bubble-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program line-numbers"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
@@ -820,8 +827,11 @@ int main() {
     }
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_bubble_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_bubble_py_editor" data-question_label="" data-codelens="true">"""function goes through list sorting adjacent values as it bubbles
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-bubble-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-bubble-py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-bubble-py_editor" data-question_label="" data-codelens="true">"""function goes through list sorting adjacent values as it bubbles
 the largest value to the top."""
 def bubbleSort(alist):
     for passnum in range(len(alist)-1,0,-1):
@@ -837,11 +847,11 @@ def main():
     print(alist)
 
 main()
-</textarea></div></div></div>
-<div class="para" id="sort_the-bubble-sort-14">The visualization in <a href="sort_the-bubble-sort.html#sort_bubblesort-animation" class="xref" data-knowl="./knowl/xref/sort_bubblesort-animation.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.3.3">Figure 7.3.3</a> allows you to step through the algorithm. Red bars represent the elements being looked at.</div>
-<figure class="figure figure-like" id="sort_bubblesort-animation"><iframe id="sort_bubblesort-animation-2" width="600" height="480" src="sort_bubblesort-animation-2-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.3<span class="period">.</span></span><span class="space"> </span>Bubblesort animation.</figcaption></figure><div class="para" id="sort_the-bubble-sort-16">The video in <a href="sort_the-bubble-sort.html#sort_bubble-video" class="xref" data-knowl="./knowl/xref/sort_bubble-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.3.4">Figure 7.3.4</a> shows <code class="code-inline tex2jax_ignore">bubbleSort</code> in action. The sort compares two items at a time (shown in blue). Once it finds two out of place blocks it will find the correct place for the smaller block and then reset for another pass.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="sort_the-bubble-sort-13">The visualization in <a href="sort_the-bubble-sort.html#sort_bubblesort-animation" class="xref" data-knowl="./knowl/xref/sort_bubblesort-animation.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.3.3">Figure 7.3.3</a> allows you to step through the algorithm. Red bars represent the elements being looked at.</div>
+<figure class="figure figure-like" id="sort_bubblesort-animation"><iframe id="sort_bubblesort-animation-2" width="600" height="480" src="sort_bubblesort-animation-2-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.3<span class="period">.</span></span><span class="space"> </span>Bubblesort animation.</figcaption></figure><div class="para" id="sort_the-bubble-sort-15">The video in <a href="sort_the-bubble-sort.html#sort_bubble-video" class="xref" data-knowl="./knowl/xref/sort_bubble-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.3.4">Figure 7.3.4</a> shows <code class="code-inline tex2jax_ignore">bubbleSort</code> in action. The sort compares two items at a time (shown in blue). Once it finds two out of place blocks it will find the correct place for the smaller block and then reset for another pass.</div>
 <figure class="figure figure-like" id="sort_bubble-video"><div class="video-box" style="width: 80%;padding-top: 45%; margin-left: 10%; margin-right: 10%;"><video id="sort_bubble_sort-video" class="video" controls="" poster="external/Sort/vis_bubble_sort_thumb.png"><source src="external/Sort/vis_bubble_sort.webm" type="video/webm"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.4<span class="period">.</span></span><span class="space"> </span>Video of <code class="code-inline tex2jax_ignore">insertionSort</code> in action.</figcaption></figure><div class="para" id="sort_the-bubble-sort-18">To analyze the bubble sort, we should note that regardless of how the items are arranged in the initial array, <span class="process-math">\(n-1\)</span> passes will be made to sort an array of size <em class="emphasis">n</em>. <a href="sort_the-bubble-sort.html#sort_tbl-bubbleanalysis" class="xref" data-knowl="./knowl/xref/sort_tbl-bubbleanalysis.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.3.5">Table 7.3.5</a> shows the number of comparisons for each pass. The total number of comparisons is the sum of the first <span class="process-math">\(n-1\)</span> integers. Recall that the sum of the first <em class="emphasis">n</em> integers is <span class="process-math">\(\frac{1}{2}n^{2} + \frac{1}{2}n\text{.}\)</span> The sum of the first <span class="process-math">\(n-1\)</span> integers is <span class="process-math">\(\frac{1}{2}n^{2} + \frac{1}{2}n - n\text{,}\)</span> which is <span class="process-math">\(\frac{1}{2}n^{2} - \frac{1}{2}n\text{.}\)</span> This is still <span class="process-math">\(O(n^{2})\)</span> comparisons. In the best case, if the array is already ordered, no exchanges will be made. However, in the worst case, every comparison will cause an exchange. On average, we exchange half of the time.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.4<span class="period">.</span></span><span class="space"> </span>Video of <code class="code-inline tex2jax_ignore">insertionSort</code> in action.</figcaption></figure><div class="para" id="sort_the-bubble-sort-17">To analyze the bubble sort, we should note that regardless of how the items are arranged in the initial array, <span class="process-math">\(n-1\)</span> passes will be made to sort an array of size <em class="emphasis">n</em>. <a href="sort_the-bubble-sort.html#sort_tbl-bubbleanalysis" class="xref" data-knowl="./knowl/xref/sort_tbl-bubbleanalysis.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.3.5">Table 7.3.5</a> shows the number of comparisons for each pass. The total number of comparisons is the sum of the first <span class="process-math">\(n-1\)</span> integers. Recall that the sum of the first <em class="emphasis">n</em> integers is <span class="process-math">\(\frac{1}{2}n^{2} + \frac{1}{2}n\text{.}\)</span> The sum of the first <span class="process-math">\(n-1\)</span> integers is <span class="process-math">\(\frac{1}{2}n^{2} + \frac{1}{2}n - n\text{,}\)</span> which is <span class="process-math">\(\frac{1}{2}n^{2} - \frac{1}{2}n\text{.}\)</span> This is still <span class="process-math">\(O(n^{2})\)</span> comparisons. In the best case, if the array is already ordered, no exchanges will be made. However, in the worst case, every comparison will cause an exchange. On average, we exchange half of the time.</div>
 <figure class="table table-like" id="sort_tbl-bubbleanalysis"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.5<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Pass</dfn></th>
@@ -867,7 +877,14 @@ main()
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(n-1\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
 </tr>
-</table></div></figure><div class="para" id="sort_the-bubble-sort-20">A bubble sort is often considered the most inefficient sorting method since it must exchange items before the final location is known. These “wasted” exchange operations are very costly. However, because the bubble sort makes passes through the entire unsorted portion of the array, it has the capability to do something most sorting algorithms cannot. In particular, if during a pass there are no exchanges, then we know that the array must be sorted. A bubble sort can be modified to stop early if it finds that the array has become sorted. This means that for arrays that require just a few passes, a bubble sort may have an advantage in that it will recognize the sorted array and stop. <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-shortbubbles-cpp" missing or not unique]</code> shows this modification, which is often referred to as the <dfn class="terminology">short bubble</dfn>.</div>
+</table></div></figure><div class="para" id="sort_the-bubble-sort-19">A bubble sort is often considered the most inefficient sorting method since it must exchange items before the final location is known. These “wasted” exchange operations are very costly. However, because the bubble sort makes passes through the entire unsorted portion of the array, it has the capability to do something most sorting algorithms cannot. In particular, if during a pass there are no exchanges, then we know that the array must be sorted. A bubble sort can be modified to stop early if it finds that the array has become sorted. This means that for arrays that require just a few passes, a bubble sort may have an advantage in that it will recognize the sorted array and stop. <a href="sort_the-bubble-sort.html#lst-shortbubbles-cpp" class="xref" data-knowl="./knowl/xref/lst-shortbubbles-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 7.3.2.a: C++ Implementation">Task 7.3.2.a</a> shows this modification, which is often referred to as the <dfn class="terminology">short bubble</dfn>.</div>
+<article class="exploration project-like" id="expl-shortbubbles"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">7.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Short Bubbles Implementation.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-shortbubbles">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-shortbubbles-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 
@@ -907,8 +924,11 @@ int main() {
     }
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_shortbubble_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_shortbubble_py_editor" data-question_label="" data-codelens="true">def shortBubbleSort(alist):
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-shotbubbles-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-shortbubbles-py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-shortbubbles-py_editor" data-question_label="" data-codelens="true">def shortBubbleSort(alist):
     exchanges = True
     passnum = len(alist)-1
     while passnum &gt; 0 and exchanges:
@@ -926,8 +946,8 @@ int main() {
 alist=[20,30,40,90,50,60,70,80,100,110]
 shortBubbleSort(alist)
 print(alist)
-</textarea></div></div></div>
-<section class="reading-questions" id="rq-buble-sort"><h3 class="heading hide-type">
+</textarea></div></div></div></article></div>
+</div></div></div></article><section class="reading-questions" id="rq-buble-sort"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h3>
 <article class="exercise exercise-like" id="question_sort_1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>

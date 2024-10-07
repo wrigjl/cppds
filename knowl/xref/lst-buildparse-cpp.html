@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">8.5.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;stack&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+
+class BinaryTree {
+
+    private:
+        string key;
+        BinaryTree *leftChild;
+        BinaryTree *rightChild;
+    public:
+        BinaryTree(string rootObj){
+            this-&gt;key = rootObj;
+            this-&gt;leftChild = NULL;
+            this-&gt;rightChild = NULL;
+        }
+
+        void insertLeft(string newNode){
+            if (this-&gt;leftChild == NULL){
+                this-&gt;leftChild = new BinaryTree(newNode);
+            }
+            else {
+                BinaryTree *t = new BinaryTree(newNode);
+                t-&gt;leftChild = this-&gt;leftChild;
+                this-&gt;leftChild = t;
+            }
+        }
+
+        void insertRight(string newNode){
+            if (this-&gt;rightChild == NULL){
+                this-&gt;rightChild = new BinaryTree(newNode);
+            }
+            else {
+                BinaryTree *t = new BinaryTree(newNode);
+                t-&gt;rightChild = this-&gt;rightChild;
+                this-&gt;rightChild = t;
+            }
+        }
+
+        BinaryTree *getRightChild(){
+            return this-&gt;rightChild;
+        }
+
+        BinaryTree *getLeftChild(){
+            return this-&gt;leftChild;
+        }
+
+        void setRootVal(string obj){
+            this-&gt;key = obj;
+        }
+
+        string getRootVal(){
+            return this-&gt;key;
+        }
+};
+
+BinaryTree *buildParseTree(string fpexp){
+    string buf;
+    stringstream ss(fpexp);
+    vector&lt;string&gt; fplist;
+    while (ss &gt;&gt; buf){
+        fplist.push_back(buf);
+    }
+    stack&lt;BinaryTree*&gt; pStack;
+    BinaryTree *eTree = new BinaryTree("");
+    pStack.push(eTree);
+    BinaryTree *currentTree = eTree;
+
+    string arr[] = {"+", "-", "*", "/"};
+    vector&lt;string&gt; vect(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
+
+    string arr2[] = {"+", "-", "*", "/", ")"};
+    vector&lt;string&gt; vect2(arr2,arr2+(sizeof(arr2)/ sizeof(arr2[0])));
+
+    for (unsigned int i = 0; i&lt;fplist.size(); i++){
+
+        if (fplist[i] == "("){
+            currentTree-&gt;insertLeft("");
+            pStack.push(currentTree);
+            currentTree = currentTree-&gt;getLeftChild();
+        }
+
+        else if (find(vect.begin(), vect.end(), fplist[i]) != vect.end()){
+            currentTree-&gt;setRootVal(fplist[i]);
+            currentTree-&gt;insertRight("");
+            pStack.push(currentTree);
+            currentTree = currentTree-&gt;getRightChild();
+        }
+
+        else if (fplist[i] == ")"){
+            currentTree = pStack.top();
+            pStack.pop();
+        }
+
+        else if (find(vect2.begin(), vect2.end(), fplist[i]) == vect2.end()) {
+            try {
+                currentTree-&gt;setRootVal(fplist[i]);
+                BinaryTree *parent = pStack.top();
+                pStack.pop();
+                currentTree = parent;
+            }
+
+            catch (string ValueError ){
+                cerr &lt;&lt;"token " &lt;&lt; fplist[i] &lt;&lt; " is not a valid integer"&lt;&lt;endl;
+            }
+        }
+    }
+    return eTree;
+}
+
+void postorder(BinaryTree *tree){
+    if (tree != NULL){
+        postorder(tree-&gt;getLeftChild());
+        postorder(tree-&gt;getRightChild());
+        cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
+    }
+}
+
+int main() {
+
+    BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 )");
+
+    postorder(pt);
+
+    return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="trees_parse-tree.html#lst-buildparse-cpp">in-context</a></span>
+</body>
+</html>

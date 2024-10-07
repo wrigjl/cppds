@@ -112,7 +112,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.2';
+eBookConfig.runestone_version = '7.4.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -794,7 +794,14 @@ eBookConfig.enable_chatcodes =  false;
 <code class="code-inline tex2jax_ignore">buildHeap(vector)</code> builds a new heap from a vector of keys.</div></li>
 </ul></div>
 <div class="para" id="trees_binary-heap-operations-4">
-<code class="code-inline tex2jax_ignore">[cross-reference to target(s) "binheap_lst-heap1" missing or not unique]</code> demonstrates the use of some of the binary heap methods.  Notice that no matter the order that we add items to the heap, the smallest is removed each time.  We will now turn our attention to creating an implementation for this idea.</div>
+<a href="trees_binary-heap-operations.html#lst-binheapops-cpp" class="xref" data-knowl="./knowl/xref/lst-binheapops-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.9.1.a: C++ Implementation">Task 8.9.1.a</a> demonstrates the use of some of the binary heap methods.  Notice that no matter the order that we add items to the heap, the smallest is removed each time.  We will now turn our attention to creating an implementation for this idea.</div>
+<article class="exploration project-like" id="expl-binheapops"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.9.1</span><span class="period">.</span><span class="space"> </span><span class="title">Binary Heap Operations.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-binheapops">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-binheapops-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -908,8 +915,11 @@ int main(){
 
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="heap1py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="heap1py_editor" data-question_label="" data-codelens="true">#you can use the command below to import the binheap library:
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-binheapops-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-binheapops-py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-binheapops-py_editor" data-question_label="" data-codelens="true">#you can use the command below to import the binheap library:
 #from pythonds.trees.binheap import BinHeap
 
 class BinHeap:
@@ -991,7 +1001,8 @@ def main():
     print(bh.delMin())
 
 main()
-</textarea></div></div></div></section></div>
+</textarea></div></div></div></article></div>
+</div></div></div></article></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="trees_priority-queues-with-binary-heaps-example.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="trees_binary-heap-implementation.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

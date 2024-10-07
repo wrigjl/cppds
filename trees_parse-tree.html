@@ -112,7 +112,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.2';
+eBookConfig.runestone_version = '7.4.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -820,7 +820,14 @@ eBookConfig.enable_chatcodes =  false;
 <li id="trees_parse-tree-16-1-10"><div class="para" id="trees_parse-tree-16-1-10-1">Read ) as the next token. By rule 4 we make the parent of + the current node. At this point there is no parent for + so we are done.</div></li>
 </ol></div>
 <div class="para" id="trees_parse-tree-17">From the example above, it is clear that we need to keep track of the current node as well as the parent of the current node. The tree interface provides us with a way to get children of a node, through the <code class="code-inline tex2jax_ignore">getLeftChild</code> and <code class="code-inline tex2jax_ignore">getRightChild</code> methods, but how can we keep track of the parent? A simple solution to keeping track of parents as we traverse the tree is to use a stack. Whenever we want to descend to a child of the current node, we first push the current node on the stack. When we want to return to the parent of the current node, we pop the parent off the stack.</div>
-<div class="para" id="trees_parse-tree-18">Using the rules described above, along with the <code class="code-inline tex2jax_ignore">Stack</code> and <code class="code-inline tex2jax_ignore">BinaryTree</code> operations, we are now ready to write a C++ function to create a parse tree. The code for our parse tree builder is presented in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-buildparse" missing or not unique]</code>.</div>
+<div class="para" id="trees_parse-tree-18">Using the rules described above, along with the <code class="code-inline tex2jax_ignore">Stack</code> and <code class="code-inline tex2jax_ignore">BinaryTree</code> operations, we are now ready to write a C++ function to create a parse tree. The code for our parse tree builder is presented in <a href="trees_parse-tree.html#lst-buildparse-cpp" class="xref" data-knowl="./knowl/xref/lst-buildparse-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.5.1.a: C++ Implementation">Task 8.5.1.a</a>.</div>
+<article class="exploration project-like" id="expl-buildparse"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Building A Parse Tree.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-buildparse">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-buildparse-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 #include &lt;stack&gt;
@@ -846,23 +853,23 @@ class BinaryTree {
 
         void insertLeft(string newNode){
             if (this-&gt;leftChild == NULL){
-            this-&gt;leftChild = new BinaryTree(newNode);
+                this-&gt;leftChild = new BinaryTree(newNode);
             }
             else {
-            BinaryTree *t = new BinaryTree(newNode);
-            t-&gt;leftChild = this-&gt;leftChild;
-            this-&gt;leftChild = t;
+                BinaryTree *t = new BinaryTree(newNode);
+                t-&gt;leftChild = this-&gt;leftChild;
+                this-&gt;leftChild = t;
             }
         }
 
         void insertRight(string newNode){
             if (this-&gt;rightChild == NULL){
-            this-&gt;rightChild = new BinaryTree(newNode);
+                this-&gt;rightChild = new BinaryTree(newNode);
             }
             else {
-            BinaryTree *t = new BinaryTree(newNode);
-            t-&gt;rightChild = this-&gt;rightChild;
-            this-&gt;rightChild = t;
+                BinaryTree *t = new BinaryTree(newNode);
+                t-&gt;rightChild = this-&gt;rightChild;
+                this-&gt;rightChild = t;
             }
         }
 
@@ -949,13 +956,15 @@ int main() {
 
     BinaryTree *pt = buildParseTree("( ( 10 + 5 ) * 3 )");
 
-
     postorder(pt);
 
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="parsebuildpy"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="parsebuildpy_editor" data-question_label="" data-codelens="true">from pythonds.basic.stack import Stack
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-buildparse-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-buildparse-py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-buildparse-py_editor" data-question_label="" data-codelens="true">from pythonds.basic.stack import Stack
 from pythonds.trees.binaryTree import BinaryTree
 
 def buildParseTree(fpexp):
@@ -995,15 +1004,21 @@ def main():
     pt = buildParseTree("( ( 10 + 5 ) * 3 )")
     pt.postorder()  #defined and explained in the next section
 main()
-</textarea></div></div></div>
-<div class="para" id="trees_parse-tree-21">The four rules for building a parse tree are coded as the first four clauses of the <code class="code-inline tex2jax_ignore">if</code> statement on lines 12, 17, 23, and 26 of <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-buildparse" missing or not unique]</code>. In each case you can see that the code implements the rule, as described above, with a few calls to the <code class="code-inline tex2jax_ignore">BinaryTree</code> or <code class="code-inline tex2jax_ignore">Stack</code> methods. The only error checking we do in this function is in the <code class="code-inline tex2jax_ignore">else</code> clause where a <code class="code-inline tex2jax_ignore">ValueError</code> exception will be raised if we get a token from the vector that we do not recognize.</div>
-<div class="para" id="trees_parse-tree-22">Now that we have built a parse tree, what can we do with it? As a first example, we will write a function to evaluate the parse tree, returning the numerical result. To write this function, we will make use of the hierarchical nature of the tree. Look back at <a href="trees_parse-tree.html#fig-meparse" class="xref" data-knowl="./knowl/xref/fig-meparse.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.5.2">Figure 8.5.2</a>. Recall that we can replace the original tree with the simplified tree shown in <a href="trees_parse-tree.html#fig-mesimple" class="xref" data-knowl="./knowl/xref/fig-mesimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.5.3">Figure 8.5.3</a>. This suggests that we can write an algorithm that evaluates a parse tree by recursively evaluating each subtree.</div>
-<div class="para" id="trees_parse-tree-23">As we have done with past recursive algorithms, we will begin the design for the recursive evaluation function by identifying the base case. A natural base case for recursive algorithms that operate on trees is to check for a leaf node. In a parse tree, the leaf nodes will always be operands. Since numerical objects like integers and floating points require no further interpretation, the <code class="code-inline tex2jax_ignore">evaluate</code> function can simply return the value stored in the leaf node. The recursive step that moves the function toward the base case is to call <code class="code-inline tex2jax_ignore">evaluate</code> on both the left and the right children of the current node. The recursive call effectively moves us down the tree, toward a leaf node.</div>
-<div class="para" id="trees_parse-tree-24">To put the results of the two recursive calls together, we can simply apply the operator stored in the parent node to the results returned from evaluating both children. In the example from <a href="trees_parse-tree.html#fig-mesimple" class="xref" data-knowl="./knowl/xref/fig-mesimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.5.3">Figure 8.5.3</a> we see that the two children of the root evaluate to themselves, namely 10 and 3. Applying the multiplication operator gives us a final result of 30.</div>
-<div class="para" id="trees_parse-tree-25">The code for a recursive <code class="code-inline tex2jax_ignore">evaluate</code> function is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-eval" missing or not unique]</code>. First, we obtain references to the left and the right children of the current node. If both the left and right children evaluate to <code class="code-inline tex2jax_ignore">None</code>, then we know that the current node is really a leaf node. This check is on line 7. If the current node is not a leaf node, look up the operator in the current node and apply it to the results from recursively evaluating the left and right children.</div>
-<div class="para" id="trees_parse-tree-26">To implement the arithmetic, we use a dictionary with the keys <code class="code-inline tex2jax_ignore">'+', '-', '*'</code>, and <code class="code-inline tex2jax_ignore">'/'</code>. The values stored in the dictionary are functions from C++’s operator module. The operator module provides us with the functional versions of many commonly used operators. When we look up an operator in the dictionary, the corresponding function object is retrieved. Since the retrieved object is a function, we can call it in the usual way <code class="code-inline tex2jax_ignore">function(param1,param2)</code>. So the lookup <code class="code-inline tex2jax_ignore">opers['+'](2,2)</code> is equivalent to <code class="code-inline tex2jax_ignore">operator.add(2,2)</code>.</div>
-<div class="para" id="trees_lst-eval"><dfn class="terminology">Listing 1</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Operator {
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="trees_parse-tree-20">The four rules for building a parse tree are coded as the first four clauses of the <code class="code-inline tex2jax_ignore">if</code> statement on lines 12, 17, 23, and 26 of <a href="trees_parse-tree.html#lst-buildparse-cpp" class="xref" data-knowl="./knowl/xref/lst-buildparse-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.5.1.a: C++ Implementation">Task 8.5.1.a</a>. In each case you can see that the code implements the rule, as described above, with a few calls to the <code class="code-inline tex2jax_ignore">BinaryTree</code> or <code class="code-inline tex2jax_ignore">Stack</code> methods. The only error checking we do in this function is in the <code class="code-inline tex2jax_ignore">else</code> clause where a <code class="code-inline tex2jax_ignore">ValueError</code> exception will be raised if we get a token from the vector that we do not recognize.</div>
+<div class="para" id="trees_parse-tree-21">Now that we have built a parse tree, what can we do with it? As a first example, we will write a function to evaluate the parse tree, returning the numerical result. To write this function, we will make use of the hierarchical nature of the tree. Look back at <a href="trees_parse-tree.html#fig-meparse" class="xref" data-knowl="./knowl/xref/fig-meparse.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.5.2">Figure 8.5.2</a>. Recall that we can replace the original tree with the simplified tree shown in <a href="trees_parse-tree.html#fig-mesimple" class="xref" data-knowl="./knowl/xref/fig-mesimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.5.3">Figure 8.5.3</a>. This suggests that we can write an algorithm that evaluates a parse tree by recursively evaluating each subtree.</div>
+<div class="para" id="trees_parse-tree-22">As we have done with past recursive algorithms, we will begin the design for the recursive evaluation function by identifying the base case. A natural base case for recursive algorithms that operate on trees is to check for a leaf node. In a parse tree, the leaf nodes will always be operands. Since numerical objects like integers and floating points require no further interpretation, the <code class="code-inline tex2jax_ignore">evaluate</code> function can simply return the value stored in the leaf node. The recursive step that moves the function toward the base case is to call <code class="code-inline tex2jax_ignore">evaluate</code> on both the left and the right children of the current node. The recursive call effectively moves us down the tree, toward a leaf node.</div>
+<div class="para" id="trees_parse-tree-23">To put the results of the two recursive calls together, we can simply apply the operator stored in the parent node to the results returned from evaluating both children. In the example from <a href="trees_parse-tree.html#fig-mesimple" class="xref" data-knowl="./knowl/xref/fig-mesimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.5.3">Figure 8.5.3</a> we see that the two children of the root evaluate to themselves, namely 10 and 3. Applying the multiplication operator gives us a final result of 30.</div>
+<div class="para" id="trees_parse-tree-24">The code for a recursive <code class="code-inline tex2jax_ignore">evaluate</code> function is shown in <a href="trees_parse-tree.html#lst-eval-cpp" class="xref" data-knowl="./knowl/xref/lst-eval-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.5.2.a: C++ Implementation">Task 8.5.2.a</a>. First, we obtain references to the left and the right children of the current node. If both the left and right children evaluate to <code class="code-inline tex2jax_ignore">None</code>, then we know that the current node is really a leaf node. This check is on line 7. If the current node is not a leaf node, look up the operator in the current node and apply it to the results from recursively evaluating the left and right children.</div>
+<div class="para" id="trees_parse-tree-25">To implement the arithmetic, we use a dictionary with the keys <code class="code-inline tex2jax_ignore">'+', '-', '*'</code>, and <code class="code-inline tex2jax_ignore">'/'</code>. The values stored in the dictionary are functions from C++’s operator module. The operator module provides us with the functional versions of many commonly used operators. When we look up an operator in the dictionary, the corresponding function object is retrieved. Since the retrieved object is a function, we can call it in the usual way <code class="code-inline tex2jax_ignore">function(param1,param2)</code>. So the lookup <code class="code-inline tex2jax_ignore">opers['+'](2,2)</code> is equivalent to <code class="code-inline tex2jax_ignore">operator.add(2,2)</code>.</div>
+<article class="exploration project-like" id="expl-eval"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Evaluating A Parse Tree.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-eval">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-eval-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">class Operator {
     public:
         int add(int x, int y){
             return x + y;
@@ -1062,7 +1077,10 @@ int main(){
 
     return 0;
 }
-</code></pre></div>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-eval-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">def evaluate(parseTree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
 
@@ -1074,9 +1092,9 @@ int main(){
         return fn(evaluate(leftC),evaluate(rightC))
     else:
         return parseTree.getRootVal()
-</code></pre></div>
-<div class="para" id="trees_parse-tree-30">Finally, we will trace the <code class="code-inline tex2jax_ignore">evaluate</code> function on the parse tree we created in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "fig-bldexpstep" missing or not unique]</code>. When we first call <code class="code-inline tex2jax_ignore">evaluate</code>, we pass the root of the entire tree as the parameter <code class="code-inline tex2jax_ignore">parseTree</code>. Then we obtain references to the left and right children to make sure they exist. The recursive call takes place on line 9. We begin by looking up the operator in the root of the tree, which is <code class="code-inline tex2jax_ignore">'+'</code>. The <code class="code-inline tex2jax_ignore">'+'</code> operator maps to the <code class="code-inline tex2jax_ignore">operator.add</code> function call, which takes two parameters. As usual for a C++ function call, the first thing C++ does is to evaluate the parameters that are passed to the function. In this case both parameters are recursive function calls to our <code class="code-inline tex2jax_ignore">evaluate</code> function. Using left-to-right evaluation, the first recursive call goes to the left. In the first recursive call the <code class="code-inline tex2jax_ignore">evaluate</code> function is given the left subtree. We find that the node has no left or right children, so we are in a leaf node. When we are in a leaf node we just return the value stored in the leaf node as the result of the evaluation. In this case we return the integer 3.</div>
-<div class="para" id="trees_parse-tree-31">At this point we have one parameter evaluated for our top-level call to <code class="code-inline tex2jax_ignore">operator.add</code>. But we are not done yet. Continuing the left-to-right evaluation of the parameters, we now make a recursive call to evaluate the right child of the root. We find that the node has both a left and a right child so we look up the operator stored in this node, <code class="code-inline tex2jax_ignore">'*'</code>, and call this function using the left and right children as the parameters. At this point you can see that both recursive calls will be to leaf nodes, which will evaluate to the integers four and five respectively. With the two parameters evaluated, we return the result of <code class="code-inline tex2jax_ignore">operator.mul(4,5)</code>. At this point we have evaluated the operands for the top level <code class="code-inline tex2jax_ignore">'+'</code> operator and all that is left to do is finish the call to <code class="code-inline tex2jax_ignore">operator.add(3,20)</code>. The result of the evaluation of the entire expression tree for <span class="process-math">\((3 + (4 * 5))\)</span> is 23.</div>
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_parse-tree-27">Finally, we will trace the <code class="code-inline tex2jax_ignore">evaluate</code> function on the parse tree we created in <a href="trees_parse-tree.html#parse_fig-bldexpstep" class="xref" data-knowl="./knowl/xref/parse_fig-bldexpstep.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.5.4">Figure 8.5.4</a>. When we first call <code class="code-inline tex2jax_ignore">evaluate</code>, we pass the root of the entire tree as the parameter <code class="code-inline tex2jax_ignore">parseTree</code>. Then we obtain references to the left and right children to make sure they exist. The recursive call takes place on line 9. We begin by looking up the operator in the root of the tree, which is <code class="code-inline tex2jax_ignore">'+'</code>. The <code class="code-inline tex2jax_ignore">'+'</code> operator maps to the <code class="code-inline tex2jax_ignore">operator.add</code> function call, which takes two parameters. As usual for a C++ function call, the first thing C++ does is to evaluate the parameters that are passed to the function. In this case both parameters are recursive function calls to our <code class="code-inline tex2jax_ignore">evaluate</code> function. Using left-to-right evaluation, the first recursive call goes to the left. In the first recursive call the <code class="code-inline tex2jax_ignore">evaluate</code> function is given the left subtree. We find that the node has no left or right children, so we are in a leaf node. When we are in a leaf node we just return the value stored in the leaf node as the result of the evaluation. In this case we return the integer 3.</div>
+<div class="para" id="trees_parse-tree-28">At this point we have one parameter evaluated for our top-level call to <code class="code-inline tex2jax_ignore">operator.add</code>. But we are not done yet. Continuing the left-to-right evaluation of the parameters, we now make a recursive call to evaluate the right child of the root. We find that the node has both a left and a right child so we look up the operator stored in this node, <code class="code-inline tex2jax_ignore">'*'</code>, and call this function using the left and right children as the parameters. At this point you can see that both recursive calls will be to leaf nodes, which will evaluate to the integers four and five respectively. With the two parameters evaluated, we return the result of <code class="code-inline tex2jax_ignore">operator.mul(4,5)</code>. At this point we have evaluated the operands for the top level <code class="code-inline tex2jax_ignore">'+'</code> operator and all that is left to do is finish the call to <code class="code-inline tex2jax_ignore">operator.add(3,20)</code>. The result of the evaluation of the entire expression tree for <span class="process-math">\((3 + (4 * 5))\)</span> is 23.</div>
 <section class="reading-questions" id="rq-parse-tree"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Question</span>
 </h3>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">8.9.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class BinHeap{
+
+private:
+    vector&lt;int&gt; heapvector;
+    int currentSize;
+
+public:
+    BinHeap(vector&lt;int&gt; heapvector){
+        this-&gt;heapvector = heapvector;
+        this-&gt;currentSize = 0;
+    }
+
+    void percUp(int i){
+        while ((i / 2) &gt; 0){
+            if (this-&gt;heapvector[i] &lt; this-&gt;heapvector[i/2]){
+                int tmp = this-&gt;heapvector[i/2];
+                this-&gt;heapvector[i/2] = this-&gt;heapvector[i];
+                this-&gt;heapvector[i] = tmp;
+            }
+            i = i/2;
+        }
+
+    }
+
+    void insert(int k){
+        this-&gt;heapvector.push_back(k);
+        this-&gt;currentSize = this-&gt;currentSize + 1;
+        this-&gt;percUp(this-&gt;currentSize);
+    }
+
+    void percDown(int i){
+        while ((i*2) &lt;= this-&gt;currentSize){
+            int mc = this-&gt;minChild(i);
+            if (this-&gt;heapvector[i] &gt; this-&gt;heapvector[mc]){
+                int tmp = this-&gt;heapvector[i];
+                this-&gt;heapvector[i] = this-&gt;heapvector[mc];
+                this-&gt;heapvector[mc] = tmp;
+            }
+            i = mc;
+        }
+    }
+
+    int minChild(int i){
+        if (((i*2)+1) &gt; this-&gt;currentSize){
+            return i * 2;
+        }
+        else{
+            if (this-&gt;heapvector[i*2] &lt; this-&gt;heapvector[(i*2)+1]){
+                return i * 2;
+            }
+            else{
+                return (i * 2) + 1;
+            }
+        }
+    }
+
+    int delMin(){
+        int retval = this-&gt;heapvector[1];
+        this-&gt;heapvector[1] = this-&gt;heapvector[this-&gt;currentSize];
+        this-&gt;currentSize = this-&gt;currentSize - 1;
+        this-&gt;heapvector.pop_back();
+        this-&gt;percDown(1);
+        return retval;
+    }
+
+    void buildheap(vector&lt;int&gt; avector){
+        int i = avector.size() / 2;
+        this-&gt;currentSize = avector.size();
+        this-&gt;heapvector.insert(this-&gt;heapvector.end(), avector.begin(), avector.end());
+        while (i &gt; 0){
+            this-&gt;percDown(i);
+            i = i - 1;
+        }
+    }
+
+    bool isEmpty(){
+        if (this-&gt;heapvector.size()&gt;0){
+            return false;
+        }
+        return true;
+    }
+
+    int findMin(){
+        return this-&gt;heapvector[1];
+    }
+};
+
+
+int main(){
+    int arr[] = {9, 5, 6, 2, 3};
+    vector&lt;int&gt; a(arr,arr+(sizeof(arr)/ sizeof(arr[0])));
+
+    vector&lt;int&gt; vec;
+    vec.push_back(0);
+
+    BinHeap *bh = new BinHeap(vec);
+
+    bh-&gt;insert(5);
+    bh-&gt;insert(7);
+    bh-&gt;insert(3);
+    bh-&gt;insert(11);
+
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+    cout &lt;&lt; bh-&gt;delMin() &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="trees_binary-heap-operations.html#lst-binheapops-cpp">in-context</a></span>
+</body>
+</html>

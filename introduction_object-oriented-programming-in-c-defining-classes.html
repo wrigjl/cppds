@@ -112,7 +112,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.2';
+eBookConfig.runestone_version = '7.4.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -1061,7 +1061,7 @@ f2=Fraction(1,2)
 f3=f1+f2
 print(f3)
 </textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-29">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code> we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators either have to be members of the stream class or friend functions. However, that is not true for <code class="code-inline tex2jax_ignore">+</code>. Let’s rewrite the addition operator as a friend function.</div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-29">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code> we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators (such as &lt;&lt; and &gt;&gt;) must be either member functions of the stream class or friend functions of the class they are used with. However, that is not true for the <code class="code-inline tex2jax_ignore">+</code> operator. Let’s rewrite the addition operator as a friend function.</div>
 <div class="para" id="introduction_polymorphism-30"><dfn class="terminology">Listing 6</dfn></div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">Fraction operator +(const &amp;Fraction otherFrac){
     //Note the return type is a Fraction

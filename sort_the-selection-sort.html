@@ -112,7 +112,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.2';
+eBookConfig.runestone_version = '7.4.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -777,7 +777,14 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">7.4</span><span class="space"> </span><span class="title">The Selection Sort</span>
 </h2>
 <div class="para" id="sort_the-selection-sort-2"> The <dfn class="terminology">selection sort</dfn> improves on the bubble sort by making only one exchange for every pass through the first part of the vector. We will call this a step. In order to do this, a selection sort looks for the largest value as it makes a partial pass and, after completing the partial pass, places it in the proper location, ending the step. As with a bubble sort, after the first step, the largest item is in the correct place. After the second step, the next largest is in place. This process continues and requires <span class="process-math">\(n-1\)</span> steps to sort <em class="emphasis">n</em> items, since the final item must be in place after the <span class="process-math">\((n-1)\)</span> step.</div>
-<div class="para" id="sort_the-selection-sort-3">On each step, the largest remaining item is selected and then placed in its proper location. The first pass places 93, the second pass places 77, the third places 55, and so on. The function is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-selectionsortcode-cpp" missing or not unique]</code> .</div>
+<div class="para" id="sort_the-selection-sort-3">On each step, the largest remaining item is selected and then placed in its proper location. The first pass places 93, the second pass places 77, the third places 55, and so on. The function is shown in <a href="sort_the-selection-sort.html#lst-selectionsort-cpp" class="xref" data-knowl="./knowl/xref/lst-selectionsort-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 7.4.1.a: C++ Implementation">Task 7.4.1.a</a> .</div>
+<article class="exploration project-like" id="expl-selectionsort"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Selection Sort.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-selectionsort">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-selectionsort-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -814,8 +821,11 @@ int main() {
 
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_selectionsortcode"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_selectionsortcode_editor" data-question_label="" data-codelens="true">#function sorts through values in list using selection sort
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-selectionsort-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-selectionsort-py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-selectionsort-py_editor" data-question_label="" data-codelens="true">#function sorts through values in list using selection sort
 def selectionSort(alist):
    for fillslot in range(len(alist)-1,0,-1):
        positionOfMax=0
@@ -832,11 +842,11 @@ def main():
     selectionSort(alist)
     print(alist)
 main()
-</textarea></div></div></div>
-<div class="para" id="sort_the-selection-sort-6">The visualization in <a href="sort_the-selection-sort.html#sort_selectionsort-animation" class="xref" data-knowl="./knowl/xref/sort_selectionsort-animation.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.1">Figure 7.4.1</a> allows you to step through the algorithm. Yellow bars represent the current element, red represents the element being looked at, and blue represents the last element to look at during a step.</div>
-<figure class="figure figure-like" id="sort_selectionsort-animation"><iframe id="sort_selectionsort-animation-2" width="600" height="480" src="sort_selectionsort-animation-2-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.1<span class="period">.</span></span><span class="space"> </span>Selection esort animation.</figcaption></figure><div class="para" id="sort_the-selection-sort-8">The video in <a href="sort_the-selection-sort.html#sort_selection-video" class="xref" data-knowl="./knowl/xref/sort_selection-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.2">Figure 7.4.2</a> shows selection sort in action. Each pass compares the bars in sequential order. The smallest bar is selected on each pass and is set as the minimum, represented in orange. Every remaining bar is then compared to the minimum. If the bar is larger, it is represented in blue, if it is smaller, it becomes the new orange bar. After each pass, a counter will increment which bar in our container will start with. This increment is representedby a thin black line falling before the bar to be started at.</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="sort_the-selection-sort-5">The visualization in <a href="sort_the-selection-sort.html#sort_selectionsort-animation" class="xref" data-knowl="./knowl/xref/sort_selectionsort-animation.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.1">Figure 7.4.1</a> allows you to step through the algorithm. Yellow bars represent the current element, red represents the element being looked at, and blue represents the last element to look at during a step.</div>
+<figure class="figure figure-like" id="sort_selectionsort-animation"><iframe id="sort_selectionsort-animation-2" width="600" height="480" src="sort_selectionsort-animation-2-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.1<span class="period">.</span></span><span class="space"> </span>Selection esort animation.</figcaption></figure><div class="para" id="sort_the-selection-sort-7">The video in <a href="sort_the-selection-sort.html#sort_selection-video" class="xref" data-knowl="./knowl/xref/sort_selection-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.2">Figure 7.4.2</a> shows selection sort in action. Each pass compares the bars in sequential order. The smallest bar is selected on each pass and is set as the minimum, represented in orange. Every remaining bar is then compared to the minimum. If the bar is larger, it is represented in blue, if it is smaller, it becomes the new orange bar. After each pass, a counter will increment which bar in our container will start with. This increment is representedby a thin black line falling before the bar to be started at.</div>
 <figure class="figure figure-like" id="sort_selection-video"><div class="video-box" style="width: 80%;padding-top: 45%; margin-left: 10%; margin-right: 10%;"><video id="sort_selection_sort-video" class="video" controls="" poster="external/Sort/vis_selection_sort_thumb.png"><source src="external/Sort/vis_selection_sort.webm" type="video/webm"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.2<span class="period">.</span></span><span class="space"> </span>Video of <code class="code-inline tex2jax_ignore">selectionSort</code> in action.</figcaption></figure><div class="para" id="sort_the-selection-sort-10">You may see that the selection sort makes the same number of comparisons as the bubble sort and is therefore also <span class="process-math">\(O(n^{2})\text{.}\)</span> However, due to the reduction in the number of exchanges, the selection sort typically executes faster in benchmark studies.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.2<span class="period">.</span></span><span class="space"> </span>Video of <code class="code-inline tex2jax_ignore">selectionSort</code> in action.</figcaption></figure><div class="para" id="sort_the-selection-sort-9">You may see that the selection sort makes the same number of comparisons as the bubble sort and is therefore also <span class="process-math">\(O(n^{2})\text{.}\)</span> However, due to the reduction in the number of exchanges, the selection sort typically executes faster in benchmark studies.</div>
 <section class="reading-questions" id="rq-selection-sort"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h3>

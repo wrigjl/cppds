@@ -112,7 +112,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.2';
+eBookConfig.runestone_version = '7.4.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -779,74 +779,71 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="trees_nodes-and-references-2">Our second method to represent a tree uses nodes and references. In this case we will define a class that has attributes for the root value, as well as the left and right subtrees. Since this representation more closely follows the object-oriented programming paradigm, we will continue to use this representation for the remainder of the chapter.</div>
 <div class="para" id="trees_nodes-and-references-3">Using nodes and references, we might think of the tree as being structured like the one shown in <a href="trees_nodes-and-references.html#fig-treerec" class="xref" data-knowl="./knowl/xref/fig-treerec.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.4.1">Figure 8.4.1</a>.</div>
 <figure class="figure figure-like" id="fig-treerec"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/treerecs.png" class="contained" alt="Illustration of a binary tree structure with three levels. The top level shows a single node labeled ’a’ with two pointers ’left’ and ’right’. The second level has two nodes: ’b’ on the left with its own ’left’ and ’right’ pointers, and ’c’ on the right with pointers also labeled ’left’ and ’right’. The third level shows three nodes: ’d’ is the left child of ’b’ with ’left’ and ’right’ pointers; ’e’ is the right child of ’b’ with pointers labeled ’left’ and ’right’; ’f’ is the right child of ’c’ also with ’left’ and ’right’ pointers. Each pointer is represented by an arrow indicating the direction of the reference."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.4.1<span class="period">.</span></span><span class="space"> </span>A Simple Tree Using a Nodes and References Approach.</figcaption></figure><div class="para" id="trees_nodes-and-references-5">We will start out with a simple class definition for the nodes and references approach as shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-nar" missing or not unique]</code>. The important thing to remember about this representation is that the attributes <code class="code-inline tex2jax_ignore">left</code> and <code class="code-inline tex2jax_ignore">right</code> will become references to other instances of the <code class="code-inline tex2jax_ignore">BinaryTree</code> class. For example, when we insert a new left child into the tree we create another instance of <code class="code-inline tex2jax_ignore">BinaryTree</code> and modify <code class="code-inline tex2jax_ignore">self.leftChild</code> in the root to reference the new tree.</div>
-<div class="para" id="trees_lst-nar"><dfn class="terminology">Listing 4</dfn></div>
-<div class="para" id="trees_nodes-and-references-7"><dfn class="terminology">C++ Implementation</dfn></div>
-<pre class="code-block tex2jax_ignore">#include &lt;iostream&gt;
-#include &lt;cstdlib&gt;
-using namespace std;
-
-class BinaryTree {
-
-    private:
-    char key;
-    BinaryTree *leftChild;
-    BinaryTree *rightChild;
-
-    public:
-    BinaryTree(char rootObj){
-        this-&gt;key = rootObj;
-        this-&gt;leftChild = NULL;
-        this-&gt;rightChild = NULL;
-    }
-</pre>
-<div class="para" id="trees_nodes-and-references-9"><dfn class="terminology">Python Implementation</dfn></div>
-<pre class="code-block tex2jax_ignore">class BinaryTree:
-    def __init__(self,rootObj):
-        self.key = rootObj
-        self.leftChild = None
-        self.rightChild = None
-</pre>
-<div class="para" id="trees_nodes-and-references-11">Notice that in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-nar" missing or not unique]</code>, the constructor function expects to get some kind of object to store in the root. Just like you can store any object you like in an array, the root object of a tree can be a reference to any object. For our early examples, we will store the name of the node as the root value. Using nodes and references to represent the tree in <a href="trees_nodes-and-references.html#fig-treerec" class="xref" data-knowl="./knowl/xref/fig-treerec.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.4.1">Figure 8.4.1</a>, we would create six instances of the BinaryTree class.</div>
-<div class="para" id="trees_nodes-and-references-12">Next let’s look at the functions we need to build the tree beyond the root node. To add a left child to the tree, we will create a new binary tree object and set the <code class="code-inline tex2jax_ignore">left</code> attribute of the root to refer to this new object. The code for <code class="code-inline tex2jax_ignore">insertLeft</code> is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-insl" missing or not unique]</code>.</div>
-<div class="para" id="trees_lst-insl"><dfn class="terminology">Listing 5</dfn></div>
-<div class="para" id="trees_nodes-and-references-14"><dfn class="terminology">C++ Implementation</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">void insertLeft(char newNode){
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.4.1<span class="period">.</span></span><span class="space"> </span>A Simple Tree Using a Nodes and References Approach.</figcaption></figure><div class="para" id="trees_nodes-and-references-5">We will start out with a simple class definition for the nodes and references approach as shown in <a href="trees_nodes-and-references.html#lst-nar-cpp" class="xref" data-knowl="./knowl/xref/lst-nar-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.4.1.a: C++ Implementation">Task 8.4.1.a</a>. The important thing to remember about this representation is that the attributes <code class="code-inline tex2jax_ignore">left</code> and <code class="code-inline tex2jax_ignore">right</code> will become references to other instances of the <code class="code-inline tex2jax_ignore">BinaryTree</code> class. For example, when we insert a new left child into the tree we create another instance of <code class="code-inline tex2jax_ignore">BinaryTree</code> and modify <code class="code-inline tex2jax_ignore">self.leftChild</code> in the root to reference the new tree.</div>
+<article class="exploration project-like" id="expl-nar"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Nodes and References <code class="code-inline tex2jax_ignore">BinaryTree</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-nar">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-nar-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>#include &lt;iostream&gt; #include &lt;cstdlib&gt; using namespace std; class BinaryTree { private: char key; BinaryTree *leftChild; BinaryTree *rightChild; public: BinaryTree(char rootObj){ this-&gt;key = rootObj; this-&gt;leftChild = NULL; this-&gt;rightChild = NULL; } };</article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-nar-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>class BinaryTree: def __init__(self,rootObj): self.key = rootObj self.leftChild = None self.rightChild = None</article></div>
+</div></div></div></article><div class="para" id="trees_nodes-and-references-7">Notice that in <a href="trees_nodes-and-references.html#lst-nar-cpp" class="xref" data-knowl="./knowl/xref/lst-nar-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.4.1.a: C++ Implementation">Task 8.4.1.a</a>, the constructor function expects to get some kind of object to store in the root. Just like you can store any object you like in an array, the root object of a tree can be a reference to any object. For our early examples, we will store the name of the node as the root value. Using nodes and references to represent the tree in <a href="trees_nodes-and-references.html#fig-treerec" class="xref" data-knowl="./knowl/xref/fig-treerec.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.4.1">Figure 8.4.1</a>, we would create six instances of the BinaryTree class.</div>
+<div class="para" id="trees_nodes-and-references-8">Next let’s look at the functions we need to build the tree beyond the root node. To add a left child to the tree, we will create a new binary tree object and set the <code class="code-inline tex2jax_ignore">left</code> attribute of the root to refer to this new object. The code for <code class="code-inline tex2jax_ignore">insertLeft</code> is shown in <a href="trees_nodes-and-references.html#lst-insl-cpp" class="xref" data-knowl="./knowl/xref/lst-insl-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.4.2.a: C++ Implementation">Task 8.4.2.a</a>.</div>
+<article class="exploration project-like" id="expl-insl"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.4.2</span><span class="period">.</span><span class="space"> </span><span class="title"><code class="code-inline tex2jax_ignore">insertLeft</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-insl">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-insl-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void insertLeft(char newNode){
     if (this-&gt;leftChild == NULL){
-    this-&gt;leftChild = new BinaryTree(newNode);
+        this-&gt;leftChild = new BinaryTree(newNode);
     }
     else {
-    BinaryTree *t = new BinaryTree(newNode);
-    t-&gt;leftChild = this-&gt;leftChild;
-    this-&gt;leftChild = t;
+        BinaryTree *t = new BinaryTree(newNode);
+        t-&gt;leftChild = this-&gt;leftChild;
+        this-&gt;leftChild = t;
     }
 }
-</code></pre></div>
-<div class="para" id="trees_nodes-and-references-16"><dfn class="terminology">Python Implementation</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def insertLeft(self,newNode):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-insl-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">def insertLeft(self,newNode):
     if self.leftChild == None:
         self.leftChild = BinaryTree(newNode)
     else:
         t = BinaryTree(newNode)
         t.leftChild = self.leftChild
         self.leftChild = t
-</code></pre></div>
-<div class="para" id="trees_nodes-and-references-18">We must consider two cases for insertion. The first case is characterized by a node with no existing left child. When there is no left child, simply add a node to the tree. The second case is characterized by a node with an existing left child. In the second case, we insert a node and push the existing child down one level in the tree. The second case is handled by the <code class="code-inline tex2jax_ignore">else</code> statement on line 4 of <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-insl" missing or not unique]</code>.</div>
-<div class="para" id="trees_nodes-and-references-19">The code for <code class="code-inline tex2jax_ignore">insertRight</code> must consider a symmetric set of cases. There will either be no right child, or we must insert the node between the root and an existing right child. The insertion code is shown in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-insr" missing or not unique]</code>.</div>
-<div class="para" id="trees_lst-insr"><dfn class="terminology">Listing 6</dfn></div>
-<div class="para" id="trees_nodes-and-references-21"><dfn class="terminology">C++ Implementation</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">void insertRight(char newNode){
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_nodes-and-references-10">We must consider two cases for insertion. The first case is characterized by a node with no existing left child. When there is no left child, simply add a node to the tree. The second case is characterized by a node with an existing left child. In the second case, we insert a node and push the existing child down one level in the tree. The second case is handled by the <code class="code-inline tex2jax_ignore">else</code> statement on line 4 of <a href="trees_nodes-and-references.html#lst-insl-cpp" class="xref" data-knowl="./knowl/xref/lst-insl-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.4.2.a: C++ Implementation">Task 8.4.2.a</a>.</div>
+<div class="para" id="trees_nodes-and-references-11">The code for <code class="code-inline tex2jax_ignore">insertRight</code> must consider a symmetric set of cases. There will either be no right child, or we must insert the node between the root and an existing right child. The insertion code is shown in <a href="trees_nodes-and-references.html#lst-insr-cpp" class="xref" data-knowl="./knowl/xref/lst-insr-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.4.3.a: C++ Implementation">Task 8.4.3.a</a>.</div>
+<article class="exploration project-like" id="expl-insr"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.4.3</span><span class="period">.</span><span class="space"> </span><span class="title"><code class="code-inline tex2jax_ignore">insertRight</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-insr">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-insr-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void insertRight(char newNode){
     if (this-&gt;rightChild == NULL){
-    this-&gt;rightChild = new BinaryTree(newNode);
+        this-&gt;rightChild = new BinaryTree(newNode);
     }
     else {
-    BinaryTree *t = new BinaryTree(newNode);
-    t-&gt;rightChild = this-&gt;rightChild;
-    this-&gt;rightChild = t;
+        BinaryTree *t = new BinaryTree(newNode);
+        t-&gt;rightChild = this-&gt;rightChild;
+        this-&gt;rightChild = t;
     }
 }
-</code></pre></div>
-<div class="para" id="trees_nodes-and-references-23"><dfn class="terminology">Python Implementation</dfn></div>
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-insr-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def insertRight(self,newNode):
     if self.rightChild == None:
         self.rightChild = BinaryTree(newNode)
@@ -854,11 +851,16 @@ class BinaryTree {
         t = BinaryTree(newNode)
         t.rightChild = self.rightChild
         self.rightChild = t
-</code></pre></div>
-<div class="para" id="trees_nodes-and-references-25">To round out the definition for a simple binary tree data structure, we will write accessor methods (see <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-naracc" missing or not unique]</code>) for the left and right children, as well as the root values.</div>
-<div class="para" id="trees_lst-naracc"><dfn class="terminology">Listing 7</dfn></div>
-<div class="para" id="trees_nodes-and-references-27"><dfn class="terminology">C++ Implementation</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">BinaryTree *getRightChild(){
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_nodes-and-references-13">To round out the definition for a simple binary tree data structure, we will write accessor methods (see <a href="trees_nodes-and-references.html#lst-naracc-cpp" class="xref" data-knowl="./knowl/xref/lst-naracc-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.4.4.a: C++ Implementation">Task 8.4.4.a</a>) for the left and right children, as well as the root values.</div>
+<article class="exploration project-like" id="expl-naracc"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Accessor Methods for <code class="code-inline tex2jax_ignore">BinaryTree</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-naracc">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-naracc-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">BinaryTree *getRightChild(){
     return this-&gt;rightChild;
 }
 
@@ -873,9 +875,11 @@ void setRootVal(char obj){
 char getRootVal(){
     return this-&gt;key;
 }
-</code></pre></div>
-<div class="para" id="trees_nodes-and-references-29"><dfn class="terminology">Python Implementation</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def getRightChild(self):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-naracc-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">ef getRightChild(self):
     return self.rightChild
 
 def getLeftChild(self):
@@ -886,8 +890,15 @@ def setRootVal(self,obj):
 
 def getRootVal(self):
     return self.key
-</code></pre></div>
-<div class="para" id="trees_nodes-and-references-31">Now that we have all the pieces to create and manipulate a binary tree, let’s use them to check on the structure a bit more. Let’s make a simple tree with node a as the root, and add nodes b and c as children. <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "lst-comptest" missing or not unique]</code> creates the tree and looks at the some of the values stored in <code class="code-inline tex2jax_ignore">key</code>, <code class="code-inline tex2jax_ignore">left</code>, and <code class="code-inline tex2jax_ignore">right</code>. Notice that both the left and right children of the root are themselves distinct instances of the <code class="code-inline tex2jax_ignore">BinaryTree</code> class. As we said in our original recursive definition for a tree, this allows us to treat any child of a binary tree as a binary tree itself.</div>
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_nodes-and-references-15">Now that we have all the pieces to create and manipulate a binary tree, let’s use them to check on the structure a bit more. Let’s make a simple tree with node a as the root, and add nodes b and c as children. <a href="trees_nodes-and-references.html#lst-comptest-cpp" class="xref" data-knowl="./knowl/xref/lst-comptest-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.4.5.a: C++ Implementation">Task 8.4.5.a</a> creates the tree and looks at the some of the values stored in <code class="code-inline tex2jax_ignore">key</code>, <code class="code-inline tex2jax_ignore">left</code>, and <code class="code-inline tex2jax_ignore">right</code>. Notice that both the left and right children of the root are themselves distinct instances of the <code class="code-inline tex2jax_ignore">BinaryTree</code> class. As we said in our original recursive definition for a tree, this allows us to treat any child of a binary tree as a binary tree itself.</div>
+<article class="exploration project-like" id="expl-comptest"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Accessor Methods for <code class="code-inline tex2jax_ignore">BinaryTree</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-comptest">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-comptest-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 using namespace std;
@@ -895,13 +906,12 @@ using namespace std;
 //creates a binary tree, allows you to insert nodes
 // and access those nodes.
 class BinaryTree {
-
-    private:
+private:
     char key;
     BinaryTree *leftChild;  // reference other instances of the binary tree the BinaryTree class
     BinaryTree *rightChild; // reference other instances of the binary tree the BinaryTree class
 
-    public: //constructor function expects to get some kind of object to store in the root
+public: //constructor function expects to get some kind of object to store in the root
     BinaryTree(char rootObj){
         this-&gt;key = rootObj;
         this-&gt;leftChild = NULL;
@@ -910,23 +920,23 @@ class BinaryTree {
 
     void insertLeft(char newNode){ // Handles insertion if there is no left child simply adds a node to the tree.
         if (this-&gt;leftChild == NULL){
-        this-&gt;leftChild = new BinaryTree(newNode);
+            this-&gt;leftChild = new BinaryTree(newNode);
         }
         else { // handles insertion if there is a left child pushes the existing child down one level in the tree.
-        BinaryTree *t = new BinaryTree(newNode);
-        t-&gt;leftChild = this-&gt;leftChild;
-        this-&gt;leftChild = t;
+            BinaryTree *t = new BinaryTree(newNode);
+            t-&gt;leftChild = this-&gt;leftChild;
+            this-&gt;leftChild = t;
         }
     }
 
     void insertRight(char newNode){
         if (this-&gt;rightChild == NULL){
-        this-&gt;rightChild = new BinaryTree(newNode);
+            this-&gt;rightChild = new BinaryTree(newNode);
         }
         else {
-        BinaryTree *t = new BinaryTree(newNode);
-        t-&gt;rightChild = this-&gt;rightChild;
-        this-&gt;rightChild = t;
+            BinaryTree *t = new BinaryTree(newNode);
+            t-&gt;rightChild = this-&gt;rightChild;
+            this-&gt;rightChild = t;
         }
     }
 
@@ -962,8 +972,11 @@ int main() {
 
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="bintree_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="bintree_py_editor" data-question_label="" data-codelens="true">""" creates a binary tree, allows you to insert nodes
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-comptest-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id=""><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="_editor" data-question_label="" data-codelens="true">""" creates a binary tree, allows you to insert nodes
  and access those nodes. """
 class BinaryTree:
     def __init__(self,rootObj): # initializer function expects to get some kind of object to store in the root
@@ -1014,8 +1027,8 @@ def main():
     r.getRightChild().setRootVal('d')
     print(r.getRightChild().getRootVal())
 main()
-</textarea></div></div></div>
-<section class="reading-questions" id="rq-nodes-and-references"><h3 class="heading hide-type">
+</textarea></div></div></div></article></div>
+</div></div></div></article><section class="reading-questions" id="rq-nodes-and-references"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Question</span>
 </h3>
 <article class="exercise exercise-like" id="treeLike"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>

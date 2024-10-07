@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">8.4.5.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+using namespace std;
+
+//creates a binary tree, allows you to insert nodes
+// and access those nodes.
+class BinaryTree {
+private:
+    char key;
+    BinaryTree *leftChild;  // reference other instances of the binary tree the BinaryTree class
+    BinaryTree *rightChild; // reference other instances of the binary tree the BinaryTree class
+
+public: //constructor function expects to get some kind of object to store in the root
+    BinaryTree(char rootObj){
+        this-&gt;key = rootObj;
+        this-&gt;leftChild = NULL;
+        this-&gt;rightChild = NULL;
+    }
+
+    void insertLeft(char newNode){ // Handles insertion if there is no left child simply adds a node to the tree.
+        if (this-&gt;leftChild == NULL){
+            this-&gt;leftChild = new BinaryTree(newNode);
+        }
+        else { // handles insertion if there is a left child pushes the existing child down one level in the tree.
+            BinaryTree *t = new BinaryTree(newNode);
+            t-&gt;leftChild = this-&gt;leftChild;
+            this-&gt;leftChild = t;
+        }
+    }
+
+    void insertRight(char newNode){
+        if (this-&gt;rightChild == NULL){
+            this-&gt;rightChild = new BinaryTree(newNode);
+        }
+        else {
+            BinaryTree *t = new BinaryTree(newNode);
+            t-&gt;rightChild = this-&gt;rightChild;
+            this-&gt;rightChild = t;
+        }
+    }
+
+    BinaryTree *getRightChild(){ // accessor method
+        return this-&gt;rightChild;
+    }
+
+    BinaryTree *getLeftChild(){ // accessor method
+        return this-&gt;leftChild;
+    }
+
+    void setRootVal(char obj){ // accessor method
+        this-&gt;key = obj;
+    }
+
+    char getRootVal(){ // accessor method
+        return this-&gt;key;
+    }
+};
+
+int main() {
+    BinaryTree *r = new BinaryTree('a');
+    cout &lt;&lt; r-&gt;getRootVal() &lt;&lt; endl;
+    cout &lt;&lt; r-&gt;getLeftChild() &lt;&lt; endl;
+    r-&gt;insertLeft('b');
+    cout &lt;&lt; r-&gt;getLeftChild() &lt;&lt; endl;
+    cout &lt;&lt; r-&gt;getLeftChild()-&gt;getRootVal() &lt;&lt; endl;
+    r-&gt;insertRight('c');
+    cout &lt;&lt; r-&gt;getRightChild() &lt;&lt; endl;
+    cout &lt;&lt; r-&gt;getRightChild()-&gt;getRootVal() &lt;&lt; endl;
+    r-&gt;getRightChild()-&gt;setRootVal('d');
+    cout &lt;&lt; r-&gt;getRightChild()-&gt;getRootVal() &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="trees_nodes-and-references.html#lst-comptest-cpp">in-context</a></span>
+</body>
+</html>
