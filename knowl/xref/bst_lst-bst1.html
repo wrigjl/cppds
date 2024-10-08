@@ -11,8 +11,22 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para"><dfn class="terminology">Listing 1</dfn></div>
-<span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst1">in-context</a></span>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class BinarySearchTree{
+    private:
+        TreeNode *root;
+        int size;
+
+    public:
+        BinarySearchTree(){
+            this-&gt;root = NULL;
+            this-&gt;size = 0;
+        }
+
+        int length(){
+            return this-&gt;size;
+        }
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">BinarySearchTree</code> Class and Constructor</figcaption></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst1">in-context</a></span>
 </body>
 </html>

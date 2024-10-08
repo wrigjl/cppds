@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">8.6.6.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">string printexp(BinaryTree *tree){
+    string sVal;
+    if (tree){
+        sVal = "(" + printexp(tree-&gt;getLeftChild());
+        sVal = sVal + tree-&gt;getRootVal();
+        sVal = sVal + printexp(tree-&gt;getRightChild()) + ")";
+    }
+    return sVal;
+}
+</code></pre></div></article><span class="incontext"><a class="internal" href="trees_tree-traversals.html#lst-printexp-cpp">in-context</a></span>
+</body>
+</html>

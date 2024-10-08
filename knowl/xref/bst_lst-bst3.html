@@ -11,8 +11,35 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para"><dfn class="terminology">Listing 3</dfn></div>
-<span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst3">in-context</a></span>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void put(int key, string val){
+    if (this-&gt;root){
+        this-&gt;_put(key, val, this-&gt;root);
+    }
+    else{
+        this-&gt;root = new TreeNode(key, val);
+    }
+    this-&gt;size = this-&gt;size + 1;
+}
+
+void _put(int key, string val, TreeNode *currentNode){
+    if (key &lt; currentNode-&gt;key){
+        if (currentNode-&gt;hasLeftChild()){
+            this-&gt;_put(key, val, currentNode-&gt;leftChild);
+        }
+        else{
+            currentNode-&gt;leftChild = new TreeNode(key, val, currentNode);
+        }
+    }
+    else{
+        if (currentNode-&gt;hasRightChild()){
+            this-&gt;_put(key, val, currentNode-&gt;rightChild);
+        }
+        else{
+            currentNode-&gt;rightChild = new TreeNode(key, val, currentNode);
+        }
+    }
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.4<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">put</code> and <code class="code-inline tex2jax_ignore">_put</code> Methods</figcaption></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst3">in-context</a></span>
 </body>
 </html>

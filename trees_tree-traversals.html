@@ -215,15 +215,15 @@ eBookConfig.enable_chatcodes =  false;
 #trees_parse-tree-16-1 { counter-set: trees_parse-tree-16-1 0; }
 #trees_parse-tree-16-1 > li::marker { content: ""counter(trees_parse-tree-16-1,lower-alpha)""; }
 #trees_parse-tree-16-1 > li { counter-increment: trees_parse-tree-16-1; }
+#trees_search-tree-implementation-24-1 { counter-set: trees_search-tree-implementation-24-1 0; }
+#trees_search-tree-implementation-24-1 > li::marker { content: ""counter(trees_search-tree-implementation-24-1,decimal)""; }
+#trees_search-tree-implementation-24-1 > li { counter-increment: trees_search-tree-implementation-24-1; }
 #trees_search-tree-implementation-29-1 { counter-set: trees_search-tree-implementation-29-1 0; }
 #trees_search-tree-implementation-29-1 > li::marker { content: ""counter(trees_search-tree-implementation-29-1,decimal)""; }
 #trees_search-tree-implementation-29-1 > li { counter-increment: trees_search-tree-implementation-29-1; }
-#trees_search-tree-implementation-35-1 { counter-set: trees_search-tree-implementation-35-1 0; }
-#trees_search-tree-implementation-35-1 > li::marker { content: ""counter(trees_search-tree-implementation-35-1,decimal)""; }
-#trees_search-tree-implementation-35-1 > li { counter-increment: trees_search-tree-implementation-35-1; }
-#trees_search-tree-implementation-44-1 { counter-set: trees_search-tree-implementation-44-1 0; }
-#trees_search-tree-implementation-44-1 > li::marker { content: ""counter(trees_search-tree-implementation-44-1,decimal)""; }
-#trees_search-tree-implementation-44-1 > li { counter-increment: trees_search-tree-implementation-44-1; }
+#trees_search-tree-implementation-37-1 { counter-set: trees_search-tree-implementation-37-1 0; }
+#trees_search-tree-implementation-37-1 > li::marker { content: ""counter(trees_search-tree-implementation-37-1,decimal)""; }
+#trees_search-tree-implementation-37-1 > li { counter-increment: trees_search-tree-implementation-37-1; }
 #trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
 #trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
 #trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
@@ -796,32 +796,41 @@ eBookConfig.enable_chatcodes =  false;
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.6.4<span class="period">.</span></span><span class="space"> </span>Traversal pattern for postorder.</figcaption></figure><div class="para" id="trees_tree-traversals-10">Let’s look at some examples that illustrate each of these three kinds of traversals. First let’s look at the preorder traversal. As an example of a tree to traverse, we will represent this book as a tree. The book is the root of the tree, and each chapter is a child of the root. Each section within a chapter is a child of the chapter, and each subsection is a child of its section, and so on. <a href="trees_tree-traversals.html#fig-booktree" class="xref" data-knowl="./knowl/xref/fig-booktree.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.6.5">Figure 8.6.5</a> shows a limited version of a book with only two chapters. Note that the traversal algorithm works for trees with any number of children, but we will stick with binary trees for now.</div>
 <figure class="figure figure-like" id="fig-booktree"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/booktree.png" class="contained" alt="Diagram of a hierarchical tree representing the structure of a book. The root node at the top is labeled ’Book’, which branches out to two child nodes labeled ’Chapter1’ and ’Chapter2’. Each chapter node further divides into sections: ’Chapter1’ into ’Section 1.1’ and ’Section 1.2’, while ’Chapter2’ splits into ’Section 2.1’ and ’Section 2.2’. Each section node also branches into subsections, with ’Section 1.1’ leading to ’Section 1.2.1’ and ’Section 1.2.2’, and ’Section 2.2’ leading to ’Section 2.2.1’ and ’Section 2.2.2’. The nodes are connected by lines that represent the tree structure, demonstrating the organizational hierarchy of the book’s contents."></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.6.5<span class="period">.</span></span><span class="space"> </span>Representing a Book as a Tree.</figcaption></figure><div class="para" id="trees_tree-traversals-12">Suppose that you wanted to read this book from front to back. The preorder traversal gives you exactly that ordering. Starting at the root of the tree (the Book node) we will follow the preorder traversal instructions. We recursively call <code class="code-inline tex2jax_ignore">preorder</code> on the left child, in this case Chapter1. We again recursively call <code class="code-inline tex2jax_ignore">preorder</code> on the left child to get to Section 1.1. Since Section 1.1 has no children, we do not make any additional recursive calls. When we are finished with Section 1.1, we move up the tree to Chapter 1. At this point we still need to visit the right subtree of Chapter 1, which is Section 1.2. As before we visit the left subtree, which brings us to Section 1.2.1, then we visit the node for Section 1.2.2. With Section 1.2 finished, we return to Chapter 1. Then we return to the Book node and follow the same procedure for Chapter 2.</div>
-<div class="para" id="trees_tree-traversals-13">The code for writing tree traversals is surprisingly elegant, largely because the traversals are written recursively. <a href="trees_tree-traversals.html#trees_lst-preorder1" class="xref" data-knowl="./knowl/xref/trees_lst-preorder1.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a> shows the C++ code for a preorder traversal of a binary tree.</div>
-<div class="para" id="trees_tree-traversals-14">You may wonder, what is the best way to write an algorithm like preorder traversal? Should it be a function that simply uses a tree as a data structure, or should it be a method of the tree data structure itself? <a href="trees_tree-traversals.html#trees_lst-preorder1" class="xref" data-knowl="./knowl/xref/trees_lst-preorder1.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a> shows a version of the preorder traversal written as an external function that takes a binary tree as a parameter. The external function is particularly elegant because our base case is simply to check if the tree exists. If the tree parameter is <code class="code-inline tex2jax_ignore">None</code>, then the function returns without taking any action.</div>
-<div class="para" id="trees_lst-preorder1"><dfn class="terminology">Listing 2</dfn></div>
-<pre class="code-block tex2jax_ignore">C++ Implementation
-
-void preorder(BinaryTree *tree){
+<div class="para" id="trees_tree-traversals-13">The code for writing tree traversals is surprisingly elegant, largely because the traversals are written recursively. <a href="trees_tree-traversals.html#lst-preorder1-cpp" class="xref" data-knowl="./knowl/xref/lst-preorder1-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.1.a: C++ Implementation">Task 8.6.1.a</a> shows the C++ code for a preorder traversal of a binary tree.</div>
+<div class="para" id="trees_tree-traversals-14">You may wonder, what is the best way to write an algorithm like preorder traversal? Should it be a function that simply uses a tree as a data structure, or should it be a method of the tree data structure itself? <a href="trees_tree-traversals.html#lst-preorder1-cpp" class="xref" data-knowl="./knowl/xref/lst-preorder1-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.1.a: C++ Implementation">Task 8.6.1.a</a> shows a version of the preorder traversal written as an external function that takes a binary tree as a parameter. The external function is particularly elegant because our base case is simply to check if the tree exists. If the tree parameter is <code class="code-inline tex2jax_ignore">None</code>, then the function returns without taking any action.</div>
+<article class="exploration project-like" id="expl-preorder1"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.6.1</span><span class="period">.</span><span class="space"> </span><span class="title">Preorder Traversal.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-preorder1">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-preorder1-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void preorder(BinaryTree *tree){
     if (tree){
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
         preorder(tree-&gt;getLeftChild());
         preorder(tree-&gt;getRightChild());
     }
 }
-</pre>
-<pre class="code-block tex2jax_ignore">Python Implementation
-
-def preorder(tree):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-preorder1-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def preorder(tree):
     if tree:
         print(tree.getRootVal())
         preorder(tree.getLeftChild())
         preorder(tree.getRightChild())
-</pre>
-<div class="para" id="trees_tree-traversals-18">We can also implement <code class="code-inline tex2jax_ignore">preorder</code> as a method of the <code class="code-inline tex2jax_ignore">BinaryTree</code> class. The code for implementing <code class="code-inline tex2jax_ignore">preorder</code> as an internal method is shown in <a href="trees_tree-traversals.html#trees_lst-preorder2" class="xref" data-knowl="./knowl/xref/trees_lst-preorder2.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a>. Notice what happens when we move the code from external to internal. In general, we just replace <code class="code-inline tex2jax_ignore">tree</code> with <code class="code-inline tex2jax_ignore">self</code>. However, we also need to modify the base case. The internal method must check for the existence of the left and the right children <em class="emphasis">before</em> making the recursive call to <code class="code-inline tex2jax_ignore">preorder</code>.</div>
-<div class="para" id="trees_lst-preorder2"><dfn class="terminology">Listing 3</dfn></div>
-<pre class="code-block tex2jax_ignore">C++ Implementation
-
-void preorder(){
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_tree-traversals-16">We can also implement <code class="code-inline tex2jax_ignore">preorder</code> as a method of the <code class="code-inline tex2jax_ignore">BinaryTree</code> class. The code for implementing <code class="code-inline tex2jax_ignore">preorder</code> as an internal method is shown in <a href="trees_tree-traversals.html#lst-preorder2-cpp" class="xref" data-knowl="./knowl/xref/lst-preorder2-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.2.a: C++ Implementation">Task 8.6.2.a</a>. Notice what happens when we move the code from external to internal. In general, we just replace <code class="code-inline tex2jax_ignore">tree</code> with <code class="code-inline tex2jax_ignore">self</code>. However, we also need to modify the base case. The internal method must check for the existence of the left and the right children <em class="emphasis">before</em> making the recursive call to <code class="code-inline tex2jax_ignore">preorder</code>.</div>
+<article class="exploration project-like" id="expl-preorder2"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.6.2</span><span class="period">.</span><span class="space"> </span><span class="title">Preorder Traversal as a Method.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-preorder2">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-preorder2-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void preorder(){
     cout &lt;&lt; this-&gt;key &lt;&lt; endl;
     if (this-&gt;leftChild){
         this-&gt;leftChild-&gt;preorder();
@@ -830,39 +839,51 @@ void preorder(){
         this-&gt;rightChild-&gt;preorder();
     }
 }
-</pre>
-<pre class="code-block tex2jax_ignore">Python Implementation
-
-def preorder(self):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-preorder2-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def preorder(self):
     print(self.key)
     if self.leftChild:
         self.leftChild.preorder()
     if self.rightChild:
         self.rightChild.preorder()
-</pre>
-<div class="para" id="trees_tree-traversals-22">Which of these two ways to implement <code class="code-inline tex2jax_ignore">preorder</code> is best? The answer is that implementing <code class="code-inline tex2jax_ignore">preorder</code> as an external function is probably better in this case. The reason is that you very rarely want to just traverse the tree. In most cases you are going to want to accomplish something else while using one of the basic traversal patterns. In fact, we will see in the next example that the <code class="code-inline tex2jax_ignore">postorder</code> traversal pattern follows very closely with the code we wrote earlier to evaluate a parse tree. Therefore we will write the rest of the traversals as external functions.</div>
-<div class="para" id="trees_tree-traversals-23">The algorithm for the <code class="code-inline tex2jax_ignore">postorder</code> traversal, shown in <a href="trees_tree-traversals.html#trees_lst-postorder1" class="xref" data-knowl="./knowl/xref/trees_lst-postorder1.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a>, is nearly identical to <code class="code-inline tex2jax_ignore">preorder</code> except that we move the call to print to the end of the function.</div>
-<div class="para" id="trees_lst-postorder1"><dfn class="terminology">Listing 4</dfn></div>
-<pre class="code-block tex2jax_ignore">C++ Implementation
-
-void postorder(BinaryTree *tree){
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_tree-traversals-18">Which of these two ways to implement <code class="code-inline tex2jax_ignore">preorder</code> is best? The answer is that implementing <code class="code-inline tex2jax_ignore">preorder</code> as an external function is probably better in this case. The reason is that you very rarely want to just traverse the tree. In most cases you are going to want to accomplish something else while using one of the basic traversal patterns. In fact, we will see in the next example that the <code class="code-inline tex2jax_ignore">postorder</code> traversal pattern follows very closely with the code we wrote earlier to evaluate a parse tree. Therefore we will write the rest of the traversals as external functions.</div>
+<div class="para" id="trees_tree-traversals-19">The algorithm for the <code class="code-inline tex2jax_ignore">postorder</code> traversal, shown in <a href="trees_tree-traversals.html#lst-postorder1-cpp" class="xref" data-knowl="./knowl/xref/lst-postorder1-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.3.a: C++ Implementation">Task 8.6.3.a</a>, is nearly identical to <code class="code-inline tex2jax_ignore">preorder</code> except that we move the call to print to the end of the function.</div>
+<article class="exploration project-like" id="expl-postorder1"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.6.3</span><span class="period">.</span><span class="space"> </span><span class="title">Postorder Traversal.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-postorder1">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-postorder1-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void postorder(BinaryTree *tree){
     if (tree != NULL){
         postorder(tree-&gt;getLeftChild());
         postorder(tree-&gt;getRightChild());
         cout &lt;&lt; tree-&gt;getRootVal() &lt;&lt; endl;
     }
 }
-</pre>
-<pre class="code-block tex2jax_ignore">Python Implementation
-
-def postorder(tree):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-postorder1-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def postorder(tree):
     if tree != None:
         postorder(tree.getLeftChild())
         postorder(tree.getRightChild())
         print(tree.getRootVal())
-</pre>
-<div class="para" id="trees_tree-traversals-27">We have already seen a common use for the postorder traversal, namely evaluating a parse tree. Look back at <a href="trees_parse-tree.html" class="internal" title="Section 8.5: Parse Tree">Section 8.5</a> again. What we are doing is evaluating the left subtree, evaluating the right subtree, and combining them in the root through the function call to an operator. Assume that our binary tree is going to store only expression tree data. Let’s rewrite the evaluation function, but model it even more closely on the <code class="code-inline tex2jax_ignore">postorder</code> code in <a href="trees_tree-traversals.html#trees_lst-postorder1" class="xref" data-knowl="./knowl/xref/trees_lst-postorder1.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a> (see <a href="trees_tree-traversals.html#trees_lst-postordereval" class="xref" data-knowl="./knowl/xref/trees_lst-postordereval.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a>).</div>
-<div class="para" id="trees_lst-postordereval"><dfn class="terminology">Listing 5</dfn></div>
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_tree-traversals-21">We have already seen a common use for the postorder traversal, namely evaluating a parse tree. Look back at <a href="trees_parse-tree.html" class="internal" title="Section 8.5: Parse Tree">Section 8.5</a> again. What we are doing is evaluating the left subtree, evaluating the right subtree, and combining them in the root through the function call to an operator. Assume that our binary tree is going to store only expression tree data. Let’s rewrite the evaluation function, but model it even more closely on the <code class="code-inline tex2jax_ignore">postorder</code> code in <a href="trees_tree-traversals.html#lst-postorder1-cpp" class="xref" data-knowl="./knowl/xref/lst-postorder1-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.3.a: C++ Implementation">Task 8.6.3.a</a> (see <a href="trees_tree-traversals.html#lst-postordereval-cpp" class="xref" data-knowl="./knowl/xref/lst-postordereval-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.4.a: C++ Implementation">Task 8.6.4.a</a>).</div>
+<article class="exploration project-like" id="expl-postordereval"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.6.4</span><span class="period">.</span><span class="space"> </span><span class="title">Postorder Evaluation.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-postordereval">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-postordereval-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Operator {
     public:
         int add(int x, int y){
@@ -922,64 +943,11 @@ int main(){
 
     return 0;
 }
-</code></pre></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">class Operator {
-    public:
-    int add(int x, int y){
-        return x + y;
-    }
-
-    int sub(int x, int y){
-        return x - y;
-    }
-
-    int mul(int x, int y){
-        return x * y;
-    }
-
-    int div(int x, int y){
-        return x / y;
-    }
-};
-
-int to_int(string str) {
-    stringstream convert(str);
-    int x = 0;
-    convert &gt;&gt; x;
-    return x;
-}
-
-string t_string(int num) {
-    string str;
-    ostringstream convert;
-    convert &lt;&lt; num;
-    str = convert.str();
-    return str;
-}
-
-string postordereval(BinaryTree *tree){
-    Operator Oper;
-    BinaryTree *res1 = tree-&gt;getLeftChild();
-    BinaryTree *res2 = tree-&gt;getRightChild();
-    if (tree) {
-        if (res1 &amp;&amp; res2) {
-            if (tree-&gt;getRootVal() == "+") {
-                return t_string(Oper.add(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else if (tree-&gt;getRootVal() == "-") {
-                return t_string(Oper.sub(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else if (tree-&gt;getRootVal() == "*") {
-                return t_string(Oper.mul(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            } else {
-                return t_string(Oper.div(to_int(postordereval(res1)), to_int(postordereval(res2))));
-            }
-        } else {
-            return tree-&gt;getRootVal();
-        }
-
-    }
-}
-</code></pre></div>
-<pre class="code-block tex2jax_ignore">def postordereval(tree):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-postordereval-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def postordereval(tree):
     opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
     res1 = None
     res2 = None
@@ -990,33 +958,42 @@ string postordereval(BinaryTree *tree){
             return opers[tree.getRootVal()](res1,res2)
         else:
             return tree.getRootVal()
-</pre>
-<div class="para" id="trees_tree-traversals-32">Notice that the form in <a href="trees_tree-traversals.html#trees_lst-postorder1" class="xref" data-knowl="./knowl/xref/trees_lst-postorder1.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a> is the same as the form in <a href="trees_tree-traversals.html#trees_lst-postordereval" class="xref" data-knowl="./knowl/xref/trees_lst-postordereval.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a>, except that instead of printing the key at the end of the function, we return it. This allows us to save the values returned from the recursive calls in lines 6 and 7. We then use these saved values along with the operator on line 9.</div>
-<div class="para" id="trees_tree-traversals-33">The final traversal we will look at in this section is the inorder traversal. In the inorder traversal we visit the left subtree, followed by the root, and finally the right subtree. <a href="trees_tree-traversals.html#trees_lst-inorder1" class="xref" data-knowl="./knowl/xref/trees_lst-inorder1.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a> shows our code for the inorder traversal. Notice that in all three of the traversal functions we are simply changing the position of the <code class="code-inline tex2jax_ignore">print</code> statement with respect to the two recursive function calls.</div>
-<div class="para" id="trees_lst-inorder1"><dfn class="terminology">Listing 6</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">C++ Implementation
-
-void inorder(BinaryTree *tree){
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_tree-traversals-23">Notice that the form in <a href="trees_tree-traversals.html#lst-postorder1-cpp" class="xref" data-knowl="./knowl/xref/lst-postorder1-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.3.a: C++ Implementation">Task 8.6.3.a</a> is the same as the form in <a href="trees_tree-traversals.html#lst-postordereval-cpp" class="xref" data-knowl="./knowl/xref/lst-postordereval-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.4.a: C++ Implementation">Task 8.6.4.a</a>, except that instead of printing the key at the end of the function, we return it. This allows us to save the values returned from the recursive calls in lines 6 and 7. We then use these saved values along with the operator on line 9.</div>
+<div class="para" id="trees_tree-traversals-24">The final traversal we will look at in this section is the inorder traversal. In the inorder traversal we visit the left subtree, followed by the root, and finally the right subtree. <a href="trees_tree-traversals.html#lst-inorder1-cpp" class="xref" data-knowl="./knowl/xref/lst-inorder1-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.5.a: C++ Implementation">Task 8.6.5.a</a> shows our code for the inorder traversal. Notice that in all three of the traversal functions we are simply changing the position of the <code class="code-inline tex2jax_ignore">print</code> statement with respect to the two recursive function calls.</div>
+<article class="exploration project-like" id="expl-inorder1"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.6.5</span><span class="period">.</span><span class="space"> </span><span class="title">Inorder Traversal.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-inorder1">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-inorder1-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void inorder(BinaryTree *tree){
     if (tree != NULL){
         inorder(tree-&gt;getLeftChild());
         cout &lt;&lt; tree-&gt;getRootVal();
         inorder(tree-&gt;getRightChild());
     }
 }
-</code></pre></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">Python Implementation
-
-def inorder(tree):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-inorder1-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def inorder(tree):
   if tree != None:
       inorder(tree.getLeftChild())
       print(tree.getRootVal())
       inorder(tree.getRightChild())
-</code></pre></div>
-<div class="para" id="trees_tree-traversals-37">If we perform a simple inorder traversal of a parse tree we get our original expression back, without any parentheses. Let’s modify the basic inorder algorithm to allow us to recover the fully parenthesized version of the expression. The only modifications we will make to the basic template are as follows: print a left parenthesis <em class="emphasis">before</em> the recursive call to the left subtree, and print a right parenthesis <em class="emphasis">after</em> the recursive call to the right subtree. The modified code is shown in <a href="trees_tree-traversals.html#trees_lst-printexp" class="xref" data-knowl="./knowl/xref/trees_lst-printexp.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph </a>.</div>
-<div class="para" id="trees_lst-printexp"><dfn class="terminology">Listing 7</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">C++ Implementation
-
-string printexp(BinaryTree *tree){
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_tree-traversals-26">If we perform a simple inorder traversal of a parse tree we get our original expression back, without any parentheses. Let’s modify the basic inorder algorithm to allow us to recover the fully parenthesized version of the expression. The only modifications we will make to the basic template are as follows: print a left parenthesis <em class="emphasis">before</em> the recursive call to the left subtree, and print a right parenthesis <em class="emphasis">after</em> the recursive call to the right subtree. The modified code is shown in <a href="trees_tree-traversals.html#lst-printexp-cpp" class="xref" data-knowl="./knowl/xref/lst-printexp-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 8.6.6.a: C++ Implementation">Task 8.6.6.a</a>.</div>
+<article class="exploration project-like" id="expl-printexp"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.6.6</span><span class="period">.</span><span class="space"> </span><span class="title">Inorder Traversal.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-printexp">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-printexp-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">string printexp(BinaryTree *tree){
     string sVal;
     if (tree){
         sVal = "(" + printexp(tree-&gt;getLeftChild());
@@ -1025,18 +1002,19 @@ string printexp(BinaryTree *tree){
     }
     return sVal;
 }
-</code></pre></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">Python Implementation
-
-def printexp(tree):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-printexp-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def printexp(tree):
   sVal = ""
   if tree:
       sVal = '(' + printexp(tree.getLeftChild())
       sVal = sVal + str(tree.getRootVal())
       sVal = sVal + printexp(tree.getRightChild())+')'
   return sVal
-</code></pre></div>
-<div class="para" id="trees_tree-traversals-41">Notice that the <code class="code-inline tex2jax_ignore">printexp</code> function as we have implemented it puts parentheses around each number. While not incorrect, the parentheses are clearly not needed. In the exercises at the end of this chapter you are asked to modify the <code class="code-inline tex2jax_ignore">printexp</code> function to remove this set of parentheses.</div>
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_tree-traversals-28">Notice that the <code class="code-inline tex2jax_ignore">printexp</code> function as we have implemented it puts parentheses around each number. While not incorrect, the parentheses are clearly not needed. In the exercises at the end of this chapter you are asked to modify the <code class="code-inline tex2jax_ignore">printexp</code> function to remove this set of parentheses.</div>
 <section class="reading-questions" id="rq-tree-traversal"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h3>

@@ -11,8 +11,18 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para"><dfn class="terminology">Listing 1</dfn></div>
-<span class="incontext"><a class="internal" href="trees_binary-heap-implementation.html#binheap_lst-heap1a">in-context</a></span>
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class BinHeap{
+    private:
+        vector&lt;int&gt; heapvector;
+        int currentSize;
+
+    public:
+        BinHeap(vector&lt;int&gt; heapvector){
+            this-&gt;heapvector = heapvector;
+            this-&gt;currentSize = 0;
+        }
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.3<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">BinHeap</code> Class and Constructor</figcaption></figure><span class="incontext"><a class="internal" href="trees_binary-heap-implementation.html#binheap_lst-heap1a">in-context</a></span>
 </body>
 </html>
