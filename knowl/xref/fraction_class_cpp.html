@@ -42,14 +42,14 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
 
             return Fraction(newnum/common,newden/common);
         }
-        bool operator ==(Fraction &amp;otherFrac) {
+        bool operator ==(const Fraction &amp;otherFrac) {
             int firstnum = num*otherFrac.den;
             int secondnum = otherFrac.num*den;
             return firstnum==secondnum;

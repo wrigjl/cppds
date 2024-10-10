@@ -40,7 +40,7 @@ class Fraction {
             num = 1;
             den = 1;
         }
-        Fraction operator +(Fraction otherFrac) {
+        Fraction operator +(const Fraction &amp;otherFrac) {
             int newnum = num*otherFrac.den + den*otherFrac.num;
             int newden = den*otherFrac.den;
             int common = gcd(newnum, newden);
