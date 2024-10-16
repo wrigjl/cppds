@@ -227,15 +227,6 @@ eBookConfig.enable_chatcodes =  false;
 #trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
 #trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
 #trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
-#trees_discussion-questions-3-1 { counter-set: trees_discussion-questions-3-1 0; }
-#trees_discussion-questions-3-1 > li::marker { content: ""counter(trees_discussion-questions-3-1,decimal)""; }
-#trees_discussion-questions-3-1 > li { counter-increment: trees_discussion-questions-3-1; }
-#trees_discussion-questions-5-1 { counter-set: trees_discussion-questions-5-1 0; }
-#trees_discussion-questions-5-1 > li::marker { content: ""counter(trees_discussion-questions-5-1,decimal)""; }
-#trees_discussion-questions-5-1 > li { counter-increment: trees_discussion-questions-5-1; }
-#trees_discussion-questions-7-1 { counter-set: trees_discussion-questions-7-1 0; }
-#trees_discussion-questions-7-1 > li::marker { content: ""counter(trees_discussion-questions-7-1,decimal)""; }
-#trees_discussion-questions-7-1 > li { counter-increment: trees_discussion-questions-7-1; }
 #trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
 #trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
 #trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
@@ -286,7 +277,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="cppds2-3.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<div class="toc-title-box"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_objectives.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Getting Started</span></a></div></li>
@@ -777,10 +768,14 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">2.2</span><span class="space"> </span><span class="title">What Is Algorithm Analysis?</span>
 </h2>
 <section class="introduction" id="algorithm-analysis_what-is-algorithm-analysis-2"><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-1">It is very common for beginning computer science students to compare their programs with one another. You may also have noticed that it is common for computer programs to look very similar, especially the simple ones. An interesting question often arises. When two programs solve the same problem but look different, is one program better than the other?</div>
-<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-2">In order to answer this question, we need to remember that there is an important difference between a program and the underlying algorithm that the program is representing. As we stated in Chapter 1, an <dfn class="terminology">algorithm</dfn> is a generic, step-by-step list of instructions for solving a problem. It is a method for solving any instance of the problem such that given a particular input, the algorithm produces the desired result. A  <dfn class="terminology">program</dfn>, on the other hand, is an algorithm that has been encoded into some programming language. There may be many programs for the same algorithm, depending on the programmer and the programming language being used.</div>
-<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-3">To explore this difference further, consider the function shown in <a href="algorithm-analysis_what-is-algorithm-analysis.html#lst_sum0" class="xref" data-knowl="./knowl/xref/lst_sum0.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 2.2.1">Listing 2.2.1</a>. This function solves a familiar problem, computing the sum of the first <em class="emphasis">n</em> integers. The algorithm uses the idea of an accumulator variable that is initialized to 0. The solution then iterates through the <em class="emphasis">n</em> integers, adding each to the accumulator.</div>
-<div class="para" id="algorithm-analysis_lst-sum0"><dfn class="terminology">Listing 1</dfn></div>
-<figure class="listing figure-like" id="lst_sum0"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-2">In order to answer this question, we need to remember that there is an important difference between a program and the underlying algorithm that the program is representing. As we stated in <a href="ch-intro.html" class="internal" title="Chapter 1: Introduction">Chapter 1</a>, an <dfn class="terminology">algorithm</dfn> is a generic, step-by-step list of instructions for solving a problem. It is a method for solving any instance of the problem such that given a particular input, the algorithm produces the desired result. A  <dfn class="terminology">program</dfn>, on the other hand, is an algorithm that has been encoded into some programming language. There may be many programs for the same algorithm, depending on the programmer and the programming language being used.</div>
+<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-3">To explore this difference further, consider the function shown in <a href="algorithm-analysis_what-is-algorithm-analysis.html#lst_sum0" class="xref" data-knowl="./knowl/xref/lst_sum0.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 2.2.1.a">Task 2.2.1.a</a>. This function solves a familiar problem, computing the sum of the first <em class="emphasis">n</em> integers. The algorithm uses the idea of an accumulator variable that is initialized to 0. The solution then iterates through the <em class="emphasis">n</em> integers, adding each to the accumulator.</div>
+<article class="exploration project-like" id="expl-lst-sum0"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of First <em class="emphasis">n</em> Integers.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-sum0">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst_sum0"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 //adds the sum of (n + n-1 + n-2 ...)
@@ -798,8 +793,9 @@ int main(){
   cout &lt;&lt; sumOfN(10);
   return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="ec1_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="ec1_py_editor" data-question_label="" data-codelens="true"># adds the sum of (n + n-1 + n-2 ...)
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="ec1_py"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id=""><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="_editor" data-question_label="" data-codelens="true"># adds the sum of (n + n-1 + n-2 ...)
 
 def sumOfN(n):
   theSum = 0
@@ -811,10 +807,14 @@ def main():
   print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
 
 main()
-</textarea></div></div></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.2.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-6">Now look at the function in <a href="algorithm-analysis_what-is-algorithm-analysis.html#lst_sum2" class="xref" data-knowl="./knowl/xref/lst_sum2.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 2.2.2">Listing 2.2.2</a>. At first glance it may look strange, but upon further inspection you can see that this function is essentially doing the same thing as the previous one. The reason this is not obvious is poor coding. We did not use good identifier names to assist with readability, and we used an extra assignment statement during the accumulation step that was not really necessary.</div>
-<div class="para" id="algorithm-analysis_lst-sum2"><dfn class="terminology">Listing 2</dfn></div>
-<figure class="listing figure-like" id="lst_sum2"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-5">Now look at the function in <a href="algorithm-analysis_what-is-algorithm-analysis.html#lst_sum2" class="xref" data-knowl="./knowl/xref/lst_sum2.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 2.2.2.a">Task 2.2.2.a</a>. At first glance it may look strange, but upon further inspection you can see that this function is essentially doing the same thing as the previous one. The reason this is not obvious is poor coding. We did not use good identifier names to assist with readability, and we used an extra assignment statement during the accumulation step that was not really necessary.</div>
+<article class="exploration project-like" id="expl-lst-sum2"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of First <em class="emphasis">n</em> Integers.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-sum2">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst_sum2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 //Performs same function as listing 1, but is less descriptive
@@ -833,8 +833,9 @@ int main(){
   cout &lt;&lt; foo(10);
   return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="ec2_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="ec2_py_editor" data-question_label="" data-codelens="true">#Performs same function as listing 1, but is less descriptive
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="ec2_py"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id=""><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="_editor" data-question_label="" data-codelens="true">#Performs same function as listing 1, but is less descriptive
 #This is not good practice
 
 def foo(tom):
@@ -848,13 +849,17 @@ def main():
   print(foo(10))
 
 main()
-</textarea></div></div></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-9">The question we raised earlier asked whether one function is better than another. The answer depends on your criteria. The function <code class="code-inline tex2jax_ignore">sumOfN</code> is certainly better than the function <code class="code-inline tex2jax_ignore">foo</code> if you are concerned with readability. In fact, you have probably seen many examples of this in your introductory programming course since one of the goals there is to help you write programs that are easy to read and easy to understand. In this course, however, we are also interested in characterizing the algorithm itself. (We certainly hope that you will continue to strive to write readable, understandable code.)</div>
-<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-10">Algorithm analysis is concerned with comparing algorithms based upon the amount of computing resources that each algorithm uses. We want to be able to consider two algorithms and say that one is better than the other because it is more efficient in its use of those resources or perhaps because it simply uses fewer. From this perspective, the two functions above seem very similar. They both use essentially the same algorithm to solve the summation problem.</div>
-<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-11">At this point, it is important to think more about what we really mean by computing resources. There are two different ways to look at this. One way is to consider the amount of space or memory an algorithm requires to solve the problem. The amount of space required by a problem solution is typically dictated by the problem instance itself. Every so often, however, there are algorithms that have very specific space requirements, and in those cases we will be very careful to explain the variations.</div>
-<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-12">As an alternative to space requirements, we can analyze and compare algorithms based on the amount of time they require to execute. This measure is sometimes referred to as the “execution time” or “running time” of the algorithm. One way we can measure the execution time for the function <code class="code-inline tex2jax_ignore">sumOfN</code> is to do a benchmark analysis. This means that we will track the actual time required for the program to compute its result. In C++, we can benchmark a function by noting the starting time and ending time with respect to the system we are using. In the <code class="code-inline tex2jax_ignore">ctime</code> library there is a function called <code class="code-inline tex2jax_ignore">clock</code> that will return the current system clock time in seconds since some arbitrary starting point. By calling this function twice, at the beginning and at the end, and then computing the difference, we can get an exact number of seconds (fractions in most cases) for execution.</div>
-<div class="para" id="algorithm-analysis_lst-sum11"><dfn class="terminology">Listing 3</dfn></div>
-<figure class="listing figure-like" id="lst_sum1"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-7">The question we raised earlier asked whether one function is better than another. The answer depends on your criteria. The function <code class="code-inline tex2jax_ignore">sumOfN</code> is certainly better than the function <code class="code-inline tex2jax_ignore">foo</code> if you are concerned with readability. In fact, you have probably seen many examples of this in your introductory programming course since one of the goals there is to help you write programs that are easy to read and easy to understand. In this course, however, we are also interested in characterizing the algorithm itself. (We certainly hope that you will continue to strive to write readable, understandable code.)</div>
+<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-8">Algorithm analysis is concerned with comparing algorithms based upon the amount of computing resources that each algorithm uses. We want to be able to consider two algorithms and say that one is better than the other because it is more efficient in its use of those resources or perhaps because it simply uses fewer. From this perspective, the two functions above seem very similar. They both use essentially the same algorithm to solve the summation problem.</div>
+<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-9">At this point, it is important to think more about what we really mean by computing resources. There are two different ways to look at this. One way is to consider the amount of space or memory an algorithm requires to solve the problem. The amount of space required by a problem solution is typically dictated by the problem instance itself. Every so often, however, there are algorithms that have very specific space requirements, and in those cases we will be very careful to explain the variations.</div>
+<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-10">As an alternative to space requirements, we can analyze and compare algorithms based on the amount of time they require to execute. This measure is sometimes referred to as the “execution time” or “running time” of the algorithm. One way we can measure the execution time for the function <code class="code-inline tex2jax_ignore">sumOfN</code> is to do a benchmark analysis. This means that we will track the actual time required for the program to compute its result. In C++, we can benchmark a function by noting the starting time and ending time with respect to the system we are using. In the <code class="code-inline tex2jax_ignore">ctime</code> library there is a function called <code class="code-inline tex2jax_ignore">clock</code> that will return the current system clock time in seconds since some arbitrary starting point. By calling this function twice, at the beginning and at the end, and then computing the difference, we can get an exact number of seconds (fractions in most cases) for execution.</div>
+<article class="exploration project-like" id="expl-lst-sum1"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of First <em class="emphasis">n</em> Integers (With Timing).</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-lst-sum1">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst_sum1"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;ctime&gt;
 using namespace std;
 
@@ -880,8 +885,9 @@ int main(){
   }
  return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="ec2py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="ec2py_editor" data-question_label="" data-codelens="true">import time
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="ec2py"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id=""><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="_editor" data-question_label="" data-codelens="true">import time
 
 """ Performs same function as listing one, and also list the time it takes to perform
 the function """
@@ -904,16 +910,17 @@ def main():
     sumOfN2(10000)
 
 main()
-</textarea></div></div></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.2.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-15">
-<a href="algorithm-analysis_what-is-algorithm-analysis.html#lst_sum1" class="xref" data-knowl="./knowl/xref/lst_sum1.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 2.2.3">Listing 2.2.3</a> shows the original <code class="code-inline tex2jax_ignore">sumOfN</code> function with the timing calls embedded before and after the summation. The function returns the amount of time (in seconds) required for the calculation.</div>
-<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-16">Consider the following code block:</div>
-<pre class="code-block tex2jax_ignore">int n = 1000;
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-12">
+<a href="algorithm-analysis_what-is-algorithm-analysis.html#lst_sum1" class="xref" data-knowl="./knowl/xref/lst_sum1.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 2.2.3.a">Task 2.2.3.a</a> shows the original <code class="code-inline tex2jax_ignore">sumOfN</code> function with the timing calls embedded before and after the summation. The function returns the amount of time (in seconds) required for the calculation.</div>
+<div class="para" id="algorithm-analysis_what-is-algorithm-analysis-2-13">Consider the following code block:</div>
+<figure class="listing figure-like" id="n1000-how-many"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int n = 1000;
 int theSum = 0;
 for (int i=0; i&lt;n+1; i++){
   theSum = theSum + 1; //how many times?
 }
-</pre></section><section class="subsection" id="algorithm-analysis_some-needed-math-notation"><h3 class="heading hide-type">
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.2.1<span class="period">.</span></span><span class="space"> </span>How many times?</figcaption></figure></section><section class="subsection" id="algorithm-analysis_some-needed-math-notation"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="space"> </span><span class="title">Some Needed Math Notation</span>
 </h3>
 <div class="para" id="algorithm-analysis_some-needed-math-notation-2">This is the sigma symbol: <span class="process-math">\(\sum_{}\text{.}\)</span> It tells us that we are summing up something much like a mathematical loop typically with a counter.</div>
@@ -924,18 +931,18 @@ for (int i=0; i&lt;n+1; i++){
 </h3>
 <div class="para" id="algorithm-analysis_applying-the-math-notation-2">There is often more than one way to solve a problem. Let’s consider the blue area in the following <span class="process-math">\(8 \times 9\text{.}\)</span>rectangle.</div>
 <figure class="figure figure-like" id="fig-sumof-n-integers"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/AlgorithmAnalysis/sumof-n-integers.png" class="contained" alt="This figure illustrates the sum of eight integers (Figure 1). Examining the blue area within the rectangle highlights various problem-solving approaches. The visual representation provides clarity, showcasing the intricacies involved in calculating the sum and emphasizing the value of diverse perspectives in mathematical problem-solving."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.4<span class="period">.</span></span><span class="space"> </span>Sum of n = 8 integers</figcaption></figure><div class="para" id="algorithm-analysis_applying-the-math-notation-4">To find the blue area, we can count the number of blue squares <span class="process-math">\(1+2+3+4+5+6+7+8\text{,}\)</span> which we just learned can be written as <span class="process-math">\(\sum_{i=1}^{8} i.\)</span> However, we also know how to find the area of a rectangle, by multiplying height by width, and the blue squares represent half of the rectangle. So, the area with blue squares is also just <span class="process-math">\(\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.2<span class="period">.</span></span><span class="space"> </span>Sum of n = 8 integers</figcaption></figure><div class="para" id="algorithm-analysis_applying-the-math-notation-4">To find the blue area, we can count the number of blue squares <span class="process-math">\(1+2+3+4+5+6+7+8\text{,}\)</span> which we just learned can be written as <span class="process-math">\(\sum_{i=1}^{8} i.\)</span> However, we also know how to find the area of a rectangle, by multiplying height by width, and the blue squares represent half of the rectangle. So, the area with blue squares is also just <span class="process-math">\(\sum_{i=1}^{8} i = \frac {(8)(8+1)}{2}\text{.}\)</span>
 </div>
 <div class="para" id="algorithm-analysis_applying-the-math-notation-5">Hence, when we have a variable n, we have learned that we can just use the closed equation <span class="process-math">\(\sum_{i=1}^{n} i = \frac {(n)(n+1)}{2}\)</span> to compute the sum of the first <code class="code-inline tex2jax_ignore">n</code> integers without iterating.</div>
-<div class="para" id="algorithm-analysis_applying-the-math-notation-6">Consider the following function:</div>
-<pre class="code-block tex2jax_ignore">int sumOfN3(int n){
+<div class="para" id="algorithm-analysis_applying-the-math-notation-6">Consider the function in <a href="algorithm-analysis_what-is-algorithm-analysis.html#sum-of-n3" class="xref" data-knowl="./knowl/xref/sum-of-n3.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 2.2.3">Listing 2.2.3</a>.</div>
+<figure class="listing figure-like" id="sum-of-n3"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int sumOfN3(int n){
   int sum_n = (n*(n+1))/2; // how many times?
   return sum_n;
 }
-</pre>
-<div class="para" id="algorithm-analysis_applying-the-math-notation-8">We see this in <a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_active3cpp" class="xref" data-knowl="./knowl/xref/algorithm-analysis_active3cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 2.2.1.a: C++ implementation">Task 2.2.1.a</a>, which shows <code class="code-inline tex2jax_ignore">sumOfN3</code> taking advantage of the formula we just developed.</div>
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.2.3<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">sumOfN3</code></figcaption></figure><div class="para" id="algorithm-analysis_applying-the-math-notation-8">We see this in <a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_active3cpp" class="xref" data-knowl="./knowl/xref/algorithm-analysis_active3cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 2.2.4.a: C++ implementation">Task 2.2.4.a</a>, which shows <code class="code-inline tex2jax_ignore">sumOfN3</code> taking advantage of the formula we just developed.</div>
 <article class="exploration project-like" id="algorithm-analysis_active3cpp-expl"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Algorithm to analyze.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Algorithm to analyze.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="algorithm-analysis_active3cpp-expl">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="algorithm-analysis_active3cpp"><h5 class="heading">
@@ -1000,30 +1007,34 @@ Sum is 50005000 required 0.000000 seconds
 <section class="reading-questions" id="rqs-what-algo-analysis"><h4 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h4>
-<article class="exercise exercise-like" id="rqs-what-algo-analysis-2"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
-<div class="ptx-runestone-container"><div class="runestone fillintheblank_section"><div data-component="fillintheblank" data-question_label="" id="">
-<div class="para" id="rqs-what-algo-analysis-2-1-1">How many times is the theSum = theSum + 1 line executed? <input type="text" placeholder="Number">
+<article class="exercise exercise-like" id="howmany1"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone fillintheblank_section"><div data-component="fillintheblank" data-question_label="" id="howmany1">
+<div class="para" id="howmany1-1-1">How many times is the <code class="code-inline tex2jax_ignore">theSum = theSum + i</code> line executed in <a href="algorithm-analysis_what-is-algorithm-analysis.html#n1000-how-many" class="xref" data-knowl="./knowl/xref/n1000-how-many.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 2.2.1">Listing 2.2.1</a>? <input type="text" placeholder="Number">
 </div>
-<script type="application/json">[[{"number": [[1001], [1001]], "feedback": "<div class=\"para\" id=\"rqs-what-algo-analysis-2-2-1-1-1-1\">Right! Good job!<\/div>"}, {"number": [[1000, 1000], [1000, 1000]], "feedback": "<div class=\"para\" id=\"rqs-what-algo-analysis-2-2-1-2-1-1\">No. Look carefully at the loop condition i<n+1.<\/div>"}, {"regex": "^\\s*^\\s*default\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"rqs-what-algo-analysis-2-2-1-3-1-1\">Incorrect. Please try again.<\/div>"}]]</script>
+<script type="application/json">[[{"number": [[1001], [1001]], "feedback": "<div class=\"para\" id=\"howmany1-2-1-1-1-1\">Right! Good job!<\/div>"}, {"number": [[1000, 1000], [1000, 1000]], "feedback": "<div class=\"para\" id=\"howmany1-2-1-2-1-1\">No. Look carefully at the loop condition i<n+1.<\/div>"}, {"regex": "^\\s*^\\s*default\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"howmany1-2-1-3-1-1\">Incorrect. Please try again.<\/div>"}]]</script>
 </div></div></div></article><article class="exercise exercise-like" id="somemath1"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="somemath1" data-multipleanswers="false">
 <div class="para" id="somemath1-1-1">Compute the result of <span class="process-math">\(\sum_{i=1}^{3} i^3\)</span>
 </div>
 <li data-component="answer" id="somemath1_opt_a"><div class="para" id="somemath1-2-1-1-1">6</div></li>
-<li data-component="feedback" id="somemath1_opt_a"><div class="para" id="somemath1-2-1-2-1">No. Use i = 1, i = 2, and i = 3, plugging into i^3.</div></li>
+<li data-component="feedback" id="somemath1_opt_a"><div class="para" id="somemath1-2-1-2-1">No. Use i = 1, i = 2, and i = 3, plugging into <span class="process-math">\(i^3\text{.}\)</span>
+</div></li>
 <li data-component="answer" id="somemath1_opt_b"><div class="para" id="somemath1-2-2-1-1">14</div></li>
-<li data-component="feedback" id="somemath1_opt_b"><div class="para" id="somemath1-2-2-2-1">No. Use i = 1, i = 2, and i = 3, plugging into i^3.</div></li>
+<li data-component="feedback" id="somemath1_opt_b"><div class="para" id="somemath1-2-2-2-1">No. Use i = 1, i = 2, and i = 3, plugging into <span class="process-math">\(i^3\text{.}\)</span>
+</div></li>
 <li data-component="answer" id="somemath1_opt_c"><div class="para" id="somemath1-2-3-1-1">25</div></li>
-<li data-component="feedback" id="somemath1_opt_c"><div class="para" id="somemath1-2-3-2-1">No. Use i = 1, i = 2, and i = 3, plugging into i^3.</div></li>
+<li data-component="feedback" id="somemath1_opt_c"><div class="para" id="somemath1-2-3-2-1">No. Use i = 1, i = 2, and i = 3, plugging into <span class="process-math">\(i^3\text{.}\)</span>
+</div></li>
 <li data-component="answer" id="somemath1_opt_d" data-correct=""><div class="para" id="somemath1-2-4-1-1">36</div></li>
-<li data-component="feedback" id="somemath1_opt_d"><div class="para" id="somemath1-2-4-2-1">Right! It is 1^3 + 2^3 + 3^3 = 1 + 8 + 27.</div></li>
+<li data-component="feedback" id="somemath1_opt_d"><div class="para" id="somemath1-2-4-2-1">Right! It is <span class="process-math">\(1^3 + 2^3 + 3^3 = 1 + 8 + 27\text{.}\)</span>
+</div></li>
 <li data-component="answer" id="somemath1_opt_e"><div class="para" id="somemath1-2-5-1-1">None of the above</div></li>
 <li data-component="feedback" id="somemath1_opt_e"><div class="para" id="somemath1-2-5-2-1">One of the above is correct!</div></li>
-</ul></div></div></article><article class="exercise exercise-like" id="rqs-what-algo-analysis-4"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
-<div class="ptx-runestone-container"><div class="runestone fillintheblank_section"><div data-component="fillintheblank" data-question_label="" id="">
-<div class="para" id="rqs-what-algo-analysis-4-1-1">If SumOfN3 is called once with a parameter of n=10, how many times is the int sum_n = (n*(n+1))/2; line executed? <input type="text" placeholder="Number">
+</ul></div></div></article><article class="exercise exercise-like" id="bigo2"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone fillintheblank_section"><div data-component="fillintheblank" data-question_label="" id="bigo2">
+<div class="para" id="bigo2-1-1">If <code class="code-inline tex2jax_ignore">SumOfN3</code> (<a href="algorithm-analysis_what-is-algorithm-analysis.html#sum-of-n3" class="xref" data-knowl="./knowl/xref/sum-of-n3.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 2.2.3">Listing 2.2.3</a>) is called once with a parameter of <code class="code-inline tex2jax_ignore">n=10</code>, how many times is the <code class="code-inline tex2jax_ignore">int sum_n = (n*(n+1))/2;</code> line executed? <input type="text" placeholder="Number">
 </div>
-<script type="application/json">[[{"number": [[1], [1]], "feedback": "<div class=\"para\" id=\"rqs-what-algo-analysis-4-2-1-1-1-1\">Right! Good job!<\/div>"}, {"number": [[10], [10]], "feedback": "<div class=\"para\" id=\"rqs-what-algo-analysis-4-2-1-2-1-1\">No, consider that the function is called only once, and n is the parameter.<\/div>"}, {"regex": "^\\s*^\\s*default\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"rqs-what-algo-analysis-4-2-1-3-1-1\">Incorrect. Please try again.<\/div>"}]]</script>
+<script type="application/json">[[{"number": [[1], [1]], "feedback": "<div class=\"para\" id=\"bigo2-2-1-1-1-1\">Right! Good job!<\/div>"}, {"number": [[10], [10]], "feedback": "<div class=\"para\" id=\"bigo2-2-1-2-1-1\">No, consider that the function is called only once, and n is the parameter.<\/div>"}, {"regex": "^\\s*^\\s*default\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"bigo2-2-1-3-1-1\">Incorrect. Please try again.<\/div>"}]]</script>
 </div></div></div></article></section></section><section class="conclusion" id="algorithm-analysis_what-is-algorithm-analysis-5"><div class="para" id="algorithm-analysis_what-is-algorithm-analysis-5-1"></div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="algorithm-analysis_objectives.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="algorithm-analysis_big-o-notation.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

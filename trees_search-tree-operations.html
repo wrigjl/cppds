@@ -227,15 +227,6 @@ eBookConfig.enable_chatcodes =  false;
 #trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
 #trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
 #trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
-#trees_discussion-questions-3-1 { counter-set: trees_discussion-questions-3-1 0; }
-#trees_discussion-questions-3-1 > li::marker { content: ""counter(trees_discussion-questions-3-1,decimal)""; }
-#trees_discussion-questions-3-1 > li { counter-increment: trees_discussion-questions-3-1; }
-#trees_discussion-questions-5-1 { counter-set: trees_discussion-questions-5-1 0; }
-#trees_discussion-questions-5-1 > li::marker { content: ""counter(trees_discussion-questions-5-1,decimal)""; }
-#trees_discussion-questions-5-1 > li { counter-increment: trees_discussion-questions-5-1; }
-#trees_discussion-questions-7-1 { counter-set: trees_discussion-questions-7-1 0; }
-#trees_discussion-questions-7-1 > li::marker { content: ""counter(trees_discussion-questions-7-1,decimal)""; }
-#trees_discussion-questions-7-1 > li { counter-increment: trees_discussion-questions-7-1; }
 #trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
 #trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
 #trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
@@ -286,7 +277,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="cppds2-3.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<div class="toc-title-box"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_objectives.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Getting Started</span></a></div></li>
@@ -776,18 +767,18 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="trees_search-tree-operations"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">8.12</span><span class="space"> </span><span class="title">Search Tree Operations</span>
 </h2>
-<div class="para" id="trees_search-tree-operations-2">Before we look at the implementation, let’s review the interface provided by the map ADT. You will notice that this interface is very similar to the C++ Hash Table.</div>
+<div class="para" id="trees_search-tree-operations-2">Before we look at the implementation, let’s discuss the operations that will be provided by the <code class="code-inline tex2jax_ignore">BinarySearchTree</code>. You should notice that this interface is very similar to the C++ Hash Table in <a href="search-hash_hashing.html" class="internal" title="Section 6.5: Hashing">Section 6.5</a>. While the operations provided by <code class="code-inline tex2jax_ignore">BinarySearchTree</code> are the same as the Hash Table, we will see that how items are stored and accessed is very different.</div>
 <div class="para logical" id="trees_search-tree-operations-3"><ul class="disc" id="trees_search-tree-operations-3-1">
 <li id="trees_search-tree-operations-3-1-1"><div class="para" id="trees_search-tree-operations-3-1-1-1">
-<code class="code-inline tex2jax_ignore">Map()</code> Create a new, empty map.</div></li>
+<code class="code-inline tex2jax_ignore">BinarySearchTree()</code> Create a new, empty tree.</div></li>
 <li id="trees_search-tree-operations-3-1-2"><div class="para" id="trees_search-tree-operations-3-1-2-1">
-<code class="code-inline tex2jax_ignore">put(key,val)</code> Add a new key-value pair to the map. If the key is already in the map then replace the old value with the new value.</div></li>
+<code class="code-inline tex2jax_ignore">put(key,val)</code> Add a new key-value pair to the tree. If the key is already in the tree then replace the old value with the new value.</div></li>
 <li id="trees_search-tree-operations-3-1-3"><div class="para" id="trees_search-tree-operations-3-1-3-1">
-<code class="code-inline tex2jax_ignore">get(key)</code> Given a key, return the value stored in the map or <code class="code-inline tex2jax_ignore">NULL</code> otherwise.</div></li>
+<code class="code-inline tex2jax_ignore">get(key)</code> Given a key, return the value stored in the tree or <code class="code-inline tex2jax_ignore">NULL</code> otherwise.</div></li>
 <li id="trees_search-tree-operations-3-1-4"><div class="para" id="trees_search-tree-operations-3-1-4-1">
-<code class="code-inline tex2jax_ignore">del</code> Delete the key-value pair from the map using a statement of the form <code class="code-inline tex2jax_ignore">del map[key]</code>.</div></li>
+<code class="code-inline tex2jax_ignore">del(key)</code> Delete the key-value pair from the tree.</div></li>
 <li id="trees_search-tree-operations-3-1-5"><div class="para" id="trees_search-tree-operations-3-1-5-1">
-<code class="code-inline tex2jax_ignore">length()</code> Return the number of key-value pairs stored in the map.</div></li>
+<code class="code-inline tex2jax_ignore">length()</code> Return the number of key-value pairs stored in the tree.</div></li>
 </ul></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="trees_binary-search-trees.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="trees_search-tree-implementation.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

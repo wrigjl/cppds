@@ -227,15 +227,6 @@ eBookConfig.enable_chatcodes =  false;
 #trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
 #trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
 #trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
-#trees_discussion-questions-3-1 { counter-set: trees_discussion-questions-3-1 0; }
-#trees_discussion-questions-3-1 > li::marker { content: ""counter(trees_discussion-questions-3-1,decimal)""; }
-#trees_discussion-questions-3-1 > li { counter-increment: trees_discussion-questions-3-1; }
-#trees_discussion-questions-5-1 { counter-set: trees_discussion-questions-5-1 0; }
-#trees_discussion-questions-5-1 > li::marker { content: ""counter(trees_discussion-questions-5-1,decimal)""; }
-#trees_discussion-questions-5-1 > li { counter-increment: trees_discussion-questions-5-1; }
-#trees_discussion-questions-7-1 { counter-set: trees_discussion-questions-7-1 0; }
-#trees_discussion-questions-7-1 > li::marker { content: ""counter(trees_discussion-questions-7-1,decimal)""; }
-#trees_discussion-questions-7-1 > li { counter-increment: trees_discussion-questions-7-1; }
 #trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
 #trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
 #trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
@@ -286,7 +277,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="cppds2-3.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<div class="toc-title-box"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_objectives.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Getting Started</span></a></div></li>
@@ -804,14 +795,22 @@ eBookConfig.enable_chatcodes =  false;
 <li id="trees_discussion-questions-2-1-9"><div class="para" id="trees_discussion-questions-2-1-9-1">Consider the following array of integers: [1,2,3,4,5,6,7,8,9,10]. Show the binary heap resulting from inserting the integers one at a time.</div></li>
 <li id="trees_discussion-questions-2-1-10"><div class="para" id="trees_discussion-questions-2-1-10-1">Consider the following array of integers: [10,9,8,7,6,5,4,3,2,1]. Show the binary heap resulting from inserting the integers one at a time.</div></li>
 <li id="trees_discussion-questions-2-1-11"><div class="para" id="trees_discussion-questions-2-1-11-1">Consider the two different techniques we used for implementing traversals of a binary tree. Why must we check before the call to <code class="code-inline tex2jax_ignore">preorder</code> when implementing as a method, whereas we could check inside the call when implementing as a function?</div></li>
-</ol></div>
-<div class="para logical" id="trees_discussion-questions-3"><ol class="decimal" id="trees_discussion-questions-3-1"><li id="trees_discussion-questions-3-1-1"><div class="para" id="trees_discussion-questions-3-1-1-1">Show the function calls needed to build the following binary tree.</div></li></ol></div>
-<figure class="figure figure-like" id="trees_discussion-questions-4"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/exerTree.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para logical" id="trees_discussion-questions-5"><ol class="decimal" id="trees_discussion-questions-5-1"><li id="trees_discussion-questions-5-1-1"><div class="para" id="trees_discussion-questions-5-1-1-1">Given the following tree, perform the appropriate rotations to bring it back into balance.</div></li></ol></div>
-<figure class="figure figure-like" id="trees_discussion-questions-6"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;"><img src="external/Trees/rotexer1.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para logical" id="trees_discussion-questions-7"><ol class="decimal" id="trees_discussion-questions-7-1"><li id="trees_discussion-questions-7-1-1"><div class="para" id="trees_discussion-questions-7-1-1-1">Using the following as a starting point, derive the equation that gives the updated balance factor for node D.</div></li></ol></div>
-<figure class="figure figure-like" id="trees_discussion-questions-8"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/bfderive.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure></section></div>
+<li id="trees_discussion-questions-2-1-12">
+<div class="para" id="trees_discussion-questions-2-1-12-1">Show the function calls needed to build the binary tree in <a href="trees_discussion-questions.html#exertree" class="xref" data-knowl="./knowl/xref/exertree.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.20.1">Figure 8.20.1</a>.</div>
+<figure class="figure figure-like" id="exertree"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/exerTree.png" class="contained" alt="A tree whose root node is language. The language node has two children: compiled and interpreted. The compiled node has two children: C and Java. The interpreted node has two children: Python and Scheme."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.1<span class="period">.</span></span><span class="space"> </span>Tree of Programming Languages</figcaption></figure>
+</li>
+<li id="trees_discussion-questions-2-1-13">
+<div class="para" id="trees_discussion-questions-2-1-13-1">Given the tree in <a href="trees_discussion-questions.html#rotexer1" class="xref" data-knowl="./knowl/xref/rotexer1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.20.2">Figure 8.20.2</a>, perform the appropriate rotations to bring it back into balance.</div>
+<figure class="figure figure-like" id="rotexer1"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;"><img src="external/Trees/rotexer1.png" class="contained" alt="A tree whose root node is B with a balance factor of -2. B has two children: A with a balance factor of 0 and E with a balanace factor of 1. A has no children. E has two children: D with a balance factor of 1 and F with a balance factor of 0. D has only a left child: C with balance factor 0. F has no children."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.2<span class="period">.</span></span><span class="space"> </span>Out of Balance Tree</figcaption></figure>
+</li>
+<li id="trees_discussion-questions-2-1-14">
+<div class="para" id="trees_discussion-questions-2-1-14-1">Using <a href="trees_discussion-questions.html#bfderive" class="xref" data-knowl="./knowl/xref/bfderive.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.20.3">Figure 8.20.3</a> as a starting point, derive the equation that gives the updated balance factor for node D.</div>
+<figure class="figure figure-like" id="bfderive"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/bfderive.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.3<span class="period">.</span></span><span class="space"> </span>Compute Updated Balance Factor</figcaption></figure>
+</li>
+</ol></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="trees_summary.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="trees_programming-exercises.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
