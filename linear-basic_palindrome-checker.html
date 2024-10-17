@@ -769,7 +769,7 @@ eBookConfig.enable_chatcodes =  false;
 </h2>
 <div class="para" id="linear-basic_palindrome-checker-2">An interesting problem that can be easily solved using the deque data structure is the classic palindrome problem. A <dfn class="terminology">palindrome</dfn> is a string that reads the same forward and backward, for example, <em class="emphasis">radar</em>, <em class="emphasis">toot</em>, and <em class="emphasis">madam</em>. We would like to construct an algorithm to input a string of characters and check whether it is a palindrome.</div>
 <div class="para" id="linear-basic_palindrome-checker-3">The solution to this problem will use a deque to store the characters of the string. We will process the string from left to right and add each character to the rear of the deque. At this point, the deque will be acting very much like an ordinary queue. However, we can now make use of the dual functionality of the deque. The front of the deque will hold the first character of the string and the rear of the deque will hold the last character (see <a href="linear-basic_palindrome-checker.html#fig-palindrome" class="xref" data-knowl="./knowl/xref/fig-palindrome.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.18.1">Figure 3.18.1</a>).</div>
-<figure class="figure figure-like" id="fig-palindrome"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/palindromesetup.png" class="contained"></div>
+<figure class="figure figure-like" id="fig-palindrome"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/LinearBasic/palindromesetup.png" class="contained" alt='The image depicts adding the word "radar" to a dequeue. Each character is added to the rear of the queue during initialization, when all the characters have been added character afters are removed from each end of the queue: R is removed from the rear and another R is removed from the head of the queue.'></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.18.1<span class="period">.</span></span><span class="space"> </span>A Deque</figcaption></figure><div class="para" id="linear-basic_palindrome-checker-5">Since we can remove both of them directly, we can compare them and continue only if they match. If we can keep matching first and the last items, we will eventually either run out of characters or be left with a deque of size 1 depending on whether the length of the original string was even or odd. In either case, the string must be a palindrome. The complete function for palindrome-checking appears in <a href="linear-basic_palindrome-checker.html#linear-basic_palinedrome-cpp" class="xref" data-knowl="./knowl/xref/linear-basic_palinedrome-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.18.1.a: C++ Implementation">Task 3.18.1.a</a>.</div>
 <article class="exploration project-like" id="expl-linear-basic_palinedrome"><h3 class="heading">
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.18.1</span><span class="period">.</span><span class="space"> </span><span class="title">Basic Palindrome Checker.</span>
@@ -848,7 +848,7 @@ main()
 </textarea></div></div></div></article></div>
 </div></div></div></article><div class="para" id="linear-basic_palindrome-checker-7">Below we can see an upgraded code for checking palindromes, which is able to handle strings with capital letters, spaces, and special characters.</div>
 <div class="para" id="linear-basic_palindrome-checker-8">
-<a href="linear-basic_palindrome-checker.html#advanced-linear-basic_palinedrome-cpp" class="xref" data-knowl="./knowl/xref/advanced-linear-basic_palinedrome-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 3.18.2: Advanced Palindrome Checker">Listing 3.18.2</a>.</div>
+<a href="linear-basic_palindrome-checker.html#advanced-linear-basic_palinedrome-cpp" class="xref" data-knowl="./knowl/xref/advanced-linear-basic_palinedrome-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 3.18.2">Listing 3.18.2</a>.</div>
 <figure class="listing figure-like" id="advanced-linear-basic_palinedrome-cpp"><pre class="program"><code class="language-cpp">//program that detects palindromes.
 
 /*
@@ -925,7 +925,7 @@ int main() {
     cout &lt;&lt; palchecker("not a palindrome") &lt;&lt; endl;
 }
 </code></pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.18.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><section class="reading-questions" id="rqs-"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.18.2<span class="period">.</span></span><span class="space"> </span>Advanced Palindrome Checker</figcaption></figure><section class="reading-questions" id="rqs-"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h3>
 <article class="exercise exercise-like" id="orderingPrinciples"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
