@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h5 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">6.5.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int hashfunction(int key) {
+    return key%size;
+}
+
+int rehash(int oldhash) {
+    return (oldhash+1)%size;
+}
+
+void put(int key, string val){
+    int hashvalue = hashfunction(key);
+    int count = 0;
+
+    if (data[hashvalue]=="") {
+        slots[hashvalue] = key;
+        data[hashvalue] = val;
+    } else {
+        if (slots[hashvalue] == key) {
+            data[hashvalue] = val;
+        } else {
+            int nextslot = rehash(hashvalue);
+
+            while (data[nextslot]!="" &amp;&amp; slots[nextslot] != key) {
+                nextslot = rehash(nextslot);
+
+                count++;
+                if (count&gt;size) {
+                    cout&lt;&lt;"TABLE FULL"&lt;&lt;endl;
+                    return;
+                }
+            }
+            if (data[nextslot]=="") {
+                slots[nextslot]=key;
+                data[nextslot]=val;
+            } else {
+                data[nextslot] = val;
+            }
+        }
+    }
+}
+</code></pre></div></article><span class="incontext"><a class="internal" href="search-hash_hashing.html#search-hash_lst-hashtablecodestore-cpp">in-context</a></span>
+</body>
+</html>

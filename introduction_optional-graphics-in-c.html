@@ -776,7 +776,15 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="introduction_introduction-to-turtles-2">Visual representations afford students an opportunity to observe a facet of computer science from an alternative point of view: rather than waiting anxiously for the print statement to come around after your program churns, you get a visual representation of the concept itself. This is particularly useful for abstract concepts such as recursion and iteration.</div>
 <div class="para" id="introduction_introduction-to-turtles-3">For C++, a library titled C-Turtle is used to provide an equivalent of Python’s Turtles. It acts as a close replacement to provide easy to use graphics to C++, while maintaining the objects and commands present in Python. It was developed by Jesse Walker-Schadler at Berea College during the summer of 2019 and can be found on GitHub here: <a class="external" href="https://github.com/walkerje/C-Turtle/" target="_blank">https://github.com/walkerje/C-Turtle/</a><details class="ptx-footnote" aria-live="polite" id="introduction_introduction-to-turtles-3-2"><summary class="ptx-footnote__number" title="Footnote 1.14.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="introduction_introduction-to-turtles-3-2"><code class="code-inline tex2jax_ignore">https://github.com/walkerje/C-Turtle/</code></div></details>
 </div>
-<div class="para" id="introduction_introduction-to-turtles-4">Below is a comparison of two versions, C++ and Python, which should do the same thing. Try running both and comparing how the code looks between the two versions.</div>
+<div class="para" id="introduction_introduction-to-turtles-4">
+<a href="introduction_optional-graphics-in-c.html#expl-cturtle_1" class="xref" data-knowl="./knowl/xref/expl-cturtle_1.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.14.1: Comapring C++ and Python Usage">Exploration 1.14.1</a> is a comparison of two versions, C++ and Python, which should do the same thing. Try running both and comparing how the code looks between the two versions.</div>
+<article class="exploration project-like" id="expl-cturtle_1"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.14.1</span><span class="period">.</span><span class="space"> </span><span class="title">Comapring C++ and Python Usage.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-cturtle_1">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="cturtle_1"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++.</span>
+</h5>
 <pre class="program"><code class="language-cpp">#include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
@@ -794,7 +802,10 @@ int main() {
     scr.bye();
     return 0;
 }
-</code></pre>
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="cturtle_python_1"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python.</span>
+</h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="cturtle_python_1"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="cturtle_python_1_editor" data-question_label="" data-codelens="true">import turtle
 
 turt = turtle.Turtle()
@@ -807,7 +818,8 @@ for i in range(4):
     turt.right(90)
 turt.end_fill()
 turt.bye()
-</textarea></div></div></div></section><section class="subsection" id="introduction_turtle-turtlescreen"><h3 class="heading hide-type">
+</textarea></div></div></div></article></div>
+</div></div></div></article></section><section class="subsection" id="introduction_turtle-turtlescreen"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.14.2</span><span class="space"> </span><span class="title">Turtle &amp; TurtleScreen</span>
 </h3>
 <div class="para" id="introduction_turtle-turtlescreen-2">Turtles must exist on a <code class="code-inline tex2jax_ignore">TurtleScreen</code> to be used. The <code class="code-inline tex2jax_ignore">TurtleScreen</code> object must be created before you can create a <code class="code-inline tex2jax_ignore">Turtle</code> object for this reason.</div>
@@ -818,8 +830,8 @@ ct::Turtle turtle(screen);
 <div class="para" id="introduction_turtle-turtlescreen-4">Closing a <code class="code-inline tex2jax_ignore">TurtleScreen</code> when you’re done with it is fairly simple to do. For this chapter, only the method <code class="code-inline tex2jax_ignore">bye</code> is used. Calling it is not completely necessary, as it is also called automatically if it, or an equivalent method, hasn’t been called. When working outside of the textbook, the <code class="code-inline tex2jax_ignore">exitonclick</code> method is also available.</div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">screen.bye();
 </code></pre></div>
-<div class="para" id="introduction_turtle-turtlescreen-6">Turtles are based on the following premise: “There is a turtle on a canvas with a colored pen attached to their tail.” In this case, the <em class="emphasis">canvas</em> is a <code class="code-inline tex2jax_ignore">TurtleScreen</code>. This Turtle will follow any command you give it, which consist of telling it to go certain directions, what color of pen to use, when to raise or lower its pen, and others. Below is an outline of commonly used methods when working with turtles.</div>
-<figure class="table table-like" id="introduction_turtle-turtlescreen-7"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.1<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="introduction_turtle-turtlescreen-6">Turtles are based on the following premise: “There is a turtle on a canvas with a colored pen attached to their tail.” In this case, the <em class="emphasis">canvas</em> is a <code class="code-inline tex2jax_ignore">TurtleScreen</code>. This Turtle will follow any command you give it, which consist of telling it to go certain directions, what color of pen to use, when to raise or lower its pen, and others. <a href="introduction_optional-graphics-in-c.html#tab-turtlefun" class="xref" data-knowl="./knowl/xref/tab-turtlefun.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.14.1: Turtle Methods">Table 1.14.1</a> has an outline of commonly used methods when working with turtles.</div>
+<figure class="table table-like" id="tab-turtlefun"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.1<span class="period">.</span></span><span class="space"> </span>Turtle Methods</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines">Method Name</th>
 <th scope="col" class="l m b0 r0 l0 t0 lines">Description</th>
@@ -880,8 +892,8 @@ ct::Turtle turtle(screen);
 <td class="l m b0 r0 l0 t0 lines">turtle.write</td>
 <td class="l m b0 r0 l0 t0 lines">tells the turtle to write some kind of text.</td>
 </tr>
-</table></div></figure><div class="para" id="introduction_turtle-turtlescreen-8">Many of these methods are used alongside one-another to create different images. All speeds are measured on a range of 1 to 10, the latter being the fastest and the former being the slowest. The exception is the fastest speed, <code class="code-inline tex2jax_ignore">TS_FASTEST</code>, which is set to 0. The <code class="code-inline tex2jax_ignore">TS</code> prefix represents “Turtle Speed”.</div>
-<figure class="table table-like" id="introduction_turtle-turtlescreen-9"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.2<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</table></div></figure><div class="para" id="introduction_turtle-turtlescreen-8">Many of these methods are used alongside one-another to create different images. All speeds (<a href="introduction_optional-graphics-in-c.html#turtle-speeds" class="xref" data-knowl="./knowl/xref/turtle-speeds.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.14.2: Turtle Speeds">Table 1.14.2</a>are measured on a range of 1 to 10, the latter being the fastest and the former being the slowest. The exception is the fastest speed, <code class="code-inline tex2jax_ignore">TS_FASTEST</code>, which is set to 0. The <code class="code-inline tex2jax_ignore">TS</code> prefix represents “Turtle Speed”.</div>
+<figure class="table table-like" id="turtle-speeds"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.2<span class="period">.</span></span><span class="space"> </span>Turtle Speeds</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines">CTurtle Name</th>
 <th scope="col" class="l m b0 r0 l0 t0 lines">Speed</th>
@@ -906,8 +918,8 @@ ct::Turtle turtle(screen);
 <td class="l m b0 r0 l0 t0 lines">TS_SLOWEST</td>
 <td class="l m b0 r0 l0 t0 lines">1</td>
 </tr>
-</table></div></figure><div class="para" id="introduction_turtle-turtlescreen-10">Consider the following annotated example.</div>
-<pre class="program"><code class="language-cpp">#include &lt;CTurtle.hpp&gt;
+</table></div></figure><div class="para" id="introduction_turtle-turtlescreen-10">Consider the example in <a href="introduction_optional-graphics-in-c.html#lst-cturtle_4" class="xref" data-knowl="./knowl/xref/lst-cturtle_4.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.14.3">Listing 1.14.3</a>.</div>
+<figure class="listing figure-like" id="lst-cturtle_4"><pre class="program"><code class="language-cpp">#include &lt;CTurtle.hpp&gt;
 namespace ct = cturtle;
 
 int main() {
@@ -945,15 +957,15 @@ int main() {
     return 0;
 }
 </code></pre>
-<div class="para" id="introduction_turtle-turtlescreen-12">The order of operations given to a turtle is important, as some actions must be completed one after another. A good example of this is the <code class="code-inline tex2jax_ignore">begin_fill</code> and <code class="code-inline tex2jax_ignore">end_fill</code> pattern, which must be called in that specified order to actually fill a shape.</div></section><section class="subsection" id="introduction_geometry-shapes-and-stamps"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.14.3<span class="period">.</span></span><span class="space"> </span>Using Turtle Speed Controls</figcaption></figure><div class="para" id="introduction_turtle-turtlescreen-12">The order of operations given to a turtle is important, as some actions must be completed one after another. A good example of this is the <code class="code-inline tex2jax_ignore">begin_fill</code> and <code class="code-inline tex2jax_ignore">end_fill</code> pattern, which must be called in that specified order to actually fill a shape.</div></section><section class="subsection" id="introduction_geometry-shapes-and-stamps"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.14.3</span><span class="space"> </span><span class="title">Geometry, Shapes, and Stamps</span>
 </h3>
 <div class="para" id="introduction_geometry-shapes-and-stamps-2">Every basic shape in CTurtle is a set of coordinates. Within the CTurtle library we have the choice of a select few shapes that we can me our Turtles inhabit. To change the appearance of your Turtle, you can use <code class="code-inline tex2jax_ignore">shape</code> to set your Turtle to one of four default shapes, or a custom shape. CTurtle features four default shapes, <code class="code-inline tex2jax_ignore">triangle</code>, <code class="code-inline tex2jax_ignore">indented_triangle</code>, <code class="code-inline tex2jax_ignore">square</code>, and <code class="code-inline tex2jax_ignore">arrow</code>.</div>
 <div class="para" id="introduction_geometry-shapes-and-stamps-3">The following code example shows how to set the shape of a turtle by giving it the name of a shape.</div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">turtle.shape("square");
 </code></pre></div>
-<div class="para" id="introduction_geometry-shapes-and-stamps-5">Given that all primitive shapes are defined as a collection of points, all of the default shapes are also defined this way. Polygons, for custom and default shapes, must have their points defined in counter-clockwise order to appear correctly. This is due to the mathematics behind filling arbitrary shapes, and is a limitation almost all computer graphics need to abide by. Consider the order of their points in the following table, and how they could be considered “counter-clockwise”. They are in order from top to bottom, and one edge exists between the first last points for each of these shapes. Please note that positive Y coordinates are <em class="emphasis">lower</em> on the screen, while negative Y coordinates are <em class="emphasis">higher</em> on the screen. Coordinates at the origin– that is, coordinate 0x, 0y– is at the “point” or “tip” of the turtle. This is why most of the default shapes have their first coordinate there.</div>
-<figure class="table table-like" id="introduction_geometry-shapes-and-stamps-6"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.3<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="introduction_geometry-shapes-and-stamps-5">Given that all primitive shapes are defined as a collection of points, all of the default shapes are also defined this way <a href="introduction_optional-graphics-in-c.html#turtle-shapes" class="xref" data-knowl="./knowl/xref/turtle-shapes.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.14.4: Turtle Shapes">Table 1.14.4</a>. Polygons, for custom and default shapes, must have their points defined in counter-clockwise order to appear correctly. This is due to the mathematics behind filling arbitrary shapes, and is a limitation almost all computer graphics need to abide by. Consider the order of their points in the following table, and how they could be considered “counter-clockwise”. They are in order from top to bottom, and one edge exists between the first last points for each of these shapes. Please note that positive Y coordinates are <em class="emphasis">lower</em> on the screen, while negative Y coordinates are <em class="emphasis">higher</em> on the screen. Coordinates at the origin– that is, coordinate 0x, 0y– is at the “point” or “tip” of the turtle. This is why most of the default shapes have their first coordinate there.</div>
+<figure class="table table-like" id="turtle-shapes"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.4<span class="period">.</span></span><span class="space"> </span>Turtle Shapes</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines">triangle</th>
 <th scope="col" class="l m b0 r0 l0 t0 lines">indented_triangle</th>
@@ -1002,9 +1014,9 @@ int main() {
 <td class="l m b0 r0 l0 t0 lines">.</td>
 <td class="l m b0 r0 l0 t0 lines">(5, 5)</td>
 </tr>
-</table></div></figure><div class="para" id="introduction_geometry-shapes-and-stamps-7">Using the default <code class="code-inline tex2jax_ignore">indented_triangle</code> shape as an example, Figure 1 shows the nature of the counter-clockwise order.</div>
+</table></div></figure><div class="para" id="introduction_geometry-shapes-and-stamps-7">Using the default <code class="code-inline tex2jax_ignore">indented_triangle</code> shape as an example, <a href="introduction_optional-graphics-in-c.html#ccpolygon" class="xref" data-knowl="./knowl/xref/ccpolygon.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.14.5">Figure 1.14.5</a> shows the nature of the counter-clockwise order.</div>
 <figure class="figure figure-like" id="ccpolygon"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/cc_polygon.png" class="contained" alt="Graphic illustrating an indented triangle with coordinate points. At the top vertex, the point is labeled ’0, 0’. The bottom left vertex is labeled ’-5, 10’, and the bottom right vertex is labeled ’5, 10’. An arrow curves above the triangle, indicating rotation or flipping. Each vertex is marked with a green circle. The image defines the shape and position of an indented triangle in a coordinate system"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.14.4<span class="period">.</span></span><span class="space"> </span>Indented Triangle Definition</figcaption></figure><div class="para" id="introduction_geometry-shapes-and-stamps-9">The example code below illustrates how to create your own shape. We use the <code class="code-inline tex2jax_ignore">Polygon</code> class to represent our shape. For this example, we take the <code class="code-inline tex2jax_ignore">triangle</code> default shape and make every Y coordinate negative to make it appear upside-down.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.14.5<span class="period">.</span></span><span class="space"> </span>Indented Triangle Definition</figcaption></figure><div class="para" id="introduction_geometry-shapes-and-stamps-9">The example code below illustrates how to create your own shape. We use the <code class="code-inline tex2jax_ignore">Polygon</code> class to represent our shape. For this example, we take the <code class="code-inline tex2jax_ignore">triangle</code> default shape and make every Y coordinate negative to make it appear upside-down.</div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">ct::Polygon upside_down_triangle = {
   {0, 0},   //First point
   {-5, -5}, //Second point
@@ -1072,8 +1084,8 @@ int main(){
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.14.4</span><span class="space"> </span><span class="title">Advanced Features</span>
 </h3>
 <div class="para" id="introduction_advanced-features-2">Turtles are a large tool, and thus have a lot of options dictating how they function. Some features and functionality are more complicated than others, relating to the inner workings of turtles themselves. A few of these include the <code class="code-inline tex2jax_ignore">tracer</code> and <code class="code-inline tex2jax_ignore">undo</code> methods, and also screen modes.</div>
-<div class="para" id="introduction_advanced-features-3">Screen modes dictate the direction of angle measurements. This means that, depending on which mode a <code class="code-inline tex2jax_ignore">TurtleScreen</code> object is in, positive angles could represent clockwise rotations or counterclockwise rotations. The <code class="code-inline tex2jax_ignore">mode</code> method for <code class="code-inline tex2jax_ignore">TurtleScreen</code> allows you to set which mode a screen is in.</div>
-<figure class="table table-like" id="introduction_advanced-features-4"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.5<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="introduction_advanced-features-3">Screen modes dictate the direction of angle measurements. This means that, depending on which mode a <code class="code-inline tex2jax_ignore">TurtleScreen</code> object is in, positive angles could represent clockwise rotations or counterclockwise rotations. The <code class="code-inline tex2jax_ignore">mode</code> method for <code class="code-inline tex2jax_ignore">TurtleScreen</code> allows you to set which mode a screen is in, see <a href="introduction_optional-graphics-in-c.html#turtle-modes" class="xref" data-knowl="./knowl/xref/turtle-modes.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.14.6: Turtle Modes">Table 1.14.6</a>.</div>
+<figure class="table table-like" id="turtle-modes"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.14.6<span class="period">.</span></span><span class="space"> </span>Turtle Modes</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines">Mode</th>
 <th scope="col" class="l m b0 r0 l0 t0 lines">Default Rotation</th>

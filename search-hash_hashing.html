@@ -770,9 +770,8 @@ eBookConfig.enable_chatcodes =  false;
 <section class="introduction" id="search-hash_hashing-2"><div class="para" id="search-hash_hashing-2-1">In previous sections we were able to make improvements on our search algorithms by taking advantage of information about where items are stored in the collection with respect to one another. For example, by knowing that a list was ordered, we could search in logarithmic time using a binary search. In this section we will attempt to go one step further by building a data structure that can be searched in <span class="process-math">\(O(1)\)</span> by using <dfn class="terminology">hashing</dfn>.</div>
 <div class="para" id="search-hash_hashing-2-2">In order to do this, we will need to know even more about where the items might be when we go to look for them in the collection. If every item is where it should be, then the search can use a single comparison to discover the presence of an item. We will see, however, that this is typically not the case.</div>
 <div class="para" id="search-hash_hashing-2-3">A <dfn class="terminology">hash table</dfn> is a collection of items which are stored in such a way as to make it easy to find them later. Each position of the hash table, often called a <dfn class="terminology">slot</dfn>, can hold an item and is named by an integer value starting at 0. For example, we will have a slot named 0, a slot named 1, a slot named 2, and so on.Initially, the hash table contains no items so every slot is empty. We can implement a hash table by using a list with each value initialized to an empty string. <a href="search-hash_hashing.html#search_hash-fig-hashtable1" class="xref" data-knowl="./knowl/xref/search_hash-fig-hashtable1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.5.1">Figure 6.5.1</a> shows a hash table of size <span class="process-math">\(m=11\text{.}\)</span> In other words, there are <em class="emphasis">m</em> slots in the table, named 0 through 10.</div>
-<blockquote class="blockquote" id="search-hash_hashing-2-4"><figure class="figure figure-like" id="search_hash-fig-hashtable1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/SearchHash/hashtable.png" class="contained" alt="Image depicting a hash table data structure with eleven empty slots. The slots are numbered from 0 to 10 and each contains the word ’None’, indicating that they are unoccupied. The table is presented in a horizontal format, with clear delineation between each slot."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.5.1<span class="period">.</span></span><span class="space"> </span>Hash Table with 11 Empty Slots.</figcaption></figure></blockquote>
-<div class="para" id="search-hash_hashing-2-5">In a hash table, the mapping between an item and the slot where that item belongs in the hash table is called the <dfn class="terminology">hash function</dfn>. The hash function will take any item in the collection and return an integer in the range of slot names, between 0 and <em class="emphasis">m</em>-1. Assume that we have the set of integer items 54, 26, 93, 17, 77, and 31. Our first hash function, sometimes referred to as the “remainder method,” simply takes an item and divides it by the table size, returning the remainder as its hash value (<span class="process-math">\(h(item)=item \% 11\)</span>). <a href="search-hash_hashing.html#search-hash_search-hash_tbl-hashvalues1" class="xref" data-knowl="./knowl/xref/search-hash_search-hash_tbl-hashvalues1.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.2">Table 6.5.2</a> gives all of the hash values for our example items. Note that this remainder method (modulo arithmetic) will typically be present in some form in all hash functions, since the result must be in the range of slot names.</div>
+<figure class="figure figure-like" id="search_hash-fig-hashtable1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/SearchHash/hashtable.png" class="contained" alt="Image depicting a hash table data structure with eleven empty slots. The slots are numbered from 0 to 10 and each contains the word ’None’, indicating that they are unoccupied. The table is presented in a horizontal format, with clear delineation between each slot."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.5.1<span class="period">.</span></span><span class="space"> </span>Hash Table with 11 Empty Slots.</figcaption></figure><div class="para" id="search-hash_hashing-2-5">In a hash table, the mapping between an item and the slot where that item belongs in the hash table is called the <dfn class="terminology">hash function</dfn>. The hash function will take any item in the collection and return an integer in the range of slot names, between 0 and <em class="emphasis">m</em>-1. Assume that we have the set of integer items 54, 26, 93, 17, 77, and 31. Our first hash function, sometimes referred to as the “remainder method,” simply takes an item and divides it by the table size, returning the remainder as its hash value (<span class="process-math">\(h(item)=item \% 11\)</span>). <a href="search-hash_hashing.html#search-hash_search-hash_tbl-hashvalues1" class="xref" data-knowl="./knowl/xref/search-hash_search-hash_tbl-hashvalues1.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.2">Table 6.5.2</a> gives all of the hash values for our example items. Note that this remainder method (modulo arithmetic) will typically be present in some form in all hash functions, since the result must be in the range of slot names.</div>
 <figure class="table table-like" id="search-hash_search-hash_tbl-hashvalues1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">6.5.2<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Item</dfn></th>
@@ -853,7 +852,7 @@ eBookConfig.enable_chatcodes =  false;
 </tr>
 </table></div></figure><div class="para" id="search-hash_hash-functions-8">We can also create hash functions for character-based items such as strings. The word “cat” can be thought of as a sequence of int values. The corresponding int value can be found by declaring an int and using it to store a char. You can also cast the value as an int using <dfn class="terminology">int()</dfn>
 </div>
-<pre class="code-block tex2jax_ignore">string h = "hello";
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">string h = "hello";
 char c = h[0];
 int i = c;
 
@@ -864,7 +863,7 @@ cout&lt;&lt;i&lt;&lt;endl;
 &gt;&gt;hello
 &gt;&gt;h
 &gt;&gt;104
-</pre>
+</code></pre></div>
 <div class="para" id="search-hash_hash-functions-10">We can then take these three ordinal values, add them up, and use the remainder method to get a hash value (see <a href="search-hash_hashing.html#fig-stringhash" class="xref" data-knowl="./knowl/xref/fig-stringhash.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.5.5">Figure 6.5.5</a>). <a href="search-hash_hashing.html#search-hash_lst-hashfunction1" class="xref" data-knowl="./knowl/xref/search-hash_lst-hashfunction1.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.5.6">Listing 6.5.6</a> shows a function called <code class="code-inline tex2jax_ignore">hash</code> that takes a string and a table size and returns the hash value in the range from 0 to <code class="code-inline tex2jax_ignore">tablesize</code>-1.</div>
 <figure class="figure figure-like" id="fig-stringhash"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/SearchHash/stringhash.png" class="contained" alt="Diagram illustrating the process of hashing a string using ordinal values. Three characters ’c’, ’a’, and ’t’ are shown at the top with arrows pointing down to their respective ordinal values: ’99’, ’97’, and ’116’. These values are summed to equal ’312’. An arrow then points from this sum to an operation ’312 % 11’, which results in ’4’. This demonstrates a simple hash function where the sum of the character ordinals is divided by 11 to get a remainder, which serves as the hash value."></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.5.5<span class="period">.</span></span><span class="space"> </span>Hashing a String Using Ordinal Values.</figcaption></figure><figure class="listing figure-like" id="search-hash_lst-hashfunction1"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
@@ -948,40 +947,21 @@ int main() {
 </tr>
 </table></div></figure><div class="para" id="search-hash_implementing-the-map-abstract-data-type-5">One of the great benefits of a map is the fact that given a key, we can look up the associated data value very quickly. In order to provide this fast look up capability, we need an implementation that supports an efficient search. We could use a list with sequential or binary search but it would be even better to use a hash table as described above since looking up an item in a hash table can approach <span class="process-math">\(O(1)\)</span> performance.</div>
 <div class="para" id="search-hash_implementing-the-map-abstract-data-type-6">In <a href="search-hash_hashing.html#search-hash_lst-hashtablecodeconstructor" class="xref" data-knowl="./knowl/xref/search-hash_lst-hashtablecodeconstructor.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.5.14">Listing 6.5.14</a> we use two lists to create a <code class="code-inline tex2jax_ignore">HashTable</code> class that implements the Map abstract data type. One list, called <code class="code-inline tex2jax_ignore">slots</code>, will hold the key items and a parallel list, called <code class="code-inline tex2jax_ignore">data</code>, will hold the data values. When we look up a key, the corresponding position in the data list will hold the associated data value. We will treat the key list as a hash table using the ideas presented earlier. Note that the initial size for the hash table has been chosen to be 11. Although this is arbitrary, it is important that the size be a prime number so that the collision resolution algorithm can be as efficient as possible.</div>
-<figure class="listing figure-like" id="search-hash_lst-hashtablecodeconstructor"><pre class="code-block tex2jax_ignore">class HashTable{
-    public:
+<figure class="listing figure-like" id="search-hash_lst-hashtablecodeconstructor"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class HashTable{
+public:
     static const int size=11;
     int slots[size];
     string data[size];
-</pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.5.14<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="search-hash_implementing-the-map-abstract-data-type-8">In <a href="search-hash_hashing.html#search-hash_lst-hashtablecodestore" class="xref" data-knowl="./knowl/xref/search-hash_lst-hashtablecodestore.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.5.15">Listing 6.5.15</a>, <code class="code-inline tex2jax_ignore">hashfunction</code> implements the simple remainder method. The collision resolution technique is linear probing with a “plus 1” rehash function. The <code class="code-inline tex2jax_ignore">put</code> function assumes that there will eventually be an empty slot unless the key is already present in the <code class="code-inline tex2jax_ignore">self.slots</code>. It computes the original hash value and if that slot is not empty, iterates the <code class="code-inline tex2jax_ignore">rehash</code> function until an empty slot occurs. If a nonempty slot already contains the key, the old data value is replaced with the new data value. Dealing with the situation where there are no empty slots left is an exercise.</div>
-<figure class="listing figure-like" id="search-hash_lst-hashtablecodestore"><pre class="code-block tex2jax_ignore">def put(self,key,data):
-    hashvalue = self.hashfunction(key,len(self.slots))
-
-    if self.slots[hashvalue] == None:
-        self.slots[hashvalue] = key
-        self.data[hashvalue] = data
-    else:
-        if self.slots[hashvalue] == key:
-            self.data[hashvalue] = data  #replace
-        else:
-            nextslot = self.rehash(hashvalue,len(self.slots))
-            while self.slots[nextslot] != None and self.slots[nextslot] != key:
-                nextslot = self.rehash(nextslot,len(self.slots))
-
-        if self.slots[nextslot] == None:
-            self.slots[nextslot] = key
-            self.data[nextslot] = data
-        else:
-            self.data[nextslot] = data #replace
-
-def hashfunction(self,key,size):
-    return key%size
-
-def rehash(self,oldhash,size):
-    return (oldhash+1)%size
-</pre>
-<pre class="code-block tex2jax_ignore">int hashfunction(int key) {
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.5.14<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">HashTable</code> Class</figcaption></figure><div class="para" id="search-hash_implementing-the-map-abstract-data-type-8">In <a href="search-hash_hashing.html#search-hash_lst-hashtablecodestore-cpp" class="xref" data-knowl="./knowl/xref/search-hash_lst-hashtablecodestore-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 6.5.1.a: C++ Implementation">Task 6.5.1.a</a>, <code class="code-inline tex2jax_ignore">hashfunction</code> implements the simple remainder method. The collision resolution technique is linear probing with a “plus 1” rehash function. The <code class="code-inline tex2jax_ignore">put</code> function assumes that there will eventually be an empty slot unless the key is already present in the <code class="code-inline tex2jax_ignore">self.slots</code>. It computes the original hash value and if that slot is not empty, iterates the <code class="code-inline tex2jax_ignore">rehash</code> function until an empty slot occurs. If a nonempty slot already contains the key, the old data value is replaced with the new data value. Dealing with the situation where there are no empty slots left is an exercise.</div>
+<article class="exploration project-like" id="expl-hashtablecodestore"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-hashtablecodestore">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="search-hash_lst-hashtablecodestore-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int hashfunction(int key) {
     return key%size;
 }
 
@@ -1020,10 +1000,67 @@ void put(int key, string val){
         }
     }
 }
-</pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.5.15<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="search-hash_implementing-the-map-abstract-data-type-10">Likewise, the <code class="code-inline tex2jax_ignore">get</code> function (see <a href="search-hash_hashing.html#search-hash_lst-hashtablecodesearch" class="xref" data-knowl="./knowl/xref/search-hash_lst-hashtablecodesearch.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.5.16">Listing 6.5.16</a>) begins by computing the initial hash value. If the value is not in the initial slot, <code class="code-inline tex2jax_ignore">rehash</code> is used to locate the next possible position. Notice that line 15 guarantees that the search will terminate by checking to make sure that we have not returned to the initial slot. If that happens, we have exhausted all possible slots and the item must not be present.</div>
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="search-hash_lst-hashtablecodestore-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def put(self,key,data):
+    hashvalue = self.hashfunction(key,len(self.slots))
+
+    if self.slots[hashvalue] == None:
+        self.slots[hashvalue] = key
+        self.data[hashvalue] = data
+    else:
+        if self.slots[hashvalue] == key:
+            self.data[hashvalue] = data  #replace
+        else:
+            nextslot = self.rehash(hashvalue,len(self.slots))
+            while self.slots[nextslot] != None and self.slots[nextslot] != key:
+                nextslot = self.rehash(nextslot,len(self.slots))
+
+        if self.slots[nextslot] == None:
+            self.slots[nextslot] = key
+            self.data[nextslot] = data
+        else:
+            self.data[nextslot] = data #replace
+
+def hashfunction(self,key,size):
+    return key%size
+
+def rehash(self,oldhash,size):
+    return (oldhash+1)%size
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="search-hash_implementing-the-map-abstract-data-type-10">Likewise, the <code class="code-inline tex2jax_ignore">get</code> function (see <a href="search-hash_hashing.html#search-hash_lst-hashtablecodesearch-cpp" class="xref" data-knowl="./knowl/xref/search-hash_lst-hashtablecodesearch-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 6.5.2.a">Task 6.5.2.a</a>) begins by computing the initial hash value. If the value is not in the initial slot, <code class="code-inline tex2jax_ignore">rehash</code> is used to locate the next possible position. Notice that line 15 guarantees that the search will terminate by checking to make sure that we have not returned to the initial slot. If that happens, we have exhausted all possible slots and the item must not be present.</div>
 <div class="para" id="search-hash_implementing-the-map-abstract-data-type-11">The final methods of the <code class="code-inline tex2jax_ignore">HashTable</code> class provide additional map functionality. We overload the __getitem__ and __setitem__ methods to allow access using``[]``. This means that once a <code class="code-inline tex2jax_ignore">HashTable</code> has been created, the familiar index operator will be available. We leave the remaining methods as exercises.</div>
-<figure class="listing figure-like" id="search-hash_lst-hashtablecodesearch"><pre class="code-block tex2jax_ignore">def get(self,key):
+<article class="exploration project-like" id="expl-hashtablecodesearch"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Final Methods of <code class="code-inline tex2jax_ignore">HashTable</code>.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="expl-hashtablecodesearch">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="search-hash_lst-hashtablecodesearch-cpp"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">string get(int key) {
+    int startslot = hashfunction(key);
+
+    string val;
+    bool stop=false;
+    bool found=false;
+    int position = startslot;
+    while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
+        if (slots[position]==key) {
+            found = true;
+            val = data[position];
+        } else {
+            position=rehash(position);
+            if (position==startslot) {
+                stop=true;
+            }
+        }
+
+    }
+    return val;
+}
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="search-hash_lst-hashtablecodesearch-py"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def get(self,key):
     startslot = self.hashfunction(key,len(self.slots))
 
     data = None
@@ -1045,31 +1082,10 @@ def __getitem__(self,key):
 
 def __setitem__(self,key,data):
     self.put(key,data)
-</pre>
-<pre class="code-block tex2jax_ignore">string get(int key) {
-    int startslot = hashfunction(key);
-
-    string val;
-    bool stop=false;
-    bool found=false;
-    int position = startslot;
-    while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
-        if (slots[position]==key) {
-            found = true;
-            val = data[position];
-        } else {
-            position=rehash(position);
-            if (position==startslot) {
-                stop=true;
-            }
-        }
-
-    }
-    return val;
-}
-</pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.5.16<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="search-hash_implementing-the-map-abstract-data-type-13">The following session shows the <code class="code-inline tex2jax_ignore">HashTable</code> class in action. First we will create a hash table and store some items with integer keys and string data values.</div>
-<pre class="code-block tex2jax_ignore">int main() {
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="search-hash_implementing-the-map-abstract-data-type-13">
+<a href="search-hash_hashing.html#hashtable-output" class="xref" data-knowl="./knowl/xref/hashtable-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.5.15">Listing 6.5.15</a> shows the <code class="code-inline tex2jax_ignore">HashTable</code> class in action. First we will create a hash table and store some items with integer keys and string data values.</div>
+<figure class="listing figure-like" id="hashtable-output"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int main() {
     HashTable h;
 
     h.put(54, "cat");
@@ -1085,8 +1101,8 @@ def __setitem__(self,key,data):
 
     return 0;
 }
-
-&gt;&gt; Output:
+</code></pre></div>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="console">Output:
   77: bird
   44: goat
   55: pig
@@ -1098,29 +1114,36 @@ def __setitem__(self,key,data):
   0:
   31: cow
   54: cat
-</pre>
-<div class="para" id="search-hash_implementing-the-map-abstract-data-type-15">Next we will access and modify some items in the hash table. Note that the value for the key 20 is being replaced.</div>
-<pre class="code-block tex2jax_ignore">...
+</pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.5.15<span class="period">.</span></span><span class="space"> </span>Example Use of <code class="code-inline tex2jax_ignore">HashTable</code></figcaption></figure><div class="para" id="search-hash_implementing-the-map-abstract-data-type-15">Next we will access and modify some items in the hash table (<a href="search-hash_hashing.html#hashtable-output2" class="xref" data-knowl="./knowl/xref/hashtable-output2.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.5.16">Listing 6.5.16</a>). Note that the value for the key 20 is being replaced.</div>
+<figure class="listing figure-like" id="hashtable-output2"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">...
 h.put(20,"chicken");
 h.put(17,"tiger");
 h.put(20,"duck");
 cout&lt;&lt;h&lt;&lt;endl;
 ...
-
-&gt;&gt; Output:
-77: bird
-44: goat
-55: pig
-20: duck
-26: dog
-93: lion
-17: tiger
-65535:
-0:
-31: cow
-54: cat
-</pre>
-<div class="para" id="search-hash_implementing-the-map-abstract-data-type-17">The complete hash table example can be found in ActiveCode 1.</div>
+</code></pre></div>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="console">Output:
+  77: bird
+  44: goat
+  55: pig
+  20: duck
+  26: dog
+  93: lion
+  17: tiger
+  65535:
+  0:
+  31: cow
+  54: cat
+</pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.5.16<span class="period">.</span></span><span class="space"> </span>Continued use of <code class="code-inline tex2jax_ignore">HashTable</code></figcaption></figure><div class="para" id="search-hash_implementing-the-map-abstract-data-type-17">The complete hash table example can be found in ActiveCode 1.</div>
+<article class="exploration project-like" id="expl-completehash"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">HashTable</code>.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="expl-completehash">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="complete_hash_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -1235,8 +1258,11 @@ int main() {
 
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="complete_hash_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="complete_hash_py_editor" data-question_label="" data-codelens="true">class HashTable:
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="complete_hash_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id=""><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="_editor" data-question_label="" data-codelens="true">class HashTable:
     def __init__(self):
         self.size = 11 # initial size of hash table is prime to help with collision resolution
         self.slots = [None] * self.size # list to hold key items
@@ -1319,7 +1345,8 @@ print(H[17])
 H[20]='duck'
 print(H[20])
 print(H[99])
-</textarea></div></div></div></section><section class="subsection" id="search-hash_analysis-of-hashing"><h3 class="heading hide-type">
+</textarea></div></div></div></article></div>
+</div></div></div></article></section><section class="subsection" id="search-hash_analysis-of-hashing"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.5.4</span><span class="space"> </span><span class="title">Analysis of Hashing</span>
 </h3>
 <div class="para" id="search-hash_analysis-of-hashing-2">We stated earlier that in the best case hashing would provide a <span class="process-math">\(O(1)\text{,}\)</span> constant time search technique. However, due to collisions, the number of comparisons is typically not so simple. Even though a complete analysis of hashing is beyond the scope of this text, we can state some well-known results that approximate the number of comparisons necessary to search for an item.</div>
