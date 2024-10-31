@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class Vertex {
+public:
+    string id;
+    map&lt;string, float&gt; connectedTo;
+    // Added for Breadth-First Algorithm
+    char color;
+    float dist;
+    Vertex *pred;
+
+    Vertex() {
+        // w for white, g for grey, b for black
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    Vertex(string key) {
+        id = key;
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    void addNeighbor(string nbr, float weight = 1) {
+        connectedTo[nbr] = weight;
+    }
+
+    vector&lt;string&gt; getConnections() {
+        vector&lt;string&gt; keys;
+        // Use of iterator to find all keys
+        for (map&lt;string, float&gt;::iterator it = connectedTo.begin();
+             it != connectedTo.end();
+             ++it) {
+            keys.push_back(it-&gt;first);
+        }
+        return keys;
+    }
+
+    string getId() {
+        return id;
+    }
+
+    float getWeight(string nbr) {
+        return connectedTo[nbr];
+    }
+
+    friend ostream &amp;operator&lt;&lt;(ostream &amp;, Vertex &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
+    vector&lt;string&gt; connects = vert.getConnections();
+    stream &lt;&lt; vert.id &lt;&lt; " -&gt; ";
+    for (unsigned int i = 0; i &lt; connects.size(); i++) {
+        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; "\t";
+    }
+
+    return stream;
+}
+
+class Graph {
+    public:
+        map&lt;string, Vertex&gt; vertList;
+        int numVertices;
+        bool directional;
+
+        Graph(bool directed = true) {
+            directional = directed;
+            numVertices = 0;
+        }
+
+        Vertex addVertex(string key) {
+            numVertices++;
+            Vertex newVertex = Vertex(key);
+            this-&gt;vertList[key] = newVertex;
+            return newVertex;
+        }
+
+        Vertex *getVertex(string n) {
+            return &amp;vertList[n];
+        }
+
+        bool contains(string n) {
+            for (map&lt;string, Vertex&gt;::iterator it = vertList.begin();
+                 it != vertList.end();
+                 ++it) {
+                if (it-&gt;first == n) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        void addEdge(string f, string t, float cost = 1) {
+            if (!this-&gt;contains(f)) {
+                this-&gt;addVertex(f);
+            }
+            if (!this-&gt;contains(t)) {
+                this-&gt;addVertex(t);
+            }
+            vertList[f].addNeighbor(t, cost);
+
+            if (!directional) {
+                vertList[t].addNeighbor(f, cost);
+            }
+        }
+
+        vector&lt;string&gt; getVertices() {
+            vector&lt;string&gt; verts;
+
+            for (map&lt;string, Vertex&gt;::iterator it = vertList.begin();
+                 it != vertList.end();
+                 ++it) {
+                verts.push_back(it-&gt;first);
+            }
+            return verts;
+        }
+
+        friend ostream &amp;operator&lt;&lt;(ostream &amp;, Graph &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
+    for (map&lt;string, Vertex&gt;::iterator it = grph.vertList.begin();
+         it != grph.vertList.end();
+         ++it) {
+        stream &lt;&lt; grph.vertList[it-&gt;first];
+        cout &lt;&lt; endl;
+    }
+
+    return stream;
+}
+
+string getBlank(string str, int index) {
+    string blank = str;
+    blank[index] = '_';
+    return blank;
+}
+
+Graph buildGraph(vector&lt;string&gt; words) {
+    Graph g(false);
+
+    map&lt;string, vector&lt;string&gt; &gt; d;
+
+    // Go through the words
+    for (unsigned int i = 0; i &lt; words.size(); i++) {
+        // Go through each letter, making it blank
+        for (unsigned int j = 0; j &lt; words[i].length(); j++) {
+            string bucket = getBlank(words[i], j);
+            // Add the word to the map at the location of the blank
+            d[bucket].push_back(words[i]);
+        }
+    }
+
+    for (map&lt;string, vector&lt;string&gt; &gt;::iterator iter = d.begin();
+         iter != d.end();
+         ++iter) {
+        for (unsigned int i = 0; i &lt; iter-&gt;second.size(); i++) {
+            for (unsigned int j = 0; j &lt; iter-&gt;second.size(); j++) {
+                if (iter-&gt;second[i] != iter-&gt;second[j]) {
+                    g.addEdge(iter-&gt;second[i], iter-&gt;second[j]);
+                }
+            }
+        }
+    }
+
+    return g;
+}
+
+Graph bfs(Graph g, Vertex *start) {
+    start-&gt;dist = 0;
+    start-&gt;pred = NULL;
+    queue&lt;Vertex *&gt; vertQueue;
+    vertQueue.push(start);
+    while (vertQueue.size() &gt; 0) {
+        Vertex *currentVert = vertQueue.front();
+        vertQueue.pop();
+        for (unsigned int nbr = 0; nbr &lt; currentVert-&gt;getConnections().size(); nbr++) {
+            if (g.vertList[currentVert-&gt;getConnections()[nbr]].color == 'w') {
+                g.vertList[currentVert-&gt;getConnections()[nbr]].color = 'g';
+
+                g.vertList[currentVert-&gt;getConnections()[nbr]].dist =
+                    currentVert-&gt;dist + 1;
+                g.vertList[currentVert-&gt;getConnections()[nbr]].pred =
+                    currentVert;
+                vertQueue.push(&amp;g.vertList[currentVert-&gt;getConnections()[nbr]]);
+            }
+        }
+        currentVert-&gt;color = 'b';
+    }
+
+    return g;
+}
+
+void traverse(Vertex *y) {
+    Vertex *x = y;
+
+    while (x-&gt;pred) {
+        cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+        x = x-&gt;pred;
+    }
+    cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+}
+
+int main() {
+    // Vector Initialized with an array
+    string arr[] = {"fool",
+                    "cool",
+                    "pool",
+                    "poll",
+                    "pole",
+                    "pall",
+                    "fall",
+                    "fail",
+                    "foil",
+                    "foul",
+                    "pope",
+                    "pale",
+                    "sale",
+                    "sage",
+                    "page"};
+
+    vector&lt;string&gt; words(arr, arr + (sizeof(arr) / sizeof(arr[0])));
+
+    // Graph g = buildGraph(words);
+    Graph g(false);
+
+    g = buildGraph(words);
+
+    g = bfs(g, g.getVertex("fool"));
+
+    traverse(g.getVertex("pall"));
+
+    return 0;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.9.6<span class="period">.</span></span><span class="space"> </span>Complete Implementation of Vertex, Graph, and BFS</figcaption></figure><span class="incontext"><a class="internal" href="graphs_implementing-breadth-first-search.html#dfs-full">in-context</a></span>
+</body>
+</html>

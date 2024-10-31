@@ -11,7 +11,9 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="para"><dfn class="terminology">C++ Implementation</dfn></div>
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">3.5.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
 <pre class="program"><code class="language-cpp">//Tests the push, empty, size, pop, and top methods of the stack library.
 
 #include &lt;iostream&gt;
@@ -44,46 +46,6 @@ int main() {
 
     return 0;
 }
-</code></pre>
-<div class="para"><dfn class="terminology">Python Implementation</dfn></div>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="stack_1ac_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="stack_1ac_py_editor" data-question_label="" data-codelens="true">#Tests the push, empty, size, pop, and top methods of the stack library.
-
-class Stack:
-    def __init__(self): #initializes new stack instance
-        self.items = []
-
-    def isEmpty(self): #returns boolean
-        return self.items == []
-
-    def push(self, item): #pushes new item onto stack
-        self.items.append(item)
-
-    def pop(self): #removes topmost item from stack
-        return self.items.pop()
-
-    def top(self): #returns the topmost item from the stack
-        return self.items[len(self.items)-1]
-
-    def size(self): #returns the size of the stack
-        return len(self.items)
-
-def main():
-    newStack = Stack()
-    newStack.push(4)
-    newStack.push(8)
-    newStack.push(15)
-
-    print("Stack Empty? ", newStack.isEmpty())
-
-    print("Stack Size: ", newStack.size())
-
-    print("Top Element of the Stack: ", newStack.top())
-
-    newStack.pop();
-
-    print("Top Element of the Stack: ", newStack.top())
-main()
-</textarea></div></div></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.5.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><span class="incontext"><a class="internal" href="linear-basic_using-a-stack-in-c.html#stack-code1">in-context</a></span>
+</code></pre></article><span class="incontext"><a class="internal" href="linear-basic_using-a-stack-in-c.html#stack-code1">in-context</a></span>
 </body>
 </html>

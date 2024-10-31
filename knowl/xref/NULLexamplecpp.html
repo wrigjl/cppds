@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">//showcases how you can use NULL.
+#include &lt;iostream&gt;
+using namespace std;
+
+int main( ) {
+    int x = 12345;
+    int *ptrx = &amp;x;
+
+    while (ptrx) {
+        cout &lt;&lt; "Pointer ptrx points to " &lt;&lt; ptrx &lt;&lt; endl;
+        ptrx = NULL;
+    }
+
+    cout &lt;&lt; "Pointer ptrx points to nothing!" &lt;&lt;endl;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.9.11<span class="period">.</span></span><span class="space"> </span>Using <code class="code-inline tex2jax_ignore">NULL</code> Pointer</figcaption></figure><span class="incontext"><a class="internal" href="introduction_built-in-atomic-data-types.html#NULLexamplecpp">in-context</a></span>
+</body>
+</html>
