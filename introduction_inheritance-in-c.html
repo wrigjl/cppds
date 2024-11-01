@@ -814,7 +814,7 @@ int main() {
         return 0;
 }
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></section><section class="subsection" id="introduction_logic-gates-and-circuits"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.2<span class="period">.</span></span><span class="space"> </span>Virtual function example</figcaption></figure></section><section class="subsection" id="introduction_logic-gates-and-circuits"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.13.1</span><span class="space"> </span><span class="title">Logic Gates and Circuits</span>
 </h3>
 <div class="para" id="introduction_logic-gates-and-circuits-2">To explore this idea further, we will construct a <dfn class="terminology">simulation</dfn>, an application to simulate digital circuits. The basic building block for this simulation will be the logic gate. These electronic switches represent Boolean algebra relationships between their input and their output. In general, gates have a single output line. The value of the output is dependent on the values given on the input lines.</div>
@@ -1023,7 +1023,7 @@ Enter Pin A input for gate gand2: 0
 Enter Pin B input for gate gand2: 0
 0
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="introduction_logic-gates-and-circuits-26">The same development can be done for <dfn class="terminology">OR</dfn> gates and <dfn class="terminology">NOT</dfn> gates. The <code class="code-inline tex2jax_ignore">OrGate</code> class will also be a subclass of <code class="code-inline tex2jax_ignore">BinaryGate</code> and the <code class="code-inline tex2jax_ignore">NotGate</code> class will extend the <code class="code-inline tex2jax_ignore">UnaryGate</code> class. Both of these classes will need to provide their own <code class="code-inline tex2jax_ignore">performGateLogic</code> functions, as this is their specific behavior.</div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.7<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">AndGate</code> Usage</figcaption></figure><div class="para" id="introduction_logic-gates-and-circuits-26">The same development can be done for <dfn class="terminology">OR</dfn> gates and <dfn class="terminology">NOT</dfn> gates. The <code class="code-inline tex2jax_ignore">OrGate</code> class will also be a subclass of <code class="code-inline tex2jax_ignore">BinaryGate</code> and the <code class="code-inline tex2jax_ignore">NotGate</code> class will extend the <code class="code-inline tex2jax_ignore">UnaryGate</code> class. Both of these classes will need to provide their own <code class="code-inline tex2jax_ignore">performGateLogic</code> functions, as this is their specific behavior.</div>
 <div class="para" id="introduction_logic-gates-and-circuits-27">We can use a single gate by first constructing an instance of one of the gate classes and then asking the gate for its output (which will in turn need inputs to be provided). For example:</div>
 <figure class="listing figure-like" id="introduction_fig-ornotusage"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&gt;&gt;&gt; g2 = OrGate("G2")
 &gt;&gt;&gt; g2.getOutput()
@@ -1039,7 +1039,7 @@ Enter Pin B input for gate G2-&gt;0
 Enter Pin input for gate G3-&gt;0
 1
 </code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure></section><section class="subsection" id="introduction_building-circuits"><h3 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.8<span class="period">.</span></span><span class="space"> </span>Usage of <code class="code-inline tex2jax_ignore">OrGate</code> and <code class="code-inline tex2jax_ignore">NotGate</code></figcaption></figure></section><section class="subsection" id="introduction_building-circuits"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.13.2</span><span class="space"> </span><span class="title">Building Circuits</span>
 </h3>
 <div class="para" id="introduction_building-circuits-2">Now that we have the basic gates working, we can turn our attention to building circuits. In order to create a circuit, we need to connect gates together, the output of one flowing into the input of another. To do this, we will implement a new class called <code class="code-inline tex2jax_ignore">Connector</code>.</div>
@@ -1242,7 +1242,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure><section class="reading-questions" id="rq-oop-derived-classes"><h4 class="heading hide-type">
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.11<span class="period">.</span></span><span class="space"> </span>Using the <code class="code-inline tex2jax_ignore">Connector</code> Class</figcaption></figure><section class="reading-questions" id="rq-oop-derived-classes"><h4 class="heading hide-type">
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
 </h4>
 <article class="exercise exercise-like" id="logic-gate-1"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>

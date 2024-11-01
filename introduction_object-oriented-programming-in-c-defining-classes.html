@@ -785,18 +785,28 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="introduction_a-fraction-class-2">A very common example to show the details of implementing a user-defined class is to construct a class to implement the abstract data type <code class="code-inline tex2jax_ignore">Fraction</code>. We have already seen that C++ provides a number of numeric data types for our use. There are times, however, that it would be most appropriate to be able to create data objects that both  look and act like fractions.</div>
 <div class="para" id="introduction_a-fraction-class-3">A fraction such as <span class="process-math">\(\frac {3}{5}\)</span> consists of two parts. The top value, known as the numerator, can be any integer. The bottom value, called the denominator, can be any integer greater than 0 (negative fractions have a negative numerator). Although it is possible to create a floating point approximation for any fraction, we would like to represent the fraction using exact values to avoid problems inherent in approximations.</div>
 <div class="para" id="introduction_a-fraction-class-4">Since defining a class makes a new data type, the operations for the <code class="code-inline tex2jax_ignore">Fraction</code> type will allow a <code class="code-inline tex2jax_ignore">Fraction</code> data object to behave like any other numeric type. We need to be able to add, subtract, multiply, and divide fractions. We also want to be able to print fractions using the standard “slash” form, for example 3/5. In addition, all fraction methods should return results in their lowest terms so that no matter what computation is performed, we always end up with the most common form.</div>
-<div class="para" id="introduction_a-fraction-class-5">In C++, we define a new class by providing a name and a set of method definitions that are syntactically similar to function definitions. For example:</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">class Fraction {
+<div class="para" id="introduction_a-fraction-class-5">In C++, we define a new class by providing a name and a set of method definitions that are syntactically similar to function definitions. For example, see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#defn-classes" class="xref" data-knowl="./knowl/xref/defn-classes.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.1: Defining Classes">Exploration 1.12.1</a>.</div>
+<article class="exploration project-like" id="defn-classes"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.1</span><span class="period">.</span><span class="space"> </span><span class="title">Defining Classes.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-defn-classes">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="defn-classes-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Fraction {
     // The class methods and class variables go here
 };  // The ";" is required by C++ to end a class definition
-</code></pre></div> <div class="para" id="introduction_a-fraction-class-6-2">Creating a class in C++</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">class Fraction:
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="defn-classes-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">class Fraction:
 
 #the methods go here
-</code></pre></div> <div class="para" id="introduction_a-fraction-class-7-2">Creating a class in Python</div>
-<div class="para" id="introduction_a-fraction-class-8">provides the framework for us to define the methods. The first method that all classes should provide is the <dfn class="terminology">constructor</dfn>. The constructor defines the way in which data objects are created. It’s considered good practice to have a constructor completely setup a class object, so that it’s impossible to create an object in an invalid state. To create a <code class="code-inline tex2jax_ignore">Fraction</code> object, we will need to initialize two pieces of data, the numerator and the denominator. In C++, the constructor method is always named with the same name as the class it creates and is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-constructor-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-constructor-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.1.a: C++">Task 1.12.1.a</a>.</div>
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_a-fraction-class-7">provides the framework for us to define the methods. The first method that all classes should provide is the <dfn class="terminology">constructor</dfn>. The constructor defines the way in which data objects are created. It’s considered good practice to have a constructor completely setup a class object, so that it’s impossible to create an object in an invalid state. To create a <code class="code-inline tex2jax_ignore">Fraction</code> object, we will need to initialize two pieces of data, the numerator and the denominator. In C++, the constructor method is always named with the same name as the class it creates and is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-constructor-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-constructor-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.2.a: C++">Task 1.12.2.a</a>.</div>
 <article class="exploration project-like" id="introduction_lst-constructor"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.1</span><span class="period">.</span><span class="space"> </span><span class="title">Constructor for <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.2</span><span class="period">.</span><span class="space"> </span><span class="title">Constructor for <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-introduction_lst-constructor">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-constructor-cpp"><h5 class="heading">
@@ -824,15 +834,25 @@ eBookConfig.enable_chatcodes =  false;
         self.num = top
         self.den = bottom
 </code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_a-fraction-class-10">As described earlier, fractions require two pieces of state data, the numerator and the denominator. The notation <code class="code-inline tex2jax_ignore">int num</code> outside the constructor defines the <code class="code-inline tex2jax_ignore">fraction</code> object to have an internal data object called <code class="code-inline tex2jax_ignore">num</code> as part of its state. Likewise, <code class="code-inline tex2jax_ignore">int den</code> creates the denominator. The values of the two formal parameters are initially assigned to the state, allowing the new <code class="code-inline tex2jax_ignore">fraction</code> object to know its starting values.</div>
-<div class="para" id="introduction_a-fraction-class-11">To create an object or instance of the <code class="code-inline tex2jax_ignore">Fraction</code> class, we must invoke the constructor. This happens by using the name of the class and passing actual values for the necessary state after the variable name. For example,</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">Fraction myfraction(3, 5);
-</code></pre></div> <div class="para" id="introduction_a-fraction-class-12-2">Invoking constructor in C++</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">myfraction = Fraction(3, 5)
-</code></pre></div> <div class="para" id="introduction_a-fraction-class-13-2">Invoking constructor in Python</div>
-<div class="para" id="introduction_a-fraction-class-14">creates an object called <code class="code-inline tex2jax_ignore">myfraction</code> representing the fraction <span class="process-math">\(\frac {3}{5}\)</span> (three-fifths). <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction1cpp" class="xref" data-knowl="./knowl/xref/fig-fraction1cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.1">Figure 1.12.1</a> shows this object as it is now implemented.</div>
+</div></div></div></article><div class="para" id="introduction_a-fraction-class-9">As described earlier, fractions require two pieces of state data, the numerator and the denominator. The notation <code class="code-inline tex2jax_ignore">int num</code> outside the constructor defines the <code class="code-inline tex2jax_ignore">fraction</code> object to have an internal data object called <code class="code-inline tex2jax_ignore">num</code> as part of its state. Likewise, <code class="code-inline tex2jax_ignore">int den</code> creates the denominator. The values of the two formal parameters are initially assigned to the state, allowing the new <code class="code-inline tex2jax_ignore">fraction</code> object to know its starting values.</div>
+<div class="para" id="introduction_a-fraction-class-10">To create an object or instance of the <code class="code-inline tex2jax_ignore">Fraction</code> class, we must invoke the constructor. This happens by using the name of the class and passing actual values for the necessary state after the variable name. For example, see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#invoking-constructor" class="xref" data-knowl="./knowl/xref/invoking-constructor.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.3: Invoking Constructor">Exploration 1.12.3</a>.</div>
+<article class="exploration project-like" id="invoking-constructor"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.3</span><span class="period">.</span><span class="space"> </span><span class="title">Invoking Constructor.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-invoking-constructor">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="invoking-constructor-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Fraction myfraction(3, 5);
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="invoking-constructor-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">myfraction = Fraction(3, 5)
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_a-fraction-class-12">creates an object called <code class="code-inline tex2jax_ignore">myfraction</code> representing the fraction <span class="process-math">\(\frac {3}{5}\)</span> (three-fifths). <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction1cpp" class="xref" data-knowl="./knowl/xref/fig-fraction1cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.1">Figure 1.12.1</a> shows this object as it is now implemented.</div>
 <figure class="figure figure-like" id="fig-fraction1cpp"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/fraction1cpp.png" class="contained" alt="Diagram showing an instance of the Fraction class. The instance is named ’myfraction’ and is depicted as a set of concentric circles. The innermost circle is labeled ’State’ and contains two segments: ’num’ with the number 3 above ’den’ with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled ’Methods’, indicating the functionality associated with the fraction instance."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.1<span class="period">.</span></span><span class="space"> </span>An instance of the Fraction Class</figcaption></figure></section><section class="subsection" id="introduction_abstraction-and-encapsulation"><h3 class="heading hide-type">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.1<span class="period">.</span></span><span class="space"> </span>An instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class</figcaption></figure></section><section class="subsection" id="introduction_abstraction-and-encapsulation"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.12.2</span><span class="space"> </span><span class="title">Abstraction and Encapsulation</span>
 </h3>
 <div class="para" id="introduction_abstraction-and-encapsulation-2">Another way to think about fractions is as “parts of a whole” as shown in the following figure:</div>
@@ -842,8 +862,8 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.12.3</span><span class="space"> </span><span class="title">Polymorphism</span>
 </h3>
 <div class="para" id="introduction_polymorphism-2">
-<dfn class="terminology">Polymorphism</dfn> means the ability to appear in many forms. In object-oriented programming, <dfn class="terminology">polymorphism</dfn> refers to the ability to handle objects or methods differently depending on their data type, class, number of arguments, etc. For example, we can overload a constructor with different numbers and types of arguments to give us multiple ways to instantiate an object of a class as shown in the next listing for the <code class="code-inline tex2jax_ignore">Fraction</code> class.</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Fraction(int top, int bottom){
+<dfn class="terminology">Polymorphism</dfn> means the ability to appear in many forms. In object-oriented programming, <dfn class="terminology">polymorphism</dfn> refers to the ability to handle objects or methods differently depending on their data type, class, number of arguments, etc. For example, we can overload a constructor with different numbers and types of arguments to give us multiple ways to instantiate an object of a class as shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#frac-poly" class="xref" data-knowl="./knowl/xref/frac-poly.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.2">Listing 1.12.2</a> for the <code class="code-inline tex2jax_ignore">Fraction</code> class.</div>
+<figure class="listing figure-like" id="frac-poly"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Fraction(int top, int bottom){
     num = top;
     den = bottom;
 }
@@ -856,7 +876,7 @@ Fraction (){
     den = 1;
 }
 </code></pre></div>
-<div class="para" id="introduction_polymorphism-4">Calling the constructor with two arguments will invoke the first method, calling it with a single argument will invoke the second method, and calling it with no arguments will invoke the third method.</div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.12.2<span class="period">.</span></span><span class="space"> </span>Example of Polymorphism</figcaption></figure><div class="para" id="introduction_polymorphism-4">Calling the constructor with two arguments will invoke the first method, calling it with a single argument will invoke the second method, and calling it with no arguments will invoke the third method.</div>
 <div class="para" id="introduction_polymorphism-5">Using optional parameters will accomplish the same task in this case. Since the class will behave the same no matter which implementation you use and the user will have no idea which implementation was chosen, this is an example of encapsulation.</div>
 <pre class="code-block tex2jax_ignore">Fraction(int top = 0, int bottom = 1){
     num = top;
@@ -864,7 +884,7 @@ Fraction (){
 }
 </pre>
 <div class="para" id="introduction_polymorphism-7">The next thing we need to do is implement some behaviors that the abstract data type requires. To begin, let’s consider what happens when we try to print a <code class="code-inline tex2jax_ignore">Fraction</code> object.</div>
-<pre class="code-block tex2jax_ignore">int main() {
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int main() {
     Fraction myfraction(3, 5);
 
     // Throws an error
@@ -872,11 +892,11 @@ Fraction (){
 
     return 0;
 }
-</pre>
+</code></pre></div>
 <div class="para" id="introduction_polymorphism-9">The <code class="code-inline tex2jax_ignore">fraction</code> object, <code class="code-inline tex2jax_ignore">myfraction</code>, does not know how to respond to this request to print to the console. The <code class="code-inline tex2jax_ignore">cout</code> function requires that the object knows how to interact with the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator so that the string can be sent to the output stream. Without this, our class will throw an error, which is obviously not what we want.</div>
-<div class="para" id="introduction_polymorphism-10">There are two ways we can solve this problem. One is to define a method called something like <code class="code-inline tex2jax_ignore">show</code> that will allow the <code class="code-inline tex2jax_ignore">Fraction</code> object to print itself as a string. We can implement this method as shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#showmethod-cpp" class="xref" data-knowl="./knowl/xref/showmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.2.a: C++">Task 1.12.2.a</a>. If we create a <code class="code-inline tex2jax_ignore">Fraction</code> object as before, we can ask it to show itself, in other words, print itself in the proper format by invoking the show method on our fractions.</div>
+<div class="para" id="introduction_polymorphism-10">There are two ways we can solve this problem. One is to define a method called something like <code class="code-inline tex2jax_ignore">show</code> that will allow the <code class="code-inline tex2jax_ignore">Fraction</code> object to print itself as a string. We can implement this method as shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#showmethod-cpp" class="xref" data-knowl="./knowl/xref/showmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.4.a: C++">Task 1.12.4.a</a>. If we create a <code class="code-inline tex2jax_ignore">Fraction</code> object as before, we can ask it to show itself, in other words, print itself in the proper format by invoking the show method on our fractions.</div>
 <article class="exploration project-like" id="introduction_polymorphism-11"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.2</span><span class="period">.</span><span class="space"> </span><span class="title">Implementing a <code class="code-inline tex2jax_ignore">show</code> method.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.4</span><span class="period">.</span><span class="space"> </span><span class="title">Implementing a <code class="code-inline tex2jax_ignore">show</code> method.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="showmethod-cpp"><h5 class="heading">
@@ -921,7 +941,13 @@ int main() {
 <div class="para" id="introduction_polymorphism-13">Like function overloading, <dfn class="terminology">operator overloading</dfn> allows us to make operators work for user defined classes by defining a special meaning for that operator when applied to objects of the class as operands. This is a form of polymorphism because it enables the same operator to have different behaviors depending on the class of the objects involved, demonstrating how the same operation can be adapted to various types.</div>
 <div class="para" id="introduction_polymorphism-14">In C++ this new operator needs to be implemented as a <dfn class="terminology">friend</dfn> of the class in order to define the operator’s behavior on objects of the class from a non-class method <code class="code-inline tex2jax_ignore">&lt;&lt;</code>. Operator overloading is yet another example of polymorphism in object-oriented programming.</div>
 <div class="para" id="introduction_polymorphism-15">A <dfn class="terminology">friend function</dfn> of a class is a function defined outside that class’ scope but with the right to access all private and protected members of the class. In C++, we overload an operator by declaring it a <dfn class="terminology">friend</dfn> function in the class definition and giving it a new implementation. Listing 4 shows an example of the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator being overloaded in the <code class="code-inline tex2jax_ignore">Fraction</code> class. Note that stream operators need to return the address of the stream because of the fact that the stream is changed by the stream operator.</div>
-<div class="para" id="introduction_polymorphism-16"><dfn class="terminology">Listing 4</dfn></div>
+<article class="exploration project-like" id="expl-overload"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.5</span><span class="period">.</span><span class="space"> </span><span class="title">Operator Overloading Example.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-overload">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="overloaded-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
 <pre class="program"><code class="language-cpp">/*overloading functions to take in different
 inputs and output the correct results*/
 #include &lt;iostream&gt;
@@ -953,21 +979,24 @@ int main() {
 
     return 0;
 }
-</code></pre>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">def __str__(self):
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="overloaded-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def __str__(self):
     return str(self.num)+"/"+str(self.den)
 
     myf = Fraction(3,5)
     print(myf)
     print("I ate", myf, "of the pizza")
-</code></pre></div>
-<div class="para" id="introduction_polymorphism-19">We can overload many other operators for our new <code class="code-inline tex2jax_ignore">Fraction</code> class. Some of the most important of these are the basic arithmetic operations. We would like to be able to create two <code class="code-inline tex2jax_ignore">Fraction</code> objects and then be able to add them together using the standard “+” notation. At this point, if we try to add two fractions using “+”, we get the following:</div>
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-17">We can overload many other operators for our new <code class="code-inline tex2jax_ignore">Fraction</code> class. Some of the most important of these are the basic arithmetic operations. We would like to be able to create two <code class="code-inline tex2jax_ignore">Fraction</code> objects and then be able to add them together using the standard “+” notation. At this point, if we try to add two fractions using “+”, we get the following:</div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">Fraction f1(1, 4);
 Fraction f2(1, 2);
 Fraction f3 = f1 + f2;
 
 // &gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
-</code></pre></div> <div class="para" id="introduction_polymorphism-20-2">An error received before overloading</div>
+</code></pre></div> <div class="para" id="introduction_polymorphism-18-2">An error received before overloading</div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">f1 = Fraction(1,4)
 f2 = Fraction(1,2)
 f1+f2
@@ -975,17 +1004,17 @@ f1+f2
 Traceback (most recent call last):
 File "&lt;pyshell#173&gt;", line 1, in -toplevel- f1+f2
 TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
-</code></pre></div> <div class="para" id="introduction_polymorphism-21-2">An error received before overloading</div>
-<div class="para" id="introduction_polymorphism-22">If you look closely at the error, you see that the problem is that the “+” operator does not understand the <code class="code-inline tex2jax_ignore">Fraction</code> operands.</div>
-<div class="para" id="introduction_polymorphism-23">We can, of course create something like:</div>
+</code></pre></div> <div class="para" id="introduction_polymorphism-19-2">An error received before overloading</div>
+<div class="para" id="introduction_polymorphism-20">If you look closely at the error, you see that the problem is that the “+” operator does not understand the <code class="code-inline tex2jax_ignore">Fraction</code> operands.</div>
+<div class="para" id="introduction_polymorphism-21">We can, of course create something like:</div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">f1.add(f2)
 </code></pre></div>
 <div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">f1.__add__(f2)
 </code></pre></div>
-<div class="para" id="introduction_polymorphism-26">which would ask the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f1</code> to add the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f2</code> to itself. It would be much better to be written in the standard notation, <code class="code-inline tex2jax_ignore">f1 + f2</code>. We can fix this by providing the <code class="code-inline tex2jax_ignore">Fraction</code> class with a friend that overloads the <code class="code-inline tex2jax_ignore">+</code>  operator.</div>
-<div class="para" id="introduction_polymorphism-27">As you know, two fractions must have the same denominator to be added. The easiest way to make sure they have the same denominator is to simply use the product of the two denominators as a common denominator so that <span class="process-math">\(\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}\)</span> The implementation is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-addmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-addmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.3.a: C++ Implementation">Task 1.12.3.a</a>. The addition function returns a new <code class="code-inline tex2jax_ignore">Fraction</code> object with the numerator and denominator of the sum. We can use this method by writing a standard arithmetic expression involving fractions, assigning the result of the addition, and then printing our result.</div>
+<div class="para" id="introduction_polymorphism-24">which would ask the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f1</code> to add the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f2</code> to itself. It would be much better to be written in the standard notation, <code class="code-inline tex2jax_ignore">f1 + f2</code>. We can fix this by providing the <code class="code-inline tex2jax_ignore">Fraction</code> class with a friend that overloads the <code class="code-inline tex2jax_ignore">+</code>  operator.</div>
+<div class="para" id="introduction_polymorphism-25">As you know, two fractions must have the same denominator to be added. The easiest way to make sure they have the same denominator is to simply use the product of the two denominators as a common denominator so that <span class="process-math">\(\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}\)</span> The implementation is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-addmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-addmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.6.a: C++ Implementation">Task 1.12.6.a</a>. The addition function returns a new <code class="code-inline tex2jax_ignore">Fraction</code> object with the numerator and denominator of the sum. We can use this method by writing a standard arithmetic expression involving fractions, assigning the result of the addition, and then printing our result.</div>
 <article class="exploration project-like" id="expl-lst-addmethod"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.3</span><span class="period">.</span><span class="space"> </span><span class="title">Adding an addition method.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.6</span><span class="period">.</span><span class="space"> </span><span class="title">Adding an addition method.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-lst-addmethod">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-addmethod-cpp"><h5 class="heading">
@@ -1054,20 +1083,32 @@ f2=Fraction(1,2)
 f3=f1+f2
 print(f3)
 </textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-29">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code>, we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators (such as &lt;&lt; and &gt;&gt;) must be either member functions of the stream class or friend functions of the class they are used with. However, that is not true for the <code class="code-inline tex2jax_ignore">+</code> operator. Let’s rewrite the addition operator as a friend function.</div>
-<div class="para" id="introduction_polymorphism-30"><dfn class="terminology">Listing 6</dfn></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">Fraction operator +(const Fraction &amp;otherFrac){
+</div></div></div></article><div class="para" id="introduction_polymorphism-27">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code>, we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators (such as &lt;&lt; and &gt;&gt;) must be either member functions of the stream class or friend functions of the class they are used with. However, that is not true for the <code class="code-inline tex2jax_ignore">+</code> operator. Let’s rewrite the addition operator as a friend function.</div>
+<article class="exploration project-like" id="expl-addoverload"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.7</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading Addition.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-addoverload">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="addoverload-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Fraction operator +(const Fraction &amp;otherFrac){
     //Note the return type is a Fraction
     int newnum = num*otherFrac.den + den*otherFrac.num;
     int newden = den*otherFrac.den;
     return Fraction(newnum, newden);
 }
-</code></pre></div> <div class="para" id="introduction_polymorphism-31-2">Rewriting addition operator as a friend function</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">def __add__(self,otherfraction):
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="addoverload-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def __add__(self,otherfraction):
     newnum = self.num*otherfraction.den + self.den*otherfraction.num
     newden = self.den * otherfraction.den
     return Fraction(newnum,newden)
-</code></pre></div>
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(c)"><article class="task exercise-like" id="addoverload-usage"><h5 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">C++ Usage.</span>
+</h5>
 <pre class="program"><code class="language-cpp">//overloading the addition operator to create clearer syntax
 #include &lt;iostream&gt;
 using namespace std;
@@ -1105,10 +1146,10 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-</code></pre>
-<div class="para" id="introduction_polymorphism-34">How you choose to overload operators  like <code class="code-inline tex2jax_ignore">+</code> is a design choice since both methods will work perfectly well. This is another example of encapsulation; your user does not need to know which you choose to use!</div>
-<div class="para" id="introduction_polymorphism-35">There is one more thing we can improve in our addition function. Note that <span class="process-math">\(6/8\)</span> is the correct result (<span class="process-math">\(\frac {1}{4} + \frac {1}{2}\)</span>) but that it is not in the “lowest terms” representation. The best representation would be <span class="process-math">\(3/4\text{.}\)</span> In order to be sure that our results are always in the lowest terms, we need a helper function that knows how to reduce fractions. This function will need to look for the greatest common divisor, or GCD. We can then divide the numerator and the denominator by the GCD and the result will be reduced to lowest terms.</div>
-<div class="para" id="introduction_polymorphism-36">The best-known algorithm for finding a greatest common divisor is Euclid’s Algorithm, which will be discussed in detail in Chapter 8. Euclid’s Algorithm states that the greatest common divisor of two integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> is <span class="process-math">\(n\)</span> if <span class="process-math">\(n\)</span> divides <span class="process-math">\(m\)</span> evenly. However, if <span class="process-math">\(n\)</span> does not divide <span class="process-math">\(m\)</span> evenly, then the answer is the greatest common divisor of <span class="process-math">\(n\)</span> and the remainder of <span class="process-math">\(m\)</span> divided by <span class="process-math">\(n\text{.}\)</span> We will simply provide an iterative implementation here (see ActiveCode 1). Note that this implementation of the GCD algorithm only works when the denominator is positive. This is acceptable for our fraction class because we have said that a negative fraction will be represented by a negative numerator.</div>
+</code></pre></article></div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-29">How you choose to overload operators  like <code class="code-inline tex2jax_ignore">+</code> is a design choice since both methods will work perfectly well. This is another example of encapsulation; your user does not need to know which you choose to use!</div>
+<div class="para" id="introduction_polymorphism-30">There is one more thing we can improve in our addition function. Note that <span class="process-math">\(6/8\)</span> is the correct result (<span class="process-math">\(\frac {1}{4} + \frac {1}{2}\)</span>) but that it is not in the “lowest terms” representation. The best representation would be <span class="process-math">\(3/4\text{.}\)</span> In order to be sure that our results are always in the lowest terms, we need a helper function that knows how to reduce fractions. This function will need to look for the greatest common divisor, or GCD. We can then divide the numerator and the denominator by the GCD and the result will be reduced to lowest terms.</div>
+<div class="para" id="introduction_polymorphism-31">The best-known algorithm for finding a greatest common divisor is Euclid’s Algorithm, which will be discussed in detail in Chapter 8. Euclid’s Algorithm states that the greatest common divisor of two integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> is <span class="process-math">\(n\)</span> if <span class="process-math">\(n\)</span> divides <span class="process-math">\(m\)</span> evenly. However, if <span class="process-math">\(n\)</span> does not divide <span class="process-math">\(m\)</span> evenly, then the answer is the greatest common divisor of <span class="process-math">\(n\)</span> and the remainder of <span class="process-math">\(m\)</span> divided by <span class="process-math">\(n\text{.}\)</span> We will simply provide an iterative implementation here (see ActiveCode 1). Note that this implementation of the GCD algorithm only works when the denominator is positive. This is acceptable for our fraction class because we have said that a negative fraction will be represented by a negative numerator.</div>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
@@ -1140,7 +1181,7 @@ int main() {
 
 print(gcd(20,10))
 </textarea></div></div></div>
-<div class="para" id="introduction_polymorphism-39">Now we can use this function to help reduce any fraction. To put a fraction in lowest terms, we will divide the numerator and the denominator by their greatest common divisor. So, for the fraction <span class="process-math">\(6/8\text{,}\)</span> the greatest common divisor is 2. Dividing the top and the bottom by 2 creates a new fraction, <span class="process-math">\(3/4\)</span> (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-newaddmethod" class="xref" data-knowl="./knowl/xref/introduction_lst-newaddmethod.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.2">Listing 1.12.2</a>).</div>
+<div class="para" id="introduction_polymorphism-34">Now we can use this function to help reduce any fraction. To put a fraction in lowest terms, we will divide the numerator and the denominator by their greatest common divisor. So, for the fraction <span class="process-math">\(6/8\text{,}\)</span> the greatest common divisor is 2. Dividing the top and the bottom by 2 creates a new fraction, <span class="process-math">\(3/4\)</span> (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-newaddmethod" class="xref" data-knowl="./knowl/xref/introduction_lst-newaddmethod.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.3">Listing 1.12.3</a>).</div>
 <figure class="listing figure-like" id="introduction_lst-newaddmethod"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
@@ -1196,12 +1237,12 @@ int main(){
     return 0;
 }
 </code></pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.12.2<span class="period">.</span></span><span class="space"> </span>New addition implementation using <code class="code-inline tex2jax_ignore">gcd</code></figcaption></figure><figure class="figure figure-like" id="fig-fraction2cpp"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/fraction2cpp.png" class="contained" alt="Visual representation of a Fraction class instance called ’myfraction’. It features concentric circles with the innermost labeled ’State’ showcasing ’num’ with a value of 3 above ’den’ with a value of 5, indicating the fraction’s numerator and denominator. The outer circle is labeled ’Methods’, suggesting the object’s functionality. Two symbols, ’&lt;&lt;’ and ’+’, are shown outside the Methods circle, implying additional methods."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.3<span class="period">.</span></span><span class="space"> </span>An Instance of the Fraction Class with Two Methods</figcaption></figure><div class="para" id="introduction_polymorphism-42">Our <code class="code-inline tex2jax_ignore">Fraction</code> object now has two very useful methods and looks like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction2cpp" class="xref" data-knowl="./knowl/xref/fig-fraction2cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.3">Figure 1.12.3</a>. An additional group of methods that we need to include in our example <code class="code-inline tex2jax_ignore">Fraction</code> class will allow two fractions to compare themselves to one another using <code class="code-inline tex2jax_ignore">==</code>.</div>
-<div class="para" id="introduction_polymorphism-43">We want the <code class="code-inline tex2jax_ignore">==</code> operator to compare Fraction objects and to return <code class="code-inline tex2jax_ignore">true</code> if they are equivalent in value, <code class="code-inline tex2jax_ignore">false</code> otherwise. This is a design choice because we want <span class="process-math">\(\frac {1}{2}\)</span> to be considered equal to <span class="process-math">\(\frac {2}{4}\)</span> as well as <span class="process-math">\(\frac {3}{6}\text{,}\)</span> etc. Hence, in the <code class="code-inline tex2jax_ignore">Fraction</code> class, we can implement the <code class="code-inline tex2jax_ignore">==</code> method by cross-multiplying (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-cmpmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-cmpmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.4.a: C++">Task 1.12.4.a</a>) rather than by just comparing numerators and denominators.</div>
-<div class="para" id="introduction_polymorphism-44">Of course there are other relational operators that can be overridden. For example, the <code class="code-inline tex2jax_ignore">&lt;=</code> operator could be overridden to provide the less than or equal functionality.</div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.12.3<span class="period">.</span></span><span class="space"> </span>New addition implementation using <code class="code-inline tex2jax_ignore">gcd</code></figcaption></figure><figure class="figure figure-like" id="fig-fraction2cpp"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/fraction2cpp.png" class="contained" alt="Visual representation of a Fraction class instance called ’myfraction’. It features concentric circles with the innermost labeled ’State’ showcasing ’num’ with a value of 3 above ’den’ with a value of 5, indicating the fraction’s numerator and denominator. The outer circle is labeled ’Methods’, suggesting the object’s functionality. Two symbols, ’&lt;&lt;’ and ’+’, are shown outside the Methods circle, implying additional methods."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.4<span class="period">.</span></span><span class="space"> </span>An Instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class with Two Methods</figcaption></figure><div class="para" id="introduction_polymorphism-37">Our <code class="code-inline tex2jax_ignore">Fraction</code> object now has two very useful methods and looks like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction2cpp" class="xref" data-knowl="./knowl/xref/fig-fraction2cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.4">Figure 1.12.4</a>. An additional group of methods that we need to include in our example <code class="code-inline tex2jax_ignore">Fraction</code> class will allow two fractions to compare themselves to one another using <code class="code-inline tex2jax_ignore">==</code>.</div>
+<div class="para" id="introduction_polymorphism-38">We want the <code class="code-inline tex2jax_ignore">==</code> operator to compare Fraction objects and to return <code class="code-inline tex2jax_ignore">true</code> if they are equivalent in value, <code class="code-inline tex2jax_ignore">false</code> otherwise. This is a design choice because we want <span class="process-math">\(\frac {1}{2}\)</span> to be considered equal to <span class="process-math">\(\frac {2}{4}\)</span> as well as <span class="process-math">\(\frac {3}{6}\text{,}\)</span> etc. Hence, in the <code class="code-inline tex2jax_ignore">Fraction</code> class, we can implement the <code class="code-inline tex2jax_ignore">==</code> method by cross-multiplying (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-cmpmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-cmpmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.8.a: C++">Task 1.12.8.a</a>) rather than by just comparing numerators and denominators.</div>
+<div class="para" id="introduction_polymorphism-39">Of course there are other relational operators that can be overridden. For example, the <code class="code-inline tex2jax_ignore">&lt;=</code> operator could be overridden to provide the less than or equal functionality.</div>
 <article class="exploration project-like" id="introduction_lst-cmpmethod"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.4</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading the comparison operator.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.8</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading the comparison operator.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-introduction_lst-cmpmethod">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-cmpmethod-cpp"><h5 class="heading">
@@ -1223,9 +1264,9 @@ int main(){
 
     return firstnum == secondnum
 </code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-46">The complete <code class="code-inline tex2jax_ignore">Fraction</code> class, up to this point, is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fraction_class_cpp" class="xref" data-knowl="./knowl/xref/fraction_class_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.5.a: C++">Task 1.12.5.a</a>. We leave the remaining arithmetic and relational methods as exercises.</div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-41">The complete <code class="code-inline tex2jax_ignore">Fraction</code> class, up to this point, is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fraction_class_cpp" class="xref" data-knowl="./knowl/xref/fraction_class_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.9.a: C++">Task 1.12.9.a</a>. We leave the remaining arithmetic and relational methods as exercises.</div>
 <article class="exploration project-like" id="fraction_class"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.5</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.9</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-fraction_class">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="fraction_class_cpp"><h5 class="heading">
