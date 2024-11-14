@@ -106,7 +106,7 @@ class UnaryGate : public LogicGate {
 };
 
 //Class that sets up the logic for an "and" gate
-    class AndGate : public BinaryGate{
+class AndGate : public BinaryGate{
     public:
             AndGate(string n) : BinaryGate(n) {};
 
@@ -123,7 +123,7 @@ class UnaryGate : public LogicGate {
 };
 
 //class that sets up the logic for an "or" gate
-    class OrGate : public BinaryGate {
+class OrGate : public BinaryGate {
     public:
             OrGate(string n) : BinaryGate(n) {};
 
@@ -140,7 +140,7 @@ class UnaryGate : public LogicGate {
 };
 
 //class that sets up the logic for a "not" gate
-    class NotGate : public UnaryGate {
+class NotGate : public UnaryGate {
     public:
             NotGate(string n) : UnaryGate(n) {};
 
@@ -155,7 +155,7 @@ class UnaryGate : public LogicGate {
 };
 
 // class that sets up logic for the connection of one gate to another
-    class Connector{
+class Connector{
     public:
             Connector(LogicGate *fgate, LogicGate *tgate) {
                     fromgate = fgate;
@@ -204,6 +204,6 @@ int main() {
     return 0;
 }
 </code></pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.11<span class="period">.</span></span><span class="space"> </span>Using the <code class="code-inline tex2jax_ignore">Connector</code> Class</figcaption></figure><span class="incontext"><a class="internal" href="introduction_inheritance-in-c.html#ooderive_program">in-context</a></span>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.13.11<span class="period">.</span></span><span class="space"> </span>Using the <code class="code-inline tex2jax_ignore">Connector</code> Class</figcaption></figure><span class="incontext"><a class="internal" href="introduction_inheritance-in-c.html#ooderive_program">in-context</a></span>
 </body>
 </html>

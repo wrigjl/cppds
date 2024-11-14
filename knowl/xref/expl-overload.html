@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">1.12.5</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Operator Overloading Example.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-overload">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="overloaded-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">/*overloading functions to take in different
+inputs and output the correct results*/
+#include &lt;iostream&gt;
+using namespace std;
+
+class Fraction {
+    public:
+        Fraction(int top = 0, int bottom = 1){
+            num = top;
+            den = bottom;
+        }
+
+    //the following tells the compiler to look for this friend's definition outside the class
+    friend ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac);
+
+    private:
+        int num, den;
+};
+
+ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac) {
+    /** this is the definition. */
+    stream &lt;&lt; frac.num &lt;&lt; "/" &lt;&lt; frac.den;
+    return stream;
+}
+
+int main() {
+    Fraction myfraction(3, 5);
+    cout &lt;&lt; myfraction &lt;&lt; " is my fraction" &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="overloaded-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def __str__(self):
+    return str(self.num)+"/"+str(self.den)
+
+    myf = Fraction(3,5)
+    print(myf)
+    print("I ate", myf, "of the pizza")
+</code></pre></div></article></div>
+</div></div></div></article><span class="incontext"><a class="internal" href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-overload">in-context</a></span>
+</body>
+</html>

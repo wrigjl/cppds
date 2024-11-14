@@ -11,8 +11,8 @@
 <title>DS Object-Oriented Programming in C++: Defining Classes</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<meta xmlns:pf="https://prefigure.org" property="og:type" content="book">
+<meta xmlns:pf="https://prefigure.org" property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
 <script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
@@ -73,13 +73,13 @@ window.MathJax = {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
 <script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</script><link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 <link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
@@ -112,7 +112,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.4.3';
+eBookConfig.runestone_version = '7.4.4';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -120,7 +120,7 @@ eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.00db6230172ad960.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.aa624e4071d017c3.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f64dcc3632d7a0c3.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.51d479d87f8466bb.css">
 <style>
 #introduction_accessing-values-from-pointers-17 { counter-set: introduction_accessing-values-from-pointers-17 0; }
 #introduction_accessing-values-from-pointers-17 > li::marker { content: ""counter(introduction_accessing-values-from-pointers-17,decimal)""; }
@@ -252,11 +252,11 @@ eBookConfig.enable_chatcodes =  false;
 </head>
 <body id="cppds2" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a xmlns:pf="https://prefigure.org" id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
 </div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+</div></header><nav xmlns:pf="https://prefigure.org" id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -267,7 +267,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="introduction_defining-c-functions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-intro.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="introduction_inheritance-in-c.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="introduction_defining-c-functions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-intro.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="introduction_inheritance-in-c.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div xmlns:pf="https://prefigure.org" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -275,7 +275,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<div xmlns:pf="https://prefigure.org" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list contains-active">
@@ -308,14 +308,8 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="introduction_collections.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Collections</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_arrays" class="internal"><span class="codenumber">1.10.1</span> <span class="title">Arrays</span></a></div></li>
-<li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="introduction_collections.html#introduction_vectors" class="internal"><span class="codenumber">1.10.2</span> <span class="title">Vectors</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_matching" class="internal"><span class="codenumber">1.10.2.1</span> <span class="title">Matching</span></a></div></li></ul>
-</li>
-<li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="introduction_collections.html#introduction_strings" class="internal"><span class="codenumber">1.10.3</span> <span class="title">Strings</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_id1" class="internal"><span class="codenumber">1.10.3.1</span> <span class="title">Matching</span></a></div></li></ul>
-</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_vectors" class="internal"><span class="codenumber">1.10.2</span> <span class="title">Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_strings" class="internal"><span class="codenumber">1.10.3</span> <span class="title">Strings</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_hash-tables" class="internal"><span class="codenumber">1.10.4</span> <span class="title">Hash Tables</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="introduction_collections.html#introduction_unordered-sets" class="internal"><span class="codenumber">1.10.5</span> <span class="title">Unordered Sets</span></a></div>
@@ -647,7 +641,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="cppds2-10.html" class="internal"><span class="codenumber">8</span> <span class="title">Trees and Tree Algorithms</span></a></div>
+<div class="toc-title-box"><a href="ch-trees.html" class="internal"><span class="codenumber">8</span> <span class="title">Trees and Tree Algorithms</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_objectives.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Objectives</span></a></div></li>
 <li class="toc-item toc-section">
@@ -766,7 +760,7 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-index"><div class="toc-title-box"><a href="cppds2-12-1.html" class="internal"><span class="title">Index</span></a></div></li></ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="introduction_object-oriented-programming-in-c-defining-classes"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:pf="https://prefigure.org" class="section" id="introduction_object-oriented-programming-in-c-defining-classes"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.12</span><span class="space"> </span><span class="title">Object-Oriented Programming in C++: Defining Classes</span>
 </h2>
 <section class="introduction" id="introduction_object-oriented-programming-in-c-defining-classes-2"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-1">We stated earlier that C++ is an <dfn class="terminology">object-oriented programming language</dfn>. Object-oriented programming is a programming technique based on real world things such as turtles, airplanes, customers, etc. Each object has its own characteristics or attributes as well as its own set of behaviors.</div>
@@ -940,7 +934,7 @@ int main() {
 </div></div></div></article><div class="para" id="introduction_polymorphism-12">The downside of this approach is that it is not how we expect to print to the console. In C++, there are many operators that are provided for atomic and STL data types that may not work as expected with a user defined class until you <dfn class="terminology">overload</dfn> them. One of these, <code class="code-inline tex2jax_ignore">&lt;&lt;</code>, is the operator to send data to the output stream. It would be nicer to provide a “better” implementation for this method via operator overloading.</div>
 <div class="para" id="introduction_polymorphism-13">Like function overloading, <dfn class="terminology">operator overloading</dfn> allows us to make operators work for user defined classes by defining a special meaning for that operator when applied to objects of the class as operands. This is a form of polymorphism because it enables the same operator to have different behaviors depending on the class of the objects involved, demonstrating how the same operation can be adapted to various types.</div>
 <div class="para" id="introduction_polymorphism-14">In C++ this new operator needs to be implemented as a <dfn class="terminology">friend</dfn> of the class in order to define the operator’s behavior on objects of the class from a non-class method <code class="code-inline tex2jax_ignore">&lt;&lt;</code>. Operator overloading is yet another example of polymorphism in object-oriented programming.</div>
-<div class="para" id="introduction_polymorphism-15">A <dfn class="terminology">friend function</dfn> of a class is a function defined outside that class’ scope but with the right to access all private and protected members of the class. In C++, we overload an operator by declaring it a <dfn class="terminology">friend</dfn> function in the class definition and giving it a new implementation. Listing 4 shows an example of the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator being overloaded in the <code class="code-inline tex2jax_ignore">Fraction</code> class. Note that stream operators need to return the address of the stream because of the fact that the stream is changed by the stream operator.</div>
+<div class="para" id="introduction_polymorphism-15">A <dfn class="terminology">friend function</dfn> of a class is a function defined outside that class’ scope but with the right to access all private and protected members of the class. In C++, we overload an operator by declaring it a <dfn class="terminology">friend</dfn> function in the class definition and giving it a new implementation. <a href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-overload" class="xref" data-knowl="./knowl/xref/expl-overload.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.5: Operator Overloading Example">Exploration 1.12.5</a> shows an example of the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator being overloaded in the <code class="code-inline tex2jax_ignore">Fraction</code> class. Note that stream operators need to return the address of the stream because of the fact that the stream is changed by the stream operator.</div>
 <article class="exploration project-like" id="expl-overload"><h4 class="heading">
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.5</span><span class="period">.</span><span class="space"> </span><span class="title">Operator Overloading Example.</span>
 </h4>
@@ -991,30 +985,48 @@ int main() {
     print("I ate", myf, "of the pizza")
 </code></pre></div></article></div>
 </div></div></div></article><div class="para" id="introduction_polymorphism-17">We can overload many other operators for our new <code class="code-inline tex2jax_ignore">Fraction</code> class. Some of the most important of these are the basic arithmetic operations. We would like to be able to create two <code class="code-inline tex2jax_ignore">Fraction</code> objects and then be able to add them together using the standard “+” notation. At this point, if we try to add two fractions using “+”, we get the following:</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">Fraction f1(1, 4);
+<article class="exploration project-like" id="expl-adderror"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.6</span><span class="period">.</span><span class="space"> </span><span class="title">Error Before Overloading Addition.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-expl-adderror">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="adderror-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Addition Error.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="console"><b>Fraction f1(1, 4);
 Fraction f2(1, 2);
 Fraction f3 = f1 + f2;
-
-// &gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
-</code></pre></div> <div class="para" id="introduction_polymorphism-18-2">An error received before overloading</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">f1 = Fraction(1,4)
+</b>&gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
+</pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="adderror-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Addition Error.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="console"><b>f1 = Fraction(1,4)
 f2 = Fraction(1,2)
 f1+f2
-
-Traceback (most recent call last):
+</b>Traceback (most recent call last):
 File "&lt;pyshell#173&gt;", line 1, in -toplevel- f1+f2
 TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
-</code></pre></div> <div class="para" id="introduction_polymorphism-19-2">An error received before overloading</div>
-<div class="para" id="introduction_polymorphism-20">If you look closely at the error, you see that the problem is that the “+” operator does not understand the <code class="code-inline tex2jax_ignore">Fraction</code> operands.</div>
-<div class="para" id="introduction_polymorphism-21">We can, of course create something like:</div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">f1.add(f2)
-</code></pre></div>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">f1.__add__(f2)
-</code></pre></div>
-<div class="para" id="introduction_polymorphism-24">which would ask the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f1</code> to add the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f2</code> to itself. It would be much better to be written in the standard notation, <code class="code-inline tex2jax_ignore">f1 + f2</code>. We can fix this by providing the <code class="code-inline tex2jax_ignore">Fraction</code> class with a friend that overloads the <code class="code-inline tex2jax_ignore">+</code>  operator.</div>
-<div class="para" id="introduction_polymorphism-25">As you know, two fractions must have the same denominator to be added. The easiest way to make sure they have the same denominator is to simply use the product of the two denominators as a common denominator so that <span class="process-math">\(\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}\)</span> The implementation is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-addmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-addmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.6.a: C++ Implementation">Task 1.12.6.a</a>. The addition function returns a new <code class="code-inline tex2jax_ignore">Fraction</code> object with the numerator and denominator of the sum. We can use this method by writing a standard arithmetic expression involving fractions, assigning the result of the addition, and then printing our result.</div>
+</pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-19">If you look closely at the error, you see that the problem is that the “+” operator does not understand the <code class="code-inline tex2jax_ignore">Fraction</code> operands.</div>
+<div class="para" id="introduction_polymorphism-20">We can, of course create something like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-addmodel" class="xref" data-knowl="./knowl/xref/expl-addmodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.7: Function for Addition">Exploration 1.12.7</a>.</div>
+<article class="exploration project-like" id="expl-addmodel"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.7</span><span class="period">.</span><span class="space"> </span><span class="title">Function for Addition.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-expl-addmodel">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="addmodel-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">f1.add(f2)
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="addmodel-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">f1.__add__(f2)
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-22">which would ask the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f1</code> to add the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f2</code> to itself. It would be much better to be written in the standard notation, <code class="code-inline tex2jax_ignore">f1 + f2</code>. We can fix this by providing the <code class="code-inline tex2jax_ignore">Fraction</code> class with a friend that overloads the <code class="code-inline tex2jax_ignore">+</code>  operator.</div>
+<div class="para" id="introduction_polymorphism-23">As you know, two fractions must have the same denominator to be added. The easiest way to make sure they have the same denominator is to simply use the product of the two denominators as a common denominator so that <span class="process-math">\(\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}\)</span> The implementation is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-addmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-addmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.8.a: C++ Implementation">Task 1.12.8.a</a>. The addition function returns a new <code class="code-inline tex2jax_ignore">Fraction</code> object with the numerator and denominator of the sum. We can use this method by writing a standard arithmetic expression involving fractions, assigning the result of the addition, and then printing our result.</div>
 <article class="exploration project-like" id="expl-lst-addmethod"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.6</span><span class="period">.</span><span class="space"> </span><span class="title">Adding an addition method.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.8</span><span class="period">.</span><span class="space"> </span><span class="title">Adding an addition method.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-lst-addmethod">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-addmethod-cpp"><h5 class="heading">
@@ -1083,18 +1095,17 @@ f2=Fraction(1,2)
 f3=f1+f2
 print(f3)
 </textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-27">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code>, we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators (such as &lt;&lt; and &gt;&gt;) must be either member functions of the stream class or friend functions of the class they are used with. However, that is not true for the <code class="code-inline tex2jax_ignore">+</code> operator. Let’s rewrite the addition operator as a friend function.</div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-25">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code>, we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators (such as <code class="code-inline tex2jax_ignore">&lt;&lt;</code> and <code class="code-inline tex2jax_ignore">&gt;&gt;</code>) must be either member functions of the stream class or friend functions of the class they are used with. However, that is not true for the <code class="code-inline tex2jax_ignore">+</code> operator. Let’s rewrite the addition operator as a friend function.</div>
 <article class="exploration project-like" id="expl-addoverload"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.7</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading Addition.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.9</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading Addition.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-addoverload">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="addoverload-cpp"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Fraction operator +(const Fraction &amp;otherFrac){
-    //Note the return type is a Fraction
-    int newnum = num*otherFrac.den + den*otherFrac.num;
-    int newden = den*otherFrac.den;
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
+    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+    int newden = frac1.den * frac2.den;
     return Fraction(newnum, newden);
 }
 </code></pre></div></article></div>
@@ -1121,7 +1132,7 @@ class Fraction {
         }
 
     friend ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac);
-              friend Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2);
+    friend Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2);
 
     private:
         int num, den;
@@ -1133,9 +1144,9 @@ ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac) {
 }
 
 Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
-      int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
-      int newden = frac1.den * frac2.den;
-      return Fraction(newnum, newden);
+    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+    int newden = frac1.den * frac2.den;
+    return Fraction(newnum, newden);
 }
 
 
@@ -1147,9 +1158,16 @@ int main(){
     return 0;
 }
 </code></pre></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-29">How you choose to overload operators  like <code class="code-inline tex2jax_ignore">+</code> is a design choice since both methods will work perfectly well. This is another example of encapsulation; your user does not need to know which you choose to use!</div>
-<div class="para" id="introduction_polymorphism-30">There is one more thing we can improve in our addition function. Note that <span class="process-math">\(6/8\)</span> is the correct result (<span class="process-math">\(\frac {1}{4} + \frac {1}{2}\)</span>) but that it is not in the “lowest terms” representation. The best representation would be <span class="process-math">\(3/4\text{.}\)</span> In order to be sure that our results are always in the lowest terms, we need a helper function that knows how to reduce fractions. This function will need to look for the greatest common divisor, or GCD. We can then divide the numerator and the denominator by the GCD and the result will be reduced to lowest terms.</div>
-<div class="para" id="introduction_polymorphism-31">The best-known algorithm for finding a greatest common divisor is Euclid’s Algorithm, which will be discussed in detail in Chapter 8. Euclid’s Algorithm states that the greatest common divisor of two integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> is <span class="process-math">\(n\)</span> if <span class="process-math">\(n\)</span> divides <span class="process-math">\(m\)</span> evenly. However, if <span class="process-math">\(n\)</span> does not divide <span class="process-math">\(m\)</span> evenly, then the answer is the greatest common divisor of <span class="process-math">\(n\)</span> and the remainder of <span class="process-math">\(m\)</span> divided by <span class="process-math">\(n\text{.}\)</span> We will simply provide an iterative implementation here (see ActiveCode 1). Note that this implementation of the GCD algorithm only works when the denominator is positive. This is acceptable for our fraction class because we have said that a negative fraction will be represented by a negative numerator.</div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-27">How you choose to overload operators  like <code class="code-inline tex2jax_ignore">+</code> is a design choice since both methods will work perfectly well. This is another example of encapsulation; your user does not need to know which you choose to use!</div>
+<div class="para" id="introduction_polymorphism-28">There is one more thing we can improve in our addition function. Note that <span class="process-math">\(6/8\)</span> is the correct result (<span class="process-math">\(\frac {1}{4} + \frac {1}{2}\)</span>) but that it is not in the “lowest terms” representation. The best representation would be <span class="process-math">\(3/4\text{.}\)</span> In order to be sure that our results are always in the lowest terms, we need a helper function that knows how to reduce fractions. This function will need to look for the greatest common divisor, or GCD. We can then divide the numerator and the denominator by the GCD and the result will be reduced to lowest terms.</div>
+<div class="para" id="introduction_polymorphism-29">The best-known algorithm for finding a greatest common divisor is Euclid’s Algorithm, which will be discussed in detail in <a href="ch-trees.html" class="internal" title="Chapter 8: Trees and Tree Algorithms">Chapter 8</a>. Euclid’s Algorithm states that the greatest common divisor of two integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> is <span class="process-math">\(n\)</span> if <span class="process-math">\(n\)</span> divides <span class="process-math">\(m\)</span> evenly. However, if <span class="process-math">\(n\)</span> does not divide <span class="process-math">\(m\)</span> evenly, then the answer is the greatest common divisor of <span class="process-math">\(n\)</span> and the remainder of <span class="process-math">\(m\)</span> divided by <span class="process-math">\(n\text{.}\)</span> We will simply provide an iterative implementation here (see ActiveCode 1). Note that this implementation of the GCD algorithm only works when the denominator is positive. This is acceptable for our fraction class because we have said that a negative fraction will be represented by a negative numerator.</div>
+<article class="exploration project-like" id="gcdalg"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.10</span><span class="period">.</span><span class="space"> </span><span class="title">Greatest Common Divisor.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-gcdalg">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="gcd-cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
@@ -1169,8 +1187,11 @@ int main() {
     cout &lt;&lt; gcd(20, 10) &lt;&lt; endl;
     return 0;
 }
-</code></pre>
-<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-gcd_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-gcd_py_editor" data-question_label="" data-codelens="true">def gcd(m,n):
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="gcd-py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">def gcd(m,n):
     while m%n != 0:
         oldm = m
         oldn = n
@@ -1180,8 +1201,8 @@ int main() {
     return n
 
 print(gcd(20,10))
-</textarea></div></div></div>
-<div class="para" id="introduction_polymorphism-34">Now we can use this function to help reduce any fraction. To put a fraction in lowest terms, we will divide the numerator and the denominator by their greatest common divisor. So, for the fraction <span class="process-math">\(6/8\text{,}\)</span> the greatest common divisor is 2. Dividing the top and the bottom by 2 creates a new fraction, <span class="process-math">\(3/4\)</span> (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-newaddmethod" class="xref" data-knowl="./knowl/xref/introduction_lst-newaddmethod.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.3">Listing 1.12.3</a>).</div>
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-31">Now we can use this function to help reduce any fraction. To put a fraction in lowest terms, we will divide the numerator and the denominator by their greatest common divisor. So, for the fraction <span class="process-math">\(6/8\text{,}\)</span> the greatest common divisor is 2. Dividing the top and the bottom by 2 creates a new fraction, <span class="process-math">\(3/4\)</span> (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-newaddmethod" class="xref" data-knowl="./knowl/xref/introduction_lst-newaddmethod.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.3">Listing 1.12.3</a>).</div>
 <figure class="listing figure-like" id="introduction_lst-newaddmethod"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
@@ -1238,11 +1259,11 @@ int main(){
 }
 </code></pre>
 <figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.12.3<span class="period">.</span></span><span class="space"> </span>New addition implementation using <code class="code-inline tex2jax_ignore">gcd</code></figcaption></figure><figure class="figure figure-like" id="fig-fraction2cpp"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Introduction/fraction2cpp.png" class="contained" alt="Visual representation of a Fraction class instance called ’myfraction’. It features concentric circles with the innermost labeled ’State’ showcasing ’num’ with a value of 3 above ’den’ with a value of 5, indicating the fraction’s numerator and denominator. The outer circle is labeled ’Methods’, suggesting the object’s functionality. Two symbols, ’&lt;&lt;’ and ’+’, are shown outside the Methods circle, implying additional methods."></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.4<span class="period">.</span></span><span class="space"> </span>An Instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class with Two Methods</figcaption></figure><div class="para" id="introduction_polymorphism-37">Our <code class="code-inline tex2jax_ignore">Fraction</code> object now has two very useful methods and looks like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction2cpp" class="xref" data-knowl="./knowl/xref/fig-fraction2cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.4">Figure 1.12.4</a>. An additional group of methods that we need to include in our example <code class="code-inline tex2jax_ignore">Fraction</code> class will allow two fractions to compare themselves to one another using <code class="code-inline tex2jax_ignore">==</code>.</div>
-<div class="para" id="introduction_polymorphism-38">We want the <code class="code-inline tex2jax_ignore">==</code> operator to compare Fraction objects and to return <code class="code-inline tex2jax_ignore">true</code> if they are equivalent in value, <code class="code-inline tex2jax_ignore">false</code> otherwise. This is a design choice because we want <span class="process-math">\(\frac {1}{2}\)</span> to be considered equal to <span class="process-math">\(\frac {2}{4}\)</span> as well as <span class="process-math">\(\frac {3}{6}\text{,}\)</span> etc. Hence, in the <code class="code-inline tex2jax_ignore">Fraction</code> class, we can implement the <code class="code-inline tex2jax_ignore">==</code> method by cross-multiplying (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-cmpmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-cmpmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.8.a: C++">Task 1.12.8.a</a>) rather than by just comparing numerators and denominators.</div>
-<div class="para" id="introduction_polymorphism-39">Of course there are other relational operators that can be overridden. For example, the <code class="code-inline tex2jax_ignore">&lt;=</code> operator could be overridden to provide the less than or equal functionality.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.4<span class="period">.</span></span><span class="space"> </span>An Instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class with Two Methods</figcaption></figure><div class="para" id="introduction_polymorphism-34">Our <code class="code-inline tex2jax_ignore">Fraction</code> object now has two very useful methods and looks like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction2cpp" class="xref" data-knowl="./knowl/xref/fig-fraction2cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.4">Figure 1.12.4</a>. An additional group of methods that we need to include in our example <code class="code-inline tex2jax_ignore">Fraction</code> class will allow two fractions to compare themselves to one another using <code class="code-inline tex2jax_ignore">==</code>.</div>
+<div class="para" id="introduction_polymorphism-35">We want the <code class="code-inline tex2jax_ignore">==</code> operator to compare Fraction objects and to return <code class="code-inline tex2jax_ignore">true</code> if they are equivalent in value, <code class="code-inline tex2jax_ignore">false</code> otherwise. This is a design choice because we want <span class="process-math">\(\frac {1}{2}\)</span> to be considered equal to <span class="process-math">\(\frac {2}{4}\)</span> as well as <span class="process-math">\(\frac {3}{6}\text{,}\)</span> etc. Hence, in the <code class="code-inline tex2jax_ignore">Fraction</code> class, we can implement the <code class="code-inline tex2jax_ignore">==</code> method by cross-multiplying (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-cmpmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-cmpmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.11.a: C++">Task 1.12.11.a</a>) rather than by just comparing numerators and denominators.</div>
+<div class="para" id="introduction_polymorphism-36">Of course there are other relational operators that can be overridden. For example, the <code class="code-inline tex2jax_ignore">&lt;=</code> operator could be overridden to provide the less than or equal functionality.</div>
 <article class="exploration project-like" id="introduction_lst-cmpmethod"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.8</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading the comparison operator.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.11</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading the comparison operator.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-introduction_lst-cmpmethod">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-cmpmethod-cpp"><h5 class="heading">
@@ -1264,9 +1285,9 @@ int main(){
 
     return firstnum == secondnum
 </code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-41">The complete <code class="code-inline tex2jax_ignore">Fraction</code> class, up to this point, is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fraction_class_cpp" class="xref" data-knowl="./knowl/xref/fraction_class_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.9.a: C++">Task 1.12.9.a</a>. We leave the remaining arithmetic and relational methods as exercises.</div>
+</div></div></div></article><div class="para" id="introduction_polymorphism-38">The complete <code class="code-inline tex2jax_ignore">Fraction</code> class, up to this point, is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fraction_class_cpp" class="xref" data-knowl="./knowl/xref/fraction_class_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.12.a: C++">Task 1.12.12.a</a>. We leave the remaining arithmetic and relational methods as exercises.</div>
 <article class="exploration project-like" id="fraction_class"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.9</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.12</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-fraction_class">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="fraction_class_cpp"><h5 class="heading">
@@ -1528,11 +1549,11 @@ int main(){
 <li data-subcomponent="dropzone" for="rs-elements_of_classses_drag4">a template for creating objects</li>
 </ul></div></div></article></section></section><section class="conclusion" id="introduction_object-oriented-programming-in-c-defining-classes-7"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-7-1"></div></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="introduction_defining-c-functions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_inheritance-in-c.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="introduction_defining-c-functions.html" title="Previous"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_inheritance-in-c.html" title="Next"><span class="name">Next</span><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:pf="https://prefigure.org" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:pf="https://prefigure.org" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a xmlns:pf="https://prefigure.org" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>
