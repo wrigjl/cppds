@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void add(int item) {
+    if (head == NULL) {
+        Node *newNode = new Node(item);
+        head = newNode;
+    } else {
+        Node *current = head;
+        Node *previous = NULL;
+        bool stop = false;
+        while (current != NULL &amp;&amp; !stop) {
+            if (current-&gt;getData() &gt; item) {
+                stop = true;
+            } else {
+                previous = current;
+                current = current-&gt;getNext();
+            }
+        }
+        Node *temp = new Node(item);
+        if (previous == NULL) {
+            temp-&gt;setNext(head);
+            head = temp;
+        } else {
+            temp-&gt;setNext(current);
+            previous-&gt;setNext(temp);
+        }
+    }
+}
+</code></pre></div>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">4.6.7<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">add</code> Method</figcaption></figure><span class="incontext"><a class="internal" href="linear-linked_implementing-an-ordered-linked-list.html#linear-linked_lst-orderadd">in-context</a></span>
+</body>
+</html>

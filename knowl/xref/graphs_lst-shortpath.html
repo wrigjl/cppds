@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">from pythonds.graphs import PriorityQueue, Graph, Vertex
+
+def dijkstra(aGraph,start):
+    pq = PriorityQueue()
+    start.setDistance(0)
+    pq.buildHeap([(v.getDistance(),v) for v in aGraph])
+    while not pq.isEmpty():
+        currentVert = pq.delMin()
+        for nextVert in currentVert.getConnections():
+            newDist = currentVert.getDistance() \
+                    + currentVert.getWeight(nextVert)
+            if newDist &lt; nextVert.getDistance():
+                nextVert.setDistance( newDist )
+                nextVert.setPred(currentVert)
+                pq.decreaseKey(nextVert,newDist)
+</code></pre></div>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.20.1<span class="period">.</span></span><span class="space"> </span>Dijkstra’s Algorithm</figcaption></figure><span class="incontext"><a class="internal" href="graphs_dijkstras-algorithm.html#graphs_lst-shortpath">in-context</a></span>
+</body>
+</html>

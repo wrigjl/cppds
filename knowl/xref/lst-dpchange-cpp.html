@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">5.12.3.a</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">//Program that stores the solution for all possible amounts of change up to a given integer.
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int dpMakeChange(vector&lt;int&gt; coinValueList, int change, vector&lt;int&gt; minCoins){
+    for (int cents = 0 ; cents &lt; change + 1; cents++){ //loop finds solution for all sets of change from 0 to int change.
+        int coinCount = cents;
+        for (int j : coinValueList){
+            if (j &lt;= cents){
+                if (minCoins[cents-j] + 1 &lt; coinCount){
+                    coinCount = minCoins[cents-j] + 1; //assigns the number of coins that is used to make the change.
+                }
+            }
+        }
+        minCoins[cents] = coinCount;
+    }
+    return minCoins[change];
+}
+
+int main(){
+    vector&lt;int&gt; coinValueList = {1, 5, 10, 21, 25};
+    int change = 63;
+    vector&lt;int&gt; minCoins(64, 0);
+    cout &lt;&lt; dpMakeChange(coinValueList, change, minCoins) &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="recursion_dynamic-programming.html#lst-dpchange-cpp">in-context</a></span>
+</body>
+</html>

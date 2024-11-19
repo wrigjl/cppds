@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Task {
+public:
+    Task(int time) {
+        timestamp = time;
+        pages=(rand()%20) + 1;
+    }
+
+    int getStamp() {
+        return timestamp;
+    }
+
+    int getPages() {
+        return pages;
+    }
+
+    int waitTime(int currenttime) {
+        return (currenttime - timestamp);
+    }
+private:
+    int timestamp;
+    int pages;
+};
+</code></pre></div>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.14.3<span class="period">.</span></span><span class="space"> </span>The <code class="code-inline tex2jax_ignore">Task</code> class</figcaption></figure><span class="incontext"><a class="internal" href="linear-basic_simulation-printing-tasks.html#linear-basic_lst-task">in-context</a></span>
+</body>
+</html>

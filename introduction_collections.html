@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DS Collections</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:pf="https://prefigure.org" property="og:type" content="book">
+<meta xmlns:pf="https://prefigure.org" property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.4.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.00db6230172ad960.bundle.js"></script><script src="_static/prefix-347.8328b60515045466.bundle.js"></script><script src="_static/prefix-runestone.aa624e4071d017c3.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.51d479d87f8466bb.css">
+<style>
+#introduction_accessing-values-from-pointers-17 { counter-set: introduction_accessing-values-from-pointers-17 0; }
+#introduction_accessing-values-from-pointers-17 > li::marker { content: ""counter(introduction_accessing-values-from-pointers-17,decimal)""; }
+#introduction_accessing-values-from-pointers-17 > li { counter-increment: introduction_accessing-values-from-pointers-17; }
+#introduction_arrays-4-1-1 { counter-set: introduction_arrays-4-1-1 0; }
+#introduction_arrays-4-1-1 > li::marker { content: ""counter(introduction_arrays-4-1-1,decimal)""; }
+#introduction_arrays-4-1-1 > li { counter-increment: introduction_arrays-4-1-1; }
+#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 { counter-set: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 0; }
+#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li::marker { content: ""counter(introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1,decimal)""; }
+#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li { counter-increment: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1; }
+#introduction_discussion-questions-2-1 { counter-set: introduction_discussion-questions-2-1 0; }
+#introduction_discussion-questions-2-1 > li::marker { content: ""counter(introduction_discussion-questions-2-1,decimal)""; }
+#introduction_discussion-questions-2-1 > li { counter-increment: introduction_discussion-questions-2-1; }
+#introduction_programming-exercises-2-1 { counter-set: introduction_programming-exercises-2-1 0; }
+#introduction_programming-exercises-2-1 > li::marker { content: ""counter(introduction_programming-exercises-2-1,decimal)""; }
+#introduction_programming-exercises-2-1 > li { counter-increment: introduction_programming-exercises-2-1; }
+#algorithm-analysis_discussion-questions-2-1 { counter-set: algorithm-analysis_discussion-questions-2-1 0; }
+#algorithm-analysis_discussion-questions-2-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-2-1,decimal)""; }
+#algorithm-analysis_discussion-questions-2-1 > li { counter-increment: algorithm-analysis_discussion-questions-2-1; }
+#algorithm-analysis_discussion-questions-4-1 { counter-set: algorithm-analysis_discussion-questions-4-1 0; }
+#algorithm-analysis_discussion-questions-4-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-4-1,decimal)""; }
+#algorithm-analysis_discussion-questions-4-1 > li { counter-increment: algorithm-analysis_discussion-questions-4-1; }
+#algorithm-analysis_discussion-questions-6-1 { counter-set: algorithm-analysis_discussion-questions-6-1 0; }
+#algorithm-analysis_discussion-questions-6-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-6-1,decimal)""; }
+#algorithm-analysis_discussion-questions-6-1 > li { counter-increment: algorithm-analysis_discussion-questions-6-1; }
+#algorithm-analysis_discussion-questions-8-1 { counter-set: algorithm-analysis_discussion-questions-8-1 0; }
+#algorithm-analysis_discussion-questions-8-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-8-1,decimal)""; }
+#algorithm-analysis_discussion-questions-8-1 > li { counter-increment: algorithm-analysis_discussion-questions-8-1; }
+#algorithm-analysis_discussion-questions-10-1 { counter-set: algorithm-analysis_discussion-questions-10-1 0; }
+#algorithm-analysis_discussion-questions-10-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-10-1,decimal)""; }
+#algorithm-analysis_discussion-questions-10-1 > li { counter-increment: algorithm-analysis_discussion-questions-10-1; }
+#algorithm-analysis_programming-exercises-2-1 { counter-set: algorithm-analysis_programming-exercises-2-1 0; }
+#algorithm-analysis_programming-exercises-2-1 > li::marker { content: ""counter(algorithm-analysis_programming-exercises-2-1,decimal)""; }
+#algorithm-analysis_programming-exercises-2-1 > li { counter-increment: algorithm-analysis_programming-exercises-2-1; }
+#linear-basic_general-infix-to-postfix-conversion-9-1 { counter-set: linear-basic_general-infix-to-postfix-conversion-9-1 0; }
+#linear-basic_general-infix-to-postfix-conversion-9-1 > li::marker { content: ""counter(linear-basic_general-infix-to-postfix-conversion-9-1,decimal)""; }
+#linear-basic_general-infix-to-postfix-conversion-9-1 > li { counter-increment: linear-basic_general-infix-to-postfix-conversion-9-1; }
+#linear-basic_postfix-evaluation-10-1 { counter-set: linear-basic_postfix-evaluation-10-1 0; }
+#linear-basic_postfix-evaluation-10-1 > li::marker { content: ""counter(linear-basic_postfix-evaluation-10-1,decimal)""; }
+#linear-basic_postfix-evaluation-10-1 > li { counter-increment: linear-basic_postfix-evaluation-10-1; }
+#linear-basic_main-simulation-steps-3-1 { counter-set: linear-basic_main-simulation-steps-3-1 0; }
+#linear-basic_main-simulation-steps-3-1 > li::marker { content: ""counter(linear-basic_main-simulation-steps-3-1,decimal)""; }
+#linear-basic_main-simulation-steps-3-1 > li { counter-increment: linear-basic_main-simulation-steps-3-1; }
+#linear-basic_discussion-questions-2-1 { counter-set: linear-basic_discussion-questions-2-1 0; }
+#linear-basic_discussion-questions-2-1 > li::marker { content: ""counter(linear-basic_discussion-questions-2-1,decimal)""; }
+#linear-basic_discussion-questions-2-1 > li { counter-increment: linear-basic_discussion-questions-2-1; }
+#linear-basic_programming-exercises-2-1 { counter-set: linear-basic_programming-exercises-2-1 0; }
+#linear-basic_programming-exercises-2-1 > li::marker { content: ""counter(linear-basic_programming-exercises-2-1,decimal)""; }
+#linear-basic_programming-exercises-2-1 > li { counter-increment: linear-basic_programming-exercises-2-1; }
+#linear-linked_discussion-questions-2-1 { counter-set: linear-linked_discussion-questions-2-1 0; }
+#linear-linked_discussion-questions-2-1 > li::marker { content: ""counter(linear-linked_discussion-questions-2-1,decimal)""; }
+#linear-linked_discussion-questions-2-1 > li { counter-increment: linear-linked_discussion-questions-2-1; }
+#linear-linked_programming-exercises-2-1 { counter-set: linear-linked_programming-exercises-2-1 0; }
+#linear-linked_programming-exercises-2-1 > li::marker { content: ""counter(linear-linked_programming-exercises-2-1,decimal)""; }
+#linear-linked_programming-exercises-2-1 > li { counter-increment: linear-linked_programming-exercises-2-1; }
+#recursion_the-three-laws-of-recursion-3-1-1 { counter-set: recursion_the-three-laws-of-recursion-3-1-1 0; }
+#recursion_the-three-laws-of-recursion-3-1-1 > li::marker { content: ""counter(recursion_the-three-laws-of-recursion-3-1-1,decimal)""; }
+#recursion_the-three-laws-of-recursion-3-1-1 > li { counter-increment: recursion_the-three-laws-of-recursion-3-1-1; }
+#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 { counter-set: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 0; }
+#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li::marker { content: ""counter(recursion_converting-an-integer-to-a-string-in-any-base-5-1-1,decimal)""; }
+#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li { counter-increment: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1; }
+#recursion_tower-of-hanoi-8-1 { counter-set: recursion_tower-of-hanoi-8-1 0; }
+#recursion_tower-of-hanoi-8-1 > li::marker { content: ""counter(recursion_tower-of-hanoi-8-1,decimal)""; }
+#recursion_tower-of-hanoi-8-1 > li { counter-increment: recursion_tower-of-hanoi-8-1; }
+#recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
+#recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
+#recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
+#recursion_dynamic-programming-20-1 { counter-set: recursion_dynamic-programming-20-1 0; }
+#recursion_dynamic-programming-20-1 > li::marker { content: ""counter(recursion_dynamic-programming-20-1,decimal)""; }
+#recursion_dynamic-programming-20-1 > li { counter-increment: recursion_dynamic-programming-20-1; }
+#recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
+#recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
+#recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
+#recursion_programming-exercises-2-1 { counter-set: recursion_programming-exercises-2-1 0; }
+#recursion_programming-exercises-2-1 > li::marker { content: ""counter(recursion_programming-exercises-2-1,decimal)""; }
+#recursion_programming-exercises-2-1 > li { counter-increment: recursion_programming-exercises-2-1; }
+#search-hash_discussion-questions-2-1 { counter-set: search-hash_discussion-questions-2-1 0; }
+#search-hash_discussion-questions-2-1 > li::marker { content: ""counter(search-hash_discussion-questions-2-1,decimal)""; }
+#search-hash_discussion-questions-2-1 > li { counter-increment: search-hash_discussion-questions-2-1; }
+#search-hash_programming-exercises-2-1 { counter-set: search-hash_programming-exercises-2-1 0; }
+#search-hash_programming-exercises-2-1 > li::marker { content: ""counter(search-hash_programming-exercises-2-1,decimal)""; }
+#search-hash_programming-exercises-2-1 > li { counter-increment: search-hash_programming-exercises-2-1; }
+#sort_discussion-questions-2-1 { counter-set: sort_discussion-questions-2-1 0; }
+#sort_discussion-questions-2-1 > li::marker { content: ""counter(sort_discussion-questions-2-1,decimal)""; }
+#sort_discussion-questions-2-1 > li { counter-increment: sort_discussion-questions-2-1; }
+#sort_programming-exercises-2-1 { counter-set: sort_programming-exercises-2-1 0; }
+#sort_programming-exercises-2-1 > li::marker { content: ""counter(sort_programming-exercises-2-1,decimal)""; }
+#sort_programming-exercises-2-1 > li { counter-increment: sort_programming-exercises-2-1; }
+#trees_parse-tree-12-1 { counter-set: trees_parse-tree-12-1 0; }
+#trees_parse-tree-12-1 > li::marker { content: ""counter(trees_parse-tree-12-1,decimal)""; }
+#trees_parse-tree-12-1 > li { counter-increment: trees_parse-tree-12-1; }
+#trees_parse-tree-16-1 { counter-set: trees_parse-tree-16-1 0; }
+#trees_parse-tree-16-1 > li::marker { content: ""counter(trees_parse-tree-16-1,lower-alpha)""; }
+#trees_parse-tree-16-1 > li { counter-increment: trees_parse-tree-16-1; }
+#trees_search-tree-implementation-24-1 { counter-set: trees_search-tree-implementation-24-1 0; }
+#trees_search-tree-implementation-24-1 > li::marker { content: ""counter(trees_search-tree-implementation-24-1,decimal)""; }
+#trees_search-tree-implementation-24-1 > li { counter-increment: trees_search-tree-implementation-24-1; }
+#trees_search-tree-implementation-29-1 { counter-set: trees_search-tree-implementation-29-1 0; }
+#trees_search-tree-implementation-29-1 > li::marker { content: ""counter(trees_search-tree-implementation-29-1,decimal)""; }
+#trees_search-tree-implementation-29-1 > li { counter-increment: trees_search-tree-implementation-29-1; }
+#trees_search-tree-implementation-37-1 { counter-set: trees_search-tree-implementation-37-1 0; }
+#trees_search-tree-implementation-37-1 > li::marker { content: ""counter(trees_search-tree-implementation-37-1,decimal)""; }
+#trees_search-tree-implementation-37-1 > li { counter-increment: trees_search-tree-implementation-37-1; }
+#trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
+#trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
+#trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
+#trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
+#trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
+#trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
+#graphs_implementing-breadth-first-search-8-1 { counter-set: graphs_implementing-breadth-first-search-8-1 0; }
+#graphs_implementing-breadth-first-search-8-1 > li::marker { content: ""counter(graphs_implementing-breadth-first-search-8-1,decimal)""; }
+#graphs_implementing-breadth-first-search-8-1 > li { counter-increment: graphs_implementing-breadth-first-search-8-1; }
+#graphs_topological-sorting-7-1 { counter-set: graphs_topological-sorting-7-1 0; }
+#graphs_topological-sorting-7-1 > li::marker { content: ""counter(graphs_topological-sorting-7-1,decimal)""; }
+#graphs_topological-sorting-7-1 > li { counter-increment: graphs_topological-sorting-7-1; }
+#graphs_strongly-connected-components-15-1 { counter-set: graphs_strongly-connected-components-15-1 0; }
+#graphs_strongly-connected-components-15-1 > li::marker { content: ""counter(graphs_strongly-connected-components-15-1,decimal)""; }
+#graphs_strongly-connected-components-15-1 > li { counter-increment: graphs_strongly-connected-components-15-1; }
+#graphs_discussion-questions-2-1 { counter-set: graphs_discussion-questions-2-1 0; }
+#graphs_discussion-questions-2-1 > li::marker { content: ""counter(graphs_discussion-questions-2-1,decimal)""; }
+#graphs_discussion-questions-2-1 > li { counter-increment: graphs_discussion-questions-2-1; }
+#graphs_discussion-questions-4-1 { counter-set: graphs_discussion-questions-4-1 0; }
+#graphs_discussion-questions-4-1 > li::marker { content: ""counter(graphs_discussion-questions-4-1,decimal)""; }
+#graphs_discussion-questions-4-1 > li { counter-increment: graphs_discussion-questions-4-1; }
+#graphs_programming-exercises-2-1 { counter-set: graphs_programming-exercises-2-1 0; }
+#graphs_programming-exercises-2-1 > li::marker { content: ""counter(graphs_programming-exercises-2-1,decimal)""; }
+#graphs_programming-exercises-2-1 > li { counter-increment: graphs_programming-exercises-2-1; }
+</style>
+</head>
+<body id="cppds2" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a xmlns:pf="https://prefigure.org" id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></header><nav xmlns:pf="https://prefigure.org" id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="introduction_built-in-atomic-data-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-intro.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="introduction_defining-c-functions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div xmlns:pf="https://prefigure.org" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div xmlns:pf="https://prefigure.org" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_objectives.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Getting Started</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_what-is-computer-science.html" class="internal"><span class="codenumber">1.3</span> <span class="title">What Is Computer Science?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_what-is-programming.html" class="internal"><span class="codenumber">1.4</span> <span class="title">What Is Programming?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_why-study-data-structures-and-abstract-data-types.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Why Study Data Structures and Abstract Data Types?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_why-study-algorithms.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Why Study Algorithms?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_reviewing-basic-c.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Reviewing Basic C++</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_getting-started-with-data.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Getting Started with Data</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Built-in Atomic Data Types</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_numeric-data" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Numeric Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_boolean-data" class="internal"><span class="codenumber">1.9.2</span> <span class="title">Boolean Data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_character-data" class="internal"><span class="codenumber">1.9.3</span> <span class="title">Character Data</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointers" class="internal"><span class="codenumber">1.9.4</span> <span class="title">Pointers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointer-syntax" class="internal"><span class="codenumber">1.9.4.1</span> <span class="title">Pointer Syntax</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-address-of-operator" class="internal"><span class="codenumber">1.9.4.2</span> <span class="title">The address-of operator, <code class="code-inline tex2jax_ignore">&amp;</code></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_accessing-values-from-pointers" class="internal"><span class="codenumber">1.9.4.3</span> <span class="title">Accessing Values from Pointers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The NULL pointer</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="introduction_collections.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Collections</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_arrays" class="internal"><span class="codenumber">1.10.1</span> <span class="title">Arrays</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_vectors" class="internal"><span class="codenumber">1.10.2</span> <span class="title">Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_strings" class="internal"><span class="codenumber">1.10.3</span> <span class="title">Strings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_collections.html#introduction_hash-tables" class="internal"><span class="codenumber">1.10.4</span> <span class="title">Hash Tables</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_collections.html#introduction_unordered-sets" class="internal"><span class="codenumber">1.10.5</span> <span class="title">Unordered Sets</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_collections.html#rq-collection-data" class="internal"><span class="codenumber">1.10.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_defining-c-functions.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Defining C++ Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_parameter-passing-by-value-versus-by-reference" class="internal"><span class="codenumber">1.11.1</span> <span class="title">Parameter Passing: by Value versus by Reference</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_arrays-as-parameters-in-functions" class="internal"><span class="codenumber">1.11.2</span> <span class="title">Arrays as Parameters in Functions</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_defining-c-functions.html#introduction_function-overloading" class="internal"><span class="codenumber">1.11.3</span> <span class="title">Function Overloading</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_defining-c-functions.html#rq-defining-function" class="internal"><span class="codenumber">1.11.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Object-Oriented Programming in C++: Defining Classes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_a-fraction-class" class="internal"><span class="codenumber">1.12.1</span> <span class="title">A <code class="code-inline tex2jax_ignore">Fraction</code> Class</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_abstraction-and-encapsulation" class="internal"><span class="codenumber">1.12.2</span> <span class="title">Abstraction and Encapsulation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_polymorphism" class="internal"><span class="codenumber">1.12.3</span> <span class="title">Polymorphism</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_self-check" class="internal"><span class="codenumber">1.12.4</span> <span class="title"></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#rq-oop" class="internal"><span class="codenumber">1.12.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_inheritance-in-c.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Inheritance in C++</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_inheritance-in-c.html#introduction_logic-gates-and-circuits" class="internal"><span class="codenumber">1.13.1</span> <span class="title">Logic Gates and Circuits</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_inheritance-in-c.html#introduction_building-circuits" class="internal"><span class="codenumber">1.13.2</span> <span class="title">Building Circuits</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_inheritance-in-c.html#rq-oop-derived-classes" class="internal"><span class="codenumber">1.13.2</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html" class="internal"><span class="codenumber">1.14</span> <span class="title"><dfn class="terminology">Optional</dfn>: Graphics in C++</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_introduction-to-turtles" class="internal"><span class="codenumber">1.14.1</span> <span class="title">Introduction to Turtles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_turtle-turtlescreen" class="internal"><span class="codenumber">1.14.2</span> <span class="title">Turtle &amp; TurtleScreen</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_geometry-shapes-and-stamps" class="internal"><span class="codenumber">1.14.3</span> <span class="title">Geometry, Shapes, and Stamps</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#introduction_advanced-features" class="internal"><span class="codenumber">1.14.4</span> <span class="title">Advanced Features</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="introduction_optional-graphics-in-c.html#rq-graphics" class="internal"><span class="codenumber">1.14.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_summary.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_discussion-questions.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_programming-exercises.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction_glossary.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="introduction_glossary.html#introduction_glossary-2" class="internal"><span class="codenumber">1.18</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="introduction_introduction_matching.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-4.html" class="internal"><span class="codenumber">2</span> <span class="title">Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_objectives.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html" class="internal"><span class="codenumber">2.2</span> <span class="title">What Is Algorithm Analysis?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_some-needed-math-notation" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Some Needed Math Notation</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#algorithm-analysis_applying-the-math-notation" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Applying the Math Notation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_what-is-algorithm-analysis.html#rqs-what-algo-analysis" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_big-o-notation.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Big-O Notation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_big-o-notation.html#rq-big-o-notation" class="internal"><span class="codenumber">2.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html" class="internal"><span class="codenumber">2.4</span> <span class="title">An Anagram Detection Example</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-1-checking-off" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Solution 1: Checking Off</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-2-sort-and-compare" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Solution 2: Sort and Compare</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-3-brute-force" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Solution 3: Brute Force</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#algorithm-analysis_solution-4-count-and-compare" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Solution 4: Count and Compare</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_an-anagram-detection-example.html#rq-alnagram-detection" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_performance-of-c-data-collections.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Performance of C++ Data Collections</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_analysis-of-array-and-vector-operators.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Analysis of Array and Vector Operators</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-array-and-vector-operators.html#rq-vector-analysis" class="internal"><span class="codenumber">2.6</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-string-operators.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Analysis of String Operators</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_analysis-of-hash-tables.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Analysis of Hash Tables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="algorithm-analysis_analysis-of-hash-tables.html#rq-hashtable-analysis" class="internal"><span class="codenumber">2.8</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithmanalysis_algorithm-analysis_summary.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithmanalysis_algorithm-analysis_self-check.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Self Check</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_discussion-questions.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithm-analysis_programming-exercises.html" class="internal"><span class="codenumber">2.12</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="algorithm-analysis_glossary.html" class="internal"><span class="codenumber">2.13</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="algorithm-analysis_glossary.html#algorithm-analysis_glossary-2" class="internal"><span class="codenumber">2.13</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="algorithmanalysis_algorithm-analysis_matching.html" class="internal"><span class="codenumber">2.14</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-basic.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_objectives.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-are-linear-structures.html" class="internal"><span class="codenumber">3.2</span> <span class="title">What Are Linear Structures?</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_what-is-a-stack.html" class="internal"><span class="codenumber">3.3</span> <span class="title">What is a Stack?</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_what-is-a-stack.html#rq-stack-adt" class="internal"><span class="codenumber">3.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_the-stack-abstract-data-type.html" class="internal"><span class="codenumber">3.4</span> <span class="title">The Stack Abstract Data Type</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_the-stack-abstract-data-type.html#rq-what-is-stack" class="internal"><span class="codenumber">3.4</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_using-a-stack-in-c.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Using a Stack in C++</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_using-a-stack-in-c.html#rq-stack-implementation" class="internal"><span class="codenumber">3.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_simple-balanced-parentheses.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Simple Balanced Parentheses</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_balanced-symbols-a-general-case.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Balanced Symbols - A General Case</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_balanced-symbols-a-general-case.html#rq-balanced-sybols" class="internal"><span class="codenumber">3.7</span> <span class="title"><div class="para" id="rq-balanced-sybols-1-1">Reading Question</div></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Converting Decimal Numbers to Binary Numbers</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html#rq-converting-decimal-num-binary-num" class="internal"><span class="codenumber">3.8</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Infix, Prefix and Postfix Expressions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_conversion-of-infix-expressions-to-prefix-and-postfix" class="internal"><span class="codenumber">3.9.1</span> <span class="title">Conversion of Infix Expressions to Prefix and Postfix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_general-infix-to-postfix-conversion" class="internal"><span class="codenumber">3.9.2</span> <span class="title">General Infix-to-Postfix Conversion</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#linear-basic_postfix-evaluation" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Postfix Evaluation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#rq-decimal-to-binary" class="internal"><span class="codenumber">3.9.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-is-a-queue.html" class="internal"><span class="codenumber">3.10</span> <span class="title">What Is a Queue?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_the-queue-abstract-data-type.html" class="internal"><span class="codenumber">3.11</span> <span class="title">The Queue Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_using-a-queue-in-c.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Using a Queue in C++</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_using-a-queue-in-c.html#rqs-implementing-queue" class="internal"><span class="codenumber">3.12</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_simulation-hot-potato.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Simulation: Hot Potato</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html" class="internal"><span class="codenumber">3.14</span> <span class="title">Simulation: Printing Tasks</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_main-simulation-steps" class="internal"><span class="codenumber">3.14.1</span> <span class="title">Main Simulation Steps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_c-implementation" class="internal"><span class="codenumber">3.14.2</span> <span class="title">C++ Implementation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_discussion" class="internal"><span class="codenumber">3.14.3</span> <span class="title">Discussion</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_what-is-a-deque.html" class="internal"><span class="codenumber">3.15</span> <span class="title">What Is a Deque?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_the-deque-abstract-data-type.html" class="internal"><span class="codenumber">3.16</span> <span class="title">The Deque Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_using-a-deque-in-c.html" class="internal"><span class="codenumber">3.17</span> <span class="title">Using a Deque in C++</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_palindrome-checker.html" class="internal"><span class="codenumber">3.18</span> <span class="title">Palindrome-Checker</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="linear-basic_palindrome-checker.html#rqs-" class="internal"><span class="codenumber">3.18</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_summary.html" class="internal"><span class="codenumber">3.19</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_discussion-questions.html" class="internal"><span class="codenumber">3.20</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-basic_programming-exercises.html" class="internal"><span class="codenumber">3.21</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-basic_glossary.html" class="internal"><span class="codenumber">3.22</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="linear-basic_glossary.html#linear-basic_glossary-2" class="internal"><span class="codenumber">3.22</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linearbasic_linear-basic_matching.html" class="internal"><span class="codenumber">3.23</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-6.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Linked Structures</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_objectives.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_what-are-linked-structures.html" class="internal"><span class="codenumber">4.2</span> <span class="title">What Are Linked Structures?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_implementing-an-unordered-linked-list.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Implementing an Unordered Linked List</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_the-node-class.html" class="internal"><span class="codenumber">4.4</span> <span class="title">The <code class="code-inline tex2jax_ignore">Node</code> Class</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_unordered-linked-list.html" class="internal"><span class="codenumber">4.5</span> <span class="title">The <code class="code-inline tex2jax_ignore">Unordered Linked List</code> Class</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_implementing-an-ordered-linked-list.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Implementing an Ordered Linked List</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_implementing-an-ordered-linked-list.html#linear-linked_analysis-of-linked-lists" class="internal"><span class="codenumber">4.6.1</span> <span class="title">Analysis of Linked Lists</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html" class="internal"><span class="codenumber">4.7</span> <span class="title">The Ordered List Abstract Data Type</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html#linear-linked_forward-lists" class="internal"><span class="codenumber">4.7.1</span> <span class="title">Forward lists</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-linked_the-ordered-list-abstract-data-type.html#linear-linked_lists" class="internal"><span class="codenumber">4.7.2</span> <span class="title">Lists</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_summary.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_discussion-questions.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-linked_programming-exercises.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-linked_glossary.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="linear-linked_glossary.html#linear-linked_glossary-2" class="internal"><span class="codenumber">4.11</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-7.html" class="internal"><span class="codenumber">5</span> <span class="title">Recursion</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_objectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_what-is-recursion.html" class="internal"><span class="codenumber">5.2</span> <span class="title">What Is Recursion?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Calculating the Sum of a Vector of Numbers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_the-three-laws-of-recursion.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Three Laws of Recursion</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_the-three-laws-of-recursion.html#rq-three-laws-recursion" class="internal"><span class="codenumber">5.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_converting-an-integer-to-a-string-in-any-base.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Converting an Integer to a String in Any Base</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_converting-an-integer-to-a-string-in-any-base.html#rq-converting-integer-to-string" class="internal"><span class="codenumber">5.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_stack-frames-implementing-recursion.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Stack Frames: Implementing Recursion</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_introduction-visualizing-recursion.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Introduction: Visualizing Recursion</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_introduction-visualizing-recursion.html#rq-visualizing-recursion" class="internal"><span class="codenumber">5.7</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_sierpinski-triangle.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Sierpinski Triangle</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_complex-recursive-problems.html" class="internal"><span class="codenumber">5.9</span> <span class="title">Complex Recursive Problems</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_tower-of-hanoi.html" class="internal"><span class="codenumber">5.10</span> <span class="title">Tower of Hanoi</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="recursion_tower-of-hanoi.html#rq-tower-hanoi" class="internal"><span class="codenumber">5.10</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_exploring-a-maze.html" class="internal"><span class="codenumber">5.11</span> <span class="title">Exploring a Maze</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_dynamic-programming.html" class="internal"><span class="codenumber">5.12</span> <span class="title">Dynamic Programming</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_recursion_summary.html" class="internal"><span class="codenumber">5.13</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_recursion_self-check.html" class="internal"><span class="codenumber">5.14</span> <span class="title">Self-check</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_discussion-questions.html" class="internal"><span class="codenumber">5.15</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_programming-exercises.html" class="internal"><span class="codenumber">5.16</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="recursion_glossary.html" class="internal"><span class="codenumber">5.17</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="recursion_glossary.html#recursion_glossary-2" class="internal"><span class="codenumber">5.17</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="recursion_recursion_matching.html" class="internal"><span class="codenumber">5.18</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-8.html" class="internal"><span class="codenumber">6</span> <span class="title">Searching and Hashing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_objectives.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_searching.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Searching</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_the-sequential-search.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Sequential Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="search-hash_the-sequential-search.html#search-hash_analysis-of-sequential-search" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Analysis of Sequential Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="search-hash_the-sequential-search.html#rq-squential-search" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_the-binary-search.html" class="internal"><span class="codenumber">6.4</span> <span class="title">The Binary Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="search-hash_the-binary-search.html#search-hash_analysis-of-binary-search" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Analysis of Binary Search</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="search-hash_the-binary-search.html#rq-binary-search" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_hashing.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Hashing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_hash-functions" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Hash Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_collision-resolution" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Collision Resolution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_implementing-the-map-abstract-data-type" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Implementing the <code class="code-inline tex2jax_ignore">Map</code> Abstract Data Type</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="search-hash_hashing.html#search-hash_analysis-of-hashing" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Analysis of Hashing</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="search-hash_hashing.html#rq-hashing-search" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-SelfCheck.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Self Check</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_summary.html" class="internal"><span class="codenumber">6.7</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_discussion-questions.html" class="internal"><span class="codenumber">6.8</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="search-hash_programming-exercises.html" class="internal"><span class="codenumber">6.9</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="search-hash_glossary.html" class="internal"><span class="codenumber">6.10</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="search-hash_glossary.html#search-hash_glossary-2" class="internal"><span class="codenumber">6.10</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="searchhash_search-hash_matching.html" class="internal"><span class="codenumber">6.11</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-9.html" class="internal"><span class="codenumber">7</span> <span class="title">Sorting</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_objectives.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_sorting.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Sorting</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-bubble-sort.html" class="internal"><span class="codenumber">7.3</span> <span class="title">The Bubble Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-bubble-sort.html#rq-buble-sort" class="internal"><span class="codenumber">7.3</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-selection-sort.html" class="internal"><span class="codenumber">7.4</span> <span class="title">The Selection Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-selection-sort.html#rq-selection-sort" class="internal"><span class="codenumber">7.4</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-insertion-sort.html" class="internal"><span class="codenumber">7.5</span> <span class="title">The Insertion Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-insertion-sort.html#rq-insertion-sort" class="internal"><span class="codenumber">7.5</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-shell-sort.html" class="internal"><span class="codenumber">7.6</span> <span class="title">The Shell Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-shell-sort.html#rq-shell-sort" class="internal"><span class="codenumber">7.6</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-merge-sort.html" class="internal"><span class="codenumber">7.7</span> <span class="title">The Merge Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-merge-sort.html#rq-merge-sort" class="internal"><span class="codenumber">7.7</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_the-quick-sort.html" class="internal"><span class="codenumber">7.8</span> <span class="title">The Quick Sort</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sort_the-quick-sort.html#rq-quick-sort" class="internal"><span class="codenumber">7.8</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-SelfCheck-sort.html" class="internal"><span class="codenumber">7.9</span> <span class="title">Self Check</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_summary.html" class="internal"><span class="codenumber">7.10</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_discussion-questions.html" class="internal"><span class="codenumber">7.11</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_programming-exercises.html" class="internal"><span class="codenumber">7.12</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sort_glossary.html" class="internal"><span class="codenumber">7.13</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="sort_glossary.html#sort_glossary-2" class="internal"><span class="codenumber">7.13</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sort_sort_matching.html" class="internal"><span class="codenumber">7.14</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-trees.html" class="internal"><span class="codenumber">8</span> <span class="title">Trees and Tree Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_objectives.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_examples-of-trees.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Examples of Trees</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_examples-of-trees.html#rq-example-tree" class="internal"><span class="codenumber">8.2</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_vocabulary-and-definitions.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Vocabulary and Definitions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_vocabulary-and-definitions.html#rq-vocabulary-tree" class="internal"><span class="codenumber">8.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_nodes-and-references.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Nodes and References</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_nodes-and-references.html#rq-nodes-and-references" class="internal"><span class="codenumber">8.4</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_parse-tree.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Parse Tree</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_parse-tree.html#rq-parse-tree" class="internal"><span class="codenumber">8.5</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_tree-traversals.html" class="internal"><span class="codenumber">8.6</span> <span class="title">Tree Traversals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_tree-traversals.html#rq-tree-traversal" class="internal"><span class="codenumber">8.6</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_priority-queues-with-binary-heaps.html" class="internal"><span class="codenumber">8.7</span> <span class="title">Priority Queues with Binary Heaps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_priority-queues-with-binary-heaps-example.html" class="internal"><span class="codenumber">8.8</span> <span class="title">Priority Queues with Binary Heaps Example</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_binary-heap-operations.html" class="internal"><span class="codenumber">8.9</span> <span class="title">Binary Heap Operations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_binary-heap-implementation.html" class="internal"><span class="codenumber">8.10</span> <span class="title">Binary Heap Implementation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_the-structure-property" class="internal"><span class="codenumber">8.10.1</span> <span class="title">The Structure Property</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_the-heap-order-property" class="internal"><span class="codenumber">8.10.2</span> <span class="title">The Heap Order Property</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="trees_binary-heap-implementation.html#trees_heap-operations" class="internal"><span class="codenumber">8.10.3</span> <span class="title">Heap Operations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_binary-heap-implementation.html#rq-binary-heap-implementation" class="internal"><span class="codenumber">8.10.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_binary-search-trees.html" class="internal"><span class="codenumber">8.11</span> <span class="title">Binary Search Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_search-tree-operations.html" class="internal"><span class="codenumber">8.12</span> <span class="title">Search Tree Operations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_search-tree-implementation.html" class="internal"><span class="codenumber">8.13</span> <span class="title">Search Tree Implementation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_search-tree-implementation.html#rq-search-tree-impl" class="internal"><span class="codenumber">8.13</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_search-tree-analysis.html" class="internal"><span class="codenumber">8.14</span> <span class="title">Search Tree Analysis</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_search-tree-analysis.html#rq-search-tree-analysis" class="internal"><span class="codenumber">8.14</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_balanced-binary-search-trees.html" class="internal"><span class="codenumber">8.15</span> <span class="title">Balanced Binary Search Trees</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_avl-tree-performance.html" class="internal"><span class="codenumber">8.16</span> <span class="title">AVL Tree Performance</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_avl-tree-implementation.html" class="internal"><span class="codenumber">8.17</span> <span class="title">AVL Tree Implementation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="trees_avl-tree-implementation.html#rqs-avl-tree-impl" class="internal"><span class="codenumber">8.17</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_summary-of-map-adt-implementations.html" class="internal"><span class="codenumber">8.18</span> <span class="title">Summary of Map ADT Implementations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_summary.html" class="internal"><span class="codenumber">8.19</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_discussion-questions.html" class="internal"><span class="codenumber">8.20</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_programming-exercises.html" class="internal"><span class="codenumber">8.21</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="trees_glossary.html" class="internal"><span class="codenumber">8.22</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="trees_glossary.html#trees_glossary-2" class="internal"><span class="codenumber">8.22</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="trees_trees_matching.html" class="internal"><span class="codenumber">8.23</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="cppds2-11.html" class="internal"><span class="codenumber">9</span> <span class="title">Graphs and Graph Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_objectives.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Objectives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_vocabulary-and-definitions.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Vocabulary and Definitions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_the-graph-abstract-data-type.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Graph Abstract Data Type</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_the-graph-abstract-data-type.html#rq-graph-adt" class="internal"><span class="codenumber">9.3</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_an-adjacency-matrix.html" class="internal"><span class="codenumber">9.4</span> <span class="title">An Adjacency Matrix</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_an-adjacency-list.html" class="internal"><span class="codenumber">9.5</span> <span class="title">An Adjacency List</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_implementation.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Implementation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_the-word-ladder-problem.html" class="internal"><span class="codenumber">9.7</span> <span class="title">The Word Ladder Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_building-the-word-ladder-graph.html" class="internal"><span class="codenumber">9.8</span> <span class="title">Building the Word Ladder Graph</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_implementing-breadth-first-search.html" class="internal"><span class="codenumber">9.9</span> <span class="title">Implementing Breadth First Search</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_breadth-first-search-analysis.html" class="internal"><span class="codenumber">9.10</span> <span class="title">Breadth First Search Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_the-knights-tour-problem.html" class="internal"><span class="codenumber">9.11</span> <span class="title">The Knight’s Tour Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_building-the-knights-tour-graph.html" class="internal"><span class="codenumber">9.12</span> <span class="title">Building the Knight’s Tour Graph</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_implementing-knights-tour.html" class="internal"><span class="codenumber">9.13</span> <span class="title">Implementing Knight’s Tour</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_implementing-knights-tour.html#rq-knights-tour-imp" class="internal"><span class="codenumber">9.13</span> <span class="title">Reading Questions</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_knights-tour-analysis.html" class="internal"><span class="codenumber">9.14</span> <span class="title">Knight’s Tour Analysis</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_knights-tour-analysis.html#rq-knights-tour-impl" class="internal"><span class="codenumber">9.14</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_general-depth-first-search.html" class="internal"><span class="codenumber">9.15</span> <span class="title">General Depth First Search</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_depth-first-search-analysis.html" class="internal"><span class="codenumber">9.16</span> <span class="title">Depth First Search Analysis</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_topological-sorting.html" class="internal"><span class="codenumber">9.17</span> <span class="title">Topological Sorting</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_strongly-connected-components.html" class="internal"><span class="codenumber">9.18</span> <span class="title">Strongly Connected Components</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_shortest-path-problems.html" class="internal"><span class="codenumber">9.19</span> <span class="title">Shortest Path Problems</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_dijkstras-algorithm.html" class="internal"><span class="codenumber">9.20</span> <span class="title">Dijkstra’s Algorithm</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_dijkstras-algorithm.html#rq-dijkstras-algo" class="internal"><span class="codenumber">9.20</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_analysis-of-dijkstras-algorithm.html" class="internal"><span class="codenumber">9.21</span> <span class="title">Analysis of Dijkstra’s Algorithm</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_prims-spanning-tree-algorithm.html" class="internal"><span class="codenumber">9.22</span> <span class="title">Prim’s Spanning Tree Algorithm</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="graphs_prims-spanning-tree-algorithm.html#rq-prims-span-tree-algo" class="internal"><span class="codenumber">9.22</span> <span class="title">Reading Question</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_summary.html" class="internal"><span class="codenumber">9.23</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_discussion-questions.html" class="internal"><span class="codenumber">9.24</span> <span class="title">Discussion Questions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_programming-exercises.html" class="internal"><span class="codenumber">9.25</span> <span class="title">Programming Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="graphs_glossary.html" class="internal"><span class="codenumber">9.26</span> <span class="title">Glossary</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="graphs_glossary.html#graphs_glossary-2" class="internal"><span class="codenumber">9.26</span> <span class="title">Glossary</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphs_graphs_matching.html" class="internal"><span class="codenumber">9.27</span> <span class="title">Matching</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="cppds2-12.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-index"><div class="toc-title-box"><a href="cppds2-12-1.html" class="internal"><span class="title">Index</span></a></div></li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:pf="https://prefigure.org" class="section" id="introduction_collections"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.10</span><span class="space"> </span><span class="title">Collections</span>
+</h2>
+<section class="introduction" id="introduction_collections-2"><div class="para" id="introduction_collections-2-1">In addition to the numeric, Boolean, and character types, C++ also offers built-in collection types. A <dfn class="terminology">collection</dfn> data type is a grouping of some number of other data items (possibly only zero or one) that have some shared significance or need to be operated upon together.</div>
+<div class="para" id="introduction_collections-2-2">Arrays, vectors, strings, sets, and hash tables are among these useful C++ collection types.</div></section><section class="subsection" id="introduction_arrays"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.1</span><span class="space"> </span><span class="title">Arrays</span>
+</h3>
+<div class="para" id="introduction_arrays-2">
+<dfn class="terminology">What is an Array?</dfn> An array is a data structure consisting of an ordered collection of data elements, of identical type in which each element can be identified by an array index. More technically, an array data structure is an ordered arrangement of values located at equally spaced addresses in contiguous computer memory.</div>
+<div class="para" id="introduction_arrays-3">NOTE: A C++ <dfn class="terminology">array</dfn> is always stored in contiguous memory. C++ arrays can be allocated in two different ways:</div>
+<blockquote class="blockquote" id="introduction_arrays-4"><div class="para logical" id="introduction_arrays-4-1"><ol class="decimal" id="introduction_arrays-4-1-1">
+<li id="introduction_arrays-4-1-1-1"><div class="para" id="introduction_arrays-4-1-1-1-1">
+<em class="emphasis">statically allocated</em> in which the array size is fixed at compile-time and cannot change</div></li>
+<li id="introduction_arrays-4-1-1-2"><div class="para" id="introduction_arrays-4-1-1-2-1">
+<em class="emphasis">dynamically allocated</em> in which pointers are used in the allocation process so the size can change at run-time</div></li>
+</ol></div></blockquote>
+<div class="para" id="introduction_arrays-5">In modern C++, the statically allocated array is typically used in situations when speed is essential or where hardware constraints exist, and a data structure called a vector is typically used when more flexibility is required.</div>
+<div class="para" id="introduction_arrays-6">Because C++ stores variables directly, each element of a C++ array must be of identical data type. The indices for arrays start counting with 0.</div>
+<div class="para" id="introduction_arrays-7">The use of arrays permits us to utilize an ordered set of memory locations that we can then manipulate as a single entity, and that at the same time gives us direct access to each individual component.</div>
+<div class="para" id="introduction_arrays-8"><dfn class="terminology">Why use an Array?</dfn></div>
+<div class="para" id="introduction_arrays-9">C++ is a language often used for real-time or low-level processing where speed is essential and/or there is only a fixed amount of space available.</div>
+<div class="para" id="introduction_arrays-10">The fact that array elements are stored in memory in contiguous memory locations making look-up via index very, very fast. In computing, a <dfn class="terminology">word</dfn> is the unit of data used by a particular processor design, such as 32 or 64 bits. For example, an array of 100 integer variables, with indices 0 through 99, might be stored as 100 words at memory addresses 20000, 20004, 20008, … 20396. The element with index i would be located at the address 20000 + 4 <span class="times-sign">×</span> i.</div>
+<div class="para" id="introduction_arrays-11">Statically allocated C++ arrays must be declared with both a type and a size at compile-time.</div>
+<pre class="code-block tex2jax_ignore">double darray[4];
+int iarray[10];
+char arr2[3000];
+</pre>
+<div class="para" id="introduction_arrays-13">It is also possible to initialize statically allocated arrays at compile time, in which case the number of items determines the array’s size.</div>
+<pre class="code-block tex2jax_ignore">int arr[] = {1, 2, 3, 4};  // This is size 4.
+char arr2[] = {'a', 'b', 'c'}; // This is size 3.
+string arr3[] = {"this", "is", "an", "array"}; // This is size 4.
+</pre>
+<div class="para" id="introduction_arrays-15">Note that an array with a single element is not the same type as the <dfn class="terminology">atomic</dfn> type, so the following are not the same.</div>
+<pre class="code-block tex2jax_ignore">double darray[] = {1.2};  // must use index to access value
+double ddouble = 1.2;     // can't use index to access value
+</pre>
+<div class="para" id="introduction_arrays-17"><dfn class="terminology">Be Cautious with Arrays</dfn></div>
+<div class="para" id="introduction_arrays-18">The speed and low-level control that arrays offer us as programmers is powerful… and dangerous. C++ is designed for speed, and using a C++ array will help you better understand the trade-offs inherent in this.</div>
+<div class="para" id="introduction_arrays-19">Here are examples of iteration.</div>
+<article class="exploration project-like" id="expl-listarray"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Iteration Examples.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-listarray">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="listarray_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">//showcases an iteration through an array in C++
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int myarray[] = {2,4,6,8};
+    for (int i=0; i&lt;4; i++){
+        cout &lt;&lt; myarray[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="listarray_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">#showcases an iteration through an array in Python
+def main():
+    mylist = [2, 4, 6, 8]
+    for i in range(4):
+        print(mylist[i])
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="introduction_arrays-21">C++ is designed for speed. C++ will not only let you iterate beyond either end of an array, but it will let you change the values beyond either end of the array with sometimes catastrophic results.</div>
+<div class="para" id="introduction_arrays-22">The phrase, “be careful what you wish for” is a great one to remember when programming in C++. Because C++ will generally try to do everything you ask for.</div>
+<article class="exploration project-like" id="expl-array_error"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.2</span><span class="period">.</span><span class="space"> </span><span class="title">Accessing Elements Outside the Array.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-array_error">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="array_error_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implemenetation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">//outputs the result of trying to access a value outside of an array
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int myarray[] = {2,4,6,8};
+    for (int i=0; i&lt;=8; i++){
+        cout &lt;&lt; myarray[i] &lt;&lt; endl;
+        cout &lt;&lt; "id: " &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="array_error_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-array_error_py"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-array_error_py_editor" data-question_label="" data-codelens="true">#outputs the result of trying to access a value outside of an array
+def main():
+    mylist = [2,4,6,8]
+    print(mylist)
+    for i in range(5):
+        print(mylist[i])
+        print("id: "+str(id(mylist[i])))
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="introduction_arrays-24">The speed of C++ comes at the cost of minimal to no error checking. Sometimes this can have perplexing results such as in the next example.</div>
+<div class="para" id="introduction_arrays-25">You should use an array when you have a need for speed or you need to work with hardware constraints. Otherwise, you may want to consider using another collection data type, the <em class="emphasis">vector</em>.</div>
+<article class="exploration project-like" id="expl-arrayoflow"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.3</span><span class="period">.</span><span class="space"> </span><span class="title">Array Overflow.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-arrayoflow">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="array_werror_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">/*shows how C++ allows you to easily overwrite values in memory even when
+you don't mean to. */
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int myarray[] = {2, 4};
+    int otherdata[]={777, 777};
+    for (int i=0; i&lt;4; i++){
+        myarray[i]=0;
+        cout &lt;&lt;"myarray[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt; myarray[i] &lt;&lt; endl;
+        cout &lt;&lt; "add:" &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
+    }
+
+    for (int i=0; i&lt;2; i++){
+        cout &lt;&lt; "otherdata[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt; otherdata[i] &lt;&lt; endl;
+        cout &lt;&lt; "add:" &lt;&lt; &amp;otherdata[i] &lt;&lt; endl;
+    }
+
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="array_werror_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">"""shows how C++ allows you to easily
+overwrite values in memory even when
+you dont mean to."""
+def main():
+    mylist = [2, 4]
+    otherdata = [777, 777]
+    for i in range(4):
+        print(mylist[i])
+        print("id: "+str(id(mylist[i])))
+
+    for j in range(2):
+          print(otherdata[i])
+          print("id: "+str(id(otherdata[i])))
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article></section><section class="subsection" id="introduction_vectors"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.2</span><span class="space"> </span><span class="title">Vectors</span>
+</h3>
+<div class="para" id="introduction_vectors-2">
+<dfn class="terminology">Vectors</dfn> use a dynamically allocated array to store their elements, so they can change size, and they have other friendly features as well. Because they use a dynamically allocated array, they use contiguous storage locations which means that their elements can be accessed and traversed, and they can also be accessed randomly using indexes. However, vectors are dynamically sized, so their size can change automatically. A new element can be inserted into or deleted from any part of a vector, and automatic reallocation for other existing items in the vector will be applied. Vectors are homogeneous, so every element in the vector must be of the same type.</div>
+<div class="para" id="introduction_vectors-3">Vectors are a class that is available through a library called the Standard Template Library (STL), and one uses a <code class="code-inline tex2jax_ignore">&lt; &gt;</code> notation to indicate the data type of the elements. In order to use vectors, One needs to include the vector library.</div>
+<pre class="code-block tex2jax_ignore">#include &lt;vector&gt;
+</pre>
+<figure class="table table-like" id="introduction_id4"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.1<span class="period">.</span></span><span class="space"> </span>Common C++ Vector Operators</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Vector Operation</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Explanation</dfn></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">[ ]</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvector[i]</code></td>
+<td class="l m b0 r0 l0 t0 lines">access value of element at index i</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">=</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvector[i]=value</code></td>
+<td class="l m b0 r0 l0 t0 lines">assign value to element at index i</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">push_back</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.push_back(item)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Appends item to the far end of the vector</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">pop_back</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.pop_back()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Deletes last item (from  far end) of the vector</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">insert</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.insert(i, item)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Inserts an item at index i</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">erase</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.erase(i)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Erases an element from index i</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">size</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.size()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns the actual size used by elements</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">capacity</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.capacity()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns the size of allocated storage capacity</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">reserve</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.reserve(amount)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Request a change in capacity to amount</td>
+</tr>
+</table></div></figure><div class="para" id="introduction_vectors-6">A very common programming task is to grow a vector using the <code class="code-inline tex2jax_ignore">push_back()</code> method to append to the vector as we see in the next example. Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth. Thus the vector typically has an actual <em class="emphasis">capacity</em> greater than the storage <em class="emphasis">size</em> strictly needed to contain its elements.</div>
+<article class="exploration project-like" id="expl-introvector"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.4</span><span class="period">.</span><span class="space"> </span><span class="title">Using <code class="code-inline tex2jax_ignore">reserve</code>.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-introvector">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introvector_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">/*shows the use of the reserve member, and how it
+can be effective in saving time with a growing vector.*/
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+
+    vector&lt;int&gt; intvector;
+    intvector.reserve(50);
+
+    for (int i=0; i&lt;50; i++){
+        intvector.push_back(i*i);
+        cout &lt;&lt; intvector[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introvector_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">#Python doesn't have vectors, simply stating the limit is enough
+def main():
+    intlist=[]
+    for i in range(50):
+        intlist.append(i*i)
+        print(intlist[i])
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="introduction_vectors-8">In the above example, the use of <code class="code-inline tex2jax_ignore">reserve</code> was optional. However, it is a good idea to use it before growing a vector in this way because it will save time. Because vectors are stored in underlying arrays which require contiguous memory, every time the vector’s size gets too large for the capacity, the entire vector must be moved to a larger location in memory, and all that copying takes time. In a typical implementation, the capacity is doubled each time. as in <a href="introduction_collections.html#vector_no_reserve_cpp" class="xref" data-knowl="./knowl/xref/vector_no_reserve_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.10.2">Listing 1.10.2</a>.</div>
+<figure class="listing figure-like" id="vector_no_reserve_cpp"><pre class="program"><code class="language-cpp">//code from above but without the reserve
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+
+    vector&lt;int&gt; intvector;
+    // without intvector.reserve(50);
+
+    for (int i=0; i&lt;50; i++){
+        intvector.push_back(i*i);
+        cout &lt;&lt; intvector[i] &lt;&lt; endl;
+        cout &lt;&lt; "capacity: " &lt;&lt; intvector.capacity() &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.10.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">reserve</code> is optional</figcaption></figure><div class="para" id="introduction_vectors-10">Remembering that C++ is designed for speed, not protection, we will likely not be surprised by the following:</div>
+<article class="exploration project-like" id="vector_errors"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.5</span><span class="period">.</span><span class="space"> </span><span class="title">Vector Error.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-vector_errors">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="vector_errors_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">//shows errors when a vector goes out of bounds
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+
+    vector&lt;int&gt; intvector;
+    intvector.reserve(10);
+
+    for (int i=0; i&lt;10; i++){
+        intvector.push_back(i);
+    }
+
+    for (int i=0; i&lt;=10; i++){
+        cout &lt;&lt; "intvector[" &lt;&lt; i &lt;&lt; "]="&lt;&lt;intvector[i] &lt;&lt; endl;
+    }
+
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="vector_errors_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">#shows errors when a vector goes out of bounds
+def main():
+    intlist=[]
+    for i in range(10):
+        intlist.append(i)
+
+    for i in range(11):
+        print("intlist[" + str(i) + "]=" + str(intlist[i]))
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article></section><section class="subsection" id="introduction_strings"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.3</span><span class="space"> </span><span class="title">Strings</span>
+</h3>
+<div class="para" id="introduction_strings-2">
+<dfn class="terminology">Strings</dfn> are sequential collections of zero or more characters such as letters, numbers and other symbols. There are actually two types of strings in C++ . The <em class="emphasis">C++ string</em> or just <em class="emphasis">string</em> from the <code class="code-inline tex2jax_ignore">&lt;string&gt;</code> library is the more modern type. The old style <em class="emphasis">C-string</em> which is essentially an array of <code class="code-inline tex2jax_ignore">char</code> type. The char type itself is actually distinct from both types of strings.</div>
+<pre class="code-block tex2jax_ignore">char cppchar = 'a';   // char values use single quotes
+string cppstring = "Hello World!";  // C++ strings use double quotes
+char cstring[] = {"Hello World!"};    // C-string or char array uses double quotes
+</pre>
+<div class="para" id="introduction_strings-4">In older versions of C++, you must use a <code class="code-inline tex2jax_ignore">char</code> array to work with filenames. In modern C++ (from C++11 onward), however, you can use a C++ string for everything. Since C++ strings are so much nicer, I would not recommend using C-strings unless you have a reason.</div>
+<div class="para" id="introduction_strings-5">Because strings are sequences, all of the typical sequence operations work as you would expect. In addition, the string library offers a huge number of methods, some of the most useful of which are shown in <a href="introduction_collections.html#introduction_tab-stringmethods" class="xref" data-knowl="./knowl/xref/introduction_tab-stringmethods.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.3: String Methods Provided in C++">Table 1.10.3</a>.</div>
+<figure class="table table-like" id="introduction_tab-stringmethods"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.3<span class="period">.</span></span><span class="space"> </span>String Methods Provided in C++</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Method Name</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Explanation</dfn></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">[ ]</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring[i]</code></td>
+<td class="l m b0 r0 l0 t0 lines">access value of character at index i</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">=</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring[i]=value</code></td>
+<td class="l m b0 r0 l0 t0 lines">change value of character at index i</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">+</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">string1 + astring2</code></td>
+<td class="l m b0 r0 l0 t0 lines">concatenate strings</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">append</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring.append(string)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Append to string the end of the string</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">push_back</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring.push_back(char)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Appends a character to the end of the string</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">pop_back</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring.pop_back()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Deletes the last character from the end of the string</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">insert</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring.insert(i, string)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Inserts a string at a specific index</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">erase</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring.erase(i, j)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Erases an element from one index to another</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">find</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring.find(item)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns the index of the first occurrence of item</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">size</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">astring.size()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns the size of the string</td>
+</tr>
+</table></div></figure><article class="exploration project-like" id="introstring"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.6</span><span class="period">.</span><span class="space"> </span><span class="title"><code class="code-inline tex2jax_ignore">string</code> introduction.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-introstring">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introstring_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">//shows basic string usage in C++
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main(){
+
+    string mystring1 = "Hello";
+    string mystring2 = "World!";
+    string mystring3;
+
+    mystring3 = mystring1 + " " + mystring2;
+    cout &lt;&lt; mystring3 &lt;&lt; endl;
+
+    cout &lt;&lt; mystring2 &lt;&lt; " begins at ";
+    cout &lt;&lt; mystring3.find(mystring2) &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introstring_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">#shows basic string usage in Python
+def main():
+    mystring1 = "Hello"
+    mystring2 = "World!"
+
+    mystring3 = mystring1 + " " + mystring2
+    print(mystring3)
+
+    print(mystring2, end=" ")
+    print("begins at", end=" ")
+    print(str(mystring3.find(mystring2)))
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="introduction_strings-8">Check your understanding by completing the following question.</div></section><section class="subsection" id="introduction_hash-tables"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.4</span><span class="space"> </span><span class="title">Hash Tables</span>
+</h3>
+<div class="para" id="introduction_hash-tables-2">A <dfn class="terminology">hash table</dfn> is a collection of associated pairs of items where each pair consists of a <em class="emphasis">key</em> and a <em class="emphasis">value</em>. Hash tables are often called the more general term <em class="emphasis">map</em> because the associated hash function “maps” the key to the value. Nevertheless, it is better to use the more precise term, <em class="emphasis">hash table</em> because other kinds of maps are sometimes implemented with a different underlying data structure.</div>
+<div class="para" id="introduction_hash-tables-3">Each hash table has a <em class="emphasis">hash function</em> which given the key as input to the hash function returns the location of the associated value as the output. This makes look up fast.</div>
+<div class="para" id="introduction_hash-tables-4">In C++, the <em class="emphasis">unordered_map</em> implements the hash table, and the <code class="code-inline tex2jax_ignore">&lt;unordered_map&gt;</code> library must be included as follows:</div>
+<pre class="code-block tex2jax_ignore">#include &lt;unordered_map&gt;
+</pre>
+<div class="para" id="introduction_hash-tables-6">The syntax for hash table access is much like we might expect except that instead of using the index of the item for look-up, we use the key. Hash tables can be initialized with key-value pairs and key-value pairs can also be added later as we see in the following example. In C++, the keyword <code class="code-inline tex2jax_ignore">first</code> is used for the key, and <code class="code-inline tex2jax_ignore">second</code> is used for the associated value.</div>
+<article class="exploration project-like" id="hashtable1"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.7</span><span class="period">.</span><span class="space"> </span><span class="title">Hash Table Introduction.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-hashtable1">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="hashtable1_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">//shows how hash tables can be used in C++
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    unordered_map&lt;string, string&gt; spnumbers;
+
+    spnumbers = { {"one", "uno"}, {"two", "dos"} };
+
+    spnumbers["three"] = "tres";
+    spnumbers["four"] = "cuatro";
+
+    cout &lt;&lt; "one is ";
+    cout &lt;&lt; spnumbers["one"] &lt;&lt; endl;
+
+    cout &lt;&lt; spnumbers.size() &lt;&lt; endl;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="hashtable1_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">#shows how hash tables can be used in python
+def main():
+    spnumbers = {"one":"uno","two":"dos"}
+
+    spnumbers["four"]="cuatro"
+    spnumbers["three"]="tres"
+
+    print("one is", end=" ")
+    print(spnumbers["one"])
+
+    print(len(spnumbers))
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="introduction_hash-tables-8">It is important to note that hash tables are organized by the location given by the hash function rather than being in any particular order with respect to the keys. This makes look-up extremely fast. Hence, although it is possible to iterate through a hash table, it is an odd thing to do because the data is not typically stored sequentially. Iterators of an <code class="code-inline tex2jax_ignore">unordered_map</code> are implemented using pointers to point to elements of the value type as we see in the following example.</div>
+<article class="exploration project-like" id="hashtable2"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.8</span><span class="period">.</span><span class="space"> </span><span class="title">Iterating Over a Hash Table.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-hashtable2">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="hashtable2_cpp"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">//shows how to iterate through a hash table in C++
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    unordered_map&lt;string, string&gt; spnumbers;
+
+    spnumbers = { {"one","uno"},{"two","dos"},{"three","tres"},{"four","cuatro"},{"five","cinco"} };
+
+    for (auto i=spnumbers.begin(); i!=spnumbers.end(); i++ ){
+        cout &lt;&lt; i-&gt;first &lt;&lt; ":";
+        cout &lt;&lt; i-&gt;second &lt;&lt; endl;
+    }
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="hashtable2_py"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">#shows how to iterate through a hash table in python
+def main():
+    spnumbers = {"one":"uno","two":"dos","three":"tres","four":"cuatro","five":"cinco" }
+
+    for key in spnumbers:
+        print(key, end=":")
+        print(spnumbers[key])
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article><div class="para" id="introduction_hash-tables-10">Hash Tables have both methods and operators. <a href="introduction_collections.html#introduction_tab-hashopers" class="xref" data-knowl="./knowl/xref/introduction_tab-hashopers.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.4: Important Hash Table Operators Provided in C++">Table 1.10.4</a> describes them, and the session shows them in action.</div>
+<figure class="table table-like" id="introduction_tab-hashopers"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.4<span class="period">.</span></span><span class="space"> </span>Important Hash Table Operators Provided in C++</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Operator</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Explanation</dfn></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">[ ]</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">mymap[k]</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns the value associated with <code class="code-inline tex2jax_ignore">k</code>, otherwise throws error</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">count</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">mymap.count(key)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns <code class="code-inline tex2jax_ignore">true</code> if key is in <code class="code-inline tex2jax_ignore">mymap</code>, <code class="code-inline tex2jax_ignore">false</code> otherwise</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">erase</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">mymap.erase(key)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Removes the entry from <code class="code-inline tex2jax_ignore">mymap</code>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">begin</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">mymap.begin()</code></td>
+<td class="l m b0 r0 l0 t0 lines">An iterator to the first element in <code class="code-inline tex2jax_ignore">mymap</code>
+</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">end</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">mymap.end(key)</code></td>
+<td class="l m b0 r0 l0 t0 lines">An iterator pointing to past-the-end element of <code class="code-inline tex2jax_ignore">mymap</code>
+</td>
+</tr>
+</table></div></figure></section><section class="subsection" id="introduction_unordered-sets"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.5</span><span class="space"> </span><span class="title">Unordered Sets</span>
+</h3>
+<div class="para" id="introduction_unordered-sets-2">An <dfn class="terminology">unordered_set</dfn> is an unordered collection of zero or more unique C++ data values of a particular type. To use unordered_sets, you import <code class="code-inline tex2jax_ignore">unordered_set</code> from the Standard template library with <code class="code-inline tex2jax_ignore">#include &lt;unorderd_set&gt;</code>.</div>
+<div class="para" id="introduction_unordered-sets-3">Unordered_sets allow for fast retrieval of individual elements based on their value. In an unordered_set, the value of an element is at the same time its key, that identifies it uniquely. <code class="code-inline tex2jax_ignore">Keys</code> are <dfn class="terminology">immutable</dfn>, therefore, the elements in an <code class="code-inline tex2jax_ignore">unordered_set</code> cannot be modified once in the container - However, they can be inserted and removed.</div>
+<div class="para" id="introduction_unordered-sets-4">Unordered sets do not allow duplicates and are initialized using comma-delimited values enclosed in curly braces. The collection can be assigned to a variable as shown below.</div>
+<pre class="code-block tex2jax_ignore">set&lt;int&gt; mySet = {3, 6, 4, 78, 10}
+</pre>
+<div class="para" id="introduction_unordered-sets-6">Unordered sets support a number of methods that should be familiar to those who have worked with sets in a mathematics setting. <a href="introduction_collections.html#introduction_tab-setmethods" class="xref" data-knowl="./knowl/xref/introduction_tab-setmethods.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.5: Methods Provided by Sets in C++">Table 1.10.5</a> provides a summary. Examples of their use follow.</div>
+<figure class="table table-like" id="introduction_tab-setmethods"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.5<span class="period">.</span></span><span class="space"> </span>Methods Provided by Sets in C++</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Method Name</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
+<th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Explanation</dfn></th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">union</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">set_union()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns a new set with all elements from both sets</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">intersection</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">set_intersection()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns a new set with only those elements common to both sets</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">difference</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">set_difference()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Returns a new set with all items from first set not in second</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">add</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">aset.insert(item)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Adds item to the set</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">remove</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">aset.erase(item)</code></td>
+<td class="l m b0 r0 l0 t0 lines">Removes item from the set</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">clear</code></td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">aset.clear()</code></td>
+<td class="l m b0 r0 l0 t0 lines">Removes all elements from the set</td>
+</tr>
+</table></div></figure><div class="para" id="introduction_unordered-sets-8">The code below is an example of a program that can detect if a specific char is in an unordered set.</div>
+<pre class="program"><code class="language-cpp">//code detects if a specific char is in an unordered set.
+#include &lt;iostream&gt;
+#include &lt;unordered_set&gt;
+using namespace std;
+
+void checker(unordered_set&lt;char&gt; set, char letter){
+    if(set.find(letter) == set.end()){
+        cout &lt;&lt; "letter " &lt;&lt; letter &lt;&lt; " is not in the set." &lt;&lt; endl;
+    }
+    else{
+        cout &lt;&lt; "letter " &lt;&lt; letter &lt;&lt; " is in the set." &lt;&lt; endl;
+    }
+}
+
+int main(){
+    unordered_set&lt;char&gt; charSet = {'d', 'c', 'b', 'a'};
+
+    char letter = 'e';
+    checker(charSet, letter);
+    charSet.insert('e');
+    checker(charSet, letter);
+    return 0;
+}
+</code></pre>
+<div class="para" id="introduction_unordered-sets-10">the <code class="code-inline tex2jax_ignore">find</code> method used for a conditional in <code class="code-inline tex2jax_ignore">Checker</code> compares each item in the set with the given parameter until there is a match. the <code class="code-inline tex2jax_ignore">set.find(letter) == set.end()</code> section means that if <code class="code-inline tex2jax_ignore">find</code> cannot find the letter before reaching the end of the set, then <code class="code-inline tex2jax_ignore">letter</code> is not contained in the set.</div>
+<section class="reading-questions" id="rq-collection-data"><h4 class="heading hide-type">
+<span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
+</h4>
+<article class="exercise exercise-like" id="matching_ht"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_ht">
+<span data-subcomponent="question"><div class="para" id="matching_ht-1-1">Match the Hash Table operations with their corresponding explination.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_ht-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_ht_drag1">begin</li>
+<li data-subcomponent="dropzone" for="rs-matching_ht_drag1">An iterator to the first element in the hash table.</li>
+<li data-subcomponent="draggable" id="rs-matching_ht_drag2">[ ]</li>
+<li data-subcomponent="dropzone" for="rs-matching_ht_drag2">Returns the value associated with the key, creating a default entry if necessary.</li>
+<li data-subcomponent="draggable" id="rs-matching_ht_drag3">erase</li>
+<li data-subcomponent="dropzone" for="rs-matching_ht_drag3">Deletes the entry from the hash table.</li>
+<li data-subcomponent="draggable" id="rs-matching_ht_drag4">at</li>
+<li data-subcomponent="dropzone" for="rs-matching_ht_drag4">Returns the value associated with the key, otherwise throws error.</li>
+<li data-subcomponent="draggable" id="rs-matching_ht_drag5">end</li>
+<li data-subcomponent="dropzone" for="rs-matching_ht_drag5">An iterator pointing to past-the-end element of the hash table.</li>
+<li data-subcomponent="draggable" id="rs-matching_ht_drag6">count</li>
+<li data-subcomponent="dropzone" for="rs-matching_ht_drag6">Returns true if key is in the hash table, and false otherwise.</li>
+</ul></div></div></article><article class="exercise exercise-like" id="matching_us"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_us">
+<span data-subcomponent="question"><div class="para" id="matching_us-1-1">Match the Unordered Sets operations with their corresponding explanation.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_us-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_us_drag1">union</li>
+<li data-subcomponent="dropzone" for="rs-matching_us_drag1">Returns a new set with all elements from both sets.</li>
+<li data-subcomponent="draggable" id="rs-matching_us_drag2">intersection</li>
+<li data-subcomponent="dropzone" for="rs-matching_us_drag2">Returns a new set with only those elements common to both sets.</li>
+<li data-subcomponent="draggable" id="rs-matching_us_drag3">difference</li>
+<li data-subcomponent="dropzone" for="rs-matching_us_drag3">Returns a new set with all items from first set not in second.</li>
+<li data-subcomponent="draggable" id="rs-matching_us_drag4">add</li>
+<li data-subcomponent="dropzone" for="rs-matching_us_drag4">Adds item to the set.</li>
+<li data-subcomponent="draggable" id="rs-matching_us_drag5">remove</li>
+<li data-subcomponent="dropzone" for="rs-matching_us_drag5">erases item from the set.</li>
+<li data-subcomponent="draggable" id="rs-matching_us_drag6">clear</li>
+<li data-subcomponent="dropzone" for="rs-matching_us_drag6">Removes all elements from the set.</li>
+</ul></div></div></article><article class="exercise exercise-like" id="mc_fixed"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_fixed" data-multipleanswers="false">
+<div class="para" id="mc_fixed-1-1">Which C++ structure is the best choice for a group of ordered data of a fixed length?</div>
+<li data-component="answer" id="rs-mc_fixed_opt_a" data-correct=""><div class="para" id="mc_fixed-2-1-1-1">An array</div></li>
+<li data-component="feedback" id="rs-mc_fixed_opt_a"><div class="para" id="mc_fixed-2-1-2-1">Correct!</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_b"><div class="para" id="mc_fixed-2-2-1-1">A hash table</div></li>
+<li data-component="feedback" id="rs-mc_fixed_opt_b"><div class="para" id="mc_fixed-2-2-2-1">No. hash tables are not ordered.</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_c"><div class="para" id="mc_fixed-2-3-1-1">A string</div></li>
+<li data-component="feedback" id="rs-mc_fixed_opt_c"><div class="para" id="mc_fixed-2-3-2-1">A string would only work for character data. Try again.</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_d"><div class="para" id="mc_fixed-2-4-1-1">A vector</div></li>
+<li data-component="feedback" id="rs-mc_fixed_opt_d"><div class="para" id="mc_fixed-2-4-2-1">There is a better choice given that the group is fixed length</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_e"><div class="para" id="mc_fixed-2-5-1-1">More than one of the above</div></li>
+<li data-component="feedback" id="rs-mc_fixed_opt_e"><div class="para" id="mc_fixed-2-5-2-1">Only of the above is best.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="collect_data_types"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-collect_data_types">
+<span data-subcomponent="question"><div class="para" id="collect_data_types-1-1">Drag each data type to its’ corresponding C++ initialization syntax.</div></span><span data-subcomponent="feedback"><div class="para" id="collect_data_types-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-collect_data_types_drag1">Array</li>
+<li data-subcomponent="dropzone" for="rs-collect_data_types_drag1">{“What”, “am”, “I”, "am"}</li>
+<li data-subcomponent="draggable" id="rs-collect_data_types_drag2">Set</li>
+<li data-subcomponent="dropzone" for="rs-collect_data_types_drag2">{“What”, “am”, “I”}</li>
+<li data-subcomponent="draggable" id="rs-collect_data_types_drag3">String</li>
+<li data-subcomponent="dropzone" for="rs-collect_data_types_drag3">“What am I”</li>
+<li data-subcomponent="draggable" id="rs-collect_data_types_drag4">Hash Table</li>
+<li data-subcomponent="dropzone" for="rs-collect_data_types_drag4">{ {“What”, “am I”} }</li>
+</ul></div></div></article><article class="exercise exercise-like" id="mc_werror"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_werror" data-multipleanswers="false">
+<div class="para" id="mc_werror-1-1">In the above example, what happened to otherdata[ ] in C++?</div>
+<li data-component="answer" id="rs-mc_werror_opt_a"><div class="para" id="mc_werror-2-1-1-1">Nothing. Everything is fine.</div></li>
+<li data-component="feedback" id="rs-mc_werror_opt_a"><div class="para" id="mc_werror-2-1-2-1">Actually, there is a problem. Look carefully.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_b"><div class="para" id="mc_werror-2-2-1-1">All data was automatically reinitialized.</div></li>
+<li data-component="feedback" id="rs-mc_werror_opt_b"><div class="para" id="mc_werror-2-2-2-1">No. C++ just does what you tell it to do.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_c"><div class="para" id="mc_werror-2-3-1-1">I have no idea. Please give me a hint.</div></li>
+<li data-component="feedback" id="rs-mc_werror_opt_c"><div class="para" id="mc_werror-2-3-2-1">Try again. One of these is indeed correct. Look at the memory addresses.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_d" data-correct=""><div class="para" id="mc_werror-2-4-1-1">The first loop went out of bounds and wrote over the values in otherdata.</div></li>
+<li data-component="feedback" id="rs-mc_werror_opt_d"><div class="para" id="mc_werror-2-4-2-1">Right!</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_e"><div class="para" id="mc_werror-2-5-1-1">None of the above.</div></li>
+<li data-component="feedback" id="rs-mc_werror_opt_e"><div class="para" id="mc_werror-2-5-2-1">One of the above is indeed correct.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="mc_array"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_array" data-multipleanswers="false">
+<div class="para" id="mc_array-1-1">What is the correct way to declare an array in C++?</div>
+<li data-component="answer" id="rs-mc_array_opt_a"><div class="para" id="mc_array-2-1-1-1">int myarray(5);</div></li>
+<li data-component="feedback" id="rs-mc_array_opt_a"><div class="para" id="mc_array-2-1-2-1">Check the characters at the end of the array! Right now that is a function!</div></li>
+<li data-component="answer" id="rs-mc_array_opt_b"><div class="para" id="mc_array-2-2-1-1">myarray[5];</div></li>
+<li data-component="feedback" id="rs-mc_array_opt_b"><div class="para" id="mc_array-2-2-2-1">You are forgetting something important!</div></li>
+<li data-component="answer" id="rs-mc_array_opt_c" data-correct=""><div class="para" id="mc_array-2-3-1-1">int myarray[5];</div></li>
+<li data-component="feedback" id="rs-mc_array_opt_c"><div class="para" id="mc_array-2-3-2-1">Good work!</div></li>
+<li data-component="answer" id="rs-mc_array_opt_d"><div class="para" id="mc_array-2-4-1-1">None of the above.</div></li>
+<li data-component="feedback" id="rs-mc_array_opt_d"><div class="para" id="mc_array-2-4-2-1">Check the characters at the end of the array!</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="matching_vectors"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_vectors">
+<span data-subcomponent="question"><div class="para" id="matching_vectors-1-1">Match the Vector operations with their corresponding explination.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_vectors-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_vectors_drag1">[ ]</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors_drag1">Accesses value of an element.</li>
+<li data-subcomponent="draggable" id="rs-matching_vectors_drag2">=</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors_drag2">Assigns value to an element.</li>
+<li data-subcomponent="draggable" id="rs-matching_vectors_drag3">push_back</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors_drag3">Appends item to the end of the vector.</li>
+<li data-subcomponent="draggable" id="rs-matching_vectors_drag4">pop_back</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors_drag4">Deletes last item of the vector.</li>
+</ul></div></div></article><article class="exercise exercise-like" id="matching_vectors2"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_vectors2">
+<span data-subcomponent="question"><div class="para" id="matching_vectors2-1-1">Match the Vector operations with their corresponding explination.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_vectors2-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_vectors2_drag1">insert</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors2_drag1">Injects an item into the vector.</li>
+<li data-subcomponent="draggable" id="rs-matching_vectors2_drag2">erase</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors2_drag2">Deletes an element from the choosen index.</li>
+<li data-subcomponent="draggable" id="rs-matching_vectors2_drag3">size</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors2_drag3">Returns the actual capacity used by elements.</li>
+<li data-subcomponent="draggable" id="rs-matching_vectors2_drag4">capacity</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors2_drag4">Returns the ammount of allocated storage space.</li>
+<li data-subcomponent="draggable" id="rs-matching_vectors2_drag5">reserve</li>
+<li data-subcomponent="dropzone" for="rs-matching_vectors2_drag5">Request a change in space to amount.</li>
+</ul></div></div></article><article class="exercise exercise-like" id="mc_array_vector"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_array_vector" data-multipleanswers="false">
+<div class="para" id="mc_array_vector-1-1">Which of the following is the biggest difference between a C++ array and a C++ vector?</div>
+<li data-component="answer" id="rs-mc_array_vector_opt_a"><div class="para" id="mc_array_vector-2-1-1-1">Vectors can change size.</div></li>
+<li data-component="feedback" id="rs-mc_array_vector_opt_a"><div class="para" id="mc_array_vector-2-1-2-1">Yes, however, there are more benefits to using vectors.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_b"><div class="para" id="mc_array_vector-2-2-1-1">Vectors offer many more features and protections than arrays.</div></li>
+<li data-component="feedback" id="rs-mc_array_vector_opt_b"><div class="para" id="mc_array_vector-2-2-2-1">Not all of the protections of arrays are offered by vectors; one can still iterate off of either end.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_c"><div class="para" id="mc_array_vector-2-3-1-1">Vectors don’t use contiguous memory, so elements can be inserted.</div></li>
+<li data-component="feedback" id="rs-mc_array_vector_opt_c"><div class="para" id="mc_array_vector-2-3-2-1">No. Although elements can be inserted in vectors, they do require contiguous memory.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_d" data-correct=""><div class="para" id="mc_array_vector-2-4-1-1">More than one of the above.</div></li>
+<li data-component="feedback" id="rs-mc_array_vector_opt_d"><div class="para" id="mc_array_vector-2-4-2-1">Right! Good job!</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_e"><div class="para" id="mc_array_vector-2-5-1-1">None of the above.</div></li>
+<li data-component="feedback" id="rs-mc_array_vector_opt_e"><div class="para" id="mc_array_vector-2-5-2-1">One of the above is indeed correct.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="mc_vector1"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_vector1" data-multipleanswers="false">
+<div class="para" id="mc_vector1-1-1">What good is the <code class="code-inline tex2jax_ignore">reserve</code> method in a vector?</div>
+<li data-component="answer" id="rs-mc_vector1_opt_a"><div class="para" id="mc_vector1-2-1-1-1">Nothing. It is completely optional.</div></li>
+<li data-component="feedback" id="rs-mc_vector1_opt_a"><div class="para" id="mc_vector1-2-1-2-1">It is optional but it does serve a purpose. Try again.</div></li>
+<li data-component="answer" id="rs-mc_vector1_opt_b" data-correct=""><div class="para" id="mc_vector1-2-2-1-1">Using it will save time if you know the maximum size needed.</div></li>
+<li data-component="feedback" id="rs-mc_vector1_opt_b"><div class="para" id="mc_vector1-2-2-2-1">Right!</div></li>
+<li data-component="answer" id="rs-mc_vector1_opt_c"><div class="para" id="mc_vector1-2-3-1-1">It is required so memory can be allocated.</div></li>
+<li data-component="feedback" id="rs-mc_vector1_opt_c"><div class="para" id="mc_vector1-2-3-2-1">It is not required.</div></li>
+<li data-component="answer" id="rs-mc_vector1_opt_d"><div class="para" id="mc_vector1-2-4-1-1">None of the above.</div></li>
+<li data-component="feedback" id="rs-mc_vector1_opt_d"><div class="para" id="mc_vector1-2-4-2-1">One of the above is indeed correct.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="cstringquestion1_1"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-cstringquestion1_1" data-multipleanswers="false">
+<div class="para" id="cstringquestion1_1-1-1">What is the correct definition of c-strings?</div>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_a" data-correct=""><div class="para" id="cstringquestion1_1-2-1-1-1">An array of characters that ends with a terminating null character. For instance, "\0".</div></li>
+<li data-component="feedback" id="rs-cstringquestion1_1_opt_a"><div class="para" id="cstringquestion1_1-2-1-2-1">Correct! a c-string is different from a string.</div></li>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_b"><div class="para" id="cstringquestion1_1-2-2-1-1">A sequential data structure consisting of zero or more characters.</div></li>
+<li data-component="feedback" id="rs-cstringquestion1_1_opt_b"><div class="para" id="cstringquestion1_1-2-2-2-1">Close, but that is the definition of a string, not a c-string.</div></li>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_c"><div class="para" id="cstringquestion1_1-2-3-1-1">A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.</div></li>
+<li data-component="feedback" id="rs-cstringquestion1_1_opt_c"><div class="para" id="cstringquestion1_1-2-3-2-1">Sorry, thats not a string or a c-string.</div></li>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_d"><div class="para" id="cstringquestion1_1-2-4-1-1">Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</div></li>
+<li data-component="feedback" id="rs-cstringquestion1_1_opt_d"><div class="para" id="cstringquestion1_1-2-4-2-1">No, that’s a vector.</div></li>
+</ul></div></div></article><article class="exercise exercise-like" id="matching_strings"><h5 class="heading"><span class="codenumber">12<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_strings">
+<span data-subcomponent="question"><div class="para" id="matching_strings-1-1">Match the String operations with their corresponding explination.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_strings-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_strings_drag1">[ ]</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag1">Accesses value of an element.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag2">find</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag2">Returns the index of the first occurrence of item.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag3">=</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag3">Assigns value to an element.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag4">push_back</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag4">Adjoins a character to the end of the string.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag5">pop_back</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag5">Removes the last character from the end of the string.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag6">insert</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag6">Injects a string at a specific index.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag7">erase</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag7">Deletes an element from one index to another.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag8">size</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag8">Returns the capacity of the string.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag9">+</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag9">connects strings.</li>
+<li data-subcomponent="draggable" id="rs-matching_strings_drag10">append</li>
+<li data-subcomponent="dropzone" for="rs-matching_strings_drag10">Adjoins a string to the end of the string.</li>
+</ul></div></div></article><article class="exercise exercise-like" id="string_types"><h5 class="heading"><span class="codenumber">13<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-string_types">
+<span data-subcomponent="question"><div class="para" id="string_types-1-1">Drag each data type to its’ corresponding C++ initialization syntax.</div></span><span data-subcomponent="feedback"><div class="para" id="string_types-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-string_types_drag1">char</li>
+<li data-subcomponent="dropzone" for="rs-string_types_drag1">’a’</li>
+<li data-subcomponent="draggable" id="rs-string_types_drag2">char array</li>
+<li data-subcomponent="dropzone" for="rs-string_types_drag2">{’a’}</li>
+<li data-subcomponent="draggable" id="rs-string_types_drag3">string</li>
+<li data-subcomponent="dropzone" for="rs-string_types_drag3">"a"</li>
+</ul></div></div></article><article class="exercise exercise-like" id="matching_HT"><h5 class="heading"><span class="codenumber">14<span class="period">.</span></span></h5>
+<div class="ptx-runestone-container"><div class="runestone matching_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_HT">
+<span data-subcomponent="question"><div class="para" id="matching_HT-1-1">Match the Hash Table operations with their corresponding explination.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_HT-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_HT_drag1">[ ]</li>
+<li data-subcomponent="dropzone" for="rs-matching_HT_drag1">Returns the value associated with the key, otherwise throws error.</li>
+<li data-subcomponent="draggable" id="rs-matching_HT_drag2">erase</li>
+<li data-subcomponent="dropzone" for="rs-matching_HT_drag2">Deletes the entry from the hash table.</li>
+<li data-subcomponent="draggable" id="rs-matching_HT_drag3">count</li>
+<li data-subcomponent="dropzone" for="rs-matching_HT_drag3">Returns true if key is in the hash table, and false otherwise.</li>
+<li data-subcomponent="draggable" id="rs-matching_HT_drag4">begin</li>
+<li data-subcomponent="dropzone" for="rs-matching_HT_drag4">An iterator to the first element in the hash table.</li>
+<li data-subcomponent="draggable" id="rs-matching_HT_drag5">end</li>
+<li data-subcomponent="dropzone" for="rs-matching_HT_drag5">An iterator pointing to past-the-end element of the hash table.</li>
+</ul></div></div></article></section></section><section class="conclusion" id="introduction_collections-8"><div class="para" id="introduction_collections-8-1"></div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="introduction_built-in-atomic-data-types.html" title="Previous"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_defining-c-functions.html" title="Next"><span class="name">Next</span><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a xmlns:pf="https://prefigure.org" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:pf="https://prefigure.org" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a xmlns:pf="https://prefigure.org" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

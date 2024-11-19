@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">5.7.1.a</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;CTurtle.hpp&gt;
+namespace ct = cturtle;
+
+void spiral(ct::Turtle&amp; turtle, int length) {
+    if (length &gt; 0) {
+        turtle.forward(length);
+        turtle.right(90);
+        spiral(turtle, length - 5);
+    }
+}
+
+int main() {
+    ct::TurtleScreen screen;
+    ct::Turtle turtle(screen);
+
+    spiral(turtle, 100);
+
+    screen.bye();
+    return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="recursion_introduction-visualizing-recursion.html#lst-turt1-cpp">in-context</a></span>
+</body>
+</html>

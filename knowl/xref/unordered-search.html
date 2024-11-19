@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program line-numbers"><code class="language-cpp">bool search(int item) {
+    Node *current = head;
+    while (current != NULL) {
+        if (current-&gt;getData() == item) {
+            return true;
+        } else {
+            current = current-&gt;getNext();
+        }
+    }
+    return false;
+}
+</code></pre></div>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">4.5.11<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">UnorderedList</code> <code class="code-inline tex2jax_ignore">search</code> Method</figcaption></figure><span class="incontext"><a class="internal" href="linear-linked_unordered-linked-list.html#unordered-search">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">5.10.1.b</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Solution to Towers of Hanoi.</span>
+</h4>
+<pre class="program line-numbers"><code class="language-cpp">//Simulation of the tower of hanoi.
+
+#include &lt;iostream&gt;
+using namespace std;
+
+void moveDisk(char fp, char tp){
+    cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
+}
+
+void moveTower(int height, char fromPole, char toPole, char withPole){
+    if (height &gt;= 1){
+        moveTower(height-1, fromPole, withPole, toPole); //Recursive call
+        moveDisk(fromPole, toPole);
+        moveTower(height-1, withPole, toPole, fromPole); //Recursive call
+    }
+}
+
+int main() {
+    moveTower(3, 'A', 'B', 'C');
+}
+</code></pre></article><span class="incontext"><a class="internal" href="recursion_tower-of-hanoi.html#lst-hanoi-whole">in-context</a></span>
+</body>
+</html>

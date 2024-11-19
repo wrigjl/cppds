@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void traverse(Vertex *y) {
+    Vertex *x = y;
+
+    while (x-&gt;pred) {
+        cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+        x = x-&gt;pred;
+    }
+    cout &lt;&lt; x-&gt;id &lt;&lt; endl;
+}
+
+traverse(g.getVertex('sage'))
+</code></pre></div>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.9.5<span class="period">.</span></span><span class="space"> </span>Printing the Word Bucker</figcaption></figure><span class="incontext"><a class="internal" href="graphs_implementing-breadth-first-search.html#graphs_lst-wordbucket3">in-context</a></span>
+</body>
+</html>

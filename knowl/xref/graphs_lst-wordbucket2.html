@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">9.9.1</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Breadth First Search.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-graphs_lst-wordbucket2">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="graphs_lst-wordbucket2-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Graph bfs(Graph g, Vertex *start) {
+    start-&gt;dist = 0;
+    start-&gt;pred = NULL;
+    queue&lt;Vertex *&gt; vertQueue;
+    vertQueue.push(start);
+    while (vertQueue.size() &gt; 0) {
+        Vertex *currentVert = vertQueue.front();
+        vertQueue.pop();
+    // For each neighbor of the current vertex
+        for (unsigned int nbr = 0; nbr &lt; currentVert-&gt;getConnections().size(); nbr++) {
+            if (g.vertList[currentVert-&gt;getConnections()[nbr]].color == 'w') {
+                g.vertList[currentVert-&gt;getConnections()[nbr]].color = 'g';
+                g.vertList[currentVert-&gt;getConnections()[nbr]].dist = currentVert-&gt;dist + 1;
+                g.vertList[currentVert-&gt;getConnections()[nbr]].pred = currentVert;
+                vertQueue.push(&amp;g.vertList[currentVert-&gt;getConnections()[nbr]]);
+            }
+        }
+        currentVert-&gt;color = 'b';
+    }
+    return g;
+}
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="graphs_lst-wordbucket2-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">from pythonds.graphs import Graph, Vertex
+from pythonds.basic import Queue
+
+def bfs(g,start):
+    start.setDistance(0)
+    start.setPred(None)
+    vertQueue = Queue()
+    vertQueue.enqueue(start)
+    while (vertQueue.size() &gt; 0):
+        currentVert = vertQueue.dequeue()
+        for nbr in currentVert.getConnections():
+            if (nbr.getColor() == 'white'):
+                nbr.setColor('gray')
+                nbr.setDistance(currentVert.getDistance() + 1)
+                nbr.setPred(currentVert)
+                vertQueue.enqueue(nbr)
+        currentVert.setColor('black')
+</code></pre></div></article></div>
+</div></div></div></article><span class="incontext"><a class="internal" href="graphs_implementing-breadth-first-search.html#graphs_lst-wordbucket2">in-context</a></span>
+</body>
+</html>

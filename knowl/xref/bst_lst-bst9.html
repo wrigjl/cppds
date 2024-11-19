@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">TreeNode *findSuccessor(){
+    TreeNode *succ = NULL;
+    if (this-&gt;hasRightChild()){
+        succ = this-&gt;rightChild-&gt;findMin();
+    }
+    else{
+        if (this-&gt;parent){
+            if (this-&gt;isLeftChild()){
+                succ = this-&gt;parent;
+            }
+            else{
+                this-&gt;parent-&gt;rightChild = NULL;
+                succ = this-&gt;parent-&gt;findSuccessor();
+                this-&gt;parent-&gt;rightChild = this;
+            }
+        }
+    }
+    return succ;
+}
+
+TreeNode *findMin(){
+    TreeNode *current = this;
+    while (current-&gt;hasLeftChild()){
+        current = current-&gt;leftChild;
+    }
+    return current;
+}
+
+void spliceOut(){
+    if (this-&gt;isLeaf()){
+        if (this-&gt;isLeftChild()){
+            this-&gt;parent-&gt;leftChild = NULL;
+        }
+        else{
+            this-&gt;parent-&gt;rightChild = NULL;
+        }
+    }
+    else if (this-&gt;hasAnyChildren()){
+        if (this-&gt;hasLeftChild()){
+            if (this-&gt;isLeftChild()){
+                this-&gt;parent-&gt;leftChild = this-&gt;leftChild;
+            }
+            else{
+                this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+            }
+            this-&gt;leftChild-&gt;parent = this-&gt;parent;
+        }
+        else{
+            if (this-&gt;isLeftChild()){
+                this-&gt;parent-&gt;leftChild = this-&gt;rightChild;
+            }
+            else{
+                this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+            }
+            this-&gt;rightChild-&gt;parent = this-&gt;parent;
+        }
+    }
+}
+</code></pre></div>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.15<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">findSuccessor</code>, <code class="code-inline tex2jax_ignore">findMin</code>, and <code class="code-inline tex2jax_ignore">spliceOut</code> Methods</figcaption></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst9">in-context</a></span>
+</body>
+</html>

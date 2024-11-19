@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">//ackermann function example
+#include &lt;iostream&gt;
+using namespace std;
+
+unsigned int ackermann(unsigned int m, unsigned int n) {
+   if (m == 0) {//Base case
+      return n + 1;
+   }
+   if (n == 0) {
+      return ackermann(m - 1, 1);// subtract, move to base case
+   }
+   //notice a call to the ackermann function as a parameter
+   //for another call to the ackermann function. This is where
+   //it gets unrealistically complicated.
+   return ackermann(m - 1, ackermann(m, n - 1));//subtract here too
+}
+
+int main(){
+   //compute the ackermann function.
+   //Try replacing the 1,2 parameters with 4,3 and see what happens
+   cout &lt;&lt; ackermann(1,2) &lt;&lt; endl;
+   return 0;
+}
+</code></pre>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.4.1<span class="period">.</span></span><span class="space"> </span>Ackermann Function</figcaption></figure><span class="incontext"><a class="internal" href="recursion_the-three-laws-of-recursion.html#ackermann">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+// uses ordinal values, of strings  and using positional values to weight them
+//to generate A hash value
+int hashfunc(string a, int tablesize) {
+    int sum=0;
+    for (unsigned int pos=0; pos&lt;a.length(); pos++) {
+        sum += int(a[pos]); // getting ordinal values, and using positional values to weight them
+        //adding them up, and using the remainder method to get a hash value.
+    }
+
+    return sum%tablesize;
+}
+
+int main() {
+    cout&lt;&lt;hashfunc("First!" , 10)&lt;&lt;endl;
+    cout&lt;&lt;hashfunc("Second!", 10)&lt;&lt;endl;
+    cout&lt;&lt;hashfunc("Third!" , 10)&lt;&lt;endl;
+
+    return 0;
+}
+</code></pre>
+<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.5.6<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">hash</code> function</figcaption></figure><span class="incontext"><a class="internal" href="search-hash_hashing.html#search-hash_lst-hashfunction1">in-context</a></span>
+</body>
+</html>

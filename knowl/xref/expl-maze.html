@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">5.11.2</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Maze search code.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-maze">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="maze-complete-cpp"><h4 class="heading">
+<span class="codenumber">(a)</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+const char MAZE_OBSTACLE = '+';
+const char MAZE_START = 'S';
+const char MAZE_PATH = 'O';
+const char MAZE_DEAD_END = '-';
+const char MAZE_TRIED = '.';
+const char MAZE_EXIT = 'X';
+
+void findStart(const vector&lt;string&gt; &amp;maze, size_t &amp;startRow, size_t &amp;startColumn) {
+    for (size_t i = 0; i &lt; maze.size(); i++) {
+	    for (size_t j = 0; j &lt; maze[i].size(); j++) {
+            if (maze[i][j] == MAZE_START) {
+                startRow = i;
+                startColumn = j;
+            }
+        }
+    }
+}
+
+vector&lt;string&gt; readMazeFile(string filename) {
+    vector&lt;string&gt; maze;
+    ifstream is(filename);
+    string line;
+    while (getline(is, line))
+        maze.push_back(line);
+    return maze;
+}
+
+void printMaze(const vector&lt;string&gt; &amp;maze) {
+    for (string line: maze)
+        cout &lt;&lt; line &lt;&lt; endl;
+}
+
+bool onEdge(const vector&lt;string&gt; &amp;maze, size_t startRow, size_t startColumn) {
+    return startColumn == 0 || startRow == 0 ||
+        startRow == maze.size() - 1 ||
+        startColumn == maze[startRow].size() - 1;
+}
+
+bool searchFrom(vector&lt;string&gt; &amp;maze, size_t startRow, size_t startColumn) {
+    //  Check for base cases:
+    //  1. We have run into an obstacle, return false
+    if (maze[startRow][startColumn] == MAZE_OBSTACLE)
+        return false;
+
+    // 2. We have found a square that has already been explored
+    if (maze[startRow][startColumn] == MAZE_TRIED)
+        return false;
+
+    // 3. Success, an outside edge not occupied by an obstacle
+    if (onEdge(maze, startRow, startColumn)) {
+        maze[startRow][startColumn] = 'O';
+        return true;
+    }
+
+    maze[startRow][startColumn] = MAZE_TRIED;
+
+    // Otherwise, check each cardinal direction (north, south, east, and west).
+    // We are checking one space in each direction, thus the plus or minus one below.
+    bool found = searchFrom(maze, startRow - 1, startColumn) ||
+	    searchFrom(maze, startRow + 1, startColumn) ||
+        searchFrom(maze, startRow, startColumn - 1) ||
+        searchFrom(maze, startRow, startColumn + 1);
+
+    if (found)
+        maze[startRow][startColumn] = MAZE_PATH;
+    else
+        maze[startRow][startColumn] = MAZE_DEAD_END;
+
+    return found;
+}
+
+int main() {
+    size_t row, column;
+    vector&lt;string&gt; theMaze = readMazeFile("maze1.txt");
+    cout &lt;&lt; "Before:" &lt;&lt; endl;
+    printMaze(theMaze);
+    findStart(theMaze, row, column);
+    searchFrom(theMaze, row, column);
+    cout &lt;&lt; endl &lt;&lt; "After:" &lt;&lt; endl;
+    printMaze(theMaze);
+    return 0;
+}
+</code></pre></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="maze-complete-py"><h4 class="heading">
+<span class="codenumber">(b)</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-_editor" data-question_label="" data-codelens="true">MAZE_OBSTACLE = '+'
+MAZE_START = 'S'
+MAZE_PATH = 'O'
+MAZE_DEAD_END = '-'
+MAZE_TRIED = '.'
+
+class Maze:
+    def __init__(self, mazeFileName):
+        # Initialize all of our default variables.
+        self.mazeList = []
+        self.totalRows = 0
+        self.totalColumns = 0
+
+        self.startRow = 0
+        self.startColumn = 0
+
+        # And read the maze file.
+        self.readMazeFile(mazeFileName)
+
+    def readMazeFile(self, mazeFileName):
+        # The maze list is a list of strings.
+        # Components of the maze are indicated by specific characters.
+        # These characters are listed at the top of the file.
+
+        # The line below says the following:
+        # For every line of text in our maze text file, add every single character to a list.
+        # The final result is a list of lists, where each element is a single character.
+        self.mazeList = [[char for char in line] for line in open(mazeFileName).read().split("\n")]
+
+        # The total number of rows is the total number of strings in the list.
+        self.totalRows = len(self.mazeList)
+
+        # The total number of columns is the length of a single line.
+        # We can assume all lines of text for the maze are the same length.
+        self.totalColumns = len(self.mazeList[0])
+
+        # Lastly, find the start position.
+        self.findStartPosition()
+
+    def findStartPosition(self):
+        # Iterate through every individual character in the maze list.
+        # If we come across the MAZE_START character ('S'),
+        # we save the row and column of where it was found, and stop looking.
+
+        # enumerate(...) is very much like using a typical list,
+        # except it gives you two pieces of information instead of one.
+        # It assumes the format of (index_of_item, item).
+        for (row, text) in enumerate(self.mazeList):
+            for(column, component) in enumerate(text):
+                if component == MAZE_START:
+                    self.startRow = row
+                    self.startColumn = column
+                    return
+
+    def isOnEdge(self, row, column):
+        return (row == 0 or
+                row == self.totalRows - 1 or
+                column == 0 or
+                column == self.totalColumns - 1)
+
+    def print(self):
+        for row in self.mazeList:
+            # "join" every character in the row into a single string.
+            rowText = "".join(row)
+            print(rowText)
+
+    # This allows us to use the Maze class like a list, e.g, maze[index]
+    def __getitem__(self, index):
+        return self.mazeList[index]
+
+def searchFrom(maze, startRow, startColumn):
+    #  Check for base cases:
+    #  1. We have run into an obstacle, return false
+    if maze[startRow][startColumn] == MAZE_OBSTACLE:
+        return False
+    #  2. We have found a square that has already been explored
+    if maze[startRow][startColumn] == MAZE_TRIED:
+        return False
+
+    # 3. Success, an outside edge not occupied by an obstacle
+    if maze.isOnEdge(startRow, startColumn):
+        maze[startRow][startColumn] = MAZE_PATH
+        return True
+
+    maze[startRow][startColumn] = MAZE_TRIED
+
+    # Otherwise, check each cardinal direction (north, south, east, and west).
+    # We are checking one space in each direction, thus the plus or minus one below.
+    found = searchFrom(maze, startRow - 1, startColumn) or \
+            searchFrom(maze, startRow + 1, startColumn) or \
+            searchFrom(maze, startRow, startColumn - 1) or \
+            searchFrom(maze, startRow, startColumn + 1)
+
+    if found:
+        maze[startRow][startColumn] = MAZE_PATH
+    else:
+        maze[startRow][startColumn] = MAZE_DEAD_END
+
+    return found
+
+def main():
+    maze = Maze("maze1.txt")
+    print("Before:")
+    maze.print()
+    searchFrom(maze, maze.startRow, maze.startColumn)
+    print("After:")
+    maze.print()
+
+main()
+</textarea></div></div></div></article></div>
+</div></div></div></article><span class="incontext"><a class="internal" href="recursion_exploring-a-maze.html#expl-maze">in-context</a></span>
+</body>
+</html>

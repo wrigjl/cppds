@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">3.7.1.a</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program line-numbers"><code class="language-cpp">//program that returns whether a string is balanced or not
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+//returns true of symbol is in symbols
+bool inString(string symbol, string symbols){
+    return symbols.find(symbol) != string::npos;
+}
+
+//returns true if the symbol in "open"
+//matches the symbol in "close"
+bool matches(string open, string close){
+    string opens = "({[";
+    string closers = ")]}";
+    bool val = inString(open, opens) == inString(close, closers);
+    return val;
+}
+
+// Go through the string pushing opening symbols
+// and popping/matching when a closing symbol is
+// encountered
+bool parChecker(string symbolString){
+    stack&lt;string&gt; s;
+    bool balanced = true;
+    int index = 0;
+    int symbolLength = symbolString.length();
+
+    while(index &lt; symbolLength &amp;&amp; balanced){
+        string symbol;
+        symbol = symbolString[index];
+        string opens = "([{";
+        string closes = "}])";
+        if (inString(symbol, opens)){
+            s.push(symbol);
+        } else if(inString(symbol, closes)){
+            if (s.empty()){
+                balanced = false;
+            } else {
+                string top = s.top();
+                s.pop();
+                if (!matches(top, symbol)){
+                    balanced = false;
+                    break;
+                }
+            }
+        }
+        index = index + 1;
+    }
+    if(balanced &amp;&amp; s.empty()){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    cout &lt;&lt; parChecker("{}") &lt;&lt; endl;
+    cout &lt;&lt; parChecker("[{()}]") &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><span class="incontext"><a class="internal" href="linear-basic_balanced-symbols-a-general-case.html#lst-parcheck2-cpp">in-context</a></span>
+</body>
+</html>
