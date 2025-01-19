@@ -177,7 +177,7 @@
         <title>Analysis Example</title>
         <task label="algo_analysis_dummycode_1" xml:id="algo_analysis_dummycode_1">
             <title>C++ Implementation</title>
-            <statement><program language="cpp"><input>
+            <statement><program language="cpp" label="algo_analysis_dummycode_1-prog"><input>
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -204,7 +204,7 @@ int main(){
         </task>
         <task xml:id="algo_analysis_dummycode_1_py" label="algo_analysis_dummycode_1_py">
             <title>Python Implementation</title>
-            <statement><program language="python"><input>
+            <statement><program language="python" label="algo_analysis_dummycode_1_py-prog"><input>
 def main():
     a=5
     b=6
@@ -393,7 +393,7 @@ Reading Questions
     
             <choice correct="yes">
                 <statement>
-                    <p>2.53</p>
+                    <p>2.04</p>
                 </statement>
                 <feedback>
                     <p>Correct!</p>
@@ -434,7 +434,7 @@ Reading Questions
     
             <p>The Big O of a particular algorithm is <m>O(\log_{2}n)</m>.
                 Given that it takes 2 seconds to complete the algorithm with 3 million inputs;
-                how long would it take with 10 million inputs?</p>
+                how long would it take with <b>10 million</b> inputs?</p>
     
         </statement>
     <choices>
@@ -448,12 +448,12 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice>
+            <choice  correct="yes">
                 <statement>
-                    <p>2.53</p>
+                    <p>2.16</p>
                 </statement>
                 <feedback>
-                    <p>Incorrect. Try again.</p>
+                    <p>Correct!</p>
                 </feedback>
             </choice>
     
@@ -466,12 +466,12 @@ Reading Questions
                 </feedback>
             </choice>
     
-            <choice correct="yes">
+            <choice>
                 <statement>
                     <p>4.2</p>
                 </statement>
                 <feedback>
-                    <p>Right!</p>
+                    <p>Incorrect. Try again</p>
                 </feedback>
             </choice>
     
