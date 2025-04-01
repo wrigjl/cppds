@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.9</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading Addition.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
+    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+    int newden = frac1.den * frac2.den;
+    return Fraction(newnum, newden);
+}
+</code></pre></div></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def __add__(self,otherfraction):
+    newnum = self.num*otherfraction.den + self.den*otherfraction.num
+    newden = self.den * otherfraction.den
+    return Fraction(newnum,newden)
+</code></pre></div></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">C++ Usage.</span>
+</h5>
+<pre class="program"><code class="language-cpp">//overloading the addition operator to create clearer syntax
+#include &lt;iostream&gt;
+using namespace std;
+
+class Fraction {
+    public:
+        Fraction(int top = 0, int bottom = 1) {
+            num = top;
+            den = bottom;
+        }
+
+    friend ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac);
+    friend Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2);
+
+    private:
+        int num, den;
+};
+
+ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac) {
+    stream &lt;&lt; frac.num &lt;&lt; "/" &lt;&lt; frac.den;
+    return stream;
+}
+
+Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
+    int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
+    int newden = frac1.den * frac2.den;
+    return Fraction(newnum, newden);
+}
+
+
+int main(){
+    Fraction f1(1, 4);
+    Fraction f2(1, 2);
+    Fraction f3 = f1 + f2;
+    cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article></article><span class="incontext"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-addoverload" class="internal">in-context</a></span>
+</body>
+</html>

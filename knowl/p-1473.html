@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>To analyze the complexity of the linked list operations, we need to consider whether they require traversal. Consider a linked list that has <em class="emphasis">n</em> nodes. The <code class="code-inline tex2jax_ignore">isEmpty</code> method is <span class="process-math">\(O(1)\)</span> since it requires one step to check the head reference for <code class="code-inline tex2jax_ignore">NULL</code>. <code class="code-inline tex2jax_ignore">size</code>, on the other hand, will always require <em class="emphasis">n</em> steps since there is no way to know how many nodes are in the linked list without traversing from head to end. Therefore, <code class="code-inline tex2jax_ignore">size</code> is <span class="process-math">\(O(n)\text{.}\)</span> Adding an item to an unordered linked list will always be O(1) since we simply place the new node at the head of the linked list. However, <code class="code-inline tex2jax_ignore">search</code> and <code class="code-inline tex2jax_ignore">remove</code>, as well as <code class="code-inline tex2jax_ignore">add</code> for an ordered linked list, all require the traversal process. Although on average they may need to traverse only half of the nodes, these methods are all <span class="process-math">\(O(n)\)</span> since in the worst case each will process every node in the linked list.</p>
+<span class="incontext"><a href="linear-linked_implementing-an-ordered-linked-list.html#p-1473" class="internal">in-context</a></span>
+</body>
+</html>

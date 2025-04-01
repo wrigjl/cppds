@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">7.3.1.b</span><span class="period">.</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-bubble-py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-bubble-py-prog_editor" data-question_label="" data-codelens="true">"""function goes through list sorting adjacent values as it bubbles
+the largest value to the top."""
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]&gt;alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+
+def main():
+    alist = [54,26,93,17,77,31,44,55,20]
+    bubbleSort(alist)
+    print(alist)
+
+main()
+</textarea></div></div></div></article><span class="incontext"><a href="sort_the-bubble-sort.html#lst-bubble-py" class="internal">in-context</a></span>
+</body>
+</html>

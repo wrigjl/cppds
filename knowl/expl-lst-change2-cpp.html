@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.12.2</span><span class="period">.</span><span class="space"> </span><span class="title">Change Calculation With Memoization.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">//A different attempt at making the change algorithm.
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int recDC(vector&lt;int&gt; coinValueList, int change, int knownResults[]){
+    int minCoins, numCoins;
+    minCoins = change;
+
+    for (unsigned int i = 0; i&lt; coinValueList.size(); i++){ //this loop contains the base case,
+                                                            //as it returns items that are not
+                                                            //returning a call to the recDC function.
+        if (coinValueList[i] == change){
+            knownResults[change] = 1;
+            return 1;
+        }
+        else if(knownResults[change] &gt; 0){
+            return knownResults[change];
+        }
+    }
+    for (unsigned int y=0; y&lt;coinValueList.size(); y++){
+        if (coinValueList[y] &lt;= change){
+            numCoins = 1 + recDC(coinValueList, change - coinValueList[y], knownResults); //Recursive call
+            if (numCoins &lt; minCoins){
+                minCoins = numCoins;
+                knownResults[change] = minCoins;
+            }
+        }
+    }
+    return minCoins;
+}
+
+int main(){
+    vector&lt;int&gt; coinValueList = {1, 5, 10, 21, 25};
+    int change = 63;
+    int knownResults[64] = {0};
+    cout&lt;&lt;recDC(coinValueList, change, knownResults)&lt;&lt;endl;
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-change2-py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-change2-py-prog_editor" data-question_label="" data-codelens="true">#A different attempt at making the change algorithm.
+
+def recDC(coinValueList, change, knownResults):
+   minCoins = change
+   if change in coinValueList: #base case
+       knownResults[change] = 1
+       return 1
+   elif knownResults[change] &gt; 0: #base case
+       return knownResults[change]
+   else:
+       for i in [c for c in coinValueList if c &lt;= change]:
+           numCoins = 1 + recDC(coinValueList, change - i, knownResults) #Recursive call.
+           if numCoins &lt; minCoins:
+               minCoins = numCoins
+               knownResults[change] = minCoins
+       return minCoins
+
+def main():
+     print(recDC([1, 5, 10, 21, 25], 63, [0]*64))
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="recursion_dynamic-programming.html#expl-lst-change2-cpp" class="internal">in-context</a></span>
+</body>
+</html>

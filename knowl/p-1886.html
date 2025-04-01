@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>uses the slice operator to create the left half of the list that is then passed to the next invocation (similarly for the right half as well). The analysis that we did above assumed that the slice operator takes constant time. This means that the binary search using slice will not perform in strict logarithmic time. Luckily this can be remedied by passing the list along with the starting and ending indices. The indices can be calculated as we did in <a href="" class="xref" data-knowl="./knowl/binarysearch-1.html" title="Listing 6.4.3">Listing 6.4.3</a>. This is especially relevant in C++, where we are initializing a new vector for each split of our list. To truly optimize this algorithm, we could use an array and manually keep track of start and end indices of our array. <a href="" class="xref" data-knowl="./knowl/tsk-binsearch-array-cpp.html" title="Task 6.4.1.a: C++ Implementation">Task 6.4.1.a</a> shows such an implementation.</p>
+<span class="incontext"><a href="search-hash_the-binary-search.html#p-1886" class="internal">in-context</a></span>
+</body>
+</html>

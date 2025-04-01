@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">7.8.1</span><span class="period">.</span><span class="space"> </span><span class="title">Quick Sort.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+void printl(vector&lt;int&gt; avector) {
+  for (unsigned i=0; i&lt;avector.size(); i++) {
+    cout&lt;&lt;avector[i]&lt;&lt;" ";
+  }
+  cout&lt;&lt;endl;
+}
+
+//function partitions vector depending on pivot value
+int partition(vector&lt;int&gt; &amp;avector, int first, int last) {
+  int pivotvalue = avector[first];
+
+  int rightmark = last;
+  int leftmark = first+1;
+
+  bool done = false;
+
+  while(not done){
+    while(leftmark&lt;=rightmark and avector[leftmark]&lt;=pivotvalue){
+      leftmark++;
+    }
+    while(rightmark&gt;=leftmark and avector[rightmark]&gt;=pivotvalue){
+      rightmark--;
+    }
+    if(rightmark&lt;leftmark){
+      done = true;
+    }
+    else{
+      swap(avector[rightmark], avector[leftmark]);
+    }
+  }
+
+  swap(avector[rightmark], avector[first]);
+
+  return rightmark;
+}
+
+//recursive function that quicksorts through a given vector
+void quickSort(vector&lt;int&gt; &amp;avector, int first, int last) {
+  int splitpoint;
+
+  if (first&lt;last) {
+    splitpoint = partition(avector,first,last);
+
+    quickSort(avector,first,splitpoint);
+    quickSort(avector,splitpoint+1,last);
+
+  }
+}
+
+int main() {
+  // Vector initialized using a static array
+  static const int arr[] = {54, 26, 93, 17, 77, 31, 44, 55, 20};
+  vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+  quickSort(avector,0,avector.size()-1);
+
+  printl(avector);
+
+  return 0;
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-quicksort-py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-quicksort-py-prog_editor" data-question_label="" data-codelens="true">#recursive function that calls itself to quicksort through a given list of values
+def quickSort(alist,first,last):
+  if first&lt;last:
+
+    splitpoint = partition(alist,first,last)
+
+    quickSort(alist,first,splitpoint-1)
+    quickSort(alist,splitpoint+1,last)
+
+#function partitions vector depending on pivot value
+def partition(alist,first,last):
+  pivotvalue = alist[first]
+
+  leftmark = first+1
+  rightmark = last
+
+  done = False
+  while not done:
+    while alist[leftmark]&lt;=pivotvalue and leftmark&lt;=rightmark:
+      leftmark += 1
+
+    while alist[rightmark]&gt;=pivotvalue and rightmark&gt;=leftmark:
+      rightmark -= 1
+
+    if rightmark &lt; leftmark:
+      done = True
+
+    else:
+      temp = alist[rightmark]
+      alist[rightmark] = alist[leftmark]
+      alist[leftmark] = temp
+
+  temp = alist[rightmark]
+  alist[rightmark] = alist[first]
+  alist[first] = temp
+
+  return rightmark
+
+
+
+def main():
+
+  alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+  quickSort(alist,0,len(alist)-1)
+  print(alist)
+
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="sort_the-quick-sort.html#expl-quicksort" class="internal">in-context</a></span>
+</body>
+</html>

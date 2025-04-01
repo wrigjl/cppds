@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>Finally, we will trace the <code class="code-inline tex2jax_ignore">evaluate</code> function on the parse tree we created in <a href="" class="xref" data-knowl="./knowl/parse_fig-bldexpstep.html" title="Figure 8.5.4">Figure 8.5.4</a>. When we first call <code class="code-inline tex2jax_ignore">evaluate</code>, we pass the root of the entire tree as the parameter <code class="code-inline tex2jax_ignore">parseTree</code>. Then we obtain references to the left and right children to make sure they exist. The recursive call takes place on line 9. We begin by looking up the operator in the root of the tree, which is <code class="code-inline tex2jax_ignore">'+'</code>. The <code class="code-inline tex2jax_ignore">'+'</code> operator maps to the <code class="code-inline tex2jax_ignore">operator.add</code> function call, which takes two parameters. As usual for a C++ function call, the first thing C++ does is to evaluate the parameters that are passed to the function. In this case both parameters are recursive function calls to our <code class="code-inline tex2jax_ignore">evaluate</code> function. Using left-to-right evaluation, the first recursive call goes to the left. In the first recursive call the <code class="code-inline tex2jax_ignore">evaluate</code> function is given the left subtree. We find that the node has no left or right children, so we are in a leaf node. When we are in a leaf node we just return the value stored in the leaf node as the result of the evaluation. In this case we return the integer 3.</p>
+<span class="incontext"><a href="trees_parse-tree.html#p-2362" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+ // Checks to see if item is in a vector
+ // returns true or false (1 or 0)
+ // using binary Search and
+ // seperating the vector in halves
+
+bool binarySearch(vector&lt;int&gt; alist, int item) {
+      if (alist.size() == 0) {
+              return false;
+      } else {
+              int midpoint = alist.size() / 2;
+              if (alist[midpoint] == item) {
+                      return true;
+              } else {
+                      if (item &lt; alist[midpoint]) {
+                              vector&lt;int&gt; lefthalf(alist.begin(), alist.begin() + midpoint);
+                              return binarySearch(lefthalf, item);
+                      } else {
+                              vector&lt;int&gt; righthalf(
+                                      alist.begin() + midpoint + 1, alist.end());
+                              return binarySearch(righthalf, item);
+                      }
+              }
+      }
+}
+
+int main() {
+      // Using static array to initialize a vector
+      static const int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+      vector&lt;int&gt; alist(arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+      cout &lt;&lt; binarySearch(alist, 3) &lt;&lt; endl;
+      cout &lt;&lt; binarySearch(alist, 13) &lt;&lt; endl;
+
+      return 0;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.4.3<span class="period">.</span></span><span class="space"> </span>Recursive Binary Search</figcaption></figure><span class="incontext"><a href="search-hash_the-binary-search.html#binarysearch-1" class="internal">in-context</a></span>
+</body>
+</html>

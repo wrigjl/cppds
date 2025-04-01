@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">5.7.2.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;CTurtle.hpp&gt;
+
+namespace ct = cturtle;
+
+void tree(ct::Turtle&amp; turtle, int length) {
+    if(length &gt; 5){
+        turtle.forward(length);
+        turtle.right(20);
+        tree(turtle, length - 15);
+        turtle.left(40);
+        tree(turtle, length - 15);
+        turtle.right(20);
+        turtle.back(length);
+    }
+}
+
+int main() {
+    ct::TurtleScreen screen;
+    screen.tracer(3);//Draw faster.
+    ct::Turtle turtle(screen);
+    turtle.pencolor({"green"});
+
+    //Make the trees "grow" upwards
+    turtle.left(90);
+
+    //Start growing from further down.
+    turtle.penup();
+    turtle.backward(100);
+    turtle.pendown();
+
+    //Draw the tree.
+    tree(turtle, 75);
+
+    screen.bye();
+    return 0;
+}
+</code></pre></article><span class="incontext"><a href="recursion_introduction-visualizing-recursion.html#lst-complete-tree-cpp" class="internal">in-context</a></span>
+</body>
+</html>

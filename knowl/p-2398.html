@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>As mentioned before we can use binary heaps in order to design a priority queue, according to our preference, using a min or max heap would allow us to construct a tree in such a way that the children are always larger or smaller than the parent, respectively. In the example in this section we will be using min heap structure. That way the smallest element will always be at the root, that is the goal of using a heap for a priority queue, since this will allow for swift removal of the element with utmost priority. When inserting new elements into the heap it is important to maintain the priority structure, therefore every time we insert a new element, not only do we insert it in such a way to fill out the tree from left to right, but we also make sure that every parent node is smaller then the child node that we inserted. This way if the inserted node is the smallest node in the tree it will bubble up to the root and push everything else lower into the heap. Deletion of the items is also important, since we know that the element with utmost priority is always at the root we can simply remove the root and replace it with the righmost leaf. However now our priority structure is broken, we can fix this by swaping it with the lesser of its children, then the structure will be correct agian. This structure allows for effective maintenance of the priority of the items and greatly improves the efficiency of our priority queue.</p>
+<span class="incontext"><a href="trees_priority-queues-with-binary-heaps-example.html#p-2398" class="internal">in-context</a></span>
+</body>
+</html>

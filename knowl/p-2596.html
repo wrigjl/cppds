@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<ol class="decimal">
+<li>
+<p>Draw the tree structure resulting from the following set of tree function calls:</p>
+<pre class="code-block tex2jax_ignore">&gt;&gt;&gt; r = BinaryTree(3)
+&gt;&gt;&gt; insertLeft(r,4)
+[3, [4, [], []], []]
+&gt;&gt;&gt; insertLeft(r,5)
+[3, [5, [4, [], []], []], []]
+&gt;&gt;&gt; insertRight(r,6)
+[3, [5, [4, [], []], []], [6, [], []]]
+&gt;&gt;&gt; insertRight(r,7)
+[3, [5, [4, [], []], []], [7, [], [6, [], []]]]
+&gt;&gt;&gt; setRootVal(r,9)
+&gt;&gt;&gt; insertLeft(r,11)
+[9, [11, [5, [4, [], []], []], []], [7, [], [6, [], []]]]
+</pre>
+</li>
+<li><p>Trace the algorithm for creating an expression tree for the expression <span class="process-math">\((4 * 8) / 6 - 3\text{.}\)</span></p></li>
+<li><p>Consider the following array of integers: [1,2,3,4,5,6,7,8,9,10]. Show the binary search tree resulting from inserting the integers in the array.</p></li>
+<li><p>Consider the following array of integers: [10,9,8,7,6,5,4,3,2,1]. Show the binary search tree resulting from inserting the integers in the array.</p></li>
+<li><p>Generate a random array of integers. Show the binary heap tree resulting from inserting the integers on the array one at a time.</p></li>
+<li><p>Using the array from the previous question, show the binary heap tree resulting from using the array as a parameter to the <code class="code-inline tex2jax_ignore">buildHeap</code> method. Show both the tree and array form.</p></li>
+<li><p>Draw the binary search tree that results from inserting the following keys in the order given: 68,88,61,89,94,50,4,76,66, and 82.</p></li>
+<li><p>Generate a random array of integers. Draw the binary search tree resulting from inserting the integers on the array.</p></li>
+<li><p>Consider the following array of integers: [1,2,3,4,5,6,7,8,9,10]. Show the binary heap resulting from inserting the integers one at a time.</p></li>
+<li><p>Consider the following array of integers: [10,9,8,7,6,5,4,3,2,1]. Show the binary heap resulting from inserting the integers one at a time.</p></li>
+<li><p>Consider the two different techniques we used for implementing traversals of a binary tree. Why must we check before the call to <code class="code-inline tex2jax_ignore">preorder</code> when implementing as a method, whereas we could check inside the call when implementing as a function?</p></li>
+<li>
+<p>Show the function calls needed to build the binary tree in <a href="" class="xref" data-knowl="./knowl/exertree.html" title="Figure 8.20.1">Figure 8.20.1</a>.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/exerTree.png" class="contained" alt="A tree whose root node is language. The language node has two children: compiled and interpreted. The compiled node has two children: C and Java. The interpreted node has two children: Python and Scheme."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.1<span class="period">.</span></span><span class="space"> </span>Tree of Programming Languages</figcaption></figure>
+</li>
+<li>
+<p>Given the tree in <a href="" class="xref" data-knowl="./knowl/rotexer1.html" title="Figure 8.20.2">Figure 8.20.2</a>, perform the appropriate rotations to bring it back into balance.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;"><img src="external/Trees/rotexer1.png" class="contained" alt="A tree whose root node is B with a balance factor of -2. B has two children: A with a balance factor of 0 and E with a balanace factor of 1. A has no children. E has two children: D with a balance factor of 1 and F with a balance factor of 0. D has only a left child: C with balance factor 0. F has no children."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.2<span class="period">.</span></span><span class="space"> </span>Out of Balance Tree</figcaption></figure>
+</li>
+<li>
+<p>Using <a href="" class="xref" data-knowl="./knowl/bfderive.html" title="Figure 8.20.3">Figure 8.20.3</a> as a starting point, derive the equation that gives the updated balance factor for node D.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Trees/bfderive.png" class="contained" alt='Image illustrating a left rotation in a binary tree. The diagram consists of two stages: the initial tree structure and the resulting tree after the rotation. In the initial tree, node "B" is the root, with node "A" as its left child and node "D" as its right child. Node "D" has two subtrees, "C" as its left child and "E" as its right child. After the left rotation, node "D" becomes the new root, with node "B" as its left child and node "E" as its right child. Node "B" retains "A" as its left child and "C" as its right child. The arrow between the two stages indicates the direction of the rotation. This figure demonstrates the rebalancing operation in a binary tree by performing a left rotation.'></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.20.3<span class="period">.</span></span><span class="space"> </span>Compute Updated Balance Factor</figcaption></figure>
+</li>
+</ol>
+<span class="incontext"><a href="trees_discussion-questions.html#p-2596" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.4.3</span><span class="period">.</span><span class="space"> </span><span class="title"><code class="code-inline tex2jax_ignore">insertRight</code>.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void insertRight(char newNode){
+    if (this-&gt;rightChild == NULL){
+        this-&gt;rightChild = new BinaryTree(newNode);
+    }
+    else {
+        BinaryTree *t = new BinaryTree(newNode);
+        t-&gt;rightChild = this-&gt;rightChild;
+        this-&gt;rightChild = t;
+    }
+}
+</code></pre></div></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def insertRight(self,newNode):
+    if self.rightChild == None:
+        self.rightChild = BinaryTree(newNode)
+    else:
+        t = BinaryTree(newNode)
+        t.rightChild = self.rightChild
+        self.rightChild = t
+</code></pre></div></article></article><span class="incontext"><a href="trees_nodes-and-references.html#expl-insr" class="internal">in-context</a></span>
+</body>
+</html>

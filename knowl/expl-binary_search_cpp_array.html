@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Binary Search Using Array Optimization.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+//Checks to see if item is in a vector
+//returns true or false (1 or 0)
+//using binary Search and
+//uses start and end indices
+bool binarySearch(int arr[], int item, int start, int end) {
+    if (end &gt;= start) {
+        int mid = start + (end - start) / 2;
+        if (arr[mid] == item)
+            return true;
+        if (arr[mid] &gt; item)
+            return binarySearch(arr, item, start, mid - 1);
+        else {
+            return binarySearch(arr, item, mid + 1, end);
+        }
+    }
+
+    return false;
+}
+
+bool binarySearchHelper(int arr[], int size, int item) {
+    return binarySearch(arr, item, 0, size - 1);
+}
+
+int main(void) {
+    int arr[] = {0, 1, 2, 8, 13, 17, 19, 32, 42};
+    int arrLength = sizeof(arr) / sizeof(arr[0]);
+
+    cout &lt;&lt; binarySearchHelper(arr, arrLength, 3) &lt;&lt; endl;
+    cout &lt;&lt; binarySearchHelper(arr, arrLength, 13) &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="binary_search_python_array-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="binary_search_python_array-prog_editor" data-question_label="" data-codelens="true">'''Checks to see if item is in a list
+returns true or false (1 or 0)
+using binary Search and
+uses start and end indices'''
+
+def binarySearch(array, item, start, end):
+
+    if end &gt;= start:
+        mid = start + (end - start) // 2
+        if array[mid] == item:
+            return True
+        if array[mid] &gt; item:
+            return binarySearch(array, item, start, mid - 1)
+        else:
+            return binarySearch(array, item, mid + 1, end)
+
+    return False
+
+def main():
+    array = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+
+    a = binarySearch(array, 17, 0 , len(array)-1)
+    print("answer is ", a)
+    b = binarySearch(array, 99, 0, len(array)-1)
+    print("answer is", b)
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="search-hash_the-binary-search.html#expl-binary_search_cpp_array" class="internal">in-context</a></span>
+</body>
+</html>

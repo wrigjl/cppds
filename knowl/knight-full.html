@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class Vertex {
+public:
+    int id;
+    map&lt;int, float&gt; connectedTo;
+    // Added for Breadth-First Algorithm
+    char color;
+    float dist;
+    Vertex *pred;
+
+    Vertex() {
+        // w for white, g for grey, b for black
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    Vertex(int key) {
+        id = key;
+        color = 'w';
+        dist = 0;
+        pred = NULL;
+    }
+
+    void addNeighbor(int nbr, float weight = 1) {
+        connectedTo[nbr] = weight;
+    }
+
+    vector&lt;int&gt; getConnections() {
+        vector&lt;int&gt; keys;
+        // Use of iterator to find all keys
+        for (map&lt;int, float&gt;::iterator it = connectedTo.begin();
+             it != connectedTo.end();
+             ++it) {
+            keys.push_back(it-&gt;first);
+        }
+        return keys;
+    }
+
+    int getId() {
+        return id;
+    }
+
+    float getWeight(int nbr) {
+        return connectedTo[nbr];
+    }
+
+    friend ostream &amp;operator&lt;&lt;(ostream &amp;, Vertex &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
+    vector&lt;int&gt; connects = vert.getConnections();
+    stream &lt;&lt; vert.id &lt;&lt; " -&gt; ";
+    for (unsigned int i = 0; i &lt; connects.size(); i++) {
+        stream &lt;&lt; connects[i] &lt;&lt; endl &lt;&lt; "\t";
+    }
+
+    return stream;
+}
+
+class Graph {
+public:
+    map&lt;int, Vertex&gt; vertList;
+    int numVertices;
+    bool directional;
+
+    Graph(bool directed = true) {
+        directional = directed;
+        numVertices = 0;
+    }
+
+    Vertex addVertex(int key) {
+        numVertices++;
+        Vertex newVertex = Vertex(key);
+        this-&gt;vertList[key] = newVertex;
+        return newVertex;
+    }
+
+    Vertex *getVertex(int n) {
+        return &amp;vertList[n];
+    }
+
+    bool contains(int n) {
+        for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
+             it != vertList.end();
+             ++it) {
+            if (it-&gt;first == n) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void addEdge(int f, int t, float cost = 1) {
+        if (!this-&gt;contains(f)) {
+            this-&gt;addVertex(f);
+        }
+        if (!this-&gt;contains(t)) {
+            this-&gt;addVertex(t);
+        }
+        vertList[f].addNeighbor(t, cost);
+
+        if (!directional) {
+            vertList[t].addNeighbor(f, cost);
+        }
+    }
+
+    vector&lt;int&gt; getVertices() {
+        vector&lt;int&gt; verts;
+
+        for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
+             it != vertList.end();
+             ++it) {
+            verts.push_back(it-&gt;first);
+        }
+        return verts;
+    }
+
+    friend ostream &amp;operator&lt;&lt;(ostream &amp;, Graph &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
+    for (map&lt;int, Vertex&gt;::iterator it = grph.vertList.begin();
+         it != grph.vertList.end();
+         ++it) {
+        stream &lt;&lt; grph.vertList[it-&gt;first];
+        cout &lt;&lt; endl;
+    }
+
+    return stream;
+}
+
+Graph bfs(Graph g, Vertex *start) {
+    start-&gt;dist = 0;
+    start-&gt;pred = NULL;
+    queue&lt;Vertex *&gt; vertQueue;
+    vertQueue.push(start);
+    while (vertQueue.size() &gt; 0) {
+        Vertex *currentVert = vertQueue.front();
+        vertQueue.pop();
+        for (unsigned int nbr = 0; nbr &lt; currentVert-&gt;getConnections().size();
+             nbr++) {
+            if (g.vertList[currentVert-&gt;getConnections()[nbr]].color == 'w') {
+                g.vertList[currentVert-&gt;getConnections()[nbr]].color = 'g';
+
+                g.vertList[currentVert-&gt;getConnections()[nbr]].dist =
+                    currentVert-&gt;dist + 1;
+                g.vertList[currentVert-&gt;getConnections()[nbr]].pred =
+                    currentVert;
+                vertQueue.push(&amp;g.vertList[currentVert-&gt;getConnections()[nbr]]);
+            }
+        }
+        currentVert-&gt;color = 'b';
+    }
+
+    return g;
+}
+
+void traverse(Vertex *y) {
+    Vertex *x = y;
+    int count = 1;
+
+    while (x-&gt;pred) {
+        cout &lt;&lt; x-&gt;id &lt;&lt; " to " &lt;&lt; x-&gt;pred-&gt;id &lt;&lt; endl;
+        x = x-&gt;pred;
+
+        count++;
+    }
+}
+
+int coordToNum(int x, int y, int bdSize) {
+    // Takes the x y position and returns the id from 0 to (bdSize*2)-1
+    int id = 0;
+    id += y * bdSize;
+    id += x;
+
+    return id;
+}
+
+pair&lt;int, int&gt; numToCoord(int id, int bdSize) {
+    int x, y;
+    x = id % bdSize;
+    y = (id - x) / bdSize;
+
+    return make_pair(x, y);
+}
+
+bool legalCoord(int x, int bdSize) {
+    if (x &gt;= 0 &amp;&amp; x &lt; bdSize) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+vector&lt;int&gt; genLegalMoves(int id, int bdSize) {
+    pair&lt;int, int&gt; coords = numToCoord(id, bdSize);
+    int x = coords.first;
+    int y = coords.second;
+
+    vector&lt;int&gt; newMoves;
+    vector&lt;pair&lt;int, int&gt;&gt; myVec = {
+        {-1, -2}, {-1, 2}, {-2, -1}, {-2, 1}, {1, -2}, {1, 2}, {2, -1}, {2, 1}};
+
+    for (unsigned int i = 0; i &lt; myVec.size(); i++) {
+        int newX = x + myVec[i].first;
+        int newY = y + myVec[i].second;
+        if (legalCoord(newX, bdSize) &amp;&amp; legalCoord(newY, bdSize)) {
+            newMoves.push_back(coordToNum(newX, newY, bdSize));
+        }
+    }
+
+    return newMoves;
+}
+
+Graph knightGraph(int bdSize) {
+    Graph ktGraph(false);
+
+    for (int row = 0; row &lt; bdSize; row++) {
+        for (int col = 0; col &lt; bdSize; col++) {
+            int nodeId = coordToNum(row, col, bdSize);
+            vector&lt;int&gt; newPositions = genLegalMoves(nodeId, bdSize);
+            for (int i = 0; i &lt; newPositions.size(); i++) {
+                int newId = newPositions[i];
+                ktGraph.addEdge(nodeId, newId);
+            }
+        }
+    }
+
+    return ktGraph;
+}
+
+int main() {
+    Graph kt = knightGraph(8);
+
+    kt = bfs(kt, kt.getVertex(63));
+    traverse(kt.getVertex(0));
+
+    return 0;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.12.5<span class="period">.</span></span><span class="space"> </span>Full Implementation of Generating the Knight Moves</figcaption></figure><span class="incontext"><a href="graphs_building-the-knights-tour-graph.html#knight-full" class="internal">in-context</a></span>
+</body>
+</html>

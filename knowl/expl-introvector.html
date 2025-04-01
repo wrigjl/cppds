@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.4</span><span class="period">.</span><span class="space"> </span><span class="title">Using <code class="code-inline tex2jax_ignore">reserve</code>.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">/*shows the use of the reserve member, and how it
+can be effective in saving time with a growing vector.*/
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+
+    vector&lt;int&gt; intvector;
+    intvector.reserve(50);
+
+    for (int i=0; i&lt;50; i++){
+        intvector.push_back(i*i);
+        cout &lt;&lt; intvector[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="introvector_py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="introvector_py-prog_editor" data-question_label="" data-codelens="true">#Python doesn't have vectors, simply stating the limit is enough
+def main():
+    intlist=[]
+    for i in range(50):
+        intlist.append(i*i)
+        print(intlist[i])
+
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="introduction_collections.html#expl-introvector" class="internal">in-context</a></span>
+</body>
+</html>

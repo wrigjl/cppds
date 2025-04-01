@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DS Analysis</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      $(document).trigger("runestone:mathjax-ready");
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX Course: Title Here';
+eBookConfig.basecourse = 'PTX Base Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.3.0/runtime.d24a93181f625912.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.3.0/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/6.3.0/runestone.aeb994b86db36b29.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.3.0/637.fafafbd97df8a0d1.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.3.0/runestone.e4d5592da655219f.css">
+</head>
+<body id="cppds2" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="introduction_introduction_matching.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="cppds2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="algorithm-analysis_objectives.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="introduction_introduction_matching.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="cppds2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="algorithm-analysis_objectives.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="ch-intro.html" data-scroll="ch-intro" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction_objectives.html" data-scroll="introduction_objectives" class="internal">Objectives</a></li>
+<li><a href="introduction_getting-started.html" data-scroll="introduction_getting-started" class="internal">Getting Started</a></li>
+<li><a href="introduction_what-is-computer-science.html" data-scroll="introduction_what-is-computer-science" class="internal">What Is Computer Science?</a></li>
+<li><a href="introduction_what-is-programming.html" data-scroll="introduction_what-is-programming" class="internal">What Is Programming?</a></li>
+<li><a href="introduction_why-study-data-structures-and-abstract-data-types.html" data-scroll="introduction_why-study-data-structures-and-abstract-data-types" class="internal">Why Study Data Structures and Abstract Data Types?</a></li>
+<li><a href="introduction_why-study-algorithms.html" data-scroll="introduction_why-study-algorithms" class="internal">Why Study Algorithms?</a></li>
+<li><a href="introduction_reviewing-basic-c.html" data-scroll="introduction_reviewing-basic-c" class="internal">Reviewing Basic C++</a></li>
+<li><a href="introduction_getting-started-with-data.html" data-scroll="introduction_getting-started-with-data" class="internal">Getting Started with Data</a></li>
+<li><a href="introduction_built-in-atomic-data-types.html" data-scroll="introduction_built-in-atomic-data-types" class="internal">Built-in Atomic Data Types</a></li>
+<li><a href="introduction_collections.html" data-scroll="introduction_collections" class="internal">Collections</a></li>
+<li><a href="introduction_defining-c-functions.html" data-scroll="introduction_defining-c-functions" class="internal">Defining C++ Functions</a></li>
+<li><a href="introduction_object-oriented-programming-in-c-defining-classes.html" data-scroll="introduction_object-oriented-programming-in-c-defining-classes" class="internal">Object-Oriented Programming in C++: Defining Classes</a></li>
+<li><a href="introduction_inheritance-in-c.html" data-scroll="introduction_inheritance-in-c" class="internal">Inheritance in C++</a></li>
+<li><a href="introduction_optional-graphics-in-c.html" data-scroll="introduction_optional-graphics-in-c" class="internal"><dfn class="terminology">Optional</dfn>: Graphics in C++</a></li>
+<li><a href="introduction_summary.html" data-scroll="introduction_summary" class="internal">Summary</a></li>
+<li><a href="introduction_discussion-questions.html" data-scroll="introduction_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="introduction_programming-exercises.html" data-scroll="introduction_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="introduction_glossary.html" data-scroll="introduction_glossary" class="internal">Glossary</a></li>
+<li><a href="introduction_introduction_matching.html" data-scroll="introduction_introduction_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link active">
+<a href="chapter-2.html" data-scroll="chapter-2" class="internal"><span class="codenumber">2</span> <span class="title">Analysis</span></a><ul>
+<li><a href="algorithm-analysis_objectives.html" data-scroll="algorithm-analysis_objectives" class="internal">Objectives</a></li>
+<li><a href="algorithm-analysis_what-is-algorithm-analysis.html" data-scroll="algorithm-analysis_what-is-algorithm-analysis" class="internal">What Is Algorithm Analysis?</a></li>
+<li><a href="algorithm-analysis_big-o-notation.html" data-scroll="algorithm-analysis_big-o-notation" class="internal">Big-O Notation</a></li>
+<li><a href="algorithm-analysis_an-anagram-detection-example.html" data-scroll="algorithm-analysis_an-anagram-detection-example" class="internal">An Anagram Detection Example</a></li>
+<li><a href="algorithm-analysis_performance-of-c-data-collections.html" data-scroll="algorithm-analysis_performance-of-c-data-collections" class="internal">Performance of C++ Data Collections</a></li>
+<li><a href="algorithm-analysis_analysis-of-array-and-vector-operators.html" data-scroll="algorithm-analysis_analysis-of-array-and-vector-operators" class="internal">Analysis of Array and Vector Operators</a></li>
+<li><a href="algorithm-analysis_analysis-of-string-operators.html" data-scroll="algorithm-analysis_analysis-of-string-operators" class="internal">Analysis of String Operators</a></li>
+<li><a href="algorithm-analysis_analysis-of-hash-tables.html" data-scroll="algorithm-analysis_analysis-of-hash-tables" class="internal">Analysis of Hash Tables</a></li>
+<li><a href="algorithmanalysis_algorithm-analysis_summary.html" data-scroll="algorithmanalysis_algorithm-analysis_summary" class="internal">Summary</a></li>
+<li><a href="algorithmanalysis_algorithm-analysis_self-check.html" data-scroll="algorithmanalysis_algorithm-analysis_self-check" class="internal">Self Check</a></li>
+<li><a href="algorithm-analysis_discussion-questions.html" data-scroll="algorithm-analysis_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="algorithm-analysis_programming-exercises.html" data-scroll="algorithm-analysis_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="algorithm-analysis_glossary.html" data-scroll="algorithm-analysis_glossary" class="internal">Glossary</a></li>
+<li><a href="algorithmanalysis_algorithm-analysis_matching.html" data-scroll="algorithmanalysis_algorithm-analysis_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-linear-basic.html" data-scroll="ch-linear-basic" class="internal"><span class="codenumber">3</span> <span class="title">Linear Structures</span></a><ul>
+<li><a href="linear-basic_objectives.html" data-scroll="linear-basic_objectives" class="internal">Objectives</a></li>
+<li><a href="linear-basic_what-are-linear-structures.html" data-scroll="linear-basic_what-are-linear-structures" class="internal">What Are Linear Structures?</a></li>
+<li><a href="linear-basic_what-is-a-stack.html" data-scroll="linear-basic_what-is-a-stack" class="internal">What is a Stack?</a></li>
+<li><a href="linear-basic_the-stack-abstract-data-type.html" data-scroll="linear-basic_the-stack-abstract-data-type" class="internal">The Stack Abstract Data Type</a></li>
+<li><a href="linear-basic_using-a-stack-in-c.html" data-scroll="linear-basic_using-a-stack-in-c" class="internal">Using a Stack in C++</a></li>
+<li><a href="linear-basic_simple-balanced-parentheses.html" data-scroll="linear-basic_simple-balanced-parentheses" class="internal">Simple Balanced Parentheses</a></li>
+<li><a href="linear-basic_balanced-symbols-a-general-case.html" data-scroll="linear-basic_balanced-symbols-a-general-case" class="internal">Balanced Symbols - A General Case</a></li>
+<li><a href="linear-basic_converting-decimal-numbers-to-binary-numbers.html" data-scroll="linear-basic_converting-decimal-numbers-to-binary-numbers" class="internal">Converting Decimal Numbers to Binary Numbers</a></li>
+<li><a href="linear-basic_infix-prefix-and-postfix-expressions.html" data-scroll="linear-basic_infix-prefix-and-postfix-expressions" class="internal">Infix, Prefix and Postfix Expressions</a></li>
+<li><a href="linear-basic_what-is-a-queue.html" data-scroll="linear-basic_what-is-a-queue" class="internal">What Is a Queue?</a></li>
+<li><a href="linear-basic_the-queue-abstract-data-type.html" data-scroll="linear-basic_the-queue-abstract-data-type" class="internal">The Queue Abstract Data Type</a></li>
+<li><a href="linear-basic_using-a-queue-in-c.html" data-scroll="linear-basic_using-a-queue-in-c" class="internal">Using a Queue in C++</a></li>
+<li><a href="linear-basic_simulation-hot-potato.html" data-scroll="linear-basic_simulation-hot-potato" class="internal">Simulation: Hot Potato</a></li>
+<li><a href="linear-basic_simulation-printing-tasks.html" data-scroll="linear-basic_simulation-printing-tasks" class="internal">Simulation: Printing Tasks</a></li>
+<li><a href="linear-basic_what-is-a-deque.html" data-scroll="linear-basic_what-is-a-deque" class="internal">What Is a Deque?</a></li>
+<li><a href="linear-basic_the-deque-abstract-data-type.html" data-scroll="linear-basic_the-deque-abstract-data-type" class="internal">The Deque Abstract Data Type</a></li>
+<li><a href="linear-basic_using-a-deque-in-c.html" data-scroll="linear-basic_using-a-deque-in-c" class="internal">Using a Deque in C++</a></li>
+<li><a href="linear-basic_palindrome-checker.html" data-scroll="linear-basic_palindrome-checker" class="internal">Palindrome-Checker</a></li>
+<li><a href="linear-basic_summary.html" data-scroll="linear-basic_summary" class="internal">Summary</a></li>
+<li><a href="linear-basic_discussion-questions.html" data-scroll="linear-basic_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="linear-basic_programming-exercises.html" data-scroll="linear-basic_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="linear-basic_glossary.html" data-scroll="linear-basic_glossary" class="internal">Glossary</a></li>
+<li><a href="linearbasic_linear-basic_matching.html" data-scroll="linearbasic_linear-basic_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-4.html" data-scroll="chapter-4" class="internal"><span class="codenumber">4</span> <span class="title">Linear Linked Structures</span></a><ul>
+<li><a href="linear-linked_objectives.html" data-scroll="linear-linked_objectives" class="internal">Objectives</a></li>
+<li><a href="linear-linked_what-are-linked-structures.html" data-scroll="linear-linked_what-are-linked-structures" class="internal">What Are Linked Structures?</a></li>
+<li><a href="linear-linked_implementing-an-unordered-linked-list.html" data-scroll="linear-linked_implementing-an-unordered-linked-list" class="internal">Implementing an Unordered Linked List</a></li>
+<li><a href="linear-linked_the-node-class.html" data-scroll="linear-linked_the-node-class" class="internal">The <code class="code-inline tex2jax_ignore">Node</code> Class</a></li>
+<li><a href="linear-linked_unordered-linked-list.html" data-scroll="linear-linked_unordered-linked-list" class="internal">The <code class="code-inline tex2jax_ignore">Unordered Linked List</code> Class</a></li>
+<li><a href="linear-linked_implementing-an-ordered-linked-list.html" data-scroll="linear-linked_implementing-an-ordered-linked-list" class="internal">Implementing an Ordered Linked List</a></li>
+<li><a href="linear-linked_the-ordered-list-abstract-data-type.html" data-scroll="linear-linked_the-ordered-list-abstract-data-type" class="internal">The Ordered List Abstract Data Type</a></li>
+<li><a href="linear-linked_summary.html" data-scroll="linear-linked_summary" class="internal">Summary</a></li>
+<li><a href="linear-linked_discussion-questions.html" data-scroll="linear-linked_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="linear-linked_programming-exercises.html" data-scroll="linear-linked_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="linear-linked_glossary.html" data-scroll="linear-linked_glossary" class="internal">Glossary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-5.html" data-scroll="chapter-5" class="internal"><span class="codenumber">5</span> <span class="title">Recursion</span></a><ul>
+<li><a href="recursion_objectives.html" data-scroll="recursion_objectives" class="internal">Objectives</a></li>
+<li><a href="recursion_what-is-recursion.html" data-scroll="recursion_what-is-recursion" class="internal">What Is Recursion?</a></li>
+<li><a href="recursion_calculating-the-sum-of-a-vector-of-numbers.html" data-scroll="recursion_calculating-the-sum-of-a-vector-of-numbers" class="internal">Calculating the Sum of a Vector of Numbers</a></li>
+<li><a href="recursion_the-three-laws-of-recursion.html" data-scroll="recursion_the-three-laws-of-recursion" class="internal">The Three Laws of Recursion</a></li>
+<li><a href="recursion_converting-an-integer-to-a-string-in-any-base.html" data-scroll="recursion_converting-an-integer-to-a-string-in-any-base" class="internal">Converting an Integer to a String in Any Base</a></li>
+<li><a href="recursion_stack-frames-implementing-recursion.html" data-scroll="recursion_stack-frames-implementing-recursion" class="internal">Stack Frames: Implementing Recursion</a></li>
+<li><a href="recursion_introduction-visualizing-recursion.html" data-scroll="recursion_introduction-visualizing-recursion" class="internal">Introduction: Visualizing Recursion</a></li>
+<li><a href="recursion_sierpinski-triangle.html" data-scroll="recursion_sierpinski-triangle" class="internal">Sierpinski Triangle</a></li>
+<li><a href="recursion_complex-recursive-problems.html" data-scroll="recursion_complex-recursive-problems" class="internal">Complex Recursive Problems</a></li>
+<li><a href="recursion_tower-of-hanoi.html" data-scroll="recursion_tower-of-hanoi" class="internal">Tower of Hanoi</a></li>
+<li><a href="recursion_exploring-a-maze.html" data-scroll="recursion_exploring-a-maze" class="internal">Exploring a Maze</a></li>
+<li><a href="recursion_dynamic-programming.html" data-scroll="recursion_dynamic-programming" class="internal">Dynamic Programming</a></li>
+<li><a href="recursion_recursion_summary.html" data-scroll="recursion_recursion_summary" class="internal">Summary</a></li>
+<li><a href="recursion_recursion_self-check.html" data-scroll="recursion_recursion_self-check" class="internal">Self-check</a></li>
+<li><a href="recursion_discussion-questions.html" data-scroll="recursion_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="recursion_programming-exercises.html" data-scroll="recursion_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="recursion_glossary.html" data-scroll="recursion_glossary" class="internal">Glossary</a></li>
+<li><a href="recursion_recursion_matching.html" data-scroll="recursion_recursion_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-6.html" data-scroll="chapter-6" class="internal"><span class="codenumber">6</span> <span class="title">Searching and Hashing</span></a><ul>
+<li><a href="search-hash_objectives.html" data-scroll="search-hash_objectives" class="internal">Objectives</a></li>
+<li><a href="search-hash_searching.html" data-scroll="search-hash_searching" class="internal">Searching</a></li>
+<li><a href="search-hash_the-sequential-search.html" data-scroll="search-hash_the-sequential-search" class="internal">The Sequential Search</a></li>
+<li><a href="search-hash_the-binary-search.html" data-scroll="search-hash_the-binary-search" class="internal">The Binary Search</a></li>
+<li><a href="search-hash_hashing.html" data-scroll="search-hash_hashing" class="internal">Hashing</a></li>
+<li><a href="sec-SelfCheck.html" data-scroll="sec-SelfCheck" class="internal">Self Check</a></li>
+<li><a href="search-hash_summary.html" data-scroll="search-hash_summary" class="internal">Summary</a></li>
+<li><a href="search-hash_discussion-questions.html" data-scroll="search-hash_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="search-hash_programming-exercises.html" data-scroll="search-hash_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="search-hash_glossary.html" data-scroll="search-hash_glossary" class="internal">Glossary</a></li>
+<li><a href="searchhash_search-hash_matching.html" data-scroll="searchhash_search-hash_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-7.html" data-scroll="chapter-7" class="internal"><span class="codenumber">7</span> <span class="title">Sorting</span></a><ul>
+<li><a href="sort_objectives.html" data-scroll="sort_objectives" class="internal">Objectives</a></li>
+<li><a href="sort_sorting.html" data-scroll="sort_sorting" class="internal">Sorting</a></li>
+<li><a href="sort_the-bubble-sort.html" data-scroll="sort_the-bubble-sort" class="internal">The Bubble Sort</a></li>
+<li><a href="sort_the-selection-sort.html" data-scroll="sort_the-selection-sort" class="internal">The Selection Sort</a></li>
+<li><a href="sort_the-insertion-sort.html" data-scroll="sort_the-insertion-sort" class="internal">The Insertion Sort</a></li>
+<li><a href="sort_the-shell-sort.html" data-scroll="sort_the-shell-sort" class="internal">The Shell Sort</a></li>
+<li><a href="sort_the-merge-sort.html" data-scroll="sort_the-merge-sort" class="internal">The Merge Sort</a></li>
+<li><a href="sort_the-quick-sort.html" data-scroll="sort_the-quick-sort" class="internal">The Quick Sort</a></li>
+<li><a href="sec-SelfCheck-sort.html" data-scroll="sec-SelfCheck-sort" class="internal">Self Check</a></li>
+<li><a href="sort_summary.html" data-scroll="sort_summary" class="internal">Summary</a></li>
+<li><a href="sort_discussion-questions.html" data-scroll="sort_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="sort_programming-exercises.html" data-scroll="sort_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="sort_glossary.html" data-scroll="sort_glossary" class="internal">Glossary</a></li>
+<li><a href="sort_sort_matching.html" data-scroll="sort_sort_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch-trees.html" data-scroll="ch-trees" class="internal"><span class="codenumber">8</span> <span class="title">Trees and Tree Algorithms</span></a><ul>
+<li><a href="trees_objectives.html" data-scroll="trees_objectives" class="internal">Objectives</a></li>
+<li><a href="trees_examples-of-trees.html" data-scroll="trees_examples-of-trees" class="internal">Examples of Trees</a></li>
+<li><a href="trees_vocabulary-and-definitions.html" data-scroll="trees_vocabulary-and-definitions" class="internal">Vocabulary and Definitions</a></li>
+<li><a href="trees_nodes-and-references.html" data-scroll="trees_nodes-and-references" class="internal">Nodes and References</a></li>
+<li><a href="trees_parse-tree.html" data-scroll="trees_parse-tree" class="internal">Parse Tree</a></li>
+<li><a href="trees_tree-traversals.html" data-scroll="trees_tree-traversals" class="internal">Tree Traversals</a></li>
+<li><a href="trees_priority-queues-with-binary-heaps.html" data-scroll="trees_priority-queues-with-binary-heaps" class="internal">Priority Queues with Binary Heaps</a></li>
+<li><a href="trees_priority-queues-with-binary-heaps-example.html" data-scroll="trees_priority-queues-with-binary-heaps-example" class="internal">Priority Queues with Binary Heaps Example</a></li>
+<li><a href="trees_binary-heap-operations.html" data-scroll="trees_binary-heap-operations" class="internal">Binary Heap Operations</a></li>
+<li><a href="trees_binary-heap-implementation.html" data-scroll="trees_binary-heap-implementation" class="internal">Binary Heap Implementation</a></li>
+<li><a href="trees_binary-search-trees.html" data-scroll="trees_binary-search-trees" class="internal">Binary Search Trees</a></li>
+<li><a href="trees_search-tree-operations.html" data-scroll="trees_search-tree-operations" class="internal">Search Tree Operations</a></li>
+<li><a href="trees_search-tree-implementation.html" data-scroll="trees_search-tree-implementation" class="internal">Search Tree Implementation</a></li>
+<li><a href="trees_search-tree-analysis.html" data-scroll="trees_search-tree-analysis" class="internal">Search Tree Analysis</a></li>
+<li><a href="trees_balanced-binary-search-trees.html" data-scroll="trees_balanced-binary-search-trees" class="internal">Balanced Binary Search Trees</a></li>
+<li><a href="trees_avl-tree-performance.html" data-scroll="trees_avl-tree-performance" class="internal">AVL Tree Performance</a></li>
+<li><a href="trees_avl-tree-implementation.html" data-scroll="trees_avl-tree-implementation" class="internal">AVL Tree Implementation</a></li>
+<li><a href="trees_summary-of-map-adt-implementations.html" data-scroll="trees_summary-of-map-adt-implementations" class="internal">Summary of Map ADT Implementations</a></li>
+<li><a href="trees_summary.html" data-scroll="trees_summary" class="internal">Summary</a></li>
+<li><a href="trees_discussion-questions.html" data-scroll="trees_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="trees_programming-exercises.html" data-scroll="trees_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="trees_glossary.html" data-scroll="trees_glossary" class="internal">Glossary</a></li>
+<li><a href="trees_trees_matching.html" data-scroll="trees_trees_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-9.html" data-scroll="chapter-9" class="internal"><span class="codenumber">9</span> <span class="title">Graphs and Graph Algorithms</span></a><ul>
+<li><a href="graphs_objectives.html" data-scroll="graphs_objectives" class="internal">Objectives</a></li>
+<li><a href="graphs_vocabulary-and-definitions.html" data-scroll="graphs_vocabulary-and-definitions" class="internal">Vocabulary and Definitions</a></li>
+<li><a href="graphs_the-graph-abstract-data-type.html" data-scroll="graphs_the-graph-abstract-data-type" class="internal">The Graph Abstract Data Type</a></li>
+<li><a href="graphs_an-adjacency-matrix.html" data-scroll="graphs_an-adjacency-matrix" class="internal">An Adjacency Matrix</a></li>
+<li><a href="graphs_an-adjacency-list.html" data-scroll="graphs_an-adjacency-list" class="internal">An Adjacency List</a></li>
+<li><a href="graphs_implementation.html" data-scroll="graphs_implementation" class="internal">Implementation</a></li>
+<li><a href="graphs_the-word-ladder-problem.html" data-scroll="graphs_the-word-ladder-problem" class="internal">The Word Ladder Problem</a></li>
+<li><a href="graphs_building-the-word-ladder-graph.html" data-scroll="graphs_building-the-word-ladder-graph" class="internal">Building the Word Ladder Graph</a></li>
+<li><a href="graphs_implementing-breadth-first-search.html" data-scroll="graphs_implementing-breadth-first-search" class="internal">Implementing Breadth First Search</a></li>
+<li><a href="graphs_breadth-first-search-analysis.html" data-scroll="graphs_breadth-first-search-analysis" class="internal">Breadth First Search Analysis</a></li>
+<li><a href="graphs_the-knights-tour-problem.html" data-scroll="graphs_the-knights-tour-problem" class="internal">The Knight's Tour Problem</a></li>
+<li><a href="graphs_building-the-knights-tour-graph.html" data-scroll="graphs_building-the-knights-tour-graph" class="internal">Building the Knight's Tour Graph</a></li>
+<li><a href="graphs_implementing-knights-tour.html" data-scroll="graphs_implementing-knights-tour" class="internal">Implementing Knight's Tour</a></li>
+<li><a href="graphs_knights-tour-analysis.html" data-scroll="graphs_knights-tour-analysis" class="internal">Knight's Tour Analysis</a></li>
+<li><a href="graphs_general-depth-first-search.html" data-scroll="graphs_general-depth-first-search" class="internal">General Depth First Search</a></li>
+<li><a href="graphs_depth-first-search-analysis.html" data-scroll="graphs_depth-first-search-analysis" class="internal">Depth First Search Analysis</a></li>
+<li><a href="graphs_topological-sorting.html" data-scroll="graphs_topological-sorting" class="internal">Topological Sorting</a></li>
+<li><a href="graphs_strongly-connected-components.html" data-scroll="graphs_strongly-connected-components" class="internal">Strongly Connected Components</a></li>
+<li><a href="graphs_shortest-path-problems.html" data-scroll="graphs_shortest-path-problems" class="internal">Shortest Path Problems</a></li>
+<li><a href="graphs_dijkstras-algorithm.html" data-scroll="graphs_dijkstras-algorithm" class="internal">Dijkstra's Algorithm</a></li>
+<li><a href="graphs_analysis-of-dijkstras-algorithm.html" data-scroll="graphs_analysis-of-dijkstras-algorithm" class="internal">Analysis of Dijkstra's Algorithm</a></li>
+<li><a href="graphs_prims-spanning-tree-algorithm.html" data-scroll="graphs_prims-spanning-tree-algorithm" class="internal">Prim's Spanning Tree Algorithm</a></li>
+<li><a href="graphs_summary.html" data-scroll="graphs_summary" class="internal">Summary</a></li>
+<li><a href="graphs_discussion-questions.html" data-scroll="graphs_discussion-questions" class="internal">Discussion Questions</a></li>
+<li><a href="graphs_programming-exercises.html" data-scroll="graphs_programming-exercises" class="internal">Programming Exercises</a></li>
+<li><a href="graphs_glossary.html" data-scroll="graphs_glossary" class="internal">Glossary</a></li>
+<li><a href="graphs_graphs_matching.html" data-scroll="graphs_graphs_matching" class="internal">Matching</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="chapter" id="chapter-2"><h2 class="heading">
+<span class="type">Chapter</span> <span class="codenumber">2</span> <span class="title">Analysis</span>
+</h2>
+<nav class="summary-links"><ul>
+<li><a href="algorithm-analysis_objectives.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Objectives</span></a></li>
+<li><a href="algorithm-analysis_what-is-algorithm-analysis.html" class="internal"><span class="codenumber">2.2</span> <span class="title">What Is Algorithm Analysis?</span></a></li>
+<li><a href="algorithm-analysis_big-o-notation.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Big-O Notation</span></a></li>
+<li><a href="algorithm-analysis_an-anagram-detection-example.html" class="internal"><span class="codenumber">2.4</span> <span class="title">An Anagram Detection Example</span></a></li>
+<li><a href="algorithm-analysis_performance-of-c-data-collections.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Performance of C++ Data Collections</span></a></li>
+<li><a href="algorithm-analysis_analysis-of-array-and-vector-operators.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Analysis of Array and Vector Operators</span></a></li>
+<li><a href="algorithm-analysis_analysis-of-string-operators.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Analysis of String Operators</span></a></li>
+<li><a href="algorithm-analysis_analysis-of-hash-tables.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Analysis of Hash Tables</span></a></li>
+<li><a href="algorithmanalysis_algorithm-analysis_summary.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Summary</span></a></li>
+<li><a href="algorithmanalysis_algorithm-analysis_self-check.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Self Check</span></a></li>
+<li><a href="algorithm-analysis_discussion-questions.html" class="internal"><span class="codenumber">2.11</span> <span class="title">Discussion Questions</span></a></li>
+<li><a href="algorithm-analysis_programming-exercises.html" class="internal"><span class="codenumber">2.12</span> <span class="title">Programming Exercises</span></a></li>
+<li><a href="algorithm-analysis_glossary.html" class="internal"><span class="codenumber">2.13</span> <span class="title">Glossary</span></a></li>
+<li><a href="algorithmanalysis_algorithm-analysis_matching.html" class="internal"><span class="codenumber">2.14</span> <span class="title">Matching</span></a></li>
+</ul></nav></section></div></main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

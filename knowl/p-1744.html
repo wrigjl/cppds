@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>This is often called dynamic programming with tabulation. Let's look at how we would fill in a table of minimum coins to use in making change for 11 cents. <a href="" class="xref" data-knowl="./knowl/fig-dpcoins.html" title="Figure 5.12.2">Figure 5.12.2</a> illustrates the process. We start with one cent. The only solution possible is one coin (a penny). The next row shows the minimum for one cent and two cents. Again, the only solution is two pennies. The fifth row is where things get interesting. Now we have two options to consider, five pennies or one nickel. How do we decide which is best? We consult the table and see that the number of coins needed to make change for four cents is four, plus one more penny to make five, equals five coins. Or we can look at zero cents plus one more nickel to make five cents equals 1 coin. Since the minimum of one and five is one we store 1 in the table. Fast forward again to the end of the table and consider 11 cents. <a href="" class="xref" data-knowl="./knowl/fig-eleven.html" title="Figure 5.12.3">Figure 5.12.3</a> shows the three options that we have to consider:</p>
+<span class="incontext"><a href="recursion_dynamic-programming.html#p-1744" class="internal">in-context</a></span>
+</body>
+</html>

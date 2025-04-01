@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<ol class="decimal">
+<li><p>Create an empty stack called <code class="code-inline tex2jax_ignore">opstack</code> for keeping operators. Create an empty vector for output.</p></li>
+<li>
+<p>Scan the current token of the input vector from left to right (using a loop).</p>
+<ul class="disc">
+<li><p>If the token is an operand, append it to the end of the output list(vector).</p></li>
+<li><p>If the token is a left parenthesis, push it on the <code class="code-inline tex2jax_ignore">opstack</code>.</p></li>
+<li><p>If the token is a right parenthesis, pop the <code class="code-inline tex2jax_ignore">opstack</code> until the corresponding left parenthesis is removed. Append each operator to the end of the output vector.</p></li>
+<li><p>If the token is an operator, *, /, +, or -, push it on the <code class="code-inline tex2jax_ignore">opstack</code>. However, first remove any operators already on the <code class="code-inline tex2jax_ignore">opstack</code> that have higher or equal precedence and append them to the output vector.</p></li>
+</ul>
+</li>
+<li><p>When the input expression has been completely processed, check the <code class="code-inline tex2jax_ignore">opstack</code>. Any operators still on the stack can be removed and appended to the end of the output vector.</p></li>
+</ol>
+<span class="incontext"><a href="linear-basic_infix-prefix-and-postfix-expressions.html#p-1147" class="internal">in-context</a></span>
+</body>
+</html>

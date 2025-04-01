@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Reading Question</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone"><div data-component="clickablearea" data-question_label="" style="visibility: hidden;" id="stackclick">
+<span data-question=""><p id="p-1087">Using the program below, click on the line of code that adds an open parenthesis to the stack.</p></span><span data-feedback=""><p id="p-1088">Remember that the function to do this would be the push function.</p></span><pre><span data-incorrect="">bool parChecker(string symbolString){</span>:
+      <span data-incorrect="">stack&lt;string&gt; s;</span>:
+      <span data-incorrect="">bool balanced = true;</span>:
+      <span data-incorrect="">int index = 0;</span>:
+      <span data-incorrect="">int symbolLength = symbolString.length();</span>:
+
+      <span data-incorrect="">while(index &lt; symbolLength &amp;&amp; balanced){</span>:
+          <span data-incorrect="">string symbol;</span>:
+          <span data-incorrect="">symbol = symbolString[index];</span>:
+          <span data-incorrect="">string opens = "({[";</span>:
+          <span data-incorrect="">if (inString(symbol, opens)){</span>:
+              <span data-correct="">s.push(symbol);</span>:
+          } else {
+              <span data-incorrect="">if (s.empty()){</span>:
+                  <span data-incorrect="">balanced = false;</span>:
+              } else {
+                  <span data-incorrect="">string top = s.top();</span>:
+                  <span data-incorrect="">s.pop();</span>:
+                  <span data-incorrect="">if (!matches(top, symbol)){</span>:
+                      <span data-incorrect="">balanced = false;</span>:
+                  }
+              }
+          }
+          <span data-incorrect="">index = index + 1;</span>:
+      }
+      <span data-incorrect="">if(balanced &amp;&amp; s.empty()){</span>:
+          <span data-incorrect="">return true;</span>:
+      } else {
+          <span data-incorrect="">return false;</span>:
+      }
+  <span data-incorrect="">}</span>
+</pre>
+</div></div></div></article><span class="incontext"><a href="linear-basic_balanced-symbols-a-general-case.html#stackclick" class="internal">in-context</a></span>
+</body>
+</html>

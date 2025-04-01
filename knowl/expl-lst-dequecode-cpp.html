@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.17.1</span><span class="period">.</span><span class="space"> </span><span class="title">Dequeue Implementation.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">//Example code of a deque.
+
+#include &lt;iostream&gt;
+#include &lt;deque&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+    deque&lt;string&gt; d;
+    cout &lt;&lt; "Deque Empty? " &lt;&lt; d.empty() &lt;&lt; endl;
+    d.push_back("Zebra");
+    cout &lt;&lt; "Deque Empty? " &lt;&lt; d.empty() &lt;&lt; endl;
+
+    d.push_front("Turtle"); //pushes to the front of the deque.
+    d.push_front("Panda");
+    d.push_back("Catfish"); //pushes to the back of the deque.
+    d.push_back("Giraffe");
+
+    cout &lt;&lt; "Deque Size: " &lt;&lt; d.size() &lt;&lt; endl;
+    cout &lt;&lt; "Item at the front: " &lt;&lt; d.front() &lt;&lt; endl;
+    cout &lt;&lt; "Item at the back: " &lt;&lt; d.back() &lt;&lt; endl;
+
+    cout &lt;&lt; endl &lt;&lt; "Items in the Deque: " &lt;&lt; endl;
+    int dsize = d.size();
+    for(int i = 0; i &lt; dsize; i++){
+        //prints each item in the deque.
+        cout &lt;&lt; d.at(i) &lt;&lt; " ";
+    }
+
+    cout &lt;&lt; endl;
+
+    d.pop_back();
+    d.pop_front();
+
+    cout &lt;&lt; endl &lt;&lt; "Item at the front: " &lt;&lt; d.front() &lt;&lt; endl;
+    cout &lt;&lt; "Itm at the back: " &lt;&lt; d.back() &lt;&lt; endl;
+    cout &lt;&lt; "Deque Size: " &lt;&lt; d.size() &lt;&lt; endl;
+
+    cout &lt;&lt; endl &lt;&lt; "Items in the Deque: " &lt;&lt; endl;
+    int dsize2 = d.size();
+    for(int i = 0; i &lt; dsize2; i++){
+        //prints each item in the deque.
+        cout &lt;&lt; d.at(i) &lt;&lt; " ";
+
+    return 0;
+    }
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="dequecode_py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="dequecode_py-prog_editor" data-question_label="" data-codelens="true">#Example code of a deque.
+
+class Deque:
+    def __init__(self):
+        self.items = []
+
+    def empty(self):
+        return self.items == []
+
+    def push_back(self, item):
+        self.items.append(item)
+
+    def push_front(self, item):
+        self.items.insert(0,item)
+
+    def pop_back(self):
+        self.items.pop()
+
+    def pop_front(self):
+        self.items.pop(0)
+
+    def back(self):
+        return self.items[-1]
+
+    def front(self):
+        return self.items[0]
+
+    def size(self):
+        return len(self.items)
+
+    def at(self, index):
+        return self.items[index]
+
+def main():
+    d = Deque()
+
+    print("Deque Empty? ", d.empty())
+    d.push_back("Zebra")
+    print("Deque Empty? ", d.empty())
+
+    d.push_front("Turtle") #pushes to the front of the deque.
+    d.push_front("Panda")
+    d.push_back("Catfish") #pushes to the back of the deque.
+    d.push_back("Giraffe")
+
+    print("Deque Size: ", d.size())
+    print("Item at the front: ", d.front())
+    print("Item at the back: ", d.back())
+
+    print("\n")
+    print("Items in the Deque: ")
+    for i in range(d.size()):
+        #prints each item in the deque.
+        print(d.at(i), end=" ")
+    print("\n")
+
+    d.pop_back()
+    d.pop_front()
+
+    print("Item at the front: ", d.front())
+    print("Item at the back: ", d.back())
+    print("Deque Size: ", d.size())
+
+    print("\n")
+    print("Items in the Deque: ")
+    for i in range(d.size()):
+        #prints each item in the deque.
+        print(d.at(i), end=" ")
+    print("\n")
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="linear-basic_using-a-deque-in-c.html#expl-lst-dequecode-cpp" class="internal">in-context</a></span>
+</body>
+</html>

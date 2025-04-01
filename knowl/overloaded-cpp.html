@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h5 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">1.12.5.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">/*overloading functions to take in different
+inputs and output the correct results*/
+#include &lt;iostream&gt;
+using namespace std;
+
+class Fraction {
+    public:
+        Fraction(int top = 0, int bottom = 1){
+            num = top;
+            den = bottom;
+        }
+
+    //the following tells the compiler to look for this friend's definition outside the class
+    friend ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac);
+
+    private:
+        int num, den;
+};
+
+ostream &amp;operator &lt;&lt; (ostream &amp;stream, const Fraction &amp;frac) {
+    /** this is the definition. */
+    stream &lt;&lt; frac.num &lt;&lt; "/" &lt;&lt; frac.den;
+    return stream;
+}
+
+int main() {
+    Fraction myfraction(3, 5);
+    cout &lt;&lt; myfraction &lt;&lt; " is my fraction" &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre></article><span class="incontext"><a href="introduction_object-oriented-programming-in-c-defining-classes.html#overloaded-cpp" class="internal">in-context</a></span>
+</body>
+</html>

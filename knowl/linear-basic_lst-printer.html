@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Printer {
+public:
+    Printer(int pagesPerMinute) {
+        pagerate = pagesPerMinute;
+        timeRemaining=0;
+        working = false;
+    }
+
+    void tick() {
+        //Performed once per second in the simulation.
+
+        if (working) { // If we're working on something...
+            timeRemaining--;// Subtract the remaining time.
+            if (timeRemaining &lt;= 0)
+                working = false; // When finished, stop working.
+        }
+    }
+
+    bool busy() {
+        return working;
+    }
+
+    void startNext(Task newtask) {
+        currentTask=newtask;
+        timeRemaining=newtask.getPages()*60/pagerate;
+        working = true;
+    }
+
+private:
+    int pagerate; // unit is pages per minute.
+    Task currentTask = {0};// Current task. default is a dummy value.
+    bool working; // Are we working on the current task?
+    int timeRemaining; // Time remaining, in "seconds".
+};
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.14.2<span class="period">.</span></span><span class="space"> </span>The <code class="code-inline tex2jax_ignore">Printer</code> class</figcaption></figure><span class="incontext"><a href="linear-basic_simulation-printing-tasks.html#linear-basic_lst-printer" class="internal">in-context</a></span>
+</body>
+</html>

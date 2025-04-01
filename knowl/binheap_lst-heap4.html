@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void percDown(int i){
+    while ((i*2) &lt;= this-&gt;currentSize){
+        int mc = this-&gt;minChild(i);
+        if (this-&gt;heapvector[i] &gt; this-&gt;heapvector[mc]){
+            int tmp = this-&gt;heapvector[i];
+            this-&gt;heapvector[i] = this-&gt;heapvector[mc];
+            this-&gt;heapvector[mc] = tmp;
+        }
+        i = mc;
+    }
+}
+
+int minChild(int i){
+    if (((i*2)+1) &gt; this-&gt;currentSize){
+        return i * 2;
+    }
+    else{
+        if (this-&gt;heapList[i*2] &lt; this-&gt;heapList[(i*2)+1]){
+            return i * 2;
+        }
+        else{
+            return (i * 2) + 1;
+        }
+    }
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.8<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">percDown</code> and <code class="code-inline tex2jax_ignore">minChild</code> Methods</figcaption></figure><span class="incontext"><a href="trees_binary-heap-implementation.html#binheap_lst-heap4" class="internal">in-context</a></span>
+</body>
+</html>

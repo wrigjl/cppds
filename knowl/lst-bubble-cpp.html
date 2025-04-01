@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">7.3.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+//function goes through list sorting adjacent values as it bubbles
+//the largest value to the top.
+vector&lt;int&gt; bubbleSort(vector&lt;int&gt; avector) { //the vector for bubble sort
+  for (int passnum = avector.size()-1; passnum &gt; 0; passnum -= 1) {
+      for (int i = 0; i &lt; passnum; i++) {
+          if (avector[i] &gt; avector[i+1]) {
+              int temp = avector[i];
+              avector[i] = avector[i+1];
+              avector[i+1] = temp;
+          }
+      }
+  }
+  return avector;
+}
+
+int main() {
+    // Vector initialized using a static array
+    static const int arr[] = {54,26,93,17,77,31,44,55,20};
+    vector&lt;int&gt; avector (arr, arr + sizeof(arr) / sizeof(arr[0]) );
+
+    vector&lt;int&gt; bvector = bubbleSort(avector);
+    for (unsigned int i = 0; i &lt; bvector.size(); i++) {
+        cout&lt;&lt;bvector[i]&lt;&lt; " ";
+    }
+    return 0;
+}
+</code></pre></article><span class="incontext"><a href="sort_the-bubble-sort.html#lst-bubble-cpp" class="internal">in-context</a></span>
+</body>
+</html>

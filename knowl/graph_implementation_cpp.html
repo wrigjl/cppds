@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">9.6.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class Vertex {
+public:
+        int id;
+        map&lt;int, int&gt; connectedTo;
+
+                //Empty constructor.
+        Vertex() {
+        }
+
+                //Constructor that defines the key of the vertex.
+        Vertex(int key) {
+                id = key;
+        }
+
+                //Adds a neighbor to this vertex with the specified ID and weight.
+        void addNeighbor(int nbr, int weight = 0) {
+                connectedTo[nbr] = weight;
+        }
+                //Returns a vector (e.g, list) of vertices connected to this one.
+        vector&lt;int&gt; getConnections() {
+                vector&lt;int&gt; keys;
+                // Use of iterator to find all keys
+                for (map&lt;int, int&gt;::iterator it = connectedTo.begin();
+                        it != connectedTo.end();
+                        ++it) {
+                        keys.push_back(it-&gt;first);
+                }
+                return keys;
+        }
+
+                //Returns the ID of this vertex.
+        int getId() {
+                return id;
+        }
+
+                //Returns the weight of the connection between this vertex and the specified neighbor.
+        int getWeight(int nbr) {
+                return connectedTo[nbr];
+        }
+
+                //Output stream overload operator for printing to the screen.
+        friend ostream &amp;operator&lt;&lt;(ostream &amp;, Vertex &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
+        vector&lt;int&gt; connects = vert.getConnections();
+        for (unsigned int i = 0; i &lt; connects.size(); i++) {
+                stream &lt;&lt; "( " &lt;&lt; vert.id &lt;&lt; " , " &lt;&lt; connects[i] &lt;&lt; " ) \n";
+        }
+
+        return stream;
+}
+
+class Graph {
+public:
+        map&lt;int, Vertex&gt; vertList;
+        int numVertices;
+
+                //Empty constructor.
+        Graph() {
+                numVertices = 0;
+        }
+
+                //Adds the specified vertex and returns a copy of it.
+        Vertex addVertex(int key) {
+                numVertices++;
+                Vertex newVertex = Vertex(key);
+                this-&gt;vertList[key] = newVertex;
+                return newVertex;
+        }
+
+                //Returns the vertex with the specified ID.
+                //Will return NULl if the vertex doesn't exist.
+        Vertex *getVertex(int n) {
+                for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
+                        it != vertList.end();
+                        ++it) {
+                        if (it-&gt;first == n) {
+                                // Forced to use pntr due to possibility of returning NULL
+                                Vertex *vpntr = &amp;vertList[n];
+                                return vpntr;
+                        } else {
+                                return NULL;
+                        }
+                }
+        }
+                //Returns a boolean indicating if an index with the specified ID exists.
+        bool contains(int n) {
+                for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
+                        it != vertList.end();
+                        ++it) {
+                        if (it-&gt;first == n) {
+                                return true;
+                        }
+                }
+                return false;
+        }
+
+                //Adds an edge between vertices F and T with a weight equivalent to cost.
+        void addEdge(int f, int t, int cost = 0) {
+                if (!this-&gt;contains(f)) {
+                        cout &lt;&lt; f &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                        this-&gt;addVertex(f);
+                }
+                if (!this-&gt;contains(t)) {
+                        cout &lt;&lt; t &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                }
+                vertList[f].addNeighbor(t, cost);
+        }
+
+                //Returns a vector (e.g, list) of all vertices in this graph.
+        vector&lt;int&gt; getVertices() {
+                vector&lt;int&gt; verts;
+
+                for (map&lt;int, Vertex&gt;::iterator it = vertList.begin();
+                        it != vertList.end();
+                        ++it) {
+                        verts.push_back(it-&gt;first);
+                }
+                return verts;
+        }
+
+                //Overloaded Output stream operator for printing to the screen
+        friend ostream &amp;operator&lt;&lt;(ostream &amp;, Graph &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
+        for (unsigned int i = 0; i &lt; grph.vertList.size(); i++) {
+                stream &lt;&lt; grph.vertList[i];
+        }
+
+        return stream;
+}
+
+int main() {
+        Graph g;
+
+        for (int i = 0; i &lt; 6; i++) {
+                g.addVertex(i);
+        }
+
+        g.addEdge(0, 1, 5);
+        g.addEdge(0, 5, 2);
+        g.addEdge(1, 2, 4);
+        g.addEdge(2, 3, 9);
+        g.addEdge(3, 4, 7);
+        g.addEdge(3, 5, 3);
+        g.addEdge(4, 0, 1);
+        g.addEdge(5, 4, 8);
+        g.addEdge(5, 2, 1);
+
+        cout &lt;&lt; g &lt;&lt; endl;
+
+        return 0;
+}
+</code></pre></article><span class="incontext"><a href="graphs_implementation.html#graph_implementation_cpp" class="internal">in-context</a></span>
+</body>
+</html>

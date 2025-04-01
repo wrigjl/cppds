@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">Evaluating A Parse Tree.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">class Operator {
+    public:
+        int add(int x, int y){
+            return x + y;
+        }
+
+        int sub(int x, int y){
+            return x - y;
+        }
+
+        int mul(int x, int y){
+            return x * y;
+        }
+
+        int div(int x, int y){
+            return x / y;
+        }
+};
+
+int to_int(string str) {
+    stringstream convert(str);
+    int x = 0;
+    convert &gt;&gt; x;
+    return x;
+}
+
+string to_string(int num) {
+    string str;
+    ostringstream convert;
+    convert &lt;&lt; num;
+    str = convert.str();
+    return str;
+}
+
+string evaluate(BinaryTree *parseTree) {
+    Operator Oper;
+
+    BinaryTree *leftC = parseTree-&gt;getLeftChild();
+    BinaryTree *rightC = parseTree-&gt;getRightChild();
+
+    if (leftC &amp;&amp; rightC) {
+        if (parseTree-&gt;getRootVal() == "+") {
+            return to_string(Oper.add(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+        } else if (parseTree-&gt;getRootVal() == "-") {
+            return to_string(Oper.sub(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+        } else if (parseTree-&gt;getRootVal() == "*") {
+            return to_string(Oper.mul(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+        } else {
+            return to_string(Oper.div(to_int(evaluate(leftC)), to_int(evaluate(rightC))));
+        }
+    } else {
+        return parseTree-&gt;getRootVal();
+    }
+}
+
+int main(){
+
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">def evaluate(parseTree):
+    opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
+
+    leftC = parseTree.getLeftChild()
+    rightC = parseTree.getRightChild()
+
+    if leftC and rightC:
+        fn = opers[parseTree.getRootVal()]
+        return fn(evaluate(leftC),evaluate(rightC))
+    else:
+        return parseTree.getRootVal()
+</code></pre></div></article></article><span class="incontext"><a href="trees_parse-tree.html#expl-eval" class="internal">in-context</a></span>
+</body>
+</html>

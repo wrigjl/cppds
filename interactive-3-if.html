@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      $(document).trigger("runestone:mathjax-ready");
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-content ignore-math" id="cppds2"><div style="width:600px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;">
+<div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;"><div class="sbspanel top" style="width:100%;"><canvas style="display:block" id="insertion_anim_canvas" width="540" height="324"></canvas></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1%;margin-right:1%;">
+<div class="sbspanel top" style="width:18.3673469387755%;"><input xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" type="button" value="Initialize" onkeypress="insertion_anim_anim = insertion_anim_init('insertion_anim');" onclick="insertion_anim_anim = insertion_anim_init('insertion_anim');" style="font-size:16px; width:100%"></input></div>
+<div class="sbspanel top" style="width:18.3673469387755%;"><input xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" type="button" value="Run" onkeypress="insertion_anim_anim.run('insertion_anim_anim');" onclick="insertion_anim_anim.run('insertion_anim_anim');" style="font-size:16px; width:100%"></input></div>
+<div class="sbspanel top" style="width:18.3673469387755%;"><input xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" type="button" value="Stop" onkeypress="insertion_anim_anim.stop();" onclick="insertion_anim_anim.stop();" style="font-size:16px; width:100%"></input></div>
+<div class="sbspanel top" style="width:18.3673469387755%;"><input xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" type="button" value="Beginning" onkeypress="insertion_anim_anim.begin();" onclick="insertion_anim_anim.begin();" style="font-size:16px; width:100%"></input></div>
+<div class="sbspanel top" style="width:18.3673469387755%;"><input xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" type="button" value="End" onkeypress="insertion_anim_anim.end();" onclick="insertion_anim_anim.end();" style="font-size:16px; width:100%"></input></div>
+</div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;">
+<div class="sbspanel top" style="width:50%;"><input xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" type="button" value="Step Forward" onkeypress="insertion_anim_anim.forward();" onclick="insertion_anim_anim.forward();" style="font-size:16px; width:100%"></input></div>
+<div class="sbspanel top" style="width:50%;"><input xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" type="button" value="Step Backward" onkeypress="insertion_anim_anim.backward();" onclick="insertion_anim_anim.backward();" style="font-size:16px; width:100%"></input></div>
+</div></div>
+<script src="external/Sort/sortmodels.js"></script>
+</div></body>
+</html>

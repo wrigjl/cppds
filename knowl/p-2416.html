@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>Another interesting property of a complete tree is that we can represent it using a single vector. We do not need to use nodes and references or even vectors of vectors. Because the tree is complete, the left child of a parent (at position <span class="process-math">\(p\)</span>) is the node that is found in position <span class="process-math">\(2p\)</span> in the vector. Similarly, the right child of the parent is at position <span class="process-math">\(2p + 1\)</span> in the vector. To find the parent of any node in the tree, we can simply use Python's integer division. Given that a node is at position <span class="process-math">\(n\)</span> in the vector, the parent is at position <span class="process-math">\(n/2\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/binheap_fig-heaporder.html" title="Figure 8.10.2">Figure 8.10.2</a> shows a complete binary tree and also gives the vector representation of the tree.  Note the <span class="process-math">\(2p\)</span> and <span class="process-math">\(2p+1\)</span> relationship between parent and children. The vector representation of the tree, along with the full structure property, allows us to efficiently traverse a complete binary tree using only a few simple mathematical operations. We will see that this also leads to an efficient implementation of our binary heap.</p>
+<span class="incontext"><a href="trees_binary-heap-implementation.html#p-2416" class="internal">in-context</a></span>
+</body>
+</html>

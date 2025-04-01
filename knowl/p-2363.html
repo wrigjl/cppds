@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>At this point we have one parameter evaluated for our top-level call to <code class="code-inline tex2jax_ignore">operator.add</code>. But we are not done yet. Continuing the left-to-right evaluation of the parameters, we now make a recursive call to evaluate the right child of the root. We find that the node has both a left and a right child so we look up the operator stored in this node, <code class="code-inline tex2jax_ignore">'*'</code>, and call this function using the left and right children as the parameters. At this point you can see that both recursive calls will be to leaf nodes, which will evaluate to the integers four and five respectively. With the two parameters evaluated, we return the result of <code class="code-inline tex2jax_ignore">operator.mul(4,5)</code>. At this point we have evaluated the operands for the top level <code class="code-inline tex2jax_ignore">'+'</code> operator and all that is left to do is finish the call to <code class="code-inline tex2jax_ignore">operator.add(3,20)</code>. The result of the evaluation of the entire expression tree for <span class="process-math">\((3 + (4 * 5))\)</span> is 23.</p>
+<span class="incontext"><a href="trees_parse-tree.html#p-2363" class="internal">in-context</a></span>
+</body>
+</html>

@@ -12,7 +12,7 @@
 </head>
 <body class="ignore-math">
 <article class="task exercise-like"><h5 class="heading">
-<span class="type">Task</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">2.4.3.a</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">2.4.3.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
 <pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -25,32 +25,23 @@ bool anagramSolution4(string s1, string s2){
     int c1[26] = {0};
     int c2[26] = {0};
 
-    int x;
-    int a = 'a';
     for (unsigned int i = 0; i &lt; s1.length(); i++){
-        x = s1[i] - a;
-        int pos = x;
-        c1[pos] = c1[pos] + 1;
+        int pos = s1[i] - 'a';
+        c1[pos] += 1;
     }
 
-    int y;
-    int b = 'a';
     for (unsigned int i = 0; i &lt; s2.length(); i++){
-        y = s2[i] - b;
-        int pos = y;
-        c2[pos] = c2[pos] + 1;
+        int pos = s2[i] - 'a';
+        c2[pos] += 1;
     }
 
-    int j = 0;
-    bool stillOK = true;
-    while (j &lt; 26 &amp;&amp; stillOK){
-        if (c1[j] == c2[j]){
-            j = j + 1;
-        } else{
-            stillOK = false;
+    for (unsigned int i = 0; i &lt; 26; i++) {
+        if (c1[i] != c2[i]){
+            return false;
         }
     }
-    return stillOK;
+
+    return true;
 }
 
 int main(){

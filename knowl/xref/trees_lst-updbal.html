@@ -11,7 +11,7 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program line-numbers"><code class="language-cpp">void _put(int key, string val, TreeNode *currentNode){
+<figure class="listing figure-like"><div class="code-box"><pre class="program line-numbers"><code class="language-cpp">void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
             this-&gt;_put(key, val, currentNode-&gt;leftChild);
@@ -51,6 +51,6 @@ int updateBalance(TreeNode *node){
     return 0;
 }
 </code></pre></div>
-<figcaption xmlns:pf="https://prefigure.org"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.1<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">_put</code> and <code class="code-inline tex2jax_ignore">updateBalance</code></figcaption></figure><span class="incontext"><a class="internal" href="trees_avl-tree-implementation.html#trees_lst-updbal">in-context</a></span>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.1<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">_put</code> and <code class="code-inline tex2jax_ignore">updateBalance</code></figcaption></figure><span class="incontext"><a class="internal" href="trees_avl-tree-implementation.html#trees_lst-updbal">in-context</a></span>
 </body>
 </html>

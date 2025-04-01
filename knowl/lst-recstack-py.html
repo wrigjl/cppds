@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">5.6.1.b</span><span class="period">.</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_recstackpy-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_recstackpy-prog_editor" data-question_label="" data-codelens="true">#Example of the toStr function using a stack instead of recursion.
+
+from pythonds.basic.stack import Stack
+
+rStack = Stack()
+
+def toStr(n,base):
+    convertString = "0123456789ABCDEF"
+    while n &gt; 0:
+        if n &lt; base:
+            rStack.push(convertString[n]) #adds string n to the stack.
+        else:
+            rStack.push(convertString[n % base]) #adds string n modulo base to the stack.
+        n = n // base
+    res = ""
+    while not rStack.isEmpty():
+        #combines all the items in the stack to make the full string.
+        res = res + str(rStack.pop())
+    return res
+
+def main():
+    print(toStr(1453,16))
+
+main()
+</textarea></div></div></div></article><span class="incontext"><a href="recursion_stack-frames-implementing-recursion.html#lst-recstack-py" class="internal">in-context</a></span>
+</body>
+</html>

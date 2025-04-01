@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Anagram Solution.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+//checks to see if the anagrams have the same number of characters
+
+bool anagramsolution1(string s1, string s2){
+    bool stillOK = true;
+    if (s1.length() != s2.length()) {
+        stillOK = false;
+        return stillOK;
+    }
+    string locals2 = s2;
+    int n = s1.length();
+    unsigned int pos1 = 0;
+
+    // checks to see if all of the letters are the same in both inputs
+
+    while (pos1 &lt; s1.length() &amp;&amp; stillOK){
+        int pos2 = 0;
+        bool found = false;
+        while (pos2 &lt; n &amp;&amp; !found){
+            if (s1[pos1] == locals2[pos2]){
+                found = true;
+            } else{
+                pos2 = pos2 + 1;
+            }
+        }
+        if (found){
+            locals2[pos2] = '\0';
+        }
+        else{
+            stillOK = false;
+        }
+        pos1 = pos1 + 1;
+    }
+    return stillOK;
+}
+
+int main(){
+    bool value = anagramsolution1("abcd", "dcab");
+    cout &lt;&lt; value &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="active0py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="active0py-prog_editor" data-question_label="" data-codelens="true">#checks to see if the anagrams have the same number of characters
+
+def anagramSolution1(s1,s2):
+    stillOK = True
+    if len(s1) != len(s2):
+        stillOK = False
+        return stillOK
+
+    lists2 = list(s2)
+    pos1 = 0
+
+    # checks to see if all of the letters are the same in both inputs
+    while pos1 &lt; len(s1) and stillOK:
+        pos2 = 0
+        found = False
+        while pos2 &lt; len(lists2) and not found:
+            if s1[pos1] == lists2[pos2]:
+                found = True
+            else:
+                pos2 = pos2 + 1
+
+        if found:
+            lists2[pos2] = None
+        else:
+            stillOK = False
+
+        pos1 = pos1 + 1
+
+    return stillOK
+
+def main():
+    print(anagramSolution1('abcd','dcba'))
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="algorithm-analysis_an-anagram-detection-example.html#expl-anagramsolution" class="internal">in-context</a></span>
+</body>
+</html>

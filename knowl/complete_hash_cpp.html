@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h5 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">6.5.3.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+class HashTable{
+    public:
+    static const int size=11; // initial size of hash table is prime to help with collision resolution
+    int slots[size]; // list to hold key items
+    string data[size]; // list to hold data values
+
+    int hashfunction(int key) { // implements remainder method
+        return key%size;
+    }
+
+      // Computes original hashvalue, and if slot is
+      // not empty iterates until empty slot is found
+    int rehash(int oldhash) {
+        return (oldhash+1)%size;
+    }
+
+    // Function that assumes there will eventually be
+    // an empty slot unless the key is alread present in the slot
+    void put(int key, string val){
+        int hashvalue = hashfunction(key);
+        int count = 0;
+
+        if (data[hashvalue]=="") {
+            slots[hashvalue] = key;
+            data[hashvalue] = val;
+        } else {
+            if (slots[hashvalue] == key) {
+                data[hashvalue] = val;
+            } else {
+                int nextslot = rehash(hashvalue);
+
+                while (data[nextslot]!="" &amp;&amp; slots[nextslot] != key) {
+                    nextslot = rehash(nextslot);
+
+                    count++;
+                    if (count&gt;size) {
+                        cout&lt;&lt;"TABLE FULL"&lt;&lt;endl;
+                        return;
+                    }
+                }
+                if (data[nextslot]=="") {
+                    slots[nextslot]=key;
+                    data[nextslot]=val;
+                } else {
+                    data[nextslot] = val;
+                }
+            }
+        }
+    }
+
+    // computes the initial hash value
+    // if value is not in the initial slot, uses
+    // rehash to locate the next position
+    string get(int key) {
+        int startslot = hashfunction(key);
+
+        string val;
+        bool stop=false;
+        bool found=false;
+        int position = startslot;
+        while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
+            if (slots[position]==key) {
+                found = true;
+                val = data[position];
+            } else {
+                position=rehash(position);
+                if (position==startslot) {
+                    stop=true;
+                }
+            }
+
+        }
+        return val;
+    }
+
+    friend ostream&amp; operator&lt;&lt;(ostream&amp; stream, HashTable&amp; hash);
+};
+
+
+
+ostream&amp; operator&lt;&lt;(ostream&amp; stream, HashTable&amp; hash) {
+    for (int i=0; i&lt;hash.size; i++) {
+        stream&lt;&lt;hash.slots[i]&lt;&lt;": "&lt;&lt;hash.data[i]&lt;&lt;endl;
+    }
+
+    return stream;
+}
+
+int main() {
+    HashTable h;
+
+    h.put(54, "cat");
+    h.put(26, "dog");
+    h.put(93, "lion");
+    h.put(17, "tiger");
+    h.put(77, "bird");
+    h.put(31, "cow");
+    h.put(44, "goat");
+    h.put(55, "pig");
+    h.put(20, "chicken");
+    cout&lt;&lt;h&lt;&lt;endl;
+
+    h.put(20,"chicken");
+    h.put(17,"tiger");
+    h.put(20,"duck");
+    cout&lt;&lt;h.get(20)&lt;&lt;endl;
+    cout&lt;&lt;h.get(99)&lt;&lt;endl;
+
+    return 0;
+}
+</code></pre></article><span class="incontext"><a href="search-hash_hashing.html#complete_hash_cpp" class="internal">in-context</a></span>
+</body>
+</html>

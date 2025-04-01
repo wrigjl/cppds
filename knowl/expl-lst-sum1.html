@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of First <em class="emphasis">n</em> Integers (With Timing).</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+using namespace std;
+
+//Performs same function as listing one, and also list the time it takes to perform
+//the function
+
+int sumofN2(int n) {
+  clock_t begin = clock();
+  int theSum = 0;
+  for(int i = 0; i &lt; n+1; i++){
+    theSum = theSum + i;
+  }
+  clock_t end = clock();
+  double elapsed_secs = double(end - begin) /CLOCKS_PER_SEC;
+  cout &lt;&lt; fixed &lt;&lt; endl;
+  cout &lt;&lt; "Sum is " &lt;&lt; theSum &lt;&lt; " required "&lt;&lt;elapsed_secs &lt;&lt; " seconds" &lt;&lt; endl;
+  return theSum;
+}
+
+int main(){
+  for (int i = 0; i &lt; 6; i++){
+    sumofN2(10000);
+  }
+ return 0;
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="ec2py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="ec2py-prog_editor" data-question_label="" data-codelens="true">import time
+
+""" Performs same function as listing one, and also list the time it takes to perform
+the function """
+
+def sumOfN2(n):
+  start = time.time()
+
+  theSum = 0
+  for i in range(1,n+1):
+    theSum = theSum + i
+
+  end = time.time()
+  elapsed = end-start
+  print("Sum is", theSum, "required", elapsed, "seconds")
+
+  return elapsed
+
+def main():
+  for i in range(5):
+    sumOfN2(10000)
+
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="algorithm-analysis_what-is-algorithm-analysis.html#expl-lst-sum1" class="internal">in-context</a></span>
+</body>
+</html>

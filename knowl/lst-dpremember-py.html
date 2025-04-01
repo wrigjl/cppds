@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">5.12.4.b</span><span class="period">.</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="prog-dpremember-py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="prog-dpremember-py-prog_editor" data-question_label="" data-codelens="true">#Addition to the precious program that finds the types of coins used and the process of doing it.
+
+def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
+    for cents in range(change+1):
+        coinCount = cents
+        newCoin = 1
+        for j in [c for c in coinValueList if c &lt;= cents]:
+            if minCoins[cents-j] + 1 &lt; coinCount:
+                coinCount = minCoins[cents-j] + 1 #assigns the amount of coins used.
+                newCoin = j #assigns the type of coin used.
+        minCoins[cents] = coinCount
+        coinsUsed[cents] = newCoin
+    return minCoins[change]
+
+def printCoins(coinsUsed,change):
+    coin = change
+    while coin &gt; 0:
+        thisCoin = coinsUsed[coin]
+        print(thisCoin)
+        coin = coin - thisCoin
+
+def main():
+    amnt = 63
+    clist = [1, 5, 10, 21, 25]
+    coinsUsed = [0]*(amnt+1)
+    coinCount = [0]*(amnt+1)
+
+    print("Making change for",amnt,"requires")
+    print(dpMakeChange(clist,amnt,coinCount,coinsUsed),"coins")
+    print("They are:")
+    printCoins(coinsUsed,amnt)
+    print("The used list is as follows:")
+    print(coinsUsed)
+
+main()
+</textarea></div></div></div></article><span class="incontext"><a href="recursion_dynamic-programming.html#lst-dpremember-py" class="internal">in-context</a></span>
+</body>
+</html>

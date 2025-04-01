@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">5.12.4.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">//Addition to the precious program that finds the types of coins used and the process of doing it.
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int dpMakeChange(vector&lt;int&gt; coinValueList, int change, vector&lt;int&gt; minCoins,   vector&lt;int&gt; coinsUsed){
+    //This function keeps track of the number of coins needed to create the change.
+    for (int cents = 0 ; cents &lt; change+1; cents++){
+        int coinCount = cents;
+        int newCoin = 1;
+
+        for (int j : coinValueList){ //loop finds solution for all sets of change from 0 to int change.
+            if (j &lt;= cents){
+                if (minCoins[cents-j] + 1 &lt; coinCount){
+                    coinCount = minCoins[cents-j] + 1; //assigns the number of coins used to make the sum.
+                    newCoin = j; //assigns the type of coins that is used to find the sum.
+                }
+            }
+        }
+
+        minCoins[cents] = coinCount;
+        coinsUsed[cents] = newCoin;
+    }
+
+    return minCoins[change];
+}
+
+vector&lt;int&gt; dpMakeChange2(vector&lt;int&gt; coinValueList, int change, vector&lt;int&gt;   minCoins, vector&lt;int&gt; coinsUsed){
+    //This function keeps track of the exact coins used to make the change.
+    for (int cents = 0; cents &lt; change + 1; cents++){
+        int coinCount = cents;
+        int newCoin = 1;
+
+        for (int j : coinValueList){
+            if (j &lt;= cents){
+                if (minCoins[cents-j] + 1 &lt; coinCount){
+                    coinCount = minCoins[cents-j] + 1; //assigns the number of coins that have been used to make the sum.
+                    newCoin = j; //assigns the current type of coin that will be used to make the sum.
+                }
+            }
+        }
+
+        minCoins[cents] = coinCount;
+        coinsUsed[cents] = newCoin;
+    }
+    return coinsUsed;
+}
+
+void printCoins(vector&lt;int&gt; coinsUsed, int change){
+    int coin = change;
+
+    while (coin &gt; 0){
+        int thisCoin = coinsUsed[coin];
+        cout &lt;&lt; thisCoin &lt;&lt; endl;
+        coin = coin - thisCoin;
+    }
+}
+
+int main(){
+    vector&lt;int&gt; clist = {1, 5, 10, 21, 25};
+    int amnt = 63;
+    vector&lt;int&gt; minCoins(amnt + 1, 0);
+    vector&lt;int&gt; coinsUsed(amnt + 1, 0);
+    vector&lt;int&gt; coinCount(amnt + 1, 0);
+
+    cout &lt;&lt; "Making change for " &lt;&lt; amnt &lt;&lt; " requires" &lt;&lt; endl;
+    cout &lt;&lt; dpMakeChange(clist, amnt, minCoins, coinsUsed)&lt;&lt; " coins" &lt;&lt; endl;
+    cout &lt;&lt; "They are: " &lt;&lt; endl;
+    printCoins(dpMakeChange2(clist, amnt, minCoins, coinsUsed), amnt);
+    cout &lt;&lt; "The used list is as follows: " &lt;&lt; endl;
+    vector&lt;int&gt; coinsUsed2 = dpMakeChange2(clist, amnt, minCoins, coinsUsed);
+    cout &lt;&lt; "[";
+
+    for (unsigned int i = 0; i&lt;coinsUsed2.size(); i++){
+        cout &lt;&lt; coinsUsed2[i] &lt;&lt; ", ";
+    }
+
+    cout &lt;&lt; "]" &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><span class="incontext"><a href="recursion_dynamic-programming.html#lst-dpremember-cpp" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">5.5.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">//Recursive example of converting from int to string.
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+string toStr(int n, int base) {
+    string convertString = "0123456789ABCDEF";
+    if (n &lt; base) {
+        return string(1, convertString[n]); // converts char to string, and returns it
+    } else {
+        return toStr(n/base, base) + convertString[n%base]; // function makes a recursive call to itself.
+    }
+}
+
+int main() {
+  cout &lt;&lt; toStr(1453, 16);
+}
+</code></pre></article><span class="incontext"><a href="recursion_converting-an-integer-to-a-string-in-any-base.html#lst-rectostr-cpp" class="internal">in-context</a></span>
+</body>
+</html>

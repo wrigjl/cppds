@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>With the <code class="code-inline tex2jax_ignore">insert</code> method properly defined, we can now look at the <code class="code-inline tex2jax_ignore">delMin</code> method. Since the heap property requires that the root of the tree be the smallest item in the tree, finding the minimum item is easy. The hard part of <code class="code-inline tex2jax_ignore">delMin</code> is restoring full compliance with the heap structure and heap order properties after the root has been removed. We can restore our heap in two steps. First, we will restore the root item by taking the last item in the vector and moving it to the root position. Moving the last item maintains our heap structure property. However, we have probably destroyed the heap order property of our binary heap. Second, we will restore the heap order property by pushing the new root node down the tree to its proper position. <a href="" class="xref" data-knowl="./knowl/binheap_fig-percdown.html" title="Figure 8.10.7">Figure 8.10.7</a> shows the series of swaps needed to move the new root node to its proper position in the heap.</p>
+<span class="incontext"><a href="trees_binary-heap-implementation.html#p-2424" class="internal">in-context</a></span>
+</body>
+</html>

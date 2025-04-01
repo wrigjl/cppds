@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">HashTable</code>.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+class HashTable{
+    public:
+    static const int size=11; // initial size of hash table is prime to help with collision resolution
+    int slots[size]; // list to hold key items
+    string data[size]; // list to hold data values
+
+    int hashfunction(int key) { // implements remainder method
+        return key%size;
+    }
+
+      // Computes original hashvalue, and if slot is
+      // not empty iterates until empty slot is found
+    int rehash(int oldhash) {
+        return (oldhash+1)%size;
+    }
+
+    // Function that assumes there will eventually be
+    // an empty slot unless the key is alread present in the slot
+    void put(int key, string val){
+        int hashvalue = hashfunction(key);
+        int count = 0;
+
+        if (data[hashvalue]=="") {
+            slots[hashvalue] = key;
+            data[hashvalue] = val;
+        } else {
+            if (slots[hashvalue] == key) {
+                data[hashvalue] = val;
+            } else {
+                int nextslot = rehash(hashvalue);
+
+                while (data[nextslot]!="" &amp;&amp; slots[nextslot] != key) {
+                    nextslot = rehash(nextslot);
+
+                    count++;
+                    if (count&gt;size) {
+                        cout&lt;&lt;"TABLE FULL"&lt;&lt;endl;
+                        return;
+                    }
+                }
+                if (data[nextslot]=="") {
+                    slots[nextslot]=key;
+                    data[nextslot]=val;
+                } else {
+                    data[nextslot] = val;
+                }
+            }
+        }
+    }
+
+    // computes the initial hash value
+    // if value is not in the initial slot, uses
+    // rehash to locate the next position
+    string get(int key) {
+        int startslot = hashfunction(key);
+
+        string val;
+        bool stop=false;
+        bool found=false;
+        int position = startslot;
+        while(data[position]!="" &amp;&amp; !found &amp;&amp; !stop) {
+            if (slots[position]==key) {
+                found = true;
+                val = data[position];
+            } else {
+                position=rehash(position);
+                if (position==startslot) {
+                    stop=true;
+                }
+            }
+
+        }
+        return val;
+    }
+
+    friend ostream&amp; operator&lt;&lt;(ostream&amp; stream, HashTable&amp; hash);
+};
+
+
+
+ostream&amp; operator&lt;&lt;(ostream&amp; stream, HashTable&amp; hash) {
+    for (int i=0; i&lt;hash.size; i++) {
+        stream&lt;&lt;hash.slots[i]&lt;&lt;": "&lt;&lt;hash.data[i]&lt;&lt;endl;
+    }
+
+    return stream;
+}
+
+int main() {
+    HashTable h;
+
+    h.put(54, "cat");
+    h.put(26, "dog");
+    h.put(93, "lion");
+    h.put(17, "tiger");
+    h.put(77, "bird");
+    h.put(31, "cow");
+    h.put(44, "goat");
+    h.put(55, "pig");
+    h.put(20, "chicken");
+    cout&lt;&lt;h&lt;&lt;endl;
+
+    h.put(20,"chicken");
+    h.put(17,"tiger");
+    h.put(20,"duck");
+    cout&lt;&lt;h.get(20)&lt;&lt;endl;
+    cout&lt;&lt;h.get(99)&lt;&lt;endl;
+
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="complete_hash_py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="complete_hash_py-prog_editor" data-question_label="" data-codelens="true">class HashTable:
+    def __init__(self):
+        self.size = 11 # initial size of hash table is prime to help with collision resolution
+        self.slots = [None] * self.size # list to hold key items
+        self.data = [None] * self.size # list to hold data values
+
+    def put(self,key,data):
+      hashvalue = self.hashfunction(key,len(self.slots))
+
+      if self.slots[hashvalue] == None:
+        self.slots[hashvalue] = key
+        self.data[hashvalue] = data
+      else:
+        if self.slots[hashvalue] == key:
+          self.data[hashvalue] = data  #replace
+        else:
+          nextslot = self.rehash(hashvalue,len(self.slots))
+          while self.slots[nextslot] != None and \
+                          self.slots[nextslot] != key:
+            nextslot = self.rehash(nextslot,len(self.slots))
+
+          if self.slots[nextslot] == None:
+            self.slots[nextslot]=key
+            self.data[nextslot]=data
+          else:
+            self.data[nextslot] = data #replace
+
+     # Function that assumes there will eventually be
+     # an empty slot unless the key is alread present in the slot
+    def hashfunction(self,key,size): # implements remainder method
+         return key%size
+
+     # Fomputes original hashvalue, and if slot is
+     # not empty iterates until empty slot is found
+    def rehash(self,oldhash,size):
+        return (oldhash+1)%size
+
+     # computes the initial hash value
+     # if value is not in the initial slot, uses
+     # rehash to locate the next position
+    def get(self,key):
+      startslot = self.hashfunction(key,len(self.slots))
+
+      data = None
+      stop = False
+      found = False
+      position = startslot
+      while self.slots[position] != None and  \
+                           not found and not stop:
+         if self.slots[position] == key:
+           found = True
+           data = self.data[position]
+         else:
+           position=self.rehash(position,len(self.slots))
+           if position == startslot:
+               stop = True
+      return data
+
+    def __getitem__(self,key):
+        return self.get(key)
+
+    def __setitem__(self,key,data):
+        self.put(key,data)
+
+H=HashTable()
+H[54]="cat"
+H[26]="dog"
+H[93]="lion"
+H[17]="tiger"
+H[77]="bird"
+H[31]="cow"
+H[44]="goat"
+H[55]="pig"
+H[20]="chicken"
+print(H.slots)
+print(H.data)
+
+print(H[20])
+
+print(H[17])
+H[20]='duck'
+print(H[20])
+print(H[99])
+</textarea></div></div></div></article></article><span class="incontext"><a href="search-hash_hashing.html#expl-completehash" class="internal">in-context</a></span>
+</body>
+</html>

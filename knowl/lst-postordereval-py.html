@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">8.6.4.b</span><span class="period">.</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def postordereval(tree):
+    opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv}
+    res1 = None
+    res2 = None
+    if tree:
+        res1 = postordereval(tree.getLeftChild())
+        res2 = postordereval(tree.getRightChild())
+        if res1 and res2:
+            return opers[tree.getRootVal()](res1,res2)
+        else:
+            return tree.getRootVal()
+</code></pre></div></article><span class="incontext"><a href="trees_tree-traversals.html#lst-postordereval-py" class="internal">in-context</a></span>
+</body>
+</html>

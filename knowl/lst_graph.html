@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Graph {
+    public:
+        map&lt;int, Vertex&gt; vertList;
+        int numVertices;
+
+        Graph() {
+            numVertices = 0;
+        }
+
+        Vertex addVertex(int key) {
+            numVertices++;
+            Vertex newVertex = Vertex(key);
+            this-&gt;vertList[key] = newVertex;
+            return newVertex;
+        }
+
+        Vertex *getVertex(int n) {
+            for (map&lt;int, Vertex&gt;::iterator it = vertList.begin(); it != vertList.end(); ++it) {
+                if (it-&gt;first == n) {
+                    // Forced to use pntr due to possibility of returning NULL
+                    Vertex *vpntr = &amp;vertList[n];
+                    return vpntr;
+                } else {
+                    return NULL;
+                }
+            }
+        }
+
+        bool contains(int n) {
+            for (map&lt;int, Vertex&gt;::iterator it = vertList.begin(); it != vertList.end(); ++it) {
+                if (it-&gt;first == n) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        void addEdge(int f, int t, int cost = 0) {
+            if (!this-&gt;contains(f)) {
+                cout &lt;&lt; f &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+                this-&gt;addVertex(f);
+            }
+            if (!this-&gt;contains(t)) {
+                cout &lt;&lt; t &lt;&lt; " was not found, adding!" &lt;&lt; endl;
+            }
+            vertList[f].addNeighbor(t, cost);
+        }
+
+        vector&lt;int&gt; getVertices() {
+            vector&lt;int&gt; verts;
+
+            for (map&lt;int, Vertex&gt;::iterator it = vertList.begin(); it != vertList.end();  ++it) {
+                verts.push_back(it-&gt;first);
+            }
+            return verts;
+        }
+
+        friend ostream &amp;operator&lt;&lt;(ostream &amp;, Graph &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
+    for (unsigned int i = 0; i &lt; grph.vertList.size(); i++) {
+        stream &lt;&lt; grph.vertList[i];
+    }
+
+    return stream;
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.6.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">Graph</code> Class</figcaption></figure><span class="incontext"><a href="graphs_implementation.html#lst_graph" class="internal">in-context</a></span>
+</body>
+</html>

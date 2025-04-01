@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>To implement the <code class="code-inline tex2jax_ignore">size</code> method, we need to traverse the linked list and keep a count of the number of nodes that occurred. <a href="" class="xref" data-knowl="./knowl/unordered-size.html" title="Listing 4.5.9">Listing 4.5.9</a> shows the C++ code for counting the number of nodes in the linked list. The external reference is called <code class="code-inline tex2jax_ignore">current</code> and is initialized to the head of the linked list in line 2. At the start of the process we have not seen any nodes so the count is set to <span class="process-math">\(0\text{.}\)</span> Lines 4–6 actually implement the traversal. As long as the current reference has not seen the end of the linked list (<code class="code-inline tex2jax_ignore">NULL</code>), we move current along to the next node via the assignment statement in line 6. Again, the ability to compare a reference to <code class="code-inline tex2jax_ignore">NULL</code> is very useful. Every time current moves to a new node, we add <span class="process-math">\(1\)</span> to <code class="code-inline tex2jax_ignore">count</code>. Finally, <code class="code-inline tex2jax_ignore">count</code> gets returned after the iteration stops. <a href="" class="xref" data-knowl="./knowl/fig-traversal.html" title="Figure 4.5.10">Figure 4.5.10</a> shows this process as it proceeds down the linked list.</p>
+<span class="incontext"><a href="linear-linked_unordered-linked-list.html#p-1436" class="internal">in-context</a></span>
+</body>
+</html>

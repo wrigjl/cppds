@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Anagram Solution: Character Frequency.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+// uses an array to count the number of a ocurrences of the two inputs
+// if the number of occurrences is the same then the input is an anagram
+
+bool anagramSolution4(string s1, string s2){
+    int c1[26] = {0};
+    int c2[26] = {0};
+
+    int x;
+    int a = 'a';
+    for (unsigned int i = 0; i &lt; s1.length(); i++){
+        x = s1[i] - a;
+        int pos = x;
+        c1[pos] = c1[pos] + 1;
+    }
+
+    int y;
+    int b = 'a';
+    for (unsigned int i = 0; i &lt; s2.length(); i++){
+        y = s2[i] - b;
+        int pos = y;
+        c2[pos] = c2[pos] + 1;
+    }
+
+    int j = 0;
+    bool stillOK = true;
+    while (j &lt; 26 &amp;&amp; stillOK){
+        if (c1[j] == c2[j]){
+            j = j + 1;
+        } else{
+            stillOK = false;
+        }
+    }
+    return stillOK;
+}
+
+int main(){
+    bool value = anagramSolution4("apple", "pleap");
+    cout &lt;&lt; value &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="active7py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="active7py-prog_editor" data-question_label="" data-codelens="true">""" uses an array to count the number of a ocurrences of the two inputs
+if the number of occurrences is the same then the input is an anagram """
+
+def anagramSolution4(s1,s2):
+    c1 = [0]*26
+    c2 = [0]*26
+
+    for i in range(len(s1)):
+        pos = ord(s1[i])-ord('a')
+        c1[pos] = c1[pos] + 1
+
+    for i in range(len(s2)):
+        pos = ord(s2[i])-ord('a')
+        c2[pos] = c2[pos] + 1
+
+    j = 0
+    stillOK = True
+    while j&lt;26 and stillOK:
+        if c1[j]==c2[j]:
+            j = j + 1
+        else:
+            stillOK = False
+
+    return stillOK
+
+def main():
+    print(anagramSolution4('apple','pleap'))
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="algorithm-analysis_an-anagram-detection-example.html#expl-ana4" class="internal">in-context</a></span>
+</body>
+</html>

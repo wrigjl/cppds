@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+// swap_values() function definition
+// Interchanges the values located by variable1 and variable2.
+
+// Notice that this function does not return anything!
+void swap_values(int &amp;variable1, int &amp;variable2) {
+    int temp;           // temporary storage for swap
+
+    temp = variable1;
+    variable1 = variable2;
+    variable2 = temp;
+}
+
+int main( ) {
+    int first_num, second_num;
+    first_num = 7;
+    second_num = 8;
+
+    cout &lt;&lt; "Two numbers before swap function: 1) " &lt;&lt; first_num &lt;&lt; " 2) " &lt;&lt; second_num &lt;&lt; endl;
+    swap_values(first_num, second_num);
+    cout &lt;&lt; "The numbers after swap function: 1) " &lt;&lt; first_num &lt;&lt; " 2) " &lt;&lt; second_num;
+
+    return 0;
+}
+</code></pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.11.4<span class="period">.</span></span><span class="space"> </span>Pass By Reference Example</figcaption></figure><span class="incontext"><a href="introduction_defining-c-functions.html#activepassrefcpp" class="internal">in-context</a></span>
+</body>
+</html>

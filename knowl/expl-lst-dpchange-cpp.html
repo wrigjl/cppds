@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.12.3</span><span class="period">.</span><span class="space"> </span><span class="title">Change Calculator Using Dynamic Programming.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">//Program that stores the solution for all possible amounts of change up to a given integer.
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int dpMakeChange(vector&lt;int&gt; coinValueList, int change, vector&lt;int&gt; minCoins){
+    for (int cents = 0 ; cents &lt; change + 1; cents++){ //loop finds solution for all sets of change from 0 to int change.
+        int coinCount = cents;
+        for (int j : coinValueList){
+            if (j &lt;= cents){
+                if (minCoins[cents-j] + 1 &lt; coinCount){
+                    coinCount = minCoins[cents-j] + 1; //assigns the number of coins that is used to make the change.
+                }
+            }
+        }
+        minCoins[cents] = coinCount;
+    }
+    return minCoins[change];
+}
+
+int main(){
+    vector&lt;int&gt; coinValueList = {1, 5, 10, 21, 25};
+    int change = 63;
+    vector&lt;int&gt; minCoins(64, 0);
+    cout &lt;&lt; dpMakeChange(coinValueList, change, minCoins) &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_change100cpp-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_change100cpp-prog_editor" data-question_label="" data-codelens="true">#Program that stores the solution for all possible amounts of change up to a given integer.
+
+def dpMakeChange(coinValueList,change,minCoins):
+   for cents in range(change+1): #loops finds solution for all sets of change from 0 to change parameter.
+       coinCount = cents
+       for j in [c for c in coinValueList if c &lt;= cents]:
+           if minCoins[cents-j] + 1 &lt; coinCount:
+               coinCount = minCoins[cents-j] + 1 #assigns the number of coins that will be used to make the sum.
+       minCoins[cents] = coinCount
+
+   return minCoins[change]
+
+
+def main():
+   print(dpMakeChange([1, 5, 10, 21, 25], 63, [0]*64))
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="recursion_dynamic-programming.html#expl-lst-dpchange-cpp" class="internal">in-context</a></span>
+</body>
+</html>

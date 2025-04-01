@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Reading Question</span><span class="space"> </span><span class="codenumber">2<span class="period">.</span></span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone"><ul data-component="multiplechoice" id="stack_2" data-multipleanswers="false">
+<p id="p-1058">Given the following sequence of stack operations, what is the top item on the stack when the sequence is complete?</p>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">stack&lt;int&gt; m;
+m.push(37);
+m.push(56);
+m.push(4);
+while (!m.empty()){
+    m.pop();
+    m.pop();
+}
+</code></pre></div>
+<li data-component="answer" id="stack_2_opt_a"><p id="p-1059">37</p></li>
+<li data-component="feedback" id="stack_2_opt_a"><p id="p-1060">You may want to check out the docs for</p></li>
+<li data-component="answer" id="stack_2_opt_b"><p id="p-1061">the stack is empty</p></li>
+<li data-component="feedback" id="stack_2_opt_b"><p id="p-1062">There is an odd number of things on the stack but each time through the loop 2 things are popped.</p></li>
+<li data-component="answer" id="stack_2_opt_c" data-correct=""><p id="p-1063">an error will occur</p></li>
+<li data-component="feedback" id="stack_2_opt_c"><p id="p-1064">Good Job, this is true because the stack can not evenly pop off every item within itself, because there is an odd number of items.</p></li>
+<li data-component="answer" id="stack_2_opt_d"><p id="p-1065">4</p></li>
+<li data-component="feedback" id="stack_2_opt_d"><p id="p-1066">You may want to check out the docs for isEmpty</p></li>
+</ul></div></div></article><span class="incontext"><a href="linear-basic_using-a-stack-in-c.html#stack_2" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of First <em class="emphasis">n</em> Integers.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+//adds the sum of (n + n-1 + n-2 ...)
+int sumOfN(int n){
+  int theSum = 0;
+  for (int i = 0; i &lt; n+1; i++){
+    theSum = theSum + i;
+  }
+  return theSum;
+}
+
+int main(){
+
+  // n is 10 (10 + 9 + 8 ...)
+  cout &lt;&lt; sumOfN(10);
+  return 0;
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="ec1_py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="ec1_py-prog_editor" data-question_label="" data-codelens="true"># adds the sum of (n + n-1 + n-2 ...)
+
+def sumOfN(n):
+  theSum = 0
+  for i in range(1,n+1):
+    theSum = theSum + i
+  return theSum
+
+def main():
+  print(sumOfN(10)) # n is 10 (10 + 9 + 8 ...)
+
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="algorithm-analysis_what-is-algorithm-analysis.html#expl-lst-sum0" class="internal">in-context</a></span>
+</body>
+</html>

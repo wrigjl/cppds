@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Anagram Solution: Sorting.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+// sorts anagrams in order from a-z, and then compares them
+bool anagramsolution2(string s1, string s2){
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+
+    unsigned int pos = 0;
+    bool matches = true;
+
+    while (pos &lt; s1.length() &amp;&amp; matches){
+        if (s1[pos] == s2[pos]){
+            pos = pos + 1;
+        } else{
+            matches = false;
+        }
+    }
+    return matches;
+}
+
+int main(){
+    bool value = anagramsolution2("abcde", "edcba");
+    cout &lt;&lt; value &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="active6py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="active6py-prog_editor" data-question_label="" data-codelens="true"># sorts anagrams in order from a-z, and then compares them
+def anagramSolution2(s1,s2):
+    alist1 = list(s1)
+    alist2 = list(s2)
+
+    alist1.sort()
+    alist2.sort()
+
+    pos = 0
+    matches = True
+
+    while pos &lt; len(s1) and matches:
+        if alist1[pos]==alist2[pos]:
+            pos = pos + 1
+        else:
+            matches = False
+
+    return matches
+
+def main():
+    print(anagramSolution2('abcde','edcba'))
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="algorithm-analysis_an-anagram-detection-example.html#exploration-39" class="internal">in-context</a></span>
+</body>
+</html>

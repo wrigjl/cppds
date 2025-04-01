@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.13.1</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">LogicGate</code> class.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class LogicGate {
+public:
+        LogicGate(string n) {
+                        label = n;
+        }
+        string getLabel() {
+                        return label;
+        }
+        bool getOutput() {
+                output = performGateLogic();
+                return output;
+        }
+protected:
+        string label;
+        bool output;
+};
+</code></pre></div></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">class LogicGate:
+        def __init__(self,n):
+                self.label = n
+                self.output = None
+
+        def getLabel(self):
+                return self.label
+
+        def getOutput(self):
+                self.output = self.performGateLogic()
+                return self.output
+</code></pre></div></article></article><span class="incontext"><a href="introduction_inheritance-in-c.html#introduction_expl-logicgateclass" class="internal">in-context</a></span>
+</body>
+</html>

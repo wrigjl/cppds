@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.3</span><span class="period">.</span><span class="space"> </span><span class="title">Array Overflow.</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">/*shows how C++ allows you to easily overwrite values in memory even when
+you don't mean to. */
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int myarray[] = {2, 4};
+    int otherdata[]={777, 777};
+    for (int i=0; i&lt;4; i++){
+        myarray[i]=0;
+        cout &lt;&lt;"myarray[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt; myarray[i] &lt;&lt; endl;
+        cout &lt;&lt; "add:" &lt;&lt; &amp;myarray[i] &lt;&lt; endl;
+    }
+
+    for (int i=0; i&lt;2; i++){
+        cout &lt;&lt; "otherdata[" &lt;&lt; i &lt;&lt; "]=";
+        cout &lt;&lt; otherdata[i] &lt;&lt; endl;
+        cout &lt;&lt; "add:" &lt;&lt; &amp;otherdata[i] &lt;&lt; endl;
+    }
+
+    return 0;
+}
+</code></pre></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="array_werror_py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="array_werror_py-prog_editor" data-question_label="" data-codelens="true">"""shows how C++ allows you to easily
+overwrite values in memory even when
+you dont mean to."""
+def main():
+    mylist = [2, 4]
+    otherdata = [777, 777]
+    for i in range(4):
+        print(mylist[i])
+        print("id: "+str(id(mylist[i])))
+
+    for j in range(2):
+          print(otherdata[i])
+          print("id: "+str(id(otherdata[i])))
+
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="introduction_collections.html#expl-arrayoflow" class="internal">in-context</a></span>
+</body>
+</html>

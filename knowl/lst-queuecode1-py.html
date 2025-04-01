@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">3.12.1.b</span><span class="period">.</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="queue1acpy-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="queue1acpy-prog_editor" data-question_label="" data-codelens="true">class Queue:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def push(self, item):
+        self.items.insert(0,item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def front(self):
+        return self.items[len(self.items)-1];
+
+    def size(self):
+        return len(self.items)
+
+def main():
+    q=Queue()
+
+    q.push(3)
+    q.push(8)
+    q.push(15)
+
+    print("Queue Empty? ", q.isEmpty())
+
+    print("Queue Size: ", q.size())
+
+    print("Front Element of the Queue: ", q.front())
+
+    q.pop();
+
+    print("Front Element of the Queue: ", q.front())
+main()
+</textarea></div></div></div></article><span class="incontext"><a href="linear-basic_using-a-queue-in-c.html#lst-queuecode1-py" class="internal">in-context</a></span>
+</body>
+</html>

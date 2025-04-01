@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">class Vertex {
+    public:
+        int id;
+        map&lt;int, int&gt; connectedTo;
+
+        Vertex() {
+        }
+
+        Vertex(int key) {
+            id = key;
+        }
+
+        void addNeighbor(int nbr, int weight = 0) {
+            connectedTo[nbr] = weight;
+        }
+
+        vector&lt;int&gt; getConnections() {
+            vector&lt;int&gt; keys;
+            // Use of iterator to find all keys
+            for (map&lt;int, int&gt;::iterator it = connectedTo.begin();
+                it != connectedTo.end();
+                ++it) {
+                keys.push_back(it-&gt;first);
+            }
+            return keys;
+        }
+
+        int getId() {
+            return id;
+        }
+
+        int getWeight(int nbr) {
+            return connectedTo[nbr];
+        }
+
+        friend ostream &amp;operator&lt;&lt;(ostream &amp;, Vertex &amp;);
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;stream, Vertex &amp;vert) {
+    vector&lt;int&gt; connects = vert.getConnections();
+    for (unsigned int i = 0; i &lt; connects.size(); i++) {
+        stream &lt;&lt; "( " &lt;&lt; vert.id &lt;&lt; " , " &lt;&lt; connects[i] &lt;&lt; " ) \n";
+    }
+
+    return stream;
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.6.1<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">Vertex</code> Class</figcaption></figure><span class="incontext"><a href="graphs_implementation.html#lst_vertex" class="internal">in-context</a></span>
+</body>
+</html>

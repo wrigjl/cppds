@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">5.12.3.b</span><span class="period">.</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="lst_change100cpp-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="lst_change100cpp-prog_editor" data-question_label="" data-codelens="true">#Program that stores the solution for all possible amounts of change up to a given integer.
+
+def dpMakeChange(coinValueList,change,minCoins):
+   for cents in range(change+1): #loops finds solution for all sets of change from 0 to change parameter.
+       coinCount = cents
+       for j in [c for c in coinValueList if c &lt;= cents]:
+           if minCoins[cents-j] + 1 &lt; coinCount:
+               coinCount = minCoins[cents-j] + 1 #assigns the number of coins that will be used to make the sum.
+       minCoins[cents] = coinCount
+
+   return minCoins[change]
+
+
+def main():
+   print(dpMakeChange([1, 5, 10, 21, 25], 63, [0]*64))
+main()
+</textarea></div></div></div></article><span class="incontext"><a href="recursion_dynamic-programming.html#lst-dpchange-py" class="internal">in-context</a></span>
+</body>
+</html>

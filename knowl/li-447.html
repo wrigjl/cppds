@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="li"><h3 class="heading">
+<span class="type">Item</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span>
+</h3>
+<p>Draw the tree structure resulting from the following set of tree function calls:</p>
+<pre class="code-block tex2jax_ignore">&gt;&gt;&gt; r = BinaryTree(3)
+&gt;&gt;&gt; insertLeft(r,4)
+[3, [4, [], []], []]
+&gt;&gt;&gt; insertLeft(r,5)
+[3, [5, [4, [], []], []], []]
+&gt;&gt;&gt; insertRight(r,6)
+[3, [5, [4, [], []], []], [6, [], []]]
+&gt;&gt;&gt; insertRight(r,7)
+[3, [5, [4, [], []], []], [7, [], [6, [], []]]]
+&gt;&gt;&gt; setRootVal(r,9)
+&gt;&gt;&gt; insertLeft(r,11)
+[9, [11, [5, [4, [], []], []], []], [7, [], [6, [], []]]]
+</pre></article><span class="incontext"><a href="trees_discussion-questions.html#li-447" class="internal">in-context</a></span>
+</body>
+</html>

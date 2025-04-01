@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h4 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Linear Probing with Simple Remainder Method..</span>
+</h4>
+<article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">int hashfunction(int key) {
+    return key%size;
+}
+
+int rehash(int oldhash) {
+    return (oldhash+1)%size;
+}
+
+void put(int key, string val){
+    int hashvalue = hashfunction(key);
+    int count = 0;
+
+    if (data[hashvalue]=="") {
+        slots[hashvalue] = key;
+        data[hashvalue] = val;
+    } else {
+        if (slots[hashvalue] == key) {
+            data[hashvalue] = val;
+        } else {
+            int nextslot = rehash(hashvalue);
+
+            while (data[nextslot]!="" &amp;&amp; slots[nextslot] != key) {
+                nextslot = rehash(nextslot);
+
+                count++;
+                if (count&gt;size) {
+                    cout&lt;&lt;"TABLE FULL"&lt;&lt;endl;
+                    return;
+                }
+            }
+            if (data[nextslot]=="") {
+                slots[nextslot]=key;
+                data[nextslot]=val;
+            } else {
+                data[nextslot] = val;
+            }
+        }
+    }
+}
+</code></pre></div></article><article class="task exercise-like"><h5 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h5>
+<div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def put(self,key,data):
+    hashvalue = self.hashfunction(key,len(self.slots))
+
+    if self.slots[hashvalue] == None:
+        self.slots[hashvalue] = key
+        self.data[hashvalue] = data
+    else:
+        if self.slots[hashvalue] == key:
+            self.data[hashvalue] = data  #replace
+        else:
+            nextslot = self.rehash(hashvalue,len(self.slots))
+            while self.slots[nextslot] != None and self.slots[nextslot] != key:
+                nextslot = self.rehash(nextslot,len(self.slots))
+
+        if self.slots[nextslot] == None:
+            self.slots[nextslot] = key
+            self.data[nextslot] = data
+        else:
+            self.data[nextslot] = data #replace
+
+def hashfunction(self,key,size):
+    return key%size
+
+def rehash(self,oldhash,size):
+    return (oldhash+1)%size
+</code></pre></div></article></article><span class="incontext"><a href="search-hash_hashing.html#expl-hashtablecodestore" class="internal">in-context</a></span>
+</body>
+</html>

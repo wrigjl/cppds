@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+int main() {
+    int myints[] = {3, 5, 2, 4, 1};
+    cout &lt;&lt; (find(myints, myints + 4, 15) != myints + 4) &lt;&lt; endl;
+    cout &lt;&lt; (find(myints, myints + 4, 5) != myints + 4) &lt;&lt; endl;
+	
+    vector&lt;int&gt; myvec = {3, 5, 2, 4, 1};
+    cout &lt;&lt; (find(myvec.begin(), myvec.end(), 15) != myvec.end()) &lt;&lt; endl;
+    cout &lt;&lt; (find(myvec.begin(), myvec.end(), 3) != myvec.end()) &lt;&lt; endl;
+    return 0;
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.2.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><span class="incontext"><a href="search-hash_searching.html#find-example" class="internal">in-context</a></span>
+</body>
+</html>

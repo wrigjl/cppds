@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-cpp">void rebalance(TreeNode *node){
+    if (node-&gt;balanceFactor &lt; 0){
+        if (node-&gt;rightChild-&gt;balanceFactor &gt; 0){
+            this-&gt;rotateRight(node-&gt;rightChild);
+            this-&gt;rotateLeft(node);
+        }
+        else{
+            this-&gt;rotateLeft(node);
+        }
+    }
+    else if (node-&gt;balanceFactor &gt; 0){
+        if (node-&gt;leftChild-&gt;balanceFactor &lt; 0){
+            this-&gt;rotateLeft(node-&gt;leftChild);
+            this-&gt;rotateRight(node);
+        }
+        else {
+            this-&gt;rotateRight(node);
+        }
+    }
+}
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.9<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">rebalance</code></figcaption></figure><span class="incontext"><a href="trees_avl-tree-implementation.html#avlimpl_lst-rebalance" class="internal">in-context</a></span>
+</body>
+</html>

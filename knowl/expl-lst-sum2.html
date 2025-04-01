@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Sum of First <em class="emphasis">n</em> Integers.</span>
+</h3>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+//Performs same function as listing 1, but is less descriptive
+//This is not good practice
+
+int foo(int tom){
+int fred = 0;
+for (int bill = 0; bill &lt; tom+1; bill++){
+  int barney = bill;
+  fred = fred + barney;
+  }
+  return fred;
+}
+
+int main(){
+  cout &lt;&lt; foo(10);
+  return 0;
+}
+</code></pre></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="ec2_py-prog"><textarea data-lang="python" data-timelimit="25000" data-audio="" data-coach="true" style="visibility: hidden;" id="ec2_py-prog_editor" data-question_label="" data-codelens="true">#Performs same function as listing 1, but is less descriptive
+#This is not good practice
+
+def foo(tom):
+  fred = 0
+  for bill in range(1,tom+1):
+    barney = bill
+    fred = fred + barney
+  return fred
+
+def main():
+  print(foo(10))
+
+main()
+</textarea></div></div></div></article></article><span class="incontext"><a href="algorithm-analysis_what-is-algorithm-analysis.html#expl-lst-sum2" class="internal">in-context</a></span>
+</body>
+</html>

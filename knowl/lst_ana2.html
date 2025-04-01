@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h5 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">2.4.2.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h5>
+<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+// sorts anagrams in order from a-z, and then compares them
+bool anagramsolution2(string s1, string s2){
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+
+    unsigned int pos = 0;
+    bool matches = true;
+
+    while (pos &lt; s1.length() &amp;&amp; matches){
+        if (s1[pos] == s2[pos]){
+            pos = pos + 1;
+        } else{
+            matches = false;
+        }
+    }
+    return matches;
+}
+
+int main(){
+    bool value = anagramsolution2("abcde", "edcba");
+    cout &lt;&lt; value &lt;&lt; endl;
+    return 0;
+}
+</code></pre></article><span class="incontext"><a href="algorithm-analysis_an-anagram-detection-example.html#lst_ana2" class="internal">in-context</a></span>
+</body>
+</html>

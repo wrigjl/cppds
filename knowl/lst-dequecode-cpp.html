@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">3.17.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<pre class="program"><code class="language-cpp">//Example code of a deque.
+
+#include &lt;iostream&gt;
+#include &lt;deque&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+    deque&lt;string&gt; d;
+    cout &lt;&lt; "Deque Empty? " &lt;&lt; d.empty() &lt;&lt; endl;
+    d.push_back("Zebra");
+    cout &lt;&lt; "Deque Empty? " &lt;&lt; d.empty() &lt;&lt; endl;
+
+    d.push_front("Turtle"); //pushes to the front of the deque.
+    d.push_front("Panda");
+    d.push_back("Catfish"); //pushes to the back of the deque.
+    d.push_back("Giraffe");
+
+    cout &lt;&lt; "Deque Size: " &lt;&lt; d.size() &lt;&lt; endl;
+    cout &lt;&lt; "Item at the front: " &lt;&lt; d.front() &lt;&lt; endl;
+    cout &lt;&lt; "Item at the back: " &lt;&lt; d.back() &lt;&lt; endl;
+
+    cout &lt;&lt; endl &lt;&lt; "Items in the Deque: " &lt;&lt; endl;
+    int dsize = d.size();
+    for(int i = 0; i &lt; dsize; i++){
+        //prints each item in the deque.
+        cout &lt;&lt; d.at(i) &lt;&lt; " ";
+    }
+
+    cout &lt;&lt; endl;
+
+    d.pop_back();
+    d.pop_front();
+
+    cout &lt;&lt; endl &lt;&lt; "Item at the front: " &lt;&lt; d.front() &lt;&lt; endl;
+    cout &lt;&lt; "Itm at the back: " &lt;&lt; d.back() &lt;&lt; endl;
+    cout &lt;&lt; "Deque Size: " &lt;&lt; d.size() &lt;&lt; endl;
+
+    cout &lt;&lt; endl &lt;&lt; "Items in the Deque: " &lt;&lt; endl;
+    int dsize2 = d.size();
+    for(int i = 0; i &lt; dsize2; i++){
+        //prints each item in the deque.
+        cout &lt;&lt; d.at(i) &lt;&lt; " ";
+
+    return 0;
+    }
+}
+</code></pre></article><span class="incontext"><a href="linear-basic_using-a-deque-in-c.html#lst-dequecode-cpp" class="internal">in-context</a></span>
+</body>
+</html>

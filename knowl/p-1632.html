@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p><a href="" class="xref" data-knowl="./knowl/fig-tostr2.html" title="Figure 5.5.2">Figure 5.5.2</a> shows that we get the results we are looking for, but it looks like the digits are in the wrong order. The algorithm works correctly because we make the recursive call first on line 6, then we add the string representation of the remainder. If we reversed returning the <code class="code-inline tex2jax_ignore">convertString</code> lookup and returning the <code class="code-inline tex2jax_ignore">toStr</code> call, the resulting string would be backward! But by delaying the concatenation operation until after the recursive call has returned, we get the result in the proper order. This should remind you of our discussion of stacks back in the previous chapter.</p>
+<span class="incontext"><a href="recursion_converting-an-integer-to-a-string-in-any-base.html#p-1632" class="internal">in-context</a></span>
+</body>
+</html>

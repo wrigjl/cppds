@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="li"><h4 class="heading">
+<span class="type">Item</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span>
+</h4>
+<p>For each second (<code class="code-inline tex2jax_ignore">currentSecond</code>):</p>
+<ul class="disc">
+<li><p>Does a new print task get created? If so, add it to the queue with the <code class="code-inline tex2jax_ignore">currentSecond</code> as the timestamp.</p></li>
+<li>
+<p>If the printer is not busy and if a task is waiting,</p>
+<ul class="circle">
+<li><p>Remove the next task from the print queue and assign it to the printer.</p></li>
+<li><p>Subtract the timestamp from the <code class="code-inline tex2jax_ignore">currentSecond</code> to compute the waiting time for that task.</p></li>
+<li><p>Append the waiting time for that task to a list for later processing.</p></li>
+<li><p>Based on the number of pages in the print task, figure out how much time will be required.</p></li>
+</ul>
+</li>
+<li><p>The printer now does one second of printing if necessary. It also subtracts one second from the time required for that task.</p></li>
+<li><p>If the task has been completed, in other words the time required has reached zero, the printer is no longer busy.</p></li>
+</ul></article><span class="incontext"><a href="linear-basic_simulation-printing-tasks.html#li-112" class="internal">in-context</a></span>
+</body>
+</html>

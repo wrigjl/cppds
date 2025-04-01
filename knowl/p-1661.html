@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>Let's translate this idea to some C++ code. <a href="" class="xref" data-knowl="./knowl/lst-fractree-py.html" title="Listing 5.7.1">Listing 5.7.1</a> shows how we can use Python with our turtle to generate a fractal tree. Let's look at the code a bit more closely. You will see that on lines 5 and 7 we are making a recursive call. On line 5 we make the recursive call right after the turtle turns to the right by 20 degrees; this is the right tree mentioned above. Then in line 7 the turtle makes another recursive call, but this time after turning left by 40 degrees. The reason the turtle must turn left by 40 degrees is that it needs to undo the original 20 degree turn to the right and then do an additional 20 degree turn to the left in order to draw the left tree. Also notice that each time we make a recursive call to <code class="code-inline tex2jax_ignore">tree</code> we subtract some amount from the <code class="code-inline tex2jax_ignore">branchLen</code> parameter; this is to make sure that the recursive trees get smaller and smaller. You should also recognize the initial <code class="code-inline tex2jax_ignore">if</code> statement on line 2 as a check for the base case of <code class="code-inline tex2jax_ignore">branchLen</code> getting too small. The C++ equivalent to this function is shown below and exists in “Turtle.cpp”.</p>
+<span class="incontext"><a href="recursion_introduction-visualizing-recursion.html#p-1661" class="internal">in-context</a></span>
+</body>
+</html>
