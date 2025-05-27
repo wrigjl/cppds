@@ -632,14 +632,16 @@ eBookConfig.enable_chatcodes =  false;
 <img src="external/Trees/worstAVL.svg" class="contained" alt="described in detail following the image" aria-describedby="fig-worstavl-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-worstavl-2-description"><div class="para" id="fig-worstavl-2-1-1">Image showing the most unbalanced left-heavy AVL trees for heights 0, 1, 2, and 3, adhering to the AVL balance factor rules. Each tree is labeled with nodes and balance factors: - For height 0, the tree contains a single node "A" with a balance factor of 0. - For height 1, the tree has "B" as the root with a balance factor of 1 and "A" as its left child with a balance factor of 0. - For height 2, the tree has "C" as the root with a balance factor of 1. "B" is the left child of "C" with a balance factor of 1, and "A" is the left child of "B" with a balance factor of 0. "D" is the right child of "C" with a balance factor of 0. - For height 3, the tree has "E" as the root with a balance factor of 1. "C" is the left child of "E" with a balance factor of 1. "B" is the left child of "C" with a balance factor of 1, and "A" is the left child of "B" with a balance factor of 0. "D" is the right child of "C" with a balance factor of 0. "G" is the right child of "E" with a balance factor of 1, and "F" is the left child of "G" with a balance factor of 0. This sequence demonstrates the maximum permissible left-heavy configurations in AVL trees while maintaining balance factors of -1, 0, or 1 at all nodes.</div></div></details>
 </div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.16.1<span class="period">.</span></span><span class="space"> </span>Worst-Case Left-Heavy AVL Trees.</figcaption></figure><div class="para" id="trees_avl-tree-performance-5">Going from left to right in <a href="trees_avl-tree-performance.html#fig-worstavl" class="xref" data-knowl="./knowl/xref/fig-worstavl.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.16.1">Figure 8.16.1</a>, the tree is constructed by adding a new root node (depicted in green). Then the previous tree (show in red) is added as its left subtree. Finally, tree before that (depicted in blue) is added as the root’s right subtree.</div>
-<div class="para" id="trees_avl-tree-performance-6">Looking at the total number of nodes in the tree we see that for a tree of height 0 there is 1 node, for a tree of height 1 there is <span class="process-math">\(1+1
+<div class="para logical" id="trees_avl-tree-performance-6">
+<div class="para">Looking at the total number of nodes in the tree we see that for a tree of height 0 there is 1 node, for a tree of height 1 there is <span class="process-math">\(1+1
 = 2\)</span> nodes, for a tree of height 2 there are <span class="process-math">\(1+1+2 = 4\)</span> and for a tree of height 3 there are <span class="process-math">\(1 + 2 + 4 = 7\text{.}\)</span> More generally the pattern we see for the number of nodes in a tree of height h (<span class="process-math">\(N_h\)</span>) is:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/trees_search-tree-analysis.html ./knowl/xref/fig-worstavl.html ./knowl/xref/fig-worstavl.html">
+<div class="displaymath process-math">
 \begin{equation*}
-N_h = 1 + N_{h-1} + N_{h-2}
+N_h = 1 + N_{h-1} + N_{h-2}\text{.}
 \end{equation*}
 </div>
-<div class="para" id="trees_avl-tree-performance-8">This recurrence may look familiar to you because it is very similar to the Fibonacci sequence. We can use this fact to derive a formula for the height of an AVL tree given the number of nodes in the tree. Recall that for the Fibonacci sequence the <span class="process-math">\(i_{th}\)</span> Fibonacci number is given by:</div>
+</div>
+<div class="para" id="trees_avl-tree-performance-7">This recurrence may look familiar to you because it is very similar to the Fibonacci sequence. We can use this fact to derive a formula for the height of an AVL tree given the number of nodes in the tree. Recall that for the Fibonacci sequence the <span class="process-math">\(i_{th}\)</span> Fibonacci number is given by:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/trees_search-tree-analysis.html ./knowl/xref/fig-worstavl.html ./knowl/xref/fig-worstavl.html">
 \begin{equation*}
 \begin{split}
@@ -650,7 +652,7 @@ F_i &amp;= F_{i-1} + F_{i-2}  \text{ for all } i \ge 2
 \end{split}
 \end{equation*}
 </div>
-<div class="para logical" id="trees_avl-tree-performance-10">
+<div class="para logical" id="trees_avl-tree-performance-9">
 <div class="para">We can express the value of the number of nodes in a tree of height <span class="process-math">\(h\)</span> in terms of its position in the Fibonacci sequence:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -658,7 +660,7 @@ N_h = F_{h+3} - 1, h \ge 0\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="trees_avl-tree-performance-11">
+<div class="para logical" id="trees_avl-tree-performance-10">
 <div class="para">An important mathematical result is that the <span class="process-math">\(i^{th}\)</span> Fibonacci number can be found using Binet’s formula:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -666,7 +668,7 @@ F_i = \frac{\Phi^i - (1 - \Phi)^i}{\sqrt{5}}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="trees_avl-tree-performance-12">
+<div class="para logical" id="trees_avl-tree-performance-11">
 <div class="para">You can consult a math text if you want to see a derivation of the previous formula. <span class="process-math">\(\Phi\)</span> is the golden ratio and as is defined as:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -674,7 +676,7 @@ F_i = \frac{\Phi^i - (1 - \Phi)^i}{\sqrt{5}}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="trees_avl-tree-performance-13">
+<div class="para logical" id="trees_avl-tree-performance-12">
 <div class="para">In Binet’s formula, as <span class="process-math">\(i\)</span> grows large, the term <span class="process-math">\((1 - \Phi)^i\)</span> approaches zero, so we can use the following approximation to obtain a value close to the <span class="process-math">\(i^{th}\)</span> Fibonacci number:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -682,7 +684,7 @@ F_i \approx \frac{\Phi^i}{\sqrt{5}}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="trees_avl-tree-performance-14">
+<div class="para logical" id="trees_avl-tree-performance-13">
 <div class="para">By replacing the Fibonacci reference with its golden ratio approximation we get:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -690,7 +692,7 @@ N_h = \frac{\Phi^{h+3}}{\sqrt{5}} - 1\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="trees_avl-tree-performance-15">
+<div class="para logical" id="trees_avl-tree-performance-14">
 <div class="para">If we rearrange the terms, and take the base 2 log of both sides and then solve for <span class="process-math">\(h\)</span> we get the following derivation:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -702,7 +704,7 @@ h &amp;\approx 1.44 \log_2{(N_h + 1) - 2.57}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="trees_avl-tree-performance-16">This derivation shows us that at any time the height of our AVL tree is equal to a constant(1.44) times the log of the number of nodes in the tree. This is great news for searching our AVL tree because it limits the search to <span class="process-math">\(O(\log{N})\text{.}\)</span>
+<div class="para" id="trees_avl-tree-performance-15">This derivation shows us that at any time the height of our AVL tree is equal to a constant(1.44) times the log of the number of nodes in the tree. This is great news for searching our AVL tree because it limits the search to <span class="process-math">\(O(\log{N})\text{.}\)</span>
 </div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="trees_balanced-binary-search-trees.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="trees_avl-tree-implementation.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
