@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,26 +18,25 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program"><code class="language-cpp">void del(int key){
-    if (this-&gt;size &gt; 1){
-        TreeNode *nodeToRemove = this-&gt;_get(key, this-&gt;root);
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.8<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">del</code> Method</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-bst_lst-bst5-prog" class="language-cpp">void del(int key){
+    if (size &gt; 1){
+        TreeNode *nodeToRemove = _get(key, root);
         if (nodeToRemove){
-            this-&gt;remove(nodeToRemove);
-            this-&gt;size = this-&gt;size - 1;
+            remove(nodeToRemove);
+            size = size - 1;
         }
         else{
             cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
         }
     }
-    else if (this-&gt;size == 1 &amp;&amp; this-&gt;root-&gt;key == key){
-        this-&gt;root = NULL;
-        this-&gt;size = this-&gt;size - 1;
+    else if (size == 1 &amp;&amp; root-&gt;key == key){
+        root = nullptr;
+        size = size - 1;
     }
     else{
         cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.8<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">del</code> Method</figcaption></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst5">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst5">in-context</a></span>
 </body>
 </html>

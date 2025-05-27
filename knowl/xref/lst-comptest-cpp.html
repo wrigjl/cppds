@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -14,7 +21,7 @@
 <article class="task exercise-like"><h4 class="heading">
 <span class="type">Task</span><span class="space"> </span><span class="codenumber">8.4.5.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h4>
-<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<pre class="program"><code id="rs-lst-comptest-cpp-prog" class="language-cpp">#include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 using namespace std;
 
@@ -29,12 +36,12 @@ private:
 public: //constructor function expects to get some kind of object to store in the root
     BinaryTree(char rootObj){
         this-&gt;key = rootObj;
-        this-&gt;leftChild = NULL;
-        this-&gt;rightChild = NULL;
+        this-&gt;leftChild = nullptr;
+        this-&gt;rightChild = nullptr;
     }
 
     void insertLeft(char newNode){ // Handles insertion if there is no left child simply adds a node to the tree.
-        if (this-&gt;leftChild == NULL){
+        if (this-&gt;leftChild == nullptr){
             this-&gt;leftChild = new BinaryTree(newNode);
         }
         else { // handles insertion if there is a left child pushes the existing child down one level in the tree.
@@ -45,7 +52,7 @@ public: //constructor function expects to get some kind of object to store in th
     }
 
     void insertRight(char newNode){
-        if (this-&gt;rightChild == NULL){
+        if (this-&gt;rightChild == nullptr){
             this-&gt;rightChild = new BinaryTree(newNode);
         }
         else {

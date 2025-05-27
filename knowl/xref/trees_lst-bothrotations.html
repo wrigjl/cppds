@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,10 +18,10 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program line-numbers"><code class="language-cpp">void rotateLeft(TreeNode *rotRoot){
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.3<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">rotateLeft</code> and <code class="code-inline tex2jax_ignore">rotateRight</code></figcaption><div class="listing__contents"><div class="code-box"><pre class="program line-numbers"><code id="rs-trees_lst-bothrotations-prog" class="language-cpp">void rotateLeft(TreeNode *rotRoot){
     TreeNode *newRoot = rotRoot-&gt;rightChild;
     rotRoot-&gt;rightChild = newRoot-&gt;leftChild;
-    if (newRoot-&gt;leftChild != NULL){
+    if (newRoot-&gt;leftChild != nullptr){
         newRoot-&gt;leftChild-&gt;parent = rotRoot;
     }
     newRoot-&gt;parent = rotRoot-&gt;parent;
@@ -34,7 +41,6 @@
     rotRoot-&gt;balanceFactor = rotRoot-&gt;balanceFactor + 1 - min(newRoot-&gt;balanceFactor, 0);
     newRoot-&gt;balanceFactor = newRoot-&gt;balanceFactor + 1 + max(rotRoot-&gt;balanceFactor, 0);
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.4<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">rotateLeft</code> and <code class="code-inline tex2jax_ignore">rotateRight</code></figcaption></figure><span class="incontext"><a class="internal" href="trees_avl-tree-implementation.html#trees_lst-bothrotations">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="trees_avl-tree-implementation.html#trees_lst-bothrotations">in-context</a></span>
 </body>
 </html>

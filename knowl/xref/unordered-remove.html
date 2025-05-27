@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,9 +18,9 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program line-numbers"><code class="language-cpp">void remove(int item) {
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">4.5.13<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">UnorderedList</code> <code class="code-inline tex2jax_ignore">remove</code> Method</figcaption><div class="listing__contents"><div class="code-box"><pre class="program line-numbers"><code id="rs-unordered-remove-prog" class="language-cpp">void remove(int item) {
     Node *current = head;
-    Node *previous = NULL;
+    Node *previous = nullptr;
     bool found = false;
     while (!found) {
         if (current-&gt;getData() == item) {
@@ -23,13 +30,12 @@
             current = current-&gt;getNext();
         }
     }
-    if (previous == NULL) {
+    if (previous == nullptr) {
         head = current-&gt;getNext();
     } else {
         previous-&gt;setNext(current-&gt;getNext());
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">4.5.13<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">UnorderedList</code> <code class="code-inline tex2jax_ignore">remove</code> Method</figcaption></figure><span class="incontext"><a class="internal" href="linear-linked_unordered-linked-list.html#unordered-remove">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="linear-linked_unordered-linked-list.html#unordered-remove">in-context</a></span>
 </body>
 </html>

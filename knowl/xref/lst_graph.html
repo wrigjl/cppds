@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,7 +18,7 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program"><code class="language-cpp">class Graph {
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.6.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">Graph</code> Class</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-lst_graph-prog" class="language-cpp">class Graph {
     public:
         map&lt;int, Vertex&gt; vertList;
         int numVertices;
@@ -30,11 +37,11 @@
         Vertex *getVertex(int n) {
             for (map&lt;int, Vertex&gt;::iterator it = vertList.begin(); it != vertList.end(); ++it) {
                 if (it-&gt;first == n) {
-                    // Forced to use pntr due to possibility of returning NULL
+                    // Forced to use pntr due to possibility of returning nullptr
                     Vertex *vpntr = &amp;vertList[n];
                     return vpntr;
                 } else {
-                    return NULL;
+                    return nullptr;
                 }
             }
         }
@@ -78,7 +85,6 @@ ostream &amp;operator&lt;&lt;(ostream &amp;stream, Graph &amp;grph) {
 
     return stream;
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.6.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">Graph</code> Class</figcaption></figure><span class="incontext"><a class="internal" href="graphs_implementation.html#lst_graph">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="graphs_implementation.html#lst_graph">in-context</a></span>
 </body>
 </html>

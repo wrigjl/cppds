@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -14,7 +21,7 @@
 <article class="task exercise-like"><h4 class="heading">
 <span class="type">Task</span><span class="space"> </span><span class="codenumber">8.13.1.a</span><span class="period">.</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h4>
-<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<pre class="program"><code id="rs-completebstcodecpp-prog" class="language-cpp">#include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 #include &lt;cstddef&gt;
 #include &lt;string&gt;
@@ -25,16 +32,16 @@ class TreeNode{
 
     public:
         int key;
-        string payload;
+        string value;
         TreeNode *leftChild;
         TreeNode *rightChild;
         TreeNode *parent;
 
         // Using Optional parameters make it
         // easy for us to create a TreeNode under several different circumstances.
-        TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+        TreeNode(int key, string val, TreeNode *parent = nullptr, TreeNode *left = nullptr, TreeNode *right = nullptr){
             this-&gt;key = key;
-            this-&gt;payload = val;
+            this-&gt;value = val;
             this-&gt;leftChild = left;
             this-&gt;rightChild = right;
             this-&gt;parent = parent;
@@ -43,76 +50,76 @@ class TreeNode{
         // Returns a pointer to the left child of this node.
         // If null, the child doesn't exist.
         TreeNode *hasLeftChild(){
-            return this-&gt;leftChild;
+            return leftChild;
         }
 
-        //Returns a pointer to the right child of this node.
-        //If null, the child doesn't exist.
+        // Returns a pointer to the right child of this node.
+        // If null, the child doesn't exist.
         TreeNode *hasRightChild(){
-            return this-&gt;rightChild;
+            return rightChild;
         }
 
         //Returns a boolean indicating if this node is the left child of its parent.
         bool isLeftChild(){
-            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;leftChild == this;
+            return parent &amp;&amp; parent-&gt;leftChild == this;
         }
 
         //Returns a boolean indicating if this node is the right child of its parent.
         bool isRightChild(){
-            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;rightChild == this;
+            return parent &amp;&amp; parent-&gt;rightChild == this;
         }
 
 
         //Returns a boolean indicating if this node is a root node (has no parent).
         bool isRoot(){
-            return !this-&gt;parent;
+            return !parent;
         }
 
         //Returns a boolean indicating if this node has no children.
         bool isLeaf(){
-            return !(this-&gt;rightChild || this-&gt;leftChild);
+            return !(rightChild || leftChild);
         }
 
         // Returns a boolean indicating if this node has children.
         bool hasAnyChildren(){
-            return this-&gt;rightChild || this-&gt;leftChild;
+            return rightChild || leftChild;
         }
 
         //Returns a boolean indicating if this node has both children.
         bool hasBothChildren(){
-            return this-&gt;rightChild &amp;&amp; this-&gt;leftChild;
+            return rightChild &amp;&amp; leftChild;
         }
 
 
         //Removes this node from the tree it exists in,
         //making it the root node of its own tree.
         void spliceOut(){
-            if (this-&gt;isLeaf()){
-                if (this-&gt;isLeftChild()){
-                    this-&gt;parent-&gt;leftChild = NULL;
+            if (isLeaf()){
+                if (isLeftChild()){
+                    parent-&gt;leftChild = nullptr;
                 }
                 else{
-                    this-&gt;parent-&gt;rightChild = NULL;
+                    parent-&gt;rightChild = nullptr;
                 }
             }
-            else if (this-&gt;hasAnyChildren()){
-                if (this-&gt;hasLeftChild()){
-                    if (this-&gt;isLeftChild()){
-                        this-&gt;parent-&gt;leftChild = this-&gt;leftChild;
+            else if (hasAnyChildren()){
+                if (hasLeftChild()){
+                    if (isLeftChild()){
+                        parent-&gt;leftChild = leftChild;
                     }
                     else{
-                        this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+                        parent-&gt;rightChild = rightChild;
                     }
-                    this-&gt;leftChild-&gt;parent = this-&gt;parent;
+                    leftChild-&gt;parent = parent;
                 }
                 else{
-                    if (this-&gt;isLeftChild()){
-                        this-&gt;parent-&gt;leftChild = this-&gt;rightChild;
+                    if (isLeftChild()){
+                        parent-&gt;leftChild = rightChild;
                     }
                     else{
-                        this-&gt;parent-&gt;rightChild = this-&gt;rightChild;
+                        parent-&gt;rightChild = rightChild;
                     }
-                    this-&gt;rightChild-&gt;parent = this-&gt;parent;
+                    rightChild-&gt;parent = parent;
                 }
             }
         }
@@ -121,19 +128,19 @@ class TreeNode{
         // that cause an inorder traversal to print out the
         // nodes in the tree from smallest to largest.
         TreeNode *findSuccessor(){
-            TreeNode *succ = NULL;
-            if (this-&gt;hasRightChild()){
-                succ = this-&gt;rightChild-&gt;findMin();
+            TreeNode *succ = nullptr;
+            if (hasRightChild()){
+                succ = rightChild-&gt;findMin();
             }
             else{
-                if (this-&gt;parent){
-                    if (this-&gt;isLeftChild()){
-                        succ = this-&gt;parent;
+                if (parent){
+                    if (isLeftChild()){
+                        succ = parent;
                     }
                     else{
-                        this-&gt;parent-&gt;rightChild = NULL;
-                        succ = this-&gt;parent-&gt;findSuccessor();
-                        this-&gt;parent-&gt;rightChild = this;
+                        parent-&gt;rightChild = nullptr;
+                        succ = parent-&gt;findSuccessor();
+                        parent-&gt;rightChild = this;
                     }
                 }
             }
@@ -150,17 +157,17 @@ class TreeNode{
         }
 
         //Sets the variables of this node. lc/rc are left child and right child.
-        void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+        void replaceNodeData(int key, string value, TreeNode *lc = nullptr, TreeNode *rc = nullptr){
             this-&gt;key = key;
-            this-&gt;payload = value;
+            this-&gt;value = value;
             this-&gt;leftChild = lc;
             this-&gt;rightChild = rc;
-            if (this-&gt;hasLeftChild()){
-                this-&gt;leftChild-&gt;parent = this;
+            if (hasLeftChild()){
+                leftChild-&gt;parent = this;
             }
 
-            if (this-&gt;hasRightChild()){
-                this-&gt;rightChild-&gt;parent = this;
+            if (hasRightChild()){
+                rightChild-&gt;parent = this;
             }
         }
 };
@@ -181,7 +188,7 @@ class BinarySearchTree{
         void _put(int key, string val, TreeNode *currentNode){
             if (key &lt; currentNode-&gt;key){
                 if (currentNode-&gt;hasLeftChild()){
-                    this-&gt;_put(key, val, currentNode-&gt;leftChild);
+                    _put(key, val, currentNode-&gt;leftChild);
                 }
                 else{
                     currentNode-&gt;leftChild = new TreeNode(key, val, currentNode);
@@ -189,7 +196,7 @@ class BinarySearchTree{
             }
             else{
                 if (currentNode-&gt;hasRightChild()){
-                    this-&gt;_put(key, val, currentNode-&gt;rightChild);
+                    _put(key, val, currentNode-&gt;rightChild);
                 }
                 else{
                     currentNode-&gt;rightChild = new TreeNode(key, val, currentNode);
@@ -201,27 +208,27 @@ class BinarySearchTree{
         // a TreeNode to get
         TreeNode  *_get(int key, TreeNode *currentNode){
             if (!currentNode){
-                return NULL;
+                return nullptr;
             }
             else if (currentNode-&gt;key == key){
                 return currentNode;
             }
             else if (key &lt; currentNode-&gt;key){
-                return this-&gt;_get(key, currentNode-&gt;leftChild);
+                return _get(key, currentNode-&gt;leftChild);
             }
             else{
-                return this-&gt;_get(key, currentNode-&gt;rightChild);
+                return _get(key, currentNode-&gt;rightChild);
             }
         }
 
     public:
         BinarySearchTree(){
-            this-&gt;root = NULL;
-            this-&gt;size = 0;
+            root = nullptr;
+            size = 0;
         }
 
         int length(){
-            return this-&gt;size;
+            return size;
         }
 
         // Checks to see if the tree has a root,
@@ -230,21 +237,21 @@ class BinarySearchTree{
         // If a root node is already in place than it calls _put
         // to search the tree
         void put(int key, string val){
-            if (this-&gt;root){
-                this-&gt;_put(key, val, this-&gt;root);
+            if (root){
+                _put(key, val, root);
             }
             else{
-                this-&gt;root = new TreeNode(key, val);
+                root = new TreeNode(key, val);
             }
-            this-&gt;size = this-&gt;size + 1;
+            size = size + 1;
         }
 
         // prints string associated with key to console
         string get(int key){
-            if (this-&gt;root){
-                TreeNode *res = this-&gt;_get(key, this-&gt;root);
+            if (root){
+                TreeNode *res = _get(key, root);
                 if (res){
-                    return res-&gt;payload;
+                    return res-&gt;value;
                 }
                 else{
                     return 0;
@@ -259,21 +266,21 @@ class BinarySearchTree{
         // In either case if the key is not found an error is raised.
         // If the node is found and has no childeren it is deleted
         // If the node has a single child, the child takes the place of the parent.
-        // Look at explination for listing 10
+        // Look at explanation for listing 10
         void del(int key){
-            if (this-&gt;size &gt; 1){
-                TreeNode *nodeToRemove = this-&gt;_get(key, this-&gt;root);
+            if (size &gt; 1){
+                TreeNode *nodeToRemove = _get(key, root);
                 if (nodeToRemove){
-                    this-&gt;remove(nodeToRemove);
-                    this-&gt;size = this-&gt;size - 1;
+                    remove(nodeToRemove);
+                    size = size - 1;
                 }
                 else{
                     cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
                 }
             }
-            else if (this-&gt;size == 1 &amp;&amp; this-&gt;root-&gt;key == key){
-                this-&gt;root = NULL;
-                this-&gt;size = this-&gt;size - 1;
+            else if (size == 1 &amp;&amp; root-&gt;key == key){
+                root = nullptr;
+                size = size - 1;
             }
             else{
                 cerr &lt;&lt; "Error, key not in tree" &lt;&lt; endl;
@@ -283,17 +290,17 @@ class BinarySearchTree{
         void remove(TreeNode *currentNode){
             if (currentNode-&gt;isLeaf()){ //leaf
                 if (currentNode == currentNode-&gt;parent-&gt;leftChild){
-                    currentNode-&gt;parent-&gt;leftChild = NULL;
+                    currentNode-&gt;parent-&gt;leftChild = nullptr;
                 }
                 else{
-                    currentNode-&gt;parent-&gt;rightChild = NULL;
+                    currentNode-&gt;parent-&gt;rightChild = nullptr;
                 }
             }
             else if (currentNode-&gt;hasBothChildren()){ //interior
                 TreeNode *succ = currentNode-&gt;findSuccessor();
                 succ-&gt;spliceOut();
                 currentNode-&gt;key = succ-&gt;key;
-                currentNode-&gt;payload = succ-&gt;payload;
+                currentNode-&gt;value = succ-&gt;value;
             }
             else{ // this node has one child
                 if (currentNode-&gt;hasLeftChild()){
@@ -307,7 +314,7 @@ class BinarySearchTree{
                     }
                     else{
                         currentNode-&gt;replaceNodeData(currentNode-&gt;leftChild-&gt;key,
-                                                     currentNode-&gt;leftChild-&gt;payload,
+                                                     currentNode-&gt;leftChild-&gt;value,
                                                      currentNode-&gt;leftChild-&gt;leftChild,
                                                      currentNode-&gt;leftChild-&gt;rightChild);
 
@@ -324,7 +331,7 @@ class BinarySearchTree{
                     }
                     else{
                         currentNode-&gt;replaceNodeData(currentNode-&gt;rightChild-&gt;key,
-                                                     currentNode-&gt;rightChild-&gt;payload,
+                                                     currentNode-&gt;rightChild-&gt;value,
                                                      currentNode-&gt;rightChild-&gt;leftChild,
                                                      currentNode-&gt;rightChild-&gt;rightChild);
                     }

@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,7 +18,7 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><pre class="program"><code class="language-cpp">#include &lt;fstream&gt;
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.8.3<span class="period">.</span></span><span class="space"> </span>Building the Word Bucket Graph</figcaption><div class="listing__contents"><pre class="program"><code id="rs-wordbucket_cpp-prog" class="language-cpp">#include &lt;fstream&gt;
 #include &lt;iostream&gt;
 #include &lt;map&gt;
 #include &lt;string&gt;
@@ -89,11 +96,11 @@ public:
                        it != vertList.end();
                        ++it) {
                       if (it-&gt;first == n) {
-                              // Forced to use pntr due to possibility of returning NULL
+                              // Forced to use pntr due to possibility of returning nullptr
                               Vertex *vpntr = &amp;vertList[n];
                               return vpntr;
                       } else {
-                              return NULL;
+                              return nullptr;
                       }
               }
       }
@@ -193,7 +200,6 @@ int main() {
 
       return 0;
 }
-</code></pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.8.3<span class="period">.</span></span><span class="space"> </span>Building the Word Bucket Graph</figcaption></figure><span class="incontext"><a class="internal" href="graphs_building-the-word-ladder-graph.html#graphs_wordbucket_cpp">in-context</a></span>
+</code></pre></div></figure><span class="incontext"><a class="internal" href="graphs_building-the-word-ladder-graph.html#graphs_wordbucket_cpp">in-context</a></span>
 </body>
 </html>

@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,14 +18,13 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program"><code class="language-cpp">int moveTower(int height, char fromPole, char toPole, char withPole){
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.10.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">moveTower</code> Function</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-lst-movetower-prog" class="language-cpp">int moveTower(int height, char fromPole, char toPole, char withPole){
     if (height &gt;= 1){
         moveTower(height-1, fromPole, withPole, toPole);
         moveDisk(fromPole, toPole);
         moveTower(height-1, withPole, toPole, fromPole);
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.10.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">moveTower</code> Function</figcaption></figure><span class="incontext"><a class="internal" href="recursion_tower-of-hanoi.html#lst-movetower">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="recursion_tower-of-hanoi.html#lst-movetower">in-context</a></span>
 </body>
 </html>

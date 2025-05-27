@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,7 +18,14 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program line-numbers"><code class="language-cpp">void _put(int key, string val, TreeNode *currentNode){
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.17.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implementation of <code class="code-inline tex2jax_ignore">_put</code> and <code class="code-inline tex2jax_ignore">updateBalance</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-trees_lst-updbal">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="trees_lst-updbal-2"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box"><pre class="program line-numbers"><code id="rs-trees_lst-updbal-prog" class="language-cpp">void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
             this-&gt;_put(key, val, currentNode-&gt;leftChild);
@@ -37,7 +51,7 @@ int updateBalance(TreeNode *node){
         this-&gt;rebalance(node);
         return 0;
     }
-    if (node-&gt;parent != NULL){
+    if (node-&gt;parent != nullptr){
         if (node-&gt;isLeftChild()){
             node-&gt;parent-&gt;balanceFactor += 1;
         }
@@ -50,7 +64,45 @@ int updateBalance(TreeNode *node){
     }
     return 0;
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.1<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">_put</code> and <code class="code-inline tex2jax_ignore">updateBalance</code></figcaption></figure><span class="incontext"><a class="internal" href="trees_avl-tree-implementation.html#trees_lst-updbal">in-context</a></span>
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="trees_lst-updbal-3"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box"><pre class="program line-numbers"><code id="rs-trees_lst-updbal-prog-py" class="language-py">class AVLTree:
+    # Other method definitions
+    # ... 
+
+    def _put(self, key, value, current_node):
+        if key &lt; current_node.key:
+            if current_node.has_left_child():
+                self._put(key, value, current_node.left_child)
+            else:
+                current_node.left_child= TreeNode(key, value, current_node)
+                self.update_balance(current_node.left_child)
+        else:
+            if current_node.has_right_child():
+                self._put(key, value, current_node.right_child)
+            else:
+                current_node.right_child= TreeNode(key, value, current_node)
+                self.update_balance(current_node.right_child)
+
+    
+    def update_balance(self, node): 
+        if node.balance_factor &gt; 1 or node.balance_factor &lt; -1:
+            self.rebalance(node)
+            return 0
+
+        if node.parent is not None:
+            if node.is_left_child():
+                node.parent.balance_factor += 1
+            elif node.is_right_child():
+                node.parent.balance_factor -= 1
+
+        if node.parent.balance_factor != 0:
+            self.update_balance(node.parent)
+
+    return 0
+</code></pre></div></article></div>
+</div></div></div></article><span class="incontext"><a class="internal" href="trees_avl-tree-implementation.html#trees_lst-updbal">in-context</a></span>
 </body>
 </html>

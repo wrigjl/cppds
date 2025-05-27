@@ -6,13 +6,20 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DS Tower of Hanoi</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
@@ -68,12 +75,11 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<!--** eBookCongig is necessary to configure interactive       **-->
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -95,151 +101,23 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.11';
+eBookConfig.runestone_version = '7.7.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.ee5a0b116b7d0991.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.e0c6d4592e23c667.css">
-<style>
-#introduction_accessing-values-from-pointers-17 { counter-set: introduction_accessing-values-from-pointers-17 0; }
-#introduction_accessing-values-from-pointers-17 > li::marker { content: ""counter(introduction_accessing-values-from-pointers-17,decimal)""; }
-#introduction_accessing-values-from-pointers-17 > li { counter-increment: introduction_accessing-values-from-pointers-17; }
-#introduction_arrays-4-1-1 { counter-set: introduction_arrays-4-1-1 0; }
-#introduction_arrays-4-1-1 > li::marker { content: ""counter(introduction_arrays-4-1-1,decimal)""; }
-#introduction_arrays-4-1-1 > li { counter-increment: introduction_arrays-4-1-1; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 { counter-set: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 0; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li::marker { content: ""counter(introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1,decimal)""; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li { counter-increment: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1; }
-#introduction_discussion-questions-2-1 { counter-set: introduction_discussion-questions-2-1 0; }
-#introduction_discussion-questions-2-1 > li::marker { content: ""counter(introduction_discussion-questions-2-1,decimal)""; }
-#introduction_discussion-questions-2-1 > li { counter-increment: introduction_discussion-questions-2-1; }
-#introduction_programming-exercises-2-1 { counter-set: introduction_programming-exercises-2-1 0; }
-#introduction_programming-exercises-2-1 > li::marker { content: ""counter(introduction_programming-exercises-2-1,decimal)""; }
-#introduction_programming-exercises-2-1 > li { counter-increment: introduction_programming-exercises-2-1; }
-#algorithm-analysis_discussion-questions-2-1 { counter-set: algorithm-analysis_discussion-questions-2-1 0; }
-#algorithm-analysis_discussion-questions-2-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-2-1,decimal)""; }
-#algorithm-analysis_discussion-questions-2-1 > li { counter-increment: algorithm-analysis_discussion-questions-2-1; }
-#algorithm-analysis_discussion-questions-4-1 { counter-set: algorithm-analysis_discussion-questions-4-1 0; }
-#algorithm-analysis_discussion-questions-4-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-4-1,decimal)""; }
-#algorithm-analysis_discussion-questions-4-1 > li { counter-increment: algorithm-analysis_discussion-questions-4-1; }
-#algorithm-analysis_discussion-questions-6-1 { counter-set: algorithm-analysis_discussion-questions-6-1 0; }
-#algorithm-analysis_discussion-questions-6-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-6-1,decimal)""; }
-#algorithm-analysis_discussion-questions-6-1 > li { counter-increment: algorithm-analysis_discussion-questions-6-1; }
-#algorithm-analysis_discussion-questions-8-1 { counter-set: algorithm-analysis_discussion-questions-8-1 0; }
-#algorithm-analysis_discussion-questions-8-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-8-1,decimal)""; }
-#algorithm-analysis_discussion-questions-8-1 > li { counter-increment: algorithm-analysis_discussion-questions-8-1; }
-#algorithm-analysis_discussion-questions-10-1 { counter-set: algorithm-analysis_discussion-questions-10-1 0; }
-#algorithm-analysis_discussion-questions-10-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-10-1,decimal)""; }
-#algorithm-analysis_discussion-questions-10-1 > li { counter-increment: algorithm-analysis_discussion-questions-10-1; }
-#algorithm-analysis_programming-exercises-2-1 { counter-set: algorithm-analysis_programming-exercises-2-1 0; }
-#algorithm-analysis_programming-exercises-2-1 > li::marker { content: ""counter(algorithm-analysis_programming-exercises-2-1,decimal)""; }
-#algorithm-analysis_programming-exercises-2-1 > li { counter-increment: algorithm-analysis_programming-exercises-2-1; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 { counter-set: linear-basic_general-infix-to-postfix-conversion-9-1 0; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li::marker { content: ""counter(linear-basic_general-infix-to-postfix-conversion-9-1,decimal)""; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li { counter-increment: linear-basic_general-infix-to-postfix-conversion-9-1; }
-#linear-basic_postfix-evaluation-10-1 { counter-set: linear-basic_postfix-evaluation-10-1 0; }
-#linear-basic_postfix-evaluation-10-1 > li::marker { content: ""counter(linear-basic_postfix-evaluation-10-1,decimal)""; }
-#linear-basic_postfix-evaluation-10-1 > li { counter-increment: linear-basic_postfix-evaluation-10-1; }
-#linear-basic_main-simulation-steps-3-1 { counter-set: linear-basic_main-simulation-steps-3-1 0; }
-#linear-basic_main-simulation-steps-3-1 > li::marker { content: ""counter(linear-basic_main-simulation-steps-3-1,decimal)""; }
-#linear-basic_main-simulation-steps-3-1 > li { counter-increment: linear-basic_main-simulation-steps-3-1; }
-#linear-basic_discussion-questions-2-1 { counter-set: linear-basic_discussion-questions-2-1 0; }
-#linear-basic_discussion-questions-2-1 > li::marker { content: ""counter(linear-basic_discussion-questions-2-1,decimal)""; }
-#linear-basic_discussion-questions-2-1 > li { counter-increment: linear-basic_discussion-questions-2-1; }
-#linear-basic_programming-exercises-2-1 { counter-set: linear-basic_programming-exercises-2-1 0; }
-#linear-basic_programming-exercises-2-1 > li::marker { content: ""counter(linear-basic_programming-exercises-2-1,decimal)""; }
-#linear-basic_programming-exercises-2-1 > li { counter-increment: linear-basic_programming-exercises-2-1; }
-#linear-linked_discussion-questions-2-1 { counter-set: linear-linked_discussion-questions-2-1 0; }
-#linear-linked_discussion-questions-2-1 > li::marker { content: ""counter(linear-linked_discussion-questions-2-1,decimal)""; }
-#linear-linked_discussion-questions-2-1 > li { counter-increment: linear-linked_discussion-questions-2-1; }
-#linear-linked_programming-exercises-2-1 { counter-set: linear-linked_programming-exercises-2-1 0; }
-#linear-linked_programming-exercises-2-1 > li::marker { content: ""counter(linear-linked_programming-exercises-2-1,decimal)""; }
-#linear-linked_programming-exercises-2-1 > li { counter-increment: linear-linked_programming-exercises-2-1; }
-#recursion_the-three-laws-of-recursion-3-1-1 { counter-set: recursion_the-three-laws-of-recursion-3-1-1 0; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li::marker { content: ""counter(recursion_the-three-laws-of-recursion-3-1-1,decimal)""; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li { counter-increment: recursion_the-three-laws-of-recursion-3-1-1; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 { counter-set: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 0; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li::marker { content: ""counter(recursion_converting-an-integer-to-a-string-in-any-base-5-1-1,decimal)""; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li { counter-increment: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1; }
-#recursion_tower-of-hanoi-8-1 { counter-set: recursion_tower-of-hanoi-8-1 0; }
-#recursion_tower-of-hanoi-8-1 > li::marker { content: ""counter(recursion_tower-of-hanoi-8-1,decimal)""; }
-#recursion_tower-of-hanoi-8-1 > li { counter-increment: recursion_tower-of-hanoi-8-1; }
-#recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
-#recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
-#recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
-#recursion_dynamic-programming-20-1 { counter-set: recursion_dynamic-programming-20-1 0; }
-#recursion_dynamic-programming-20-1 > li::marker { content: ""counter(recursion_dynamic-programming-20-1,decimal)""; }
-#recursion_dynamic-programming-20-1 > li { counter-increment: recursion_dynamic-programming-20-1; }
-#recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
-#recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
-#recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
-#recursion_programming-exercises-2-1 { counter-set: recursion_programming-exercises-2-1 0; }
-#recursion_programming-exercises-2-1 > li::marker { content: ""counter(recursion_programming-exercises-2-1,decimal)""; }
-#recursion_programming-exercises-2-1 > li { counter-increment: recursion_programming-exercises-2-1; }
-#search-hash_discussion-questions-2-1 { counter-set: search-hash_discussion-questions-2-1 0; }
-#search-hash_discussion-questions-2-1 > li::marker { content: ""counter(search-hash_discussion-questions-2-1,decimal)""; }
-#search-hash_discussion-questions-2-1 > li { counter-increment: search-hash_discussion-questions-2-1; }
-#search-hash_programming-exercises-2-1 { counter-set: search-hash_programming-exercises-2-1 0; }
-#search-hash_programming-exercises-2-1 > li::marker { content: ""counter(search-hash_programming-exercises-2-1,decimal)""; }
-#search-hash_programming-exercises-2-1 > li { counter-increment: search-hash_programming-exercises-2-1; }
-#sort_discussion-questions-2-1 { counter-set: sort_discussion-questions-2-1 0; }
-#sort_discussion-questions-2-1 > li::marker { content: ""counter(sort_discussion-questions-2-1,decimal)""; }
-#sort_discussion-questions-2-1 > li { counter-increment: sort_discussion-questions-2-1; }
-#sort_programming-exercises-2-1 { counter-set: sort_programming-exercises-2-1 0; }
-#sort_programming-exercises-2-1 > li::marker { content: ""counter(sort_programming-exercises-2-1,decimal)""; }
-#sort_programming-exercises-2-1 > li { counter-increment: sort_programming-exercises-2-1; }
-#trees_parse-tree-12-1 { counter-set: trees_parse-tree-12-1 0; }
-#trees_parse-tree-12-1 > li::marker { content: ""counter(trees_parse-tree-12-1,decimal)""; }
-#trees_parse-tree-12-1 > li { counter-increment: trees_parse-tree-12-1; }
-#trees_parse-tree-16-1 { counter-set: trees_parse-tree-16-1 0; }
-#trees_parse-tree-16-1 > li::marker { content: ""counter(trees_parse-tree-16-1,lower-alpha)""; }
-#trees_parse-tree-16-1 > li { counter-increment: trees_parse-tree-16-1; }
-#trees_search-tree-implementation-24-1 { counter-set: trees_search-tree-implementation-24-1 0; }
-#trees_search-tree-implementation-24-1 > li::marker { content: ""counter(trees_search-tree-implementation-24-1,decimal)""; }
-#trees_search-tree-implementation-24-1 > li { counter-increment: trees_search-tree-implementation-24-1; }
-#trees_search-tree-implementation-29-1 { counter-set: trees_search-tree-implementation-29-1 0; }
-#trees_search-tree-implementation-29-1 > li::marker { content: ""counter(trees_search-tree-implementation-29-1,decimal)""; }
-#trees_search-tree-implementation-29-1 > li { counter-increment: trees_search-tree-implementation-29-1; }
-#trees_search-tree-implementation-37-1 { counter-set: trees_search-tree-implementation-37-1 0; }
-#trees_search-tree-implementation-37-1 > li::marker { content: ""counter(trees_search-tree-implementation-37-1,decimal)""; }
-#trees_search-tree-implementation-37-1 > li { counter-increment: trees_search-tree-implementation-37-1; }
-#trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
-#trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
-#trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
-#trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
-#trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
-#trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
-#graphs_implementing-breadth-first-search-8-1 { counter-set: graphs_implementing-breadth-first-search-8-1 0; }
-#graphs_implementing-breadth-first-search-8-1 > li::marker { content: ""counter(graphs_implementing-breadth-first-search-8-1,decimal)""; }
-#graphs_implementing-breadth-first-search-8-1 > li { counter-increment: graphs_implementing-breadth-first-search-8-1; }
-#graphs_topological-sorting-7-1 { counter-set: graphs_topological-sorting-7-1 0; }
-#graphs_topological-sorting-7-1 > li::marker { content: ""counter(graphs_topological-sorting-7-1,decimal)""; }
-#graphs_topological-sorting-7-1 > li { counter-increment: graphs_topological-sorting-7-1; }
-#graphs_strongly-connected-components-15-1 { counter-set: graphs_strongly-connected-components-15-1 0; }
-#graphs_strongly-connected-components-15-1 > li::marker { content: ""counter(graphs_strongly-connected-components-15-1,decimal)""; }
-#graphs_strongly-connected-components-15-1 > li { counter-increment: graphs_strongly-connected-components-15-1; }
-#graphs_discussion-questions-2-1 { counter-set: graphs_discussion-questions-2-1 0; }
-#graphs_discussion-questions-2-1 > li::marker { content: ""counter(graphs_discussion-questions-2-1,decimal)""; }
-#graphs_discussion-questions-2-1 > li { counter-increment: graphs_discussion-questions-2-1; }
-#graphs_discussion-questions-4-1 { counter-set: graphs_discussion-questions-4-1 0; }
-#graphs_discussion-questions-4-1 > li::marker { content: ""counter(graphs_discussion-questions-4-1,decimal)""; }
-#graphs_discussion-questions-4-1 > li { counter-increment: graphs_discussion-questions-4-1; }
-#graphs_programming-exercises-2-1 { counter-set: graphs_programming-exercises-2-1 0; }
-#graphs_programming-exercises-2-1 > li::marker { content: ""counter(graphs_programming-exercises-2-1,decimal)""; }
-#graphs_programming-exercises-2-1 > li { counter-increment: graphs_programming-exercises-2-1; }
-</style>
+<script src="_static/prefix-runtime.cf591bce111c14c1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.472f5a2f0bfe3571.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -284,7 +162,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointer-syntax" class="internal"><span class="codenumber">1.9.4.1</span> <span class="title">Pointer Syntax</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-address-of-operator" class="internal"><span class="codenumber">1.9.4.2</span> <span class="title">The address-of operator, <code class="code-inline tex2jax_ignore">&amp;</code></span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_accessing-values-from-pointers" class="internal"><span class="codenumber">1.9.4.3</span> <span class="title">Accessing Values from Pointers</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The NULL pointer</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The null pointer</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -757,21 +635,20 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.10.1<span class="period">.</span></span><span class="space"> </span>An Example Arrangement of Disks for the Tower of Hanoi.</figcaption></figure><div class="para" id="recursion_tower-of-hanoi-6">How do we go about solving this problem recursively? How would you go about solving this problem at all? What is our base case? Let’s think about this problem from the bottom up. Suppose you have a tower of five disks, originally on peg one. If you already knew how to move a tower of four disks to peg two, you could then easily move the bottom disk to peg three, and then move the tower of four from peg two to peg three. But what if you do not know how to move a tower of height four? Suppose that you knew how to move a tower of height three to peg three; then it would be easy to move the fourth disk to peg two and move the three from peg three on top of it. But what if you do not know how to move a tower of three? How about moving a tower of two disks to peg two and then moving the third disk to peg three, and then moving the tower of height two on top of it? But what if you still do not know how to do this? Surely you would agree that moving a single disk to peg three is easy enough, trivial you might even say. This sounds like a base case in the making.</div>
 <div class="para" id="recursion_tower-of-hanoi-7">Here is a high-level outline of how to move a tower from the starting pole, to the goal pole, using an intermediate pole:</div>
-<div class="para logical" id="recursion_tower-of-hanoi-8"><ol class="decimal" id="recursion_tower-of-hanoi-8-1">
+<div class="para logical" id="recursion_tower-of-hanoi-8"><ol class="decimal ol-marker-1" id="recursion_tower-of-hanoi-8-1">
 <li id="recursion_tower-of-hanoi-8-1-1"><div class="para" id="recursion_tower-of-hanoi-8-1-1-1">Move a tower of height-1 to an intermediate pole, using the final pole.</div></li>
 <li id="recursion_tower-of-hanoi-8-1-2"><div class="para" id="recursion_tower-of-hanoi-8-1-2-1">Move the remaining disk to the final pole.</div></li>
 <li id="recursion_tower-of-hanoi-8-1-3"><div class="para" id="recursion_tower-of-hanoi-8-1-3-1">Move the tower of height-1 from the intermediate pole to the final pole using the original pole.</div></li>
 </ol></div>
-<div class="para" id="recursion_tower-of-hanoi-9">As long as we always obey the rule that the larger disks remain on the bottom of the stack, we can use the three steps above recursively, treating any larger disks as though they were not even there. The only thing missing from the outline above is the identification of a base case. The simplest Tower of Hanoi problem is a tower of one disk. In this case, we need move only a single disk to its final destination. A tower of one disk will be our base case. In addition, the steps outlined above move us toward the base case by reducing the height of the tower in steps 1 and 3. <a href="recursion_tower-of-hanoi.html#lst-movetower" class="xref" data-knowl="./knowl/xref/lst-movetower.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.10.2">Listing 5.10.2</a> shows the code to solve the Tower of Hanoi puzzle.</div>
-<figure class="listing figure-like" id="lst-movetower"><div class="code-box"><pre class="program"><code class="language-cpp">int moveTower(int height, char fromPole, char toPole, char withPole){
+<div class="para" id="recursion_tower-of-hanoi-9">As long as we always obey the rule that the larger disks remain on the bottom of the stack, we can use the three steps above recursively, treating any larger disks as though they were not even there. The only thing missing from the outline above is the identification of a base case. The simplest Tower of Hanoi problem is a tower of one disk. In this case, we need move only a single disk to its final destination. A tower of one disk will be our base case. In addition, the steps outlined above move us toward the base case by reducing the height of the tower in steps 1 and 3. <a href="recursion_tower-of-hanoi.html#lst-movetower" class="xref" data-knowl="./knowl/xref/lst-movetower.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.10.2: moveTower Function">Listing 5.10.2</a> shows the code to solve the Tower of Hanoi puzzle.</div>
+<figure class="listing figure-like" id="lst-movetower"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.10.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">moveTower</code> Function</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-lst-movetower-prog" class="language-cpp">int moveTower(int height, char fromPole, char toPole, char withPole){
     if (height &gt;= 1){
         moveTower(height-1, fromPole, withPole, toPole);
         moveDisk(fromPole, toPole);
         moveTower(height-1, withPole, toPole, fromPole);
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">5.10.2<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">moveTower</code> Function</figcaption></figure><div class="para" id="recursion_tower-of-hanoi-11">Notice that the code in <a href="recursion_tower-of-hanoi.html#lst-movetower" class="xref" data-knowl="./knowl/xref/lst-movetower.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.10.2">Listing 5.10.2</a> is almost identical to the English description. The key to the simplicity of the algorithm is that we make two different recursive calls, one on line 3 and a second on line 5. On line 3 we move all but the bottom disk on the initial tower to an intermediate pole. The next line simply moves the bottom disk to its final resting place. Then on line 5 we move the tower from the intermediate pole to the top of the largest disk. The base case is detected when the tower height is 0; in this case there is nothing to do, so the <code class="code-inline tex2jax_ignore">moveTower</code> function simply returns. The important thing to remember about handling the base case this way is that simply returning from <code class="code-inline tex2jax_ignore">moveTower</code> is what finally allows the <code class="code-inline tex2jax_ignore">moveDisk</code> function to be called.</div>
+</code></pre></div></div></figure><div class="para" id="recursion_tower-of-hanoi-11">Notice that the code in <a href="recursion_tower-of-hanoi.html#lst-movetower" class="xref" data-knowl="./knowl/xref/lst-movetower.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 5.10.2: moveTower Function">Listing 5.10.2</a> is almost identical to the English description. The key to the simplicity of the algorithm is that we make two different recursive calls, one on line 3 and a second on line 5. On line 3 we move all but the bottom disk on the initial tower to an intermediate pole. The next line simply moves the bottom disk to its final resting place. Then on line 5 we move the tower from the intermediate pole to the top of the largest disk. The base case is detected when the tower height is 0; in this case there is nothing to do, so the <code class="code-inline tex2jax_ignore">moveTower</code> function simply returns. The important thing to remember about handling the base case this way is that simply returning from <code class="code-inline tex2jax_ignore">moveTower</code> is what finally allows the <code class="code-inline tex2jax_ignore">moveDisk</code> function to be called.</div>
 <div class="para" id="recursion_tower-of-hanoi-12">The function <code class="code-inline tex2jax_ignore">moveDisk</code>, shown in <a href="recursion_tower-of-hanoi.html#lst-movediskcpp" class="xref" data-knowl="./knowl/xref/lst-movediskcpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.10.1.a: C++ Implementation of moveDisk">Task 5.10.1.a</a>, is very simple. All it does is print out that it is moving a disk from one pole to another. If you type in and run the <code class="code-inline tex2jax_ignore">moveTower</code> program (in <a href="recursion_tower-of-hanoi.html#lst-hanoi-whole" class="xref" data-knowl="./knowl/xref/lst-hanoi-whole.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.10.1.b: C++ Solution to Towers of Hanoi">Task 5.10.1.b</a>) you can see that it gives you a very efficient solution to the puzzle.</div>
 <article class="exploration project-like" id="expl-hanoi"><h3 class="heading">
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Towers of Hanoi.</span>
@@ -780,14 +657,14 @@ eBookConfig.enable_chatcodes =  false;
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-movediskcpp"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation of <code class="code-inline tex2jax_ignore">moveDisk</code>.</span>
 </h4>
-<div class="code-box"><pre class="program"><code class="language-cpp">int moveDisk(char fp, char tp){
+<div class="code-box"><pre class="program"><code id="rs-lst-movediskcpp-prog" class="language-cpp">int moveDisk(char fp, char tp){
     cout &lt;&lt; "moving disk from " &lt;&lt; fp &lt;&lt; " to " &lt;&lt; tp &lt;&lt; endl;
 }
 </code></pre></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-hanoi-whole"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">C++ Solution to Towers of Hanoi.</span>
 </h4>
-<pre class="program line-numbers"><code class="language-cpp">//Simulation of the tower of hanoi.
+<pre class="program line-numbers"><code id="rs-hanoicpp-prog" class="language-cpp">//Simulation of the tower of hanoi.
 
 #include &lt;iostream&gt;
 using namespace std;
@@ -837,12 +714,12 @@ main()
 </div>
 <script type="application/json">[[{"number": [[63], [63]], "feedback": "<div class=\"para\" id=\"ex-hanoi-2-1-1-1-1\">Correct, you can make a global counter at line 3, and then cout the increasing total under line 11.<\/div>"}, {"number": [[62], [62]], "feedback": "<div class=\"para\" id=\"ex-hanoi-2-1-2-1-1\">Technically you are correct but, you are off by one.<\/div>"}, {"regex": "^\\s*^\\s*.*\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"ex-hanoi-2-1-3-1-1\">Please try again you need to add a statement at line 3, and under line 11.<\/div>"}]]</script>
 </div></div></div></article></section></section></div>
-<div class="ptx-content-footer">
+<div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="recursion_complex-recursive-problems.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="recursion_exploring-a-maze.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

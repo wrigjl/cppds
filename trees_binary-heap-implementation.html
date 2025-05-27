@@ -6,13 +6,20 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DS Binary Heap Implementation</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
@@ -68,12 +75,11 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<!--** eBookCongig is necessary to configure interactive       **-->
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -95,151 +101,23 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.11';
+eBookConfig.runestone_version = '7.7.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.ee5a0b116b7d0991.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.e0c6d4592e23c667.css">
-<style>
-#introduction_accessing-values-from-pointers-17 { counter-set: introduction_accessing-values-from-pointers-17 0; }
-#introduction_accessing-values-from-pointers-17 > li::marker { content: ""counter(introduction_accessing-values-from-pointers-17,decimal)""; }
-#introduction_accessing-values-from-pointers-17 > li { counter-increment: introduction_accessing-values-from-pointers-17; }
-#introduction_arrays-4-1-1 { counter-set: introduction_arrays-4-1-1 0; }
-#introduction_arrays-4-1-1 > li::marker { content: ""counter(introduction_arrays-4-1-1,decimal)""; }
-#introduction_arrays-4-1-1 > li { counter-increment: introduction_arrays-4-1-1; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 { counter-set: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 0; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li::marker { content: ""counter(introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1,decimal)""; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li { counter-increment: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1; }
-#introduction_discussion-questions-2-1 { counter-set: introduction_discussion-questions-2-1 0; }
-#introduction_discussion-questions-2-1 > li::marker { content: ""counter(introduction_discussion-questions-2-1,decimal)""; }
-#introduction_discussion-questions-2-1 > li { counter-increment: introduction_discussion-questions-2-1; }
-#introduction_programming-exercises-2-1 { counter-set: introduction_programming-exercises-2-1 0; }
-#introduction_programming-exercises-2-1 > li::marker { content: ""counter(introduction_programming-exercises-2-1,decimal)""; }
-#introduction_programming-exercises-2-1 > li { counter-increment: introduction_programming-exercises-2-1; }
-#algorithm-analysis_discussion-questions-2-1 { counter-set: algorithm-analysis_discussion-questions-2-1 0; }
-#algorithm-analysis_discussion-questions-2-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-2-1,decimal)""; }
-#algorithm-analysis_discussion-questions-2-1 > li { counter-increment: algorithm-analysis_discussion-questions-2-1; }
-#algorithm-analysis_discussion-questions-4-1 { counter-set: algorithm-analysis_discussion-questions-4-1 0; }
-#algorithm-analysis_discussion-questions-4-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-4-1,decimal)""; }
-#algorithm-analysis_discussion-questions-4-1 > li { counter-increment: algorithm-analysis_discussion-questions-4-1; }
-#algorithm-analysis_discussion-questions-6-1 { counter-set: algorithm-analysis_discussion-questions-6-1 0; }
-#algorithm-analysis_discussion-questions-6-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-6-1,decimal)""; }
-#algorithm-analysis_discussion-questions-6-1 > li { counter-increment: algorithm-analysis_discussion-questions-6-1; }
-#algorithm-analysis_discussion-questions-8-1 { counter-set: algorithm-analysis_discussion-questions-8-1 0; }
-#algorithm-analysis_discussion-questions-8-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-8-1,decimal)""; }
-#algorithm-analysis_discussion-questions-8-1 > li { counter-increment: algorithm-analysis_discussion-questions-8-1; }
-#algorithm-analysis_discussion-questions-10-1 { counter-set: algorithm-analysis_discussion-questions-10-1 0; }
-#algorithm-analysis_discussion-questions-10-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-10-1,decimal)""; }
-#algorithm-analysis_discussion-questions-10-1 > li { counter-increment: algorithm-analysis_discussion-questions-10-1; }
-#algorithm-analysis_programming-exercises-2-1 { counter-set: algorithm-analysis_programming-exercises-2-1 0; }
-#algorithm-analysis_programming-exercises-2-1 > li::marker { content: ""counter(algorithm-analysis_programming-exercises-2-1,decimal)""; }
-#algorithm-analysis_programming-exercises-2-1 > li { counter-increment: algorithm-analysis_programming-exercises-2-1; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 { counter-set: linear-basic_general-infix-to-postfix-conversion-9-1 0; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li::marker { content: ""counter(linear-basic_general-infix-to-postfix-conversion-9-1,decimal)""; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li { counter-increment: linear-basic_general-infix-to-postfix-conversion-9-1; }
-#linear-basic_postfix-evaluation-10-1 { counter-set: linear-basic_postfix-evaluation-10-1 0; }
-#linear-basic_postfix-evaluation-10-1 > li::marker { content: ""counter(linear-basic_postfix-evaluation-10-1,decimal)""; }
-#linear-basic_postfix-evaluation-10-1 > li { counter-increment: linear-basic_postfix-evaluation-10-1; }
-#linear-basic_main-simulation-steps-3-1 { counter-set: linear-basic_main-simulation-steps-3-1 0; }
-#linear-basic_main-simulation-steps-3-1 > li::marker { content: ""counter(linear-basic_main-simulation-steps-3-1,decimal)""; }
-#linear-basic_main-simulation-steps-3-1 > li { counter-increment: linear-basic_main-simulation-steps-3-1; }
-#linear-basic_discussion-questions-2-1 { counter-set: linear-basic_discussion-questions-2-1 0; }
-#linear-basic_discussion-questions-2-1 > li::marker { content: ""counter(linear-basic_discussion-questions-2-1,decimal)""; }
-#linear-basic_discussion-questions-2-1 > li { counter-increment: linear-basic_discussion-questions-2-1; }
-#linear-basic_programming-exercises-2-1 { counter-set: linear-basic_programming-exercises-2-1 0; }
-#linear-basic_programming-exercises-2-1 > li::marker { content: ""counter(linear-basic_programming-exercises-2-1,decimal)""; }
-#linear-basic_programming-exercises-2-1 > li { counter-increment: linear-basic_programming-exercises-2-1; }
-#linear-linked_discussion-questions-2-1 { counter-set: linear-linked_discussion-questions-2-1 0; }
-#linear-linked_discussion-questions-2-1 > li::marker { content: ""counter(linear-linked_discussion-questions-2-1,decimal)""; }
-#linear-linked_discussion-questions-2-1 > li { counter-increment: linear-linked_discussion-questions-2-1; }
-#linear-linked_programming-exercises-2-1 { counter-set: linear-linked_programming-exercises-2-1 0; }
-#linear-linked_programming-exercises-2-1 > li::marker { content: ""counter(linear-linked_programming-exercises-2-1,decimal)""; }
-#linear-linked_programming-exercises-2-1 > li { counter-increment: linear-linked_programming-exercises-2-1; }
-#recursion_the-three-laws-of-recursion-3-1-1 { counter-set: recursion_the-three-laws-of-recursion-3-1-1 0; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li::marker { content: ""counter(recursion_the-three-laws-of-recursion-3-1-1,decimal)""; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li { counter-increment: recursion_the-three-laws-of-recursion-3-1-1; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 { counter-set: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 0; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li::marker { content: ""counter(recursion_converting-an-integer-to-a-string-in-any-base-5-1-1,decimal)""; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li { counter-increment: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1; }
-#recursion_tower-of-hanoi-8-1 { counter-set: recursion_tower-of-hanoi-8-1 0; }
-#recursion_tower-of-hanoi-8-1 > li::marker { content: ""counter(recursion_tower-of-hanoi-8-1,decimal)""; }
-#recursion_tower-of-hanoi-8-1 > li { counter-increment: recursion_tower-of-hanoi-8-1; }
-#recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
-#recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
-#recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
-#recursion_dynamic-programming-20-1 { counter-set: recursion_dynamic-programming-20-1 0; }
-#recursion_dynamic-programming-20-1 > li::marker { content: ""counter(recursion_dynamic-programming-20-1,decimal)""; }
-#recursion_dynamic-programming-20-1 > li { counter-increment: recursion_dynamic-programming-20-1; }
-#recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
-#recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
-#recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
-#recursion_programming-exercises-2-1 { counter-set: recursion_programming-exercises-2-1 0; }
-#recursion_programming-exercises-2-1 > li::marker { content: ""counter(recursion_programming-exercises-2-1,decimal)""; }
-#recursion_programming-exercises-2-1 > li { counter-increment: recursion_programming-exercises-2-1; }
-#search-hash_discussion-questions-2-1 { counter-set: search-hash_discussion-questions-2-1 0; }
-#search-hash_discussion-questions-2-1 > li::marker { content: ""counter(search-hash_discussion-questions-2-1,decimal)""; }
-#search-hash_discussion-questions-2-1 > li { counter-increment: search-hash_discussion-questions-2-1; }
-#search-hash_programming-exercises-2-1 { counter-set: search-hash_programming-exercises-2-1 0; }
-#search-hash_programming-exercises-2-1 > li::marker { content: ""counter(search-hash_programming-exercises-2-1,decimal)""; }
-#search-hash_programming-exercises-2-1 > li { counter-increment: search-hash_programming-exercises-2-1; }
-#sort_discussion-questions-2-1 { counter-set: sort_discussion-questions-2-1 0; }
-#sort_discussion-questions-2-1 > li::marker { content: ""counter(sort_discussion-questions-2-1,decimal)""; }
-#sort_discussion-questions-2-1 > li { counter-increment: sort_discussion-questions-2-1; }
-#sort_programming-exercises-2-1 { counter-set: sort_programming-exercises-2-1 0; }
-#sort_programming-exercises-2-1 > li::marker { content: ""counter(sort_programming-exercises-2-1,decimal)""; }
-#sort_programming-exercises-2-1 > li { counter-increment: sort_programming-exercises-2-1; }
-#trees_parse-tree-12-1 { counter-set: trees_parse-tree-12-1 0; }
-#trees_parse-tree-12-1 > li::marker { content: ""counter(trees_parse-tree-12-1,decimal)""; }
-#trees_parse-tree-12-1 > li { counter-increment: trees_parse-tree-12-1; }
-#trees_parse-tree-16-1 { counter-set: trees_parse-tree-16-1 0; }
-#trees_parse-tree-16-1 > li::marker { content: ""counter(trees_parse-tree-16-1,lower-alpha)""; }
-#trees_parse-tree-16-1 > li { counter-increment: trees_parse-tree-16-1; }
-#trees_search-tree-implementation-24-1 { counter-set: trees_search-tree-implementation-24-1 0; }
-#trees_search-tree-implementation-24-1 > li::marker { content: ""counter(trees_search-tree-implementation-24-1,decimal)""; }
-#trees_search-tree-implementation-24-1 > li { counter-increment: trees_search-tree-implementation-24-1; }
-#trees_search-tree-implementation-29-1 { counter-set: trees_search-tree-implementation-29-1 0; }
-#trees_search-tree-implementation-29-1 > li::marker { content: ""counter(trees_search-tree-implementation-29-1,decimal)""; }
-#trees_search-tree-implementation-29-1 > li { counter-increment: trees_search-tree-implementation-29-1; }
-#trees_search-tree-implementation-37-1 { counter-set: trees_search-tree-implementation-37-1 0; }
-#trees_search-tree-implementation-37-1 > li::marker { content: ""counter(trees_search-tree-implementation-37-1,decimal)""; }
-#trees_search-tree-implementation-37-1 > li { counter-increment: trees_search-tree-implementation-37-1; }
-#trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
-#trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
-#trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
-#trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
-#trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
-#trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
-#graphs_implementing-breadth-first-search-8-1 { counter-set: graphs_implementing-breadth-first-search-8-1 0; }
-#graphs_implementing-breadth-first-search-8-1 > li::marker { content: ""counter(graphs_implementing-breadth-first-search-8-1,decimal)""; }
-#graphs_implementing-breadth-first-search-8-1 > li { counter-increment: graphs_implementing-breadth-first-search-8-1; }
-#graphs_topological-sorting-7-1 { counter-set: graphs_topological-sorting-7-1 0; }
-#graphs_topological-sorting-7-1 > li::marker { content: ""counter(graphs_topological-sorting-7-1,decimal)""; }
-#graphs_topological-sorting-7-1 > li { counter-increment: graphs_topological-sorting-7-1; }
-#graphs_strongly-connected-components-15-1 { counter-set: graphs_strongly-connected-components-15-1 0; }
-#graphs_strongly-connected-components-15-1 > li::marker { content: ""counter(graphs_strongly-connected-components-15-1,decimal)""; }
-#graphs_strongly-connected-components-15-1 > li { counter-increment: graphs_strongly-connected-components-15-1; }
-#graphs_discussion-questions-2-1 { counter-set: graphs_discussion-questions-2-1 0; }
-#graphs_discussion-questions-2-1 > li::marker { content: ""counter(graphs_discussion-questions-2-1,decimal)""; }
-#graphs_discussion-questions-2-1 > li { counter-increment: graphs_discussion-questions-2-1; }
-#graphs_discussion-questions-4-1 { counter-set: graphs_discussion-questions-4-1 0; }
-#graphs_discussion-questions-4-1 > li::marker { content: ""counter(graphs_discussion-questions-4-1,decimal)""; }
-#graphs_discussion-questions-4-1 > li { counter-increment: graphs_discussion-questions-4-1; }
-#graphs_programming-exercises-2-1 { counter-set: graphs_programming-exercises-2-1 0; }
-#graphs_programming-exercises-2-1 > li::marker { content: ""counter(graphs_programming-exercises-2-1,decimal)""; }
-#graphs_programming-exercises-2-1 > li { counter-increment: graphs_programming-exercises-2-1; }
-</style>
+<script src="_static/prefix-runtime.cf591bce111c14c1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.472f5a2f0bfe3571.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -284,7 +162,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointer-syntax" class="internal"><span class="codenumber">1.9.4.1</span> <span class="title">Pointer Syntax</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-address-of-operator" class="internal"><span class="codenumber">1.9.4.2</span> <span class="title">The address-of operator, <code class="code-inline tex2jax_ignore">&amp;</code></span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_accessing-values-from-pointers" class="internal"><span class="codenumber">1.9.4.3</span> <span class="title">Accessing Values from Pointers</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The NULL pointer</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The null pointer</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -765,8 +643,8 @@ eBookConfig.enable_chatcodes =  false;
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.10.2<span class="period">.</span></span><span class="space"> </span>A Complete Binary Tree, along with its Vector Representation.</figcaption></figure></section><section class="subsection" id="trees_heap-operations"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">8.10.3</span><span class="space"> </span><span class="title">Heap Operations</span>
 </h3>
-<div class="para" id="trees_heap-operations-2">We will begin our implementation of a binary heap with the constructor. Since the entire binary heap can be represented by a single vector, all the constructor will do is initialize the vector and an attribute <code class="code-inline tex2jax_ignore">currentSize</code> to keep track of the current size of the heap. <a href="trees_binary-heap-implementation.html#binheap_lst-heap1a" class="xref" data-knowl="./knowl/xref/binheap_lst-heap1a.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.3">Listing 8.10.3</a> shows the C++ code for the constructor. You will notice that an empty binary heap has a single zero as the first element of <code class="code-inline tex2jax_ignore">heapList</code> and that this zero is not used, but is there so that simple integer division can be used in later methods.</div>
-<figure class="listing figure-like" id="binheap_lst-heap1a"><div class="code-box"><pre class="program"><code class="language-cpp">class BinHeap{
+<div class="para" id="trees_heap-operations-2">We will begin our implementation of a binary heap with the constructor. Since the entire binary heap can be represented by a single vector, all the constructor will do is initialize the vector and an attribute <code class="code-inline tex2jax_ignore">currentSize</code> to keep track of the current size of the heap. <a href="trees_binary-heap-implementation.html#binheap_lst-heap1a" class="xref" data-knowl="./knowl/xref/binheap_lst-heap1a.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.3: BinHeap Class and Constructor">Listing 8.10.3</a> shows the C++ code for the constructor. You will notice that an empty binary heap has a single zero as the first element of <code class="code-inline tex2jax_ignore">heapList</code> and that this zero is not used, but is there so that simple integer division can be used in later methods.</div>
+<figure class="listing figure-like" id="binheap_lst-heap1a"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.3<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">BinHeap</code> Class and Constructor</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-binheap_lst-heap1a-prog" class="language-cpp">class BinHeap{
     private:
         vector&lt;int&gt; heapvector;
         int currentSize;
@@ -777,14 +655,13 @@ eBookConfig.enable_chatcodes =  false;
             this-&gt;currentSize = 0;
         }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.3<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">BinHeap</code> Class and Constructor</figcaption></figure><div class="para" id="trees_heap-operations-4">The next method we will implement is <code class="code-inline tex2jax_ignore">insert</code>. The easiest, and most efficient, way to add an item to a vector is to simply append the item to the end of the vector. The good news about appending is that it guarantees that we will maintain the complete tree property. The bad news about appending is that we will very likely violate the heap structure property. However, it is possible to write a method that will allow us to regain the heap structure property by comparing the newly added item with its parent. If the newly added item is less than its parent, then we can swap the item with its parent. <a href="trees_binary-heap-implementation.html#binheap_fig-percup" class="xref" data-knowl="./knowl/xref/binheap_fig-percup.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.10.4">Figure 8.10.4</a> shows the series of swaps needed to percolate the newly added item up to its proper position in the tree.</div>
+</code></pre></div></div></figure><div class="para" id="trees_heap-operations-4">The next method we will implement is <code class="code-inline tex2jax_ignore">insert</code>. The easiest, and most efficient, way to add an item to a vector is to simply append the item to the end of the vector. The good news about appending is that it guarantees that we will maintain the complete tree property. The bad news about appending is that we will very likely violate the heap structure property. However, it is possible to write a method that will allow us to regain the heap structure property by comparing the newly added item with its parent. If the newly added item is less than its parent, then we can swap the item with its parent. <a href="trees_binary-heap-implementation.html#binheap_fig-percup" class="xref" data-knowl="./knowl/xref/binheap_fig-percup.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.10.4">Figure 8.10.4</a> shows the series of swaps needed to percolate the newly added item up to its proper position in the tree.</div>
 <figure class="figure figure-like" id="binheap_fig-percup"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
 <img src="external/Trees/percUp.png" class="contained" alt="described in detail following the image" aria-describedby="binheap_fig-percup-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="binheap_fig-percup-2-description"><div class="para" id="binheap_fig-percup-2-1-1">Image showing the process of percolating a newly added node to its proper position in a binary heap. The diagram consists of three stages illustrating how the heap structure property is restored through swaps. In the first stage, a new item labeled "7" is appended as a leaf node under the node "18" in the binary tree, which initially violates the heap structure property. The parent-child relationship is unbalanced because "7" is smaller than its parent "18." In the second stage (swap 1), the new item "7" is swapped with its parent "18," moving up the tree. The new structure partially restores the heap property, but "7" is now a child of node "9," still violating the heap structure. In the third stage (swap 2), "7" is swapped with its new parent "9," percolating up to its proper position. At this point, the heap structure property is fully restored, and the tree satisfies the complete binary heap requirements. Arrows and dashed lines in the diagram highlight the movement of nodes during each swap.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.10.4<span class="period">.</span></span><span class="space"> </span>Percolate the New Node up to Its Proper Position.</figcaption></figure><div class="para" id="trees_heap-operations-6">Notice that as we percolate an item up the tree, the heap property is restored between the newly added item and the parent. We also preserve the heap property for any siblings. If an item is very small, we will need to swap it up another level. In fact, we may need to keep swapping until we get to the top of the tree. <a href="trees_binary-heap-implementation.html#binheap_lst-heap2" class="xref" data-knowl="./knowl/xref/binheap_lst-heap2.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.5">Listing 8.10.5</a> shows the <code class="code-inline tex2jax_ignore">percUp</code> method, which percolates a new item as far up the tree as it needs to go to maintain the heap property. Here is where the unused element at the beginning of the <code class="code-inline tex2jax_ignore">heapvector</code> is important. By storing the first node at index 1 instead of at index 0, we can compute the parent of any node by using simple integer division because the parent of a node is computed by dividing the index of the current node by 2 (the parent of node 9 is at index 4, the parent of 4 is at index 2, and the parent of 2 is at index 1).</div>
-<div class="para" id="trees_heap-operations-7">We are now ready to write the <code class="code-inline tex2jax_ignore">insert</code> method (see <a href="trees_binary-heap-implementation.html#binheap_lst-heap3" class="xref" data-knowl="./knowl/xref/binheap_lst-heap3.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.6">Listing 8.10.6</a>). Most of the work in the <code class="code-inline tex2jax_ignore">insert</code> method is really done by <code class="code-inline tex2jax_ignore">percUp</code>. Once a new item is appended to the tree, <code class="code-inline tex2jax_ignore">percUp</code> takes over and positions the new item properly.</div>
-<figure class="listing figure-like" id="binheap_lst-heap2"><div class="code-box"><pre class="program"><code class="language-cpp">void percUp(int i){
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.10.4<span class="period">.</span></span><span class="space"> </span>Percolate the New Node up to Its Proper Position.</figcaption></figure><div class="para" id="trees_heap-operations-6">Notice that as we percolate an item up the tree, the heap property is restored between the newly added item and the parent. We also preserve the heap property for any siblings. If an item is very small, we will need to swap it up another level. In fact, we may need to keep swapping until we get to the top of the tree. <a href="trees_binary-heap-implementation.html#binheap_lst-heap2" class="xref" data-knowl="./knowl/xref/binheap_lst-heap2.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.5: percUp Method">Listing 8.10.5</a> shows the <code class="code-inline tex2jax_ignore">percUp</code> method, which percolates a new item as far up the tree as it needs to go to maintain the heap property. Here is where the unused element at the beginning of the <code class="code-inline tex2jax_ignore">heapvector</code> is important. By storing the first node at index 1 instead of at index 0, we can compute the parent of any node by using simple integer division because the parent of a node is computed by dividing the index of the current node by 2 (the parent of node 9 is at index 4, the parent of 4 is at index 2, and the parent of 2 is at index 1).</div>
+<div class="para" id="trees_heap-operations-7">We are now ready to write the <code class="code-inline tex2jax_ignore">insert</code> method (see <a href="trees_binary-heap-implementation.html#binheap_lst-heap3" class="xref" data-knowl="./knowl/xref/binheap_lst-heap3.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.6: insert Method">Listing 8.10.6</a>). Most of the work in the <code class="code-inline tex2jax_ignore">insert</code> method is really done by <code class="code-inline tex2jax_ignore">percUp</code>. Once a new item is appended to the tree, <code class="code-inline tex2jax_ignore">percUp</code> takes over and positions the new item properly.</div>
+<figure class="listing figure-like" id="binheap_lst-heap2"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.5<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">percUp</code> Method</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-binheap_lst-heap2-prog" class="language-cpp">void percUp(int i){
     while ((i / 2) &gt; 0){
         if (this-&gt;heapvector[i] &lt; this-&gt;heapvector[i/2]){
             int tmp = this-&gt;heapvector[i/2];
@@ -794,19 +671,17 @@ eBookConfig.enable_chatcodes =  false;
         i = i/2;
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.5<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">percUp</code> Method</figcaption></figure><figure class="listing figure-like" id="binheap_lst-heap3"><div class="code-box"><pre class="program"><code class="language-cpp">void insert(int k){
+</code></pre></div></div></figure><figure class="listing figure-like" id="binheap_lst-heap3"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.6<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">insert</code> Method</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-binheap_lst-heap3-prog" class="language-cpp">void insert(int k){
     this-&gt;heapvector.push_back(k);
     this-&gt;currentSize = this-&gt;currentSize + 1;
     this-&gt;percUp(this-&gt;currentSize);
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.6<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">insert</code> Method</figcaption></figure><div class="para" id="trees_heap-operations-10">With the <code class="code-inline tex2jax_ignore">insert</code> method properly defined, we can now look at the <code class="code-inline tex2jax_ignore">delMin</code> method. Since the heap property requires that the root of the tree be the smallest item in the tree, finding the minimum item is easy. The hard part of <code class="code-inline tex2jax_ignore">delMin</code> is restoring full compliance with the heap structure and heap order properties after the root has been removed. We can restore our heap in two steps. First, we will restore the root item by taking the last item in the vector and moving it to the root position. Moving the last item maintains our heap structure property. However, we have probably destroyed the heap order property of our binary heap. Second, we will restore the heap order property by pushing the new root node down the tree to its proper position. <a href="trees_binary-heap-implementation.html#binheap_fig-percdown" class="xref" data-knowl="./knowl/xref/binheap_fig-percdown.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.10.7">Figure 8.10.7</a> shows the series of swaps needed to move the new root node to its proper position in the heap.</div>
+</code></pre></div></div></figure><div class="para" id="trees_heap-operations-10">With the <code class="code-inline tex2jax_ignore">insert</code> method properly defined, we can now look at the <code class="code-inline tex2jax_ignore">delMin</code> method. Since the heap property requires that the root of the tree be the smallest item in the tree, finding the minimum item is easy. The hard part of <code class="code-inline tex2jax_ignore">delMin</code> is restoring full compliance with the heap structure and heap order properties after the root has been removed. We can restore our heap in two steps. First, we will restore the root item by taking the last item in the vector and moving it to the root position. Moving the last item maintains our heap structure property. However, we have probably destroyed the heap order property of our binary heap. Second, we will restore the heap order property by pushing the new root node down the tree to its proper position. <a href="trees_binary-heap-implementation.html#binheap_fig-percdown" class="xref" data-knowl="./knowl/xref/binheap_fig-percdown.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.10.7">Figure 8.10.7</a> shows the series of swaps needed to move the new root node to its proper position in the heap.</div>
 <figure class="figure figure-like" id="binheap_fig-percdown"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
 <img src="external/Trees/percDown.png" class="contained" alt="described in detail following the image" aria-describedby="binheap_fig-percdown-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="binheap_fig-percdown-2-description"><div class="para" id="binheap_fig-percdown-2-1-1">Image showing the process of percolating the root node down the tree in a binary heap after removing the minimum (root) value. The diagram consists of four stages illustrating how the heap structure property is restored. In the first stage, the root node "5" is removed, leaving an empty root. The last node in the heap, "27," is moved to the root, creating a temporary imbalance in the heap structure. Arrows indicate the initial swap process. In the second stage (swap 1), the new root "27" is swapped with the smaller of its two children, "9," moving "27" down the tree and partially restoring the heap structure. In the third stage (swap 2), "27" is swapped with its smaller child "14," further percolating it down the tree and improving the heap structure. In the fourth stage (swap 3), "27" is swapped with its child "17," reaching its proper position. The heap structure is now fully restored, maintaining the binary heap properties. Each stage is annotated with arrows and labels indicating the swaps, clearly demonstrating the percolation process.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.10.7<span class="period">.</span></span><span class="space"> </span>Percolating the Root Node down the Tree.</figcaption></figure><div class="para" id="trees_heap-operations-12">In order to maintain the heap order property, all we need to do is swap the root with its smallest child less than the root. After the initial swap, we may repeat the swapping process with a node and its children until the node is swapped into a position on the tree where it is already less than both children. The code for percolating a node down the tree is found in the <code class="code-inline tex2jax_ignore">percDown</code> and <code class="code-inline tex2jax_ignore">minChild</code> methods in <a href="trees_binary-heap-implementation.html#binheap_lst-heap4" class="xref" data-knowl="./knowl/xref/binheap_lst-heap4.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.8">Listing 8.10.8</a>.</div>
-<figure class="listing figure-like" id="binheap_lst-heap4"><div class="code-box"><pre class="program"><code class="language-cpp">void percDown(int i){
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.10.7<span class="period">.</span></span><span class="space"> </span>Percolating the Root Node down the Tree.</figcaption></figure><div class="para" id="trees_heap-operations-12">In order to maintain the heap order property, all we need to do is swap the root with its smallest child less than the root. After the initial swap, we may repeat the swapping process with a node and its children until the node is swapped into a position on the tree where it is already less than both children. The code for percolating a node down the tree is found in the <code class="code-inline tex2jax_ignore">percDown</code> and <code class="code-inline tex2jax_ignore">minChild</code> methods in <a href="trees_binary-heap-implementation.html#binheap_lst-heap4" class="xref" data-knowl="./knowl/xref/binheap_lst-heap4.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.8: percDown and minChild Methods">Listing 8.10.8</a>.</div>
+<figure class="listing figure-like" id="binheap_lst-heap4"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.8<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">percDown</code> and <code class="code-inline tex2jax_ignore">minChild</code> Methods</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-binheap_lst-heap4-prog" class="language-cpp">void percDown(int i){
     while ((i*2) &lt;= this-&gt;currentSize){
         int mc = this-&gt;minChild(i);
         if (this-&gt;heapvector[i] &gt; this-&gt;heapvector[mc]){
@@ -831,9 +706,8 @@ int minChild(int i){
         }
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.8<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">percDown</code> and <code class="code-inline tex2jax_ignore">minChild</code> Methods</figcaption></figure><div class="para" id="trees_heap-operations-14">The code for the <code class="code-inline tex2jax_ignore">delMin</code> operation is in <a href="trees_binary-heap-implementation.html#binheap_lst-heap5" class="xref" data-knowl="./knowl/xref/binheap_lst-heap5.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.9">Listing 8.10.9</a>. Note that once again the hard work is handled by a helper function, in this case <code class="code-inline tex2jax_ignore">percDown</code>.</div>
-<figure class="listing figure-like" id="binheap_lst-heap5"><div class="code-box"><pre class="program"><code class="language-cpp">int delMin(){
+</code></pre></div></div></figure><div class="para" id="trees_heap-operations-14">The code for the <code class="code-inline tex2jax_ignore">delMin</code> operation is in <a href="trees_binary-heap-implementation.html#binheap_lst-heap5" class="xref" data-knowl="./knowl/xref/binheap_lst-heap5.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.9: delMin Implementation">Listing 8.10.9</a>. Note that once again the hard work is handled by a helper function, in this case <code class="code-inline tex2jax_ignore">percDown</code>.</div>
+<figure class="listing figure-like" id="binheap_lst-heap5"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.9<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">delMin</code> Implementation</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-binheap_lst-heap5-prog" class="language-cpp">int delMin(){
     if (this-&gt;currentSize &gt; 1){
         int retval = this-&gt;heapvector[1];
         this-&gt;heapvector[1] = this-&gt;heapvector[this-&gt;currentSize];
@@ -851,9 +725,8 @@ int minChild(int i){
         return retval;
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.9<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">delMin</code> Implementation</figcaption></figure><div class="para" id="trees_heap-operations-16">To finish our discussion of binary heaps, we will look at a method to build an entire heap from a vector of keys. The first method you might think of may be like the following. Given a vector of keys, you could easily build a heap by inserting each key one at a time. Since you are starting with a vector of one item, the vector is sorted and you could use binary search to find the right position to insert the next key at a cost of approximately <span class="process-math">\(O(\log{n})\)</span> operations. However, remember that inserting an item in the middle of the vector may require <span class="process-math">\(O(n)\)</span> operations to shift the rest of the vector over to make room for the new key. Therefore, to insert <span class="process-math">\(n\)</span> keys into the heap would require a total of <span class="process-math">\(O(n \log{n})\)</span> operations. However, if we start with an entire vector then we can build the whole heap in <span class="process-math">\(O(n)\)</span> operations. <a href="trees_binary-heap-implementation.html#binheap_lst-heap6" class="xref" data-knowl="./knowl/xref/binheap_lst-heap6.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.10">Listing 8.10.10</a> shows the code to build the entire heap.</div>
-<figure class="listing figure-like" id="binheap_lst-heap6"><div class="code-box"><pre class="program"><code class="language-cpp">void buildheap(vector&lt;int&gt; avector){
+</code></pre></div></div></figure><div class="para" id="trees_heap-operations-16">To finish our discussion of binary heaps, we will look at a method to build an entire heap from a vector of keys. The first method you might think of may be like the following. Given a vector of keys, you could easily build a heap by inserting each key one at a time. Since you are starting with a vector of one item, the vector is sorted and you could use binary search to find the right position to insert the next key at a cost of approximately <span class="process-math">\(O(\log{n})\)</span> operations. However, remember that inserting an item in the middle of the vector may require <span class="process-math">\(O(n)\)</span> operations to shift the rest of the vector over to make room for the new key. Therefore, to insert <span class="process-math">\(n\)</span> keys into the heap would require a total of <span class="process-math">\(O(n \log{n})\)</span> operations. However, if we start with an entire vector then we can build the whole heap in <span class="process-math">\(O(n)\)</span> operations. <a href="trees_binary-heap-implementation.html#binheap_lst-heap6" class="xref" data-knowl="./knowl/xref/binheap_lst-heap6.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.10.10: buildHeap Implementation">Listing 8.10.10</a> shows the code to build the entire heap.</div>
+<figure class="listing figure-like" id="binheap_lst-heap6"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.10<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">buildHeap</code> Implementation</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-binheap_lst-heap6-prog" class="language-cpp">void buildheap(vector&lt;int&gt; avector){
     int i = avector.size() / 2;
     this-&gt;currentSize = avector.size();
     this-&gt;heapvector = avector;
@@ -862,8 +735,7 @@ int minChild(int i){
         i = i - 1;
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.10<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">buildHeap</code> Implementation</figcaption></figure><figure class="figure figure-like" id="binheap_fig-buildheap"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+</code></pre></div></div></figure><figure class="figure figure-like" id="binheap_fig-buildheap"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
 <img src="external/Trees/buildheap.png" class="contained" alt="described in detail following the image" aria-describedby="binheap_fig-buildheap-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="binheap_fig-buildheap-2-description"><div class="para" id="binheap_fig-buildheap-2-1-1">Image showing the process of building a binary heap from the vector [9, 6, 5, 2, 3] using the `buildHeap` algorithm. The diagram consists of four stages that represent the percolation process as elements are rearranged to satisfy the heap properties. In the first stage, the initial heap is shown as an unstructured tree with the vector elements arranged in their input order. In the second stage (i = 2), the element at index 2, "5," is percolated down as needed to maintain the heap property, though no swaps are required at this step. In the third stage (i = 1), the element at index 1, "6," is percolated down and swapped with its smaller child, "2," to restore the heap property. In the fourth stage (i = 0), the element at the root, "9," is percolated down through successive swaps with its smaller children ("2" and "3") to reach its proper position in the heap. Each stage is annotated with arrows and labels, illustrating the transformations at each step of the heap-building process.</div></div></details>
 </div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.10.11<span class="period">.</span></span><span class="space"> </span>Building a Heap from the vector [9, 6, 5, 2, 3].</figcaption></figure><div class="para" id="trees_heap-operations-19">
@@ -880,7 +752,7 @@ i = 0  [0, 2, 3, 6, 5, 9]
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-heapwhole-cpp"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<pre class="program"><code id="rs-completeheapcpp-prog" class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
 
@@ -1100,12 +972,12 @@ main()
 </div>
 <script type="application/json">[[{"regex": "^\\s*^\\s*0,9,14,11,17,18,19,21,33,27\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"binheap_1-2-1-1-1-1\">Is the correct answer!<\/div>"}, {"regex": "^\\s*^\\s*.*9,14,11,17,18,19,21,33,27\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"binheap_1-2-1-2-1-1\">Remember what has to be at the beginning of the vector to accurately traverse through the binary tree. Look back at chp. 8.9.2.<\/div>"}, {"regex": "^\\s*^\\s*.*\\s*$\\s*$", "regexFlags": "", "feedback": "<div class=\"para\" id=\"binheap_1-2-1-3-1-1\">Refer to section 8.10.1 and 8.10.2<\/div>"}]]</script>
 </div></div></div></article></section></section></section></div>
-<div class="ptx-content-footer">
+<div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="trees_binary-heap-operations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="trees_binary-search-trees.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

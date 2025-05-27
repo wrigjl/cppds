@@ -6,13 +6,20 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DS AVL Tree Implementation</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
@@ -68,12 +75,11 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<!--** eBookCongig is necessary to configure interactive       **-->
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -95,151 +101,23 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.11';
+eBookConfig.runestone_version = '7.7.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.ee5a0b116b7d0991.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.e0c6d4592e23c667.css">
-<style>
-#introduction_accessing-values-from-pointers-17 { counter-set: introduction_accessing-values-from-pointers-17 0; }
-#introduction_accessing-values-from-pointers-17 > li::marker { content: ""counter(introduction_accessing-values-from-pointers-17,decimal)""; }
-#introduction_accessing-values-from-pointers-17 > li { counter-increment: introduction_accessing-values-from-pointers-17; }
-#introduction_arrays-4-1-1 { counter-set: introduction_arrays-4-1-1 0; }
-#introduction_arrays-4-1-1 > li::marker { content: ""counter(introduction_arrays-4-1-1,decimal)""; }
-#introduction_arrays-4-1-1 > li { counter-increment: introduction_arrays-4-1-1; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 { counter-set: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 0; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li::marker { content: ""counter(introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1,decimal)""; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li { counter-increment: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1; }
-#introduction_discussion-questions-2-1 { counter-set: introduction_discussion-questions-2-1 0; }
-#introduction_discussion-questions-2-1 > li::marker { content: ""counter(introduction_discussion-questions-2-1,decimal)""; }
-#introduction_discussion-questions-2-1 > li { counter-increment: introduction_discussion-questions-2-1; }
-#introduction_programming-exercises-2-1 { counter-set: introduction_programming-exercises-2-1 0; }
-#introduction_programming-exercises-2-1 > li::marker { content: ""counter(introduction_programming-exercises-2-1,decimal)""; }
-#introduction_programming-exercises-2-1 > li { counter-increment: introduction_programming-exercises-2-1; }
-#algorithm-analysis_discussion-questions-2-1 { counter-set: algorithm-analysis_discussion-questions-2-1 0; }
-#algorithm-analysis_discussion-questions-2-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-2-1,decimal)""; }
-#algorithm-analysis_discussion-questions-2-1 > li { counter-increment: algorithm-analysis_discussion-questions-2-1; }
-#algorithm-analysis_discussion-questions-4-1 { counter-set: algorithm-analysis_discussion-questions-4-1 0; }
-#algorithm-analysis_discussion-questions-4-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-4-1,decimal)""; }
-#algorithm-analysis_discussion-questions-4-1 > li { counter-increment: algorithm-analysis_discussion-questions-4-1; }
-#algorithm-analysis_discussion-questions-6-1 { counter-set: algorithm-analysis_discussion-questions-6-1 0; }
-#algorithm-analysis_discussion-questions-6-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-6-1,decimal)""; }
-#algorithm-analysis_discussion-questions-6-1 > li { counter-increment: algorithm-analysis_discussion-questions-6-1; }
-#algorithm-analysis_discussion-questions-8-1 { counter-set: algorithm-analysis_discussion-questions-8-1 0; }
-#algorithm-analysis_discussion-questions-8-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-8-1,decimal)""; }
-#algorithm-analysis_discussion-questions-8-1 > li { counter-increment: algorithm-analysis_discussion-questions-8-1; }
-#algorithm-analysis_discussion-questions-10-1 { counter-set: algorithm-analysis_discussion-questions-10-1 0; }
-#algorithm-analysis_discussion-questions-10-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-10-1,decimal)""; }
-#algorithm-analysis_discussion-questions-10-1 > li { counter-increment: algorithm-analysis_discussion-questions-10-1; }
-#algorithm-analysis_programming-exercises-2-1 { counter-set: algorithm-analysis_programming-exercises-2-1 0; }
-#algorithm-analysis_programming-exercises-2-1 > li::marker { content: ""counter(algorithm-analysis_programming-exercises-2-1,decimal)""; }
-#algorithm-analysis_programming-exercises-2-1 > li { counter-increment: algorithm-analysis_programming-exercises-2-1; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 { counter-set: linear-basic_general-infix-to-postfix-conversion-9-1 0; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li::marker { content: ""counter(linear-basic_general-infix-to-postfix-conversion-9-1,decimal)""; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li { counter-increment: linear-basic_general-infix-to-postfix-conversion-9-1; }
-#linear-basic_postfix-evaluation-10-1 { counter-set: linear-basic_postfix-evaluation-10-1 0; }
-#linear-basic_postfix-evaluation-10-1 > li::marker { content: ""counter(linear-basic_postfix-evaluation-10-1,decimal)""; }
-#linear-basic_postfix-evaluation-10-1 > li { counter-increment: linear-basic_postfix-evaluation-10-1; }
-#linear-basic_main-simulation-steps-3-1 { counter-set: linear-basic_main-simulation-steps-3-1 0; }
-#linear-basic_main-simulation-steps-3-1 > li::marker { content: ""counter(linear-basic_main-simulation-steps-3-1,decimal)""; }
-#linear-basic_main-simulation-steps-3-1 > li { counter-increment: linear-basic_main-simulation-steps-3-1; }
-#linear-basic_discussion-questions-2-1 { counter-set: linear-basic_discussion-questions-2-1 0; }
-#linear-basic_discussion-questions-2-1 > li::marker { content: ""counter(linear-basic_discussion-questions-2-1,decimal)""; }
-#linear-basic_discussion-questions-2-1 > li { counter-increment: linear-basic_discussion-questions-2-1; }
-#linear-basic_programming-exercises-2-1 { counter-set: linear-basic_programming-exercises-2-1 0; }
-#linear-basic_programming-exercises-2-1 > li::marker { content: ""counter(linear-basic_programming-exercises-2-1,decimal)""; }
-#linear-basic_programming-exercises-2-1 > li { counter-increment: linear-basic_programming-exercises-2-1; }
-#linear-linked_discussion-questions-2-1 { counter-set: linear-linked_discussion-questions-2-1 0; }
-#linear-linked_discussion-questions-2-1 > li::marker { content: ""counter(linear-linked_discussion-questions-2-1,decimal)""; }
-#linear-linked_discussion-questions-2-1 > li { counter-increment: linear-linked_discussion-questions-2-1; }
-#linear-linked_programming-exercises-2-1 { counter-set: linear-linked_programming-exercises-2-1 0; }
-#linear-linked_programming-exercises-2-1 > li::marker { content: ""counter(linear-linked_programming-exercises-2-1,decimal)""; }
-#linear-linked_programming-exercises-2-1 > li { counter-increment: linear-linked_programming-exercises-2-1; }
-#recursion_the-three-laws-of-recursion-3-1-1 { counter-set: recursion_the-three-laws-of-recursion-3-1-1 0; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li::marker { content: ""counter(recursion_the-three-laws-of-recursion-3-1-1,decimal)""; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li { counter-increment: recursion_the-three-laws-of-recursion-3-1-1; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 { counter-set: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 0; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li::marker { content: ""counter(recursion_converting-an-integer-to-a-string-in-any-base-5-1-1,decimal)""; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li { counter-increment: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1; }
-#recursion_tower-of-hanoi-8-1 { counter-set: recursion_tower-of-hanoi-8-1 0; }
-#recursion_tower-of-hanoi-8-1 > li::marker { content: ""counter(recursion_tower-of-hanoi-8-1,decimal)""; }
-#recursion_tower-of-hanoi-8-1 > li { counter-increment: recursion_tower-of-hanoi-8-1; }
-#recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
-#recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
-#recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
-#recursion_dynamic-programming-20-1 { counter-set: recursion_dynamic-programming-20-1 0; }
-#recursion_dynamic-programming-20-1 > li::marker { content: ""counter(recursion_dynamic-programming-20-1,decimal)""; }
-#recursion_dynamic-programming-20-1 > li { counter-increment: recursion_dynamic-programming-20-1; }
-#recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
-#recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
-#recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
-#recursion_programming-exercises-2-1 { counter-set: recursion_programming-exercises-2-1 0; }
-#recursion_programming-exercises-2-1 > li::marker { content: ""counter(recursion_programming-exercises-2-1,decimal)""; }
-#recursion_programming-exercises-2-1 > li { counter-increment: recursion_programming-exercises-2-1; }
-#search-hash_discussion-questions-2-1 { counter-set: search-hash_discussion-questions-2-1 0; }
-#search-hash_discussion-questions-2-1 > li::marker { content: ""counter(search-hash_discussion-questions-2-1,decimal)""; }
-#search-hash_discussion-questions-2-1 > li { counter-increment: search-hash_discussion-questions-2-1; }
-#search-hash_programming-exercises-2-1 { counter-set: search-hash_programming-exercises-2-1 0; }
-#search-hash_programming-exercises-2-1 > li::marker { content: ""counter(search-hash_programming-exercises-2-1,decimal)""; }
-#search-hash_programming-exercises-2-1 > li { counter-increment: search-hash_programming-exercises-2-1; }
-#sort_discussion-questions-2-1 { counter-set: sort_discussion-questions-2-1 0; }
-#sort_discussion-questions-2-1 > li::marker { content: ""counter(sort_discussion-questions-2-1,decimal)""; }
-#sort_discussion-questions-2-1 > li { counter-increment: sort_discussion-questions-2-1; }
-#sort_programming-exercises-2-1 { counter-set: sort_programming-exercises-2-1 0; }
-#sort_programming-exercises-2-1 > li::marker { content: ""counter(sort_programming-exercises-2-1,decimal)""; }
-#sort_programming-exercises-2-1 > li { counter-increment: sort_programming-exercises-2-1; }
-#trees_parse-tree-12-1 { counter-set: trees_parse-tree-12-1 0; }
-#trees_parse-tree-12-1 > li::marker { content: ""counter(trees_parse-tree-12-1,decimal)""; }
-#trees_parse-tree-12-1 > li { counter-increment: trees_parse-tree-12-1; }
-#trees_parse-tree-16-1 { counter-set: trees_parse-tree-16-1 0; }
-#trees_parse-tree-16-1 > li::marker { content: ""counter(trees_parse-tree-16-1,lower-alpha)""; }
-#trees_parse-tree-16-1 > li { counter-increment: trees_parse-tree-16-1; }
-#trees_search-tree-implementation-24-1 { counter-set: trees_search-tree-implementation-24-1 0; }
-#trees_search-tree-implementation-24-1 > li::marker { content: ""counter(trees_search-tree-implementation-24-1,decimal)""; }
-#trees_search-tree-implementation-24-1 > li { counter-increment: trees_search-tree-implementation-24-1; }
-#trees_search-tree-implementation-29-1 { counter-set: trees_search-tree-implementation-29-1 0; }
-#trees_search-tree-implementation-29-1 > li::marker { content: ""counter(trees_search-tree-implementation-29-1,decimal)""; }
-#trees_search-tree-implementation-29-1 > li { counter-increment: trees_search-tree-implementation-29-1; }
-#trees_search-tree-implementation-37-1 { counter-set: trees_search-tree-implementation-37-1 0; }
-#trees_search-tree-implementation-37-1 > li::marker { content: ""counter(trees_search-tree-implementation-37-1,decimal)""; }
-#trees_search-tree-implementation-37-1 > li { counter-increment: trees_search-tree-implementation-37-1; }
-#trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
-#trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
-#trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
-#trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
-#trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
-#trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
-#graphs_implementing-breadth-first-search-8-1 { counter-set: graphs_implementing-breadth-first-search-8-1 0; }
-#graphs_implementing-breadth-first-search-8-1 > li::marker { content: ""counter(graphs_implementing-breadth-first-search-8-1,decimal)""; }
-#graphs_implementing-breadth-first-search-8-1 > li { counter-increment: graphs_implementing-breadth-first-search-8-1; }
-#graphs_topological-sorting-7-1 { counter-set: graphs_topological-sorting-7-1 0; }
-#graphs_topological-sorting-7-1 > li::marker { content: ""counter(graphs_topological-sorting-7-1,decimal)""; }
-#graphs_topological-sorting-7-1 > li { counter-increment: graphs_topological-sorting-7-1; }
-#graphs_strongly-connected-components-15-1 { counter-set: graphs_strongly-connected-components-15-1 0; }
-#graphs_strongly-connected-components-15-1 > li::marker { content: ""counter(graphs_strongly-connected-components-15-1,decimal)""; }
-#graphs_strongly-connected-components-15-1 > li { counter-increment: graphs_strongly-connected-components-15-1; }
-#graphs_discussion-questions-2-1 { counter-set: graphs_discussion-questions-2-1 0; }
-#graphs_discussion-questions-2-1 > li::marker { content: ""counter(graphs_discussion-questions-2-1,decimal)""; }
-#graphs_discussion-questions-2-1 > li { counter-increment: graphs_discussion-questions-2-1; }
-#graphs_discussion-questions-4-1 { counter-set: graphs_discussion-questions-4-1 0; }
-#graphs_discussion-questions-4-1 > li::marker { content: ""counter(graphs_discussion-questions-4-1,decimal)""; }
-#graphs_discussion-questions-4-1 > li { counter-increment: graphs_discussion-questions-4-1; }
-#graphs_programming-exercises-2-1 { counter-set: graphs_programming-exercises-2-1 0; }
-#graphs_programming-exercises-2-1 > li::marker { content: ""counter(graphs_programming-exercises-2-1,decimal)""; }
-#graphs_programming-exercises-2-1 > li { counter-increment: graphs_programming-exercises-2-1; }
-</style>
+<script src="_static/prefix-runtime.cf591bce111c14c1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.472f5a2f0bfe3571.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -284,7 +162,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointer-syntax" class="internal"><span class="codenumber">1.9.4.1</span> <span class="title">Pointer Syntax</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-address-of-operator" class="internal"><span class="codenumber">1.9.4.2</span> <span class="title">The address-of operator, <code class="code-inline tex2jax_ignore">&amp;</code></span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_accessing-values-from-pointers" class="internal"><span class="codenumber">1.9.4.3</span> <span class="title">Accessing Values from Pointers</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The NULL pointer</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The null pointer</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -753,8 +631,15 @@ eBookConfig.enable_chatcodes =  false;
 <li id="trees_avl-tree-implementation-3-1-1"><div class="para" id="trees_avl-tree-implementation-3-1-1-1">The recursive call has reached the root of the tree.</div></li>
 <li id="trees_avl-tree-implementation-3-1-2"><div class="para" id="trees_avl-tree-implementation-3-1-2-1">The balance factor of the parent has been adjusted to zero. You should convince yourself that once a subtree has a balance factor of zero, then the balance of its ancestor nodes does not change.</div></li>
 </ul></div>
-<div class="para" id="trees_avl-tree-implementation-4">We will implement the AVL tree as a subclass of <code class="code-inline tex2jax_ignore">BinarySearchTree</code>. To begin, we will override the <code class="code-inline tex2jax_ignore">_put</code> method and write a new <code class="code-inline tex2jax_ignore">updateBalance</code> helper method. These methods are shown in <a href="trees_avl-tree-implementation.html#trees_lst-updbal" class="xref" data-knowl="./knowl/xref/trees_lst-updbal.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.17.1">Listing 8.17.1</a>. You will notice that the definition for <code class="code-inline tex2jax_ignore">_put</code> is exactly the same as in simple binary search trees except for the additions of the calls to <code class="code-inline tex2jax_ignore">updateBalance</code> on lines 8 and 17.</div>
-<figure class="listing figure-like" id="trees_lst-updbal"><div class="code-box"><pre class="program line-numbers"><code class="language-cpp">void _put(int key, string val, TreeNode *currentNode){
+<div class="para" id="trees_avl-tree-implementation-4">We will implement the AVL tree as a subclass of <code class="code-inline tex2jax_ignore">BinarySearchTree</code>. To begin, we will override the <code class="code-inline tex2jax_ignore">_put</code> method and write a new <code class="code-inline tex2jax_ignore">updateBalance</code> helper method. These methods are shown in <a href="trees_avl-tree-implementation.html#trees_lst-updbal" class="xref" data-knowl="./knowl/xref/trees_lst-updbal.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 8.17.1: Implementation of _put and updateBalance">Exploration 8.17.1</a>. You will notice that the definition for <code class="code-inline tex2jax_ignore">_put</code> is exactly the same as in simple binary search trees except for the additions of the calls to <code class="code-inline tex2jax_ignore">updateBalance</code> on lines 8 and 17 of the C++ version.</div>
+<article class="exploration project-like" id="trees_lst-updbal"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">8.17.1</span><span class="period">.</span><span class="space"> </span><span class="title">Implementation of <code class="code-inline tex2jax_ignore">_put</code> and <code class="code-inline tex2jax_ignore">updateBalance</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-trees_lst-updbal">
+<div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="trees_lst-updbal-2"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+</h4>
+<div class="code-box"><pre class="program line-numbers"><code id="rs-trees_lst-updbal-prog" class="language-cpp">void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
             this-&gt;_put(key, val, currentNode-&gt;leftChild);
@@ -780,7 +665,7 @@ int updateBalance(TreeNode *node){
         this-&gt;rebalance(node);
         return 0;
     }
-    if (node-&gt;parent != NULL){
+    if (node-&gt;parent != nullptr){
         if (node-&gt;isLeftChild()){
             node-&gt;parent-&gt;balanceFactor += 1;
         }
@@ -793,21 +678,59 @@ int updateBalance(TreeNode *node){
     }
     return 0;
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.1<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">_put</code> and <code class="code-inline tex2jax_ignore">updateBalance</code></figcaption></figure><div class="para" id="trees_avl-tree-implementation-6">The new <code class="code-inline tex2jax_ignore">updateBalance</code> method is where most of the work is done. The <code class="code-inline tex2jax_ignore">updateBalance</code> method first checks to see if the current node is out of balance enough to require rebalancing (line 23). If that is the case then the rebalancing is done and no further updating to parents is required. If the current node does not require rebalancing then the balance factor of the parent is adjusted. If the balance factor of the parent is non-zero then the algorithm continues to work its way up the tree toward the root by recursively calling <code class="code-inline tex2jax_ignore">updateBalance</code> on the parent.</div>
+</code></pre></div></article></div>
+<div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="trees_lst-updbal-3"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+</h4>
+<div class="code-box"><pre class="program line-numbers"><code id="rs-trees_lst-updbal-prog-py" class="language-py">class AVLTree:
+    # Other method definitions
+    # ... 
+
+    def _put(self, key, value, current_node):
+        if key &lt; current_node.key:
+            if current_node.has_left_child():
+                self._put(key, value, current_node.left_child)
+            else:
+                current_node.left_child= TreeNode(key, value, current_node)
+                self.update_balance(current_node.left_child)
+        else:
+            if current_node.has_right_child():
+                self._put(key, value, current_node.right_child)
+            else:
+                current_node.right_child= TreeNode(key, value, current_node)
+                self.update_balance(current_node.right_child)
+
+    
+    def update_balance(self, node): 
+        if node.balance_factor &gt; 1 or node.balance_factor &lt; -1:
+            self.rebalance(node)
+            return 0
+
+        if node.parent is not None:
+            if node.is_left_child():
+                node.parent.balance_factor += 1
+            elif node.is_right_child():
+                node.parent.balance_factor -= 1
+
+        if node.parent.balance_factor != 0:
+            self.update_balance(node.parent)
+
+    return 0
+</code></pre></div></article></div>
+</div></div></div></article><div class="para" id="trees_avl-tree-implementation-6">The new <code class="code-inline tex2jax_ignore">updateBalance</code> method is where most of the work is done. The <code class="code-inline tex2jax_ignore">updateBalance</code> method first checks to see if the current node is out of balance enough to require rebalancing (line 23). If that is the case then the rebalancing is done and no further updating to parents is required. If the current node does not require rebalancing then the balance factor of the parent is adjusted. If the balance factor of the parent is non-zero then the algorithm continues to work its way up the tree toward the root by recursively calling <code class="code-inline tex2jax_ignore">updateBalance</code> on the parent.</div>
 <div class="para" id="trees_avl-tree-implementation-7">When a rebalancing of the tree is necessary, how do we do it? Efficient rebalancing is the key to making the AVL Tree work well without sacrificing performance. In order to bring an AVL Tree back into balance we will perform one or more <dfn class="terminology">rotations</dfn> on the tree.</div>
-<div class="para" id="trees_avl-tree-implementation-8">To understand what a rotation is let us look at a very simple example. Consider the tree in the left half of <a href="trees_avl-tree-implementation.html#fig-unbalsimple" class="xref" data-knowl="./knowl/xref/fig-unbalsimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.2">Figure 8.17.2</a>. This tree is out of balance with a balance factor of -2. To bring this tree into balance we will use a left rotation around the subtree rooted at node A.</div>
+<div class="para" id="trees_avl-tree-implementation-8">To understand what a rotation is let us look at a very simple example. Consider the tree in the left half of <a href="trees_avl-tree-implementation.html#fig-unbalsimple" class="xref" data-knowl="./knowl/xref/fig-unbalsimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.1">Figure 8.17.1</a>. This tree is out of balance with a balance factor of -2. To bring this tree into balance we will use a left rotation around the subtree rooted at node A.</div>
 <figure class="figure figure-like" id="fig-unbalsimple"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
 <img src="external/Trees/simpleunbalanced.png" class="contained" alt="described in detail following the image" aria-describedby="fig-unbalsimple-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-unbalsimple-2-description"><div class="para" id="fig-unbalsimple-2-1-1">Image illustrating the transformation of an unbalanced binary tree using a left rotation. The initial tree on the left has a root node "A" with a balance factor of -2, indicating it is out of balance. Node "A" has a right child "B" with a balance factor of -1, and node "B" has a right child "C." An arrow points to the resulting balanced tree on the right, where "B" becomes the new root, "A" becomes the left child of "B," and "C" remains the right child of "B." All nodes in the resulting tree have a balance factor of 0, restoring balance to the structure.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.2<span class="period">.</span></span><span class="space"> </span>Transforming an Unbalanced Tree Using a Left Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-10">To perform a left rotation we essentially do the following:</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.1<span class="period">.</span></span><span class="space"> </span>Transforming an Unbalanced Tree Using a Left Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-10">To perform a left rotation we essentially do the following:</div>
 <div class="para logical" id="trees_avl-tree-implementation-11"><ul class="disc" id="trees_avl-tree-implementation-11-1">
 <li id="trees_avl-tree-implementation-11-1-1"><div class="para" id="trees_avl-tree-implementation-11-1-1-1">Promote the right child (B) to be the root of the subtree.</div></li>
 <li id="trees_avl-tree-implementation-11-1-2"><div class="para" id="trees_avl-tree-implementation-11-1-2-1">Move the old root (A) to be the left child of the new root.</div></li>
 <li id="trees_avl-tree-implementation-11-1-3"><div class="para" id="trees_avl-tree-implementation-11-1-3-1">If new root (B) already had a left child then make it the right child of the new left child (A). Note: Since the new root (B) was the right child of A the right child of A is guaranteed to be empty at this point. This allows us to add a new node as the right child without any further consideration.</div></li>
 </ul></div>
 <div class="para" id="trees_avl-tree-implementation-12">While this procedure is fairly easy in concept, the details of the code are a bit tricky since we need to move things around in just the right order so that all properties of a Binary Search Tree are preserved. Furthermore we need to make sure to update all of the parent pointers appropriately.</div>
-<div class="para" id="trees_avl-tree-implementation-13">Let’s look at a slightly more complicated tree to illustrate the right rotation. The left side of <a href="trees_avl-tree-implementation.html#fig-rightrot1" class="xref" data-knowl="./knowl/xref/fig-rightrot1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.3">Figure 8.17.3</a> shows a tree that is left-heavy and with a balance factor of 2 at the root. To perform a right rotation we essentially do the following:</div>
+<div class="para" id="trees_avl-tree-implementation-13">Let’s look at a slightly more complicated tree to illustrate the right rotation. The left side of <a href="trees_avl-tree-implementation.html#fig-rightrot1" class="xref" data-knowl="./knowl/xref/fig-rightrot1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.2">Figure 8.17.2</a> shows a tree that is left-heavy and with a balance factor of 2 at the root. To perform a right rotation we essentially do the following:</div>
 <div class="para logical" id="trees_avl-tree-implementation-14"><ul class="disc" id="trees_avl-tree-implementation-14-1">
 <li id="trees_avl-tree-implementation-14-1-1"><div class="para" id="trees_avl-tree-implementation-14-1-1-1">Promote the left child (C) to be the root of the subtree.</div></li>
 <li id="trees_avl-tree-implementation-14-1-2"><div class="para" id="trees_avl-tree-implementation-14-1-2-1">Move the old root (E) to be the right child of the new root.</div></li>
@@ -816,12 +739,12 @@ int updateBalance(TreeNode *node){
 <figure class="figure figure-like" id="fig-rightrot1"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
 <img src="external/Trees/rightrotate1.png" class="contained" alt="described in detail following the image" aria-describedby="fig-rightrot1-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-rightrot1-2-description"><div class="para" id="fig-rightrot1-2-1-1">Image illustrating the transformation of an unbalanced binary tree using a right rotation. The initial tree on the left has the root node "E" with a balance factor of 2, making it left-heavy. Node "E" has a left child "C," which in turn has children "B" and "D." Node "B" further has a left child "A." An arrow points to the balanced tree on the right, where "C" becomes the new root. Node "E" becomes the right child of "C," while "B" remains the left child of "C" and "A" remains the left child of "B." Node "D" is repositioned as the left child of "E." The resulting tree is balanced, with updated relationships between nodes to satisfy the balance factor constraints.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.3<span class="period">.</span></span><span class="space"> </span>Transforming an Unbalanced Tree Using a Right Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-16">Now that you have seen the rotations and have the basic idea of how a rotation works let us look at the code. <a href="trees_avl-tree-implementation.html#trees_lst-bothrotations" class="xref" data-knowl="./knowl/xref/trees_lst-bothrotations.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.17.4">Listing 8.17.4</a> shows the code for both the right and the left rotations. In line 2 we create a temporary variable to keep track of the new root of the subtree. As we said before the new root is the right child of the previous root. Now that a reference to the right child has been stored in this temporary variable we replace the right child of the old root with the left child of the new.</div>
-<div class="para" id="trees_avl-tree-implementation-17">The next step is to adjust the parent pointers of the two nodes. If <code class="code-inline tex2jax_ignore">newRoot</code> has a left child then the new parent of the left child becomes the old root. The parent of the new root is set to the parent of the old root. If the old root was the root of the entire tree then we must set the root of the tree to point to this new root. Otherwise, if the old root is a left child then we change the parent of the left child to point to the new root; otherwise we change the parent of the right child to point to the new root. (lines 11-18). Finally we set the parent of the old root to be the new root. This is a lot of complicated bookkeeping, so we encourage you to trace through this function while looking at <a href="trees_avl-tree-implementation.html#fig-unbalsimple" class="xref" data-knowl="./knowl/xref/fig-unbalsimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.2">Figure 8.17.2</a>. The <code class="code-inline tex2jax_ignore">rotateRight</code> method is symmetrical to <code class="code-inline tex2jax_ignore">rotateLeft</code> so we will leave it to you to study the code for <code class="code-inline tex2jax_ignore">rotateRight</code>.</div>
-<figure class="listing figure-like" id="trees_lst-bothrotations"><div class="code-box"><pre class="program line-numbers"><code class="language-cpp">void rotateLeft(TreeNode *rotRoot){
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.2<span class="period">.</span></span><span class="space"> </span>Transforming an Unbalanced Tree Using a Right Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-16">Now that you have seen the rotations and have the basic idea of how a rotation works let us look at the code. <a href="trees_avl-tree-implementation.html#trees_lst-bothrotations" class="xref" data-knowl="./knowl/xref/trees_lst-bothrotations.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.17.3: Implementation of rotateLeft and rotateRight">Listing 8.17.3</a> shows the code for both the right and the left rotations. In line 2 we create a temporary variable to keep track of the new root of the subtree. As we said before the new root is the right child of the previous root. Now that a reference to the right child has been stored in this temporary variable we replace the right child of the old root with the left child of the new.</div>
+<div class="para" id="trees_avl-tree-implementation-17">The next step is to adjust the parent pointers of the two nodes. If <code class="code-inline tex2jax_ignore">newRoot</code> has a left child then the new parent of the left child becomes the old root. The parent of the new root is set to the parent of the old root. If the old root was the root of the entire tree then we must set the root of the tree to point to this new root. Otherwise, if the old root is a left child then we change the parent of the left child to point to the new root; otherwise we change the parent of the right child to point to the new root. (lines 11-18). Finally we set the parent of the old root to be the new root. This is a lot of complicated bookkeeping, so we encourage you to trace through this function while looking at <a href="trees_avl-tree-implementation.html#fig-unbalsimple" class="xref" data-knowl="./knowl/xref/fig-unbalsimple.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.1">Figure 8.17.1</a>. The <code class="code-inline tex2jax_ignore">rotateRight</code> method is symmetrical to <code class="code-inline tex2jax_ignore">rotateLeft</code> so we will leave it to you to study the code for <code class="code-inline tex2jax_ignore">rotateRight</code>.</div>
+<figure class="listing figure-like" id="trees_lst-bothrotations"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.3<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">rotateLeft</code> and <code class="code-inline tex2jax_ignore">rotateRight</code></figcaption><div class="listing__contents"><div class="code-box"><pre class="program line-numbers"><code id="rs-trees_lst-bothrotations-prog" class="language-cpp">void rotateLeft(TreeNode *rotRoot){
     TreeNode *newRoot = rotRoot-&gt;rightChild;
     rotRoot-&gt;rightChild = newRoot-&gt;leftChild;
-    if (newRoot-&gt;leftChild != NULL){
+    if (newRoot-&gt;leftChild != nullptr){
         newRoot-&gt;leftChild-&gt;parent = rotRoot;
     }
     newRoot-&gt;parent = rotRoot-&gt;parent;
@@ -841,13 +764,12 @@ int updateBalance(TreeNode *node){
     rotRoot-&gt;balanceFactor = rotRoot-&gt;balanceFactor + 1 - min(newRoot-&gt;balanceFactor, 0);
     newRoot-&gt;balanceFactor = newRoot-&gt;balanceFactor + 1 + max(rotRoot-&gt;balanceFactor, 0);
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.4<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">rotateLeft</code> and <code class="code-inline tex2jax_ignore">rotateRight</code></figcaption></figure><div class="para" id="trees_avl-tree-implementation-19">Finally, lines 21-22 require some explanation. In these two lines we update the balance factors of the old and the new root. Since all the other moves are moving entire subtrees around the balance factors of all other nodes are unaffected by the rotation. But how can we update the balance factors without completely recalculating the heights of the new subtrees? The following derivation should convince you that these lines are correct.</div>
+</code></pre></div></div></figure><div class="para" id="trees_avl-tree-implementation-19">Finally, lines 21-22 require some explanation. In these two lines we update the balance factors of the old and the new root. Since all the other moves are moving entire subtrees around the balance factors of all other nodes are unaffected by the rotation. But how can we update the balance factors without completely recalculating the heights of the new subtrees? The following derivation should convince you that these lines are correct.</div>
 <figure class="figure figure-like" id="trees-avl-fig-bfderive"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
 <img src="external/Trees/bfderive.png" class="contained" alt="described in detail following the image" aria-describedby="trees-avl-fig-bfderive-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="trees-avl-fig-bfderive-2-description"><div class="para" id="trees-avl-fig-bfderive-2-1-1">Image illustrating a left rotation in a binary tree. The diagram consists of two stages: the initial tree structure and the resulting tree after the rotation. In the initial tree, node "B" is the root, with node "A" as its left child and node "D" as its right child. Node "D" has two subtrees, "C" as its left child and "E" as its right child. After the left rotation, node "D" becomes the new root, with node "B" as its left child and node "E" as its right child. Node "B" retains "A" as its left child and "C" as its right child. The arrow between the two stages indicates the direction of the rotation. This figure demonstrates the rebalancing operation in a binary tree by performing a left rotation.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.5<span class="period">.</span></span><span class="space"> </span>A Left Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-21">
-<a href="trees_avl-tree-implementation.html#trees-avl-fig-bfderive" class="xref" data-knowl="./knowl/xref/trees-avl-fig-bfderive.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.5">Figure 8.17.5</a> shows a left rotation. B and D are the pivotal nodes and A, C, E are their subtrees. Let <span class="process-math">\(h_x\)</span> denote the height of a particular subtree rooted at node <span class="process-math">\(x\text{.}\)</span> By definition we know the following:</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.4<span class="period">.</span></span><span class="space"> </span>A Left Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-21">
+<a href="trees_avl-tree-implementation.html#trees-avl-fig-bfderive" class="xref" data-knowl="./knowl/xref/trees-avl-fig-bfderive.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.4">Figure 8.17.4</a> shows a left rotation. B and D are the pivotal nodes and A, C, E are their subtrees. Let <span class="process-math">\(h_x\)</span> denote the height of a particular subtree rooted at node <span class="process-math">\(x\text{.}\)</span> By definition we know the following:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/trees_lst-updbal.html ./knowl/xref/fig-unbalsimple.html ./knowl/xref/fig-rightrot1.html ./knowl/xref/trees_lst-bothrotations.html ./knowl/xref/fig-unbalsimple.html ./knowl/xref/trees-avl-fig-bfderive.html ./knowl/xref/avlimpl_fig-hardrotate.html ./knowl/xref/avlimpl_fig-badrotate.html ./knowl/xref/avlimpl_fig-rotatelr.html ./knowl/xref/avlimpl_fig-hardrotate.html ./knowl/xref/avlimpl_fig-badrotate.html ./knowl/xref/avlimpl_lst-rebalance.html ./knowl/xref/avlimpl_fig-rotatelr.html">
 \begin{equation*}
 \begin{split}
@@ -892,30 +814,30 @@ newBal(B) &amp; = oldBal(B) + 1 - min(0 , oldBal(D))
 \end{equation*}
 </div>
 <div class="para" id="trees_avl-tree-implementation-31">Now we have all of the parts in terms that we readily know. If we remember that B is <code class="code-inline tex2jax_ignore">rotRoot</code> and D is <code class="code-inline tex2jax_ignore">newRoot</code> then we can see this corresponds exactly to the statement on line 21, or:</div>
-<div class="code-box"><pre class="program"><code class="language-cpp">rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
+<div class="code-box"><pre class="program"><code id="rs-AVLTreeImplementation-prog" class="language-cpp">rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(0,newRoot.balanceFactor)
 </code></pre></div>
 <div class="para" id="trees_avl-tree-implementation-33">A similar derivation gives us the equation for the updated node D, as well as the balance factors after a right rotation. We leave these as exercises for you.</div>
-<div class="para" id="trees_avl-tree-implementation-34">Now you might think that we are done. We know how to do our left and right rotations, and we know when we should do a left or right rotation, but take a look at <a href="trees_avl-tree-implementation.html#avlimpl_fig-hardrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-hardrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.6">Figure 8.17.6</a>. Since node A has a balance factor of -2 we should do a left rotation. But, what happens when we do the left rotation around A?</div>
+<div class="para" id="trees_avl-tree-implementation-34">Now you might think that we are done. We know how to do our left and right rotations, and we know when we should do a left or right rotation, but take a look at <a href="trees_avl-tree-implementation.html#avlimpl_fig-hardrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-hardrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.5">Figure 8.17.5</a>. Since node A has a balance factor of -2 we should do a left rotation. But, what happens when we do the left rotation around A?</div>
 <figure class="figure figure-like" id="avlimpl_fig-hardrotate"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;">
 <img src="external/Trees/hardunbalanced.png" class="contained" alt="described in detail following the image" aria-describedby="avlimpl_fig-hardrotate-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="avlimpl_fig-hardrotate-2-description"><div class="para" id="avlimpl_fig-hardrotate-2-1-1">Image showing an unbalanced binary tree with three nodes labeled "A," "C," and "B." Node "A" is the root, with a balance factor of -2, indicating that its right subtree is significantly taller than its left subtree. Node "C" is the right child of "A," with a balance factor of 1, meaning its left subtree is taller than its right subtree. Node "B" is the left child of "C," with a balance factor of 0, indicating it is balanced. The structure of the tree demonstrates a more complex scenario for balancing due to conflicting balance factors at different levels.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.6<span class="period">.</span></span><span class="space"> </span>An Unbalanced Tree that is More Difficult to Balance.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-36">
-<a href="trees_avl-tree-implementation.html#avlimpl_fig-badrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-badrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.7">Figure 8.17.7</a> shows us that after the left rotation we are now out of balance the other way. If we do a right rotation to correct the situation we are right back where we started.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.5<span class="period">.</span></span><span class="space"> </span>An Unbalanced Tree that is More Difficult to Balance.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-36">
+<a href="trees_avl-tree-implementation.html#avlimpl_fig-badrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-badrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.6">Figure 8.17.6</a> shows us that after the left rotation we are now out of balance the other way. If we do a right rotation to correct the situation we are right back where we started.</div>
 <figure class="figure figure-like" id="avlimpl_fig-badrotate"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;">
 <img src="external/Trees/badrotate.png" class="contained" alt="described in detail following the image" aria-describedby="avlimpl_fig-badrotate-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="avlimpl_fig-badrotate-2-description"><div class="para" id="avlimpl_fig-badrotate-2-1-1">Image showing the state of a binary tree after a left rotation around node "A." Node "C" becomes the new root with a balance factor of 2, indicating that its left subtree is much taller than its right subtree. Node "A" becomes the left child of "C," with a balance factor of -1, meaning its right subtree is taller than its left subtree. Node "B" remains the left child of "A," with a balance factor of 0, indicating it is balanced. This new configuration highlights that the tree is now out of balance in the opposite direction, necessitating further adjustments.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.7<span class="period">.</span></span><span class="space"> </span>After a Left Rotation the Tree is Out of Balance in the Other Direction.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-38">To correct this problem we must use the following set of rules:</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.6<span class="period">.</span></span><span class="space"> </span>After a Left Rotation the Tree is Out of Balance in the Other Direction.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-38">To correct this problem we must use the following set of rules:</div>
 <div class="para logical" id="trees_avl-tree-implementation-39"><ul class="disc" id="trees_avl-tree-implementation-39-1">
 <li id="trees_avl-tree-implementation-39-1-1"><div class="para" id="trees_avl-tree-implementation-39-1-1-1">If a subtree needs a left rotation to bring it into balance, first check the balance factor of the right child. If the right child is left heavy then do a right rotation on right child, followed by the original left rotation.</div></li>
 <li id="trees_avl-tree-implementation-39-1-2"><div class="para" id="trees_avl-tree-implementation-39-1-2-1">If a subtree needs a right rotation to bring it into balance, first check the balance factor of the left child. If the left child is right heavy then do a left rotation on the left child, followed by the original right rotation.</div></li>
 </ul></div>
 <div class="para" id="trees_avl-tree-implementation-40">
-<a href="trees_avl-tree-implementation.html#avlimpl_fig-rotatelr" class="xref" data-knowl="./knowl/xref/avlimpl_fig-rotatelr.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.8">Figure 8.17.8</a> shows how these rules solve the dilemma we encountered in <a href="trees_avl-tree-implementation.html#avlimpl_fig-hardrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-hardrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.6">Figure 8.17.6</a> and <a href="trees_avl-tree-implementation.html#avlimpl_fig-badrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-badrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.7">Figure 8.17.7</a>. Starting with a right rotation around node C puts the tree in a position where the left rotation around A brings the entire subtree back into balance.</div>
+<a href="trees_avl-tree-implementation.html#avlimpl_fig-rotatelr" class="xref" data-knowl="./knowl/xref/avlimpl_fig-rotatelr.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.7">Figure 8.17.7</a> shows how these rules solve the dilemma we encountered in <a href="trees_avl-tree-implementation.html#avlimpl_fig-hardrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-hardrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.5">Figure 8.17.5</a> and <a href="trees_avl-tree-implementation.html#avlimpl_fig-badrotate" class="xref" data-knowl="./knowl/xref/avlimpl_fig-badrotate.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.6">Figure 8.17.6</a>. Starting with a right rotation around node C puts the tree in a position where the left rotation around A brings the entire subtree back into balance.</div>
 <figure class="figure figure-like" id="avlimpl_fig-rotatelr"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;">
 <img src="external/Trees/rotatelr.png" class="contained" alt="described in detail following the image" aria-describedby="avlimpl_fig-rotatelr-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="avlimpl_fig-rotatelr-2-description"><div class="para" id="avlimpl_fig-rotatelr-2-1-1">Image showing the process of rebalancing a binary tree using a right rotation followed by a left rotation. The diagram consists of three stages. In the first stage, the unbalanced tree has node "A" as the root with a balance factor of -2. Node "C" is the right child of "A," with a balance factor of 1, and "B" is the left child of "C." This configuration necessitates rebalancing. In the second stage, a right rotation is performed around node "C." Node "B" becomes the right child of "A," and "C" becomes the right child of "B." This step resolves the imbalance between nodes "C" and "B." In the third stage, a left rotation is performed around node "A." Node "B" becomes the new root, with "A" as its left child and "C" as its right child. The tree is now fully balanced, with all nodes having a balance factor of 0. Arrows between the stages indicate the direction of the rotations, and balance factors are displayed to emphasize the changes during the process.</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.8<span class="period">.</span></span><span class="space"> </span>A Right Rotation Followed by a Left Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-42">The code that implements these rules can be found in our <code class="code-inline tex2jax_ignore">rebalance</code> method, which is shown in <a href="trees_avl-tree-implementation.html#avlimpl_lst-rebalance" class="xref" data-knowl="./knowl/xref/avlimpl_lst-rebalance.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.17.9">Listing 8.17.9</a>. Rule number 1 from above is implemented by the <code class="code-inline tex2jax_ignore">if</code> statement starting on line 2. Rule number 2 is implemented by the <code class="code-inline tex2jax_ignore">else if</code> statement starting on line 11.</div>
-<figure class="listing figure-like" id="avlimpl_lst-rebalance"><div class="code-box"><pre class="program line-numbers"><code class="language-cpp">void rebalance(TreeNode *node){
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.17.7<span class="period">.</span></span><span class="space"> </span>A Right Rotation Followed by a Left Rotation.</figcaption></figure><div class="para" id="trees_avl-tree-implementation-42">The code that implements these rules can be found in our <code class="code-inline tex2jax_ignore">rebalance</code> method, which is shown in <a href="trees_avl-tree-implementation.html#avlimpl_lst-rebalance" class="xref" data-knowl="./knowl/xref/avlimpl_lst-rebalance.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 8.17.8: Implementation of rebalance">Listing 8.17.8</a>. Rule number 1 from above is implemented by the <code class="code-inline tex2jax_ignore">if</code> statement starting on line 2. Rule number 2 is implemented by the <code class="code-inline tex2jax_ignore">else if</code> statement starting on line 11.</div>
+<figure class="listing figure-like" id="avlimpl_lst-rebalance"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.8<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">rebalance</code></figcaption><div class="listing__contents"><div class="code-box"><pre class="program line-numbers"><code id="rs-avlimpl_lst-rebalance-prog" class="language-cpp">void rebalance(TreeNode *node){
     if (node-&gt;balanceFactor &lt; 0){
         if (node-&gt;rightChild-&gt;balanceFactor &gt; 0){
             this-&gt;rotateRight(node-&gt;rightChild);
@@ -935,8 +857,7 @@ newBal(B) &amp; = oldBal(B) + 1 - min(0 , oldBal(D))
         }
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.17.9<span class="period">.</span></span><span class="space"> </span>Implementation of <code class="code-inline tex2jax_ignore">rebalance</code></figcaption></figure><div class="para" id="trees_avl-tree-implementation-44">The discussion questions provide you the opportunity to rebalance a tree that requires a left rotation followed by a right. In addition the discussion questions provide you with the opportunity to rebalance some trees that are a little more complex than the tree in <a href="trees_avl-tree-implementation.html#avlimpl_fig-rotatelr" class="xref" data-knowl="./knowl/xref/avlimpl_fig-rotatelr.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.8">Figure 8.17.8</a>.</div>
+</code></pre></div></div></figure><div class="para" id="trees_avl-tree-implementation-44">The discussion questions provide you the opportunity to rebalance a tree that requires a left rotation followed by a right. In addition the discussion questions provide you with the opportunity to rebalance some trees that are a little more complex than the tree in <a href="trees_avl-tree-implementation.html#avlimpl_fig-rotatelr" class="xref" data-knowl="./knowl/xref/avlimpl_fig-rotatelr.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.17.7">Figure 8.17.7</a>.</div>
 <div class="para" id="trees_avl-tree-implementation-45">By keeping the tree in balance at all times, we can ensure that the <code class="code-inline tex2jax_ignore">get</code> method will run in order <span class="process-math">\(O(\log_2(n))\)</span> time. But the question is at what cost to our <code class="code-inline tex2jax_ignore">put</code> method? Let us break this down into the operations performed by <code class="code-inline tex2jax_ignore">put</code>. Since a new node is inserted as a leaf, updating the balance factors of all the parents will require a maximum of <span class="process-math">\(\log_2(n)\)</span> operations, one for each level of the tree. If a subtree is found to be out of balance a maximum of two rotations are required to bring the tree back into balance. But, each of the rotations works in <span class="process-math">\(O(1)\)</span> time, so even our <code class="code-inline tex2jax_ignore">put</code> operation remains <span class="process-math">\(O(\log_2(n))\text{.}\)</span>
 </div>
 <div class="para" id="trees_avl-tree-implementation-46">At this point we have implemented a functional AVL-Tree, unless you need the ability to delete a node. We leave the deletion of the node and subsequent updating and rebalancing as an exercise for you.</div>
@@ -944,8 +865,9 @@ newBal(B) &amp; = oldBal(B) + 1 - min(0 , oldBal(D))
 <span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Question</span>
 </h3>
 <article class="exercise exercise-like" id="AVLbalancetree"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-AVLbalancetree" data-multipleanswers="false">
-<div class="para" id="AVLbalancetree-1-1">How does adding a new leaf in an AVL Tree affect the parent’s balance factor?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="AVLbalancetree-1-1">How does adding a new leaf in an AVL Tree affect the parent’s balance factor?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-AVLbalancetree" data-multipleanswers="false">
 <li data-component="answer" id="rs-AVLbalancetree_opt_a"><div class="para" id="AVLbalancetree-2-1-1-1">A left leaf reduces the balance factor by 1</div></li>
 <li data-component="feedback" id="rs-AVLbalancetree_opt_a"><div class="para" id="AVLbalancetree-2-1-2-1">Carefully think about what you read in AVL performance</div></li>
 <li data-component="answer" id="rs-AVLbalancetree_opt_b"><div class="para" id="AVLbalancetree-2-2-1-1">A right leaf reduces the balance factor by 2</div></li>
@@ -956,13 +878,14 @@ newBal(B) &amp; = oldBal(B) + 1 - min(0 , oldBal(D))
 <li data-component="feedback" id="rs-AVLbalancetree_opt_d"><div class="para" id="AVLbalancetree-2-4-2-1">Correct!</div></li>
 <li data-component="answer" id="rs-AVLbalancetree_opt_e"><div class="para" id="AVLbalancetree-2-5-1-1">The leaves do not affect the parent’s balance factor, only the ancestor nodes</div></li>
 <li data-component="feedback" id="rs-AVLbalancetree_opt_e"><div class="para" id="AVLbalancetree-2-5-2-1">Carefully think about what you read in AVL performance</div></li>
-</ul></div></div></article></section></section></div>
-<div class="ptx-content-footer">
+</ul>
+</div></div></article></section></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="trees_avl-tree-performance.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="trees_summary-of-map-adt-implementations.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

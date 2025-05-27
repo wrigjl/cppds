@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,20 +18,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program"><code class="language-cpp">void put(int key, string val){
-    if (this-&gt;root){
-        this-&gt;_put(key, val, this-&gt;root);
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.4<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">put</code> and <code class="code-inline tex2jax_ignore">_put</code> Methods</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-bst_lst-bst3-prog" class="language-cpp">void put(int key, string val){
+    if (root){
+        _put(key, val, root);
     }
     else{
-        this-&gt;root = new TreeNode(key, val);
+        root = new TreeNode(key, val);
     }
-    this-&gt;size = this-&gt;size + 1;
+    size = size + 1;
 }
 
 void _put(int key, string val, TreeNode *currentNode){
     if (key &lt; currentNode-&gt;key){
         if (currentNode-&gt;hasLeftChild()){
-            this-&gt;_put(key, val, currentNode-&gt;leftChild);
+            _put(key, val, currentNode-&gt;leftChild);
         }
         else{
             currentNode-&gt;leftChild = new TreeNode(key, val, currentNode);
@@ -32,14 +39,13 @@ void _put(int key, string val, TreeNode *currentNode){
     }
     else{
         if (currentNode-&gt;hasRightChild()){
-            this-&gt;_put(key, val, currentNode-&gt;rightChild);
+            _put(key, val, currentNode-&gt;rightChild);
         }
         else{
             currentNode-&gt;rightChild = new TreeNode(key, val, currentNode);
         }
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.4<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">put</code> and <code class="code-inline tex2jax_ignore">_put</code> Methods</figcaption></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst3">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst3">in-context</a></span>
 </body>
 </html>

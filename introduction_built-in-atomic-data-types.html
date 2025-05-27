@@ -6,13 +6,20 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DS Built-in Atomic Data Types</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
@@ -68,12 +75,11 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<!--** eBookCongig is necessary to configure interactive       **-->
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Problem Solving with Algorithms and Data Structures using C++">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -95,151 +101,23 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.5.11';
+eBookConfig.runestone_version = '7.7.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.ee5a0b116b7d0991.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.f6bda0c0ccce4835.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.e0c6d4592e23c667.css">
-<style>
-#introduction_accessing-values-from-pointers-17 { counter-set: introduction_accessing-values-from-pointers-17 0; }
-#introduction_accessing-values-from-pointers-17 > li::marker { content: ""counter(introduction_accessing-values-from-pointers-17,decimal)""; }
-#introduction_accessing-values-from-pointers-17 > li { counter-increment: introduction_accessing-values-from-pointers-17; }
-#introduction_arrays-4-1-1 { counter-set: introduction_arrays-4-1-1 0; }
-#introduction_arrays-4-1-1 > li::marker { content: ""counter(introduction_arrays-4-1-1,decimal)""; }
-#introduction_arrays-4-1-1 > li { counter-increment: introduction_arrays-4-1-1; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 { counter-set: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 0; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li::marker { content: ""counter(introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1,decimal)""; }
-#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1 > li { counter-increment: introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1; }
-#introduction_discussion-questions-2-1 { counter-set: introduction_discussion-questions-2-1 0; }
-#introduction_discussion-questions-2-1 > li::marker { content: ""counter(introduction_discussion-questions-2-1,decimal)""; }
-#introduction_discussion-questions-2-1 > li { counter-increment: introduction_discussion-questions-2-1; }
-#introduction_programming-exercises-2-1 { counter-set: introduction_programming-exercises-2-1 0; }
-#introduction_programming-exercises-2-1 > li::marker { content: ""counter(introduction_programming-exercises-2-1,decimal)""; }
-#introduction_programming-exercises-2-1 > li { counter-increment: introduction_programming-exercises-2-1; }
-#algorithm-analysis_discussion-questions-2-1 { counter-set: algorithm-analysis_discussion-questions-2-1 0; }
-#algorithm-analysis_discussion-questions-2-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-2-1,decimal)""; }
-#algorithm-analysis_discussion-questions-2-1 > li { counter-increment: algorithm-analysis_discussion-questions-2-1; }
-#algorithm-analysis_discussion-questions-4-1 { counter-set: algorithm-analysis_discussion-questions-4-1 0; }
-#algorithm-analysis_discussion-questions-4-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-4-1,decimal)""; }
-#algorithm-analysis_discussion-questions-4-1 > li { counter-increment: algorithm-analysis_discussion-questions-4-1; }
-#algorithm-analysis_discussion-questions-6-1 { counter-set: algorithm-analysis_discussion-questions-6-1 0; }
-#algorithm-analysis_discussion-questions-6-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-6-1,decimal)""; }
-#algorithm-analysis_discussion-questions-6-1 > li { counter-increment: algorithm-analysis_discussion-questions-6-1; }
-#algorithm-analysis_discussion-questions-8-1 { counter-set: algorithm-analysis_discussion-questions-8-1 0; }
-#algorithm-analysis_discussion-questions-8-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-8-1,decimal)""; }
-#algorithm-analysis_discussion-questions-8-1 > li { counter-increment: algorithm-analysis_discussion-questions-8-1; }
-#algorithm-analysis_discussion-questions-10-1 { counter-set: algorithm-analysis_discussion-questions-10-1 0; }
-#algorithm-analysis_discussion-questions-10-1 > li::marker { content: ""counter(algorithm-analysis_discussion-questions-10-1,decimal)""; }
-#algorithm-analysis_discussion-questions-10-1 > li { counter-increment: algorithm-analysis_discussion-questions-10-1; }
-#algorithm-analysis_programming-exercises-2-1 { counter-set: algorithm-analysis_programming-exercises-2-1 0; }
-#algorithm-analysis_programming-exercises-2-1 > li::marker { content: ""counter(algorithm-analysis_programming-exercises-2-1,decimal)""; }
-#algorithm-analysis_programming-exercises-2-1 > li { counter-increment: algorithm-analysis_programming-exercises-2-1; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 { counter-set: linear-basic_general-infix-to-postfix-conversion-9-1 0; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li::marker { content: ""counter(linear-basic_general-infix-to-postfix-conversion-9-1,decimal)""; }
-#linear-basic_general-infix-to-postfix-conversion-9-1 > li { counter-increment: linear-basic_general-infix-to-postfix-conversion-9-1; }
-#linear-basic_postfix-evaluation-10-1 { counter-set: linear-basic_postfix-evaluation-10-1 0; }
-#linear-basic_postfix-evaluation-10-1 > li::marker { content: ""counter(linear-basic_postfix-evaluation-10-1,decimal)""; }
-#linear-basic_postfix-evaluation-10-1 > li { counter-increment: linear-basic_postfix-evaluation-10-1; }
-#linear-basic_main-simulation-steps-3-1 { counter-set: linear-basic_main-simulation-steps-3-1 0; }
-#linear-basic_main-simulation-steps-3-1 > li::marker { content: ""counter(linear-basic_main-simulation-steps-3-1,decimal)""; }
-#linear-basic_main-simulation-steps-3-1 > li { counter-increment: linear-basic_main-simulation-steps-3-1; }
-#linear-basic_discussion-questions-2-1 { counter-set: linear-basic_discussion-questions-2-1 0; }
-#linear-basic_discussion-questions-2-1 > li::marker { content: ""counter(linear-basic_discussion-questions-2-1,decimal)""; }
-#linear-basic_discussion-questions-2-1 > li { counter-increment: linear-basic_discussion-questions-2-1; }
-#linear-basic_programming-exercises-2-1 { counter-set: linear-basic_programming-exercises-2-1 0; }
-#linear-basic_programming-exercises-2-1 > li::marker { content: ""counter(linear-basic_programming-exercises-2-1,decimal)""; }
-#linear-basic_programming-exercises-2-1 > li { counter-increment: linear-basic_programming-exercises-2-1; }
-#linear-linked_discussion-questions-2-1 { counter-set: linear-linked_discussion-questions-2-1 0; }
-#linear-linked_discussion-questions-2-1 > li::marker { content: ""counter(linear-linked_discussion-questions-2-1,decimal)""; }
-#linear-linked_discussion-questions-2-1 > li { counter-increment: linear-linked_discussion-questions-2-1; }
-#linear-linked_programming-exercises-2-1 { counter-set: linear-linked_programming-exercises-2-1 0; }
-#linear-linked_programming-exercises-2-1 > li::marker { content: ""counter(linear-linked_programming-exercises-2-1,decimal)""; }
-#linear-linked_programming-exercises-2-1 > li { counter-increment: linear-linked_programming-exercises-2-1; }
-#recursion_the-three-laws-of-recursion-3-1-1 { counter-set: recursion_the-three-laws-of-recursion-3-1-1 0; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li::marker { content: ""counter(recursion_the-three-laws-of-recursion-3-1-1,decimal)""; }
-#recursion_the-three-laws-of-recursion-3-1-1 > li { counter-increment: recursion_the-three-laws-of-recursion-3-1-1; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 { counter-set: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 0; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li::marker { content: ""counter(recursion_converting-an-integer-to-a-string-in-any-base-5-1-1,decimal)""; }
-#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1 > li { counter-increment: recursion_converting-an-integer-to-a-string-in-any-base-5-1-1; }
-#recursion_tower-of-hanoi-8-1 { counter-set: recursion_tower-of-hanoi-8-1 0; }
-#recursion_tower-of-hanoi-8-1 > li::marker { content: ""counter(recursion_tower-of-hanoi-8-1,decimal)""; }
-#recursion_tower-of-hanoi-8-1 > li { counter-increment: recursion_tower-of-hanoi-8-1; }
-#recursion_exploring-a-maze-8-1 { counter-set: recursion_exploring-a-maze-8-1 0; }
-#recursion_exploring-a-maze-8-1 > li::marker { content: ""counter(recursion_exploring-a-maze-8-1,decimal)""; }
-#recursion_exploring-a-maze-8-1 > li { counter-increment: recursion_exploring-a-maze-8-1; }
-#recursion_dynamic-programming-20-1 { counter-set: recursion_dynamic-programming-20-1 0; }
-#recursion_dynamic-programming-20-1 > li::marker { content: ""counter(recursion_dynamic-programming-20-1,decimal)""; }
-#recursion_dynamic-programming-20-1 > li { counter-increment: recursion_dynamic-programming-20-1; }
-#recursion_discussion-questions-2-1 { counter-set: recursion_discussion-questions-2-1 0; }
-#recursion_discussion-questions-2-1 > li::marker { content: ""counter(recursion_discussion-questions-2-1,decimal)""; }
-#recursion_discussion-questions-2-1 > li { counter-increment: recursion_discussion-questions-2-1; }
-#recursion_programming-exercises-2-1 { counter-set: recursion_programming-exercises-2-1 0; }
-#recursion_programming-exercises-2-1 > li::marker { content: ""counter(recursion_programming-exercises-2-1,decimal)""; }
-#recursion_programming-exercises-2-1 > li { counter-increment: recursion_programming-exercises-2-1; }
-#search-hash_discussion-questions-2-1 { counter-set: search-hash_discussion-questions-2-1 0; }
-#search-hash_discussion-questions-2-1 > li::marker { content: ""counter(search-hash_discussion-questions-2-1,decimal)""; }
-#search-hash_discussion-questions-2-1 > li { counter-increment: search-hash_discussion-questions-2-1; }
-#search-hash_programming-exercises-2-1 { counter-set: search-hash_programming-exercises-2-1 0; }
-#search-hash_programming-exercises-2-1 > li::marker { content: ""counter(search-hash_programming-exercises-2-1,decimal)""; }
-#search-hash_programming-exercises-2-1 > li { counter-increment: search-hash_programming-exercises-2-1; }
-#sort_discussion-questions-2-1 { counter-set: sort_discussion-questions-2-1 0; }
-#sort_discussion-questions-2-1 > li::marker { content: ""counter(sort_discussion-questions-2-1,decimal)""; }
-#sort_discussion-questions-2-1 > li { counter-increment: sort_discussion-questions-2-1; }
-#sort_programming-exercises-2-1 { counter-set: sort_programming-exercises-2-1 0; }
-#sort_programming-exercises-2-1 > li::marker { content: ""counter(sort_programming-exercises-2-1,decimal)""; }
-#sort_programming-exercises-2-1 > li { counter-increment: sort_programming-exercises-2-1; }
-#trees_parse-tree-12-1 { counter-set: trees_parse-tree-12-1 0; }
-#trees_parse-tree-12-1 > li::marker { content: ""counter(trees_parse-tree-12-1,decimal)""; }
-#trees_parse-tree-12-1 > li { counter-increment: trees_parse-tree-12-1; }
-#trees_parse-tree-16-1 { counter-set: trees_parse-tree-16-1 0; }
-#trees_parse-tree-16-1 > li::marker { content: ""counter(trees_parse-tree-16-1,lower-alpha)""; }
-#trees_parse-tree-16-1 > li { counter-increment: trees_parse-tree-16-1; }
-#trees_search-tree-implementation-24-1 { counter-set: trees_search-tree-implementation-24-1 0; }
-#trees_search-tree-implementation-24-1 > li::marker { content: ""counter(trees_search-tree-implementation-24-1,decimal)""; }
-#trees_search-tree-implementation-24-1 > li { counter-increment: trees_search-tree-implementation-24-1; }
-#trees_search-tree-implementation-29-1 { counter-set: trees_search-tree-implementation-29-1 0; }
-#trees_search-tree-implementation-29-1 > li::marker { content: ""counter(trees_search-tree-implementation-29-1,decimal)""; }
-#trees_search-tree-implementation-29-1 > li { counter-increment: trees_search-tree-implementation-29-1; }
-#trees_search-tree-implementation-37-1 { counter-set: trees_search-tree-implementation-37-1 0; }
-#trees_search-tree-implementation-37-1 > li::marker { content: ""counter(trees_search-tree-implementation-37-1,decimal)""; }
-#trees_search-tree-implementation-37-1 > li { counter-increment: trees_search-tree-implementation-37-1; }
-#trees_discussion-questions-2-1 { counter-set: trees_discussion-questions-2-1 0; }
-#trees_discussion-questions-2-1 > li::marker { content: ""counter(trees_discussion-questions-2-1,decimal)""; }
-#trees_discussion-questions-2-1 > li { counter-increment: trees_discussion-questions-2-1; }
-#trees_programming-exercises-2-1 { counter-set: trees_programming-exercises-2-1 0; }
-#trees_programming-exercises-2-1 > li::marker { content: ""counter(trees_programming-exercises-2-1,decimal)""; }
-#trees_programming-exercises-2-1 > li { counter-increment: trees_programming-exercises-2-1; }
-#graphs_implementing-breadth-first-search-8-1 { counter-set: graphs_implementing-breadth-first-search-8-1 0; }
-#graphs_implementing-breadth-first-search-8-1 > li::marker { content: ""counter(graphs_implementing-breadth-first-search-8-1,decimal)""; }
-#graphs_implementing-breadth-first-search-8-1 > li { counter-increment: graphs_implementing-breadth-first-search-8-1; }
-#graphs_topological-sorting-7-1 { counter-set: graphs_topological-sorting-7-1 0; }
-#graphs_topological-sorting-7-1 > li::marker { content: ""counter(graphs_topological-sorting-7-1,decimal)""; }
-#graphs_topological-sorting-7-1 > li { counter-increment: graphs_topological-sorting-7-1; }
-#graphs_strongly-connected-components-15-1 { counter-set: graphs_strongly-connected-components-15-1 0; }
-#graphs_strongly-connected-components-15-1 > li::marker { content: ""counter(graphs_strongly-connected-components-15-1,decimal)""; }
-#graphs_strongly-connected-components-15-1 > li { counter-increment: graphs_strongly-connected-components-15-1; }
-#graphs_discussion-questions-2-1 { counter-set: graphs_discussion-questions-2-1 0; }
-#graphs_discussion-questions-2-1 > li::marker { content: ""counter(graphs_discussion-questions-2-1,decimal)""; }
-#graphs_discussion-questions-2-1 > li { counter-increment: graphs_discussion-questions-2-1; }
-#graphs_discussion-questions-4-1 { counter-set: graphs_discussion-questions-4-1 0; }
-#graphs_discussion-questions-4-1 > li::marker { content: ""counter(graphs_discussion-questions-4-1,decimal)""; }
-#graphs_discussion-questions-4-1 > li { counter-increment: graphs_discussion-questions-4-1; }
-#graphs_programming-exercises-2-1 { counter-set: graphs_programming-exercises-2-1 0; }
-#graphs_programming-exercises-2-1 > li::marker { content: ""counter(graphs_programming-exercises-2-1,decimal)""; }
-#graphs_programming-exercises-2-1 > li { counter-increment: graphs_programming-exercises-2-1; }
-</style>
+<script src="_static/prefix-runtime.cf591bce111c14c1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.472f5a2f0bfe3571.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
 <h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
-</div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
@@ -284,7 +162,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_pointer-syntax" class="internal"><span class="codenumber">1.9.4.1</span> <span class="title">Pointer Syntax</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-address-of-operator" class="internal"><span class="codenumber">1.9.4.2</span> <span class="title">The address-of operator, <code class="code-inline tex2jax_ignore">&amp;</code></span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_accessing-values-from-pointers" class="internal"><span class="codenumber">1.9.4.3</span> <span class="title">Accessing Values from Pointers</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The NULL pointer</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="introduction_built-in-atomic-data-types.html#introduction_the-null-pointer" class="internal"><span class="codenumber">1.9.4.4</span> <span class="title">The null pointer</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -751,8 +629,9 @@ eBookConfig.enable_chatcodes =  false;
 <section class="introduction" id="introduction_built-in-atomic-data-types-2"><div class="para" id="introduction_built-in-atomic-data-types-2-1">C++ requires users to specify the data type of each variable before it is used. The primary C++ built-in atomic data types are: integer (<code class="code-inline tex2jax_ignore">int</code>), floating point (<code class="code-inline tex2jax_ignore">float</code>), double precision floating point (<code class="code-inline tex2jax_ignore">double</code>), Boolean (<code class="code-inline tex2jax_ignore">bool</code>), and character (<code class="code-inline tex2jax_ignore">char</code>). There is also a special type which holds a memory location called <code class="code-inline tex2jax_ignore">pointer</code>. C++ also has collection or compound data types, which will be discussed in a future chapter.</div></section><article class="exercise exercise-like" id="atomicq1"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.1</span><span class="period">.</span>
 </h3>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-atomicq1" data-multipleanswers="false">
-<div class="para" id="atomicq1-1-1">After reading the above paragraph, what makes a data type categorized as an atomic data type? (hint: arrays and vectors are not atomic)</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="atomicq1-1-1">After reading the above paragraph, what makes a data type categorized as an atomic data type? (hint: arrays and vectors are not atomic)</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-atomicq1" data-multipleanswers="false">
 <li data-component="answer" id="rs-atomicq1_opt_a"><div class="para" id="atomicq1-2-1-1-1">It must be mutable so that it can change at any time.</div></li>
 <li data-component="feedback" id="rs-atomicq1_opt_a"><div class="para" id="atomicq1-2-1-2-1">Incorrect, Atomic data types are not required to be mutable.</div></li>
 <li data-component="answer" id="rs-atomicq1_opt_b"><div class="para" id="atomicq1-2-2-1-1">Its memory size cannot be too big, relating to how atoms are naturally very small.</div></li>
@@ -761,7 +640,8 @@ eBookConfig.enable_chatcodes =  false;
 <li data-component="feedback" id="rs-atomicq1_opt_c"><div class="para" id="atomicq1-2-3-2-1">Incorrect, atomic data types have nothing to do with being static or dynamic.</div></li>
 <li data-component="answer" id="rs-atomicq1_opt_d" data-correct=""><div class="para" id="atomicq1-2-4-1-1">It cannot be broken down any smaller while still being easily operable.</div></li>
 <li data-component="feedback" id="rs-atomicq1_opt_d"><div class="para" id="atomicq1-2-4-2-1">Correct, the atomic data type actually got its name when scientists thought atoms were the smallest things in existence. That is why they are data types that cannot be broken down.</div></li>
-</ul></div></div></article><section class="subsection" id="introduction_numeric-data"><h3 class="heading hide-type">
+</ul>
+</div></div></article><section class="subsection" id="introduction_numeric-data"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.9.1</span><span class="space"> </span><span class="title">Numeric Data</span>
 </h3>
 <div class="para" id="introduction_numeric-data-2">Numeric C++ data types include <code class="code-inline tex2jax_ignore">int</code> for integer, <code class="code-inline tex2jax_ignore">float</code> for floating point, <code class="code-inline tex2jax_ignore">double</code> for double precision floating point.</div>
@@ -776,7 +656,7 @@ eBookConfig.enable_chatcodes =  false;
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="intro_numeric-ex1-cpp"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code class="language-cpp">//outputs results from various math expressions
+<pre class="program"><code id="rs-intro_1cpp-prog" class="language-cpp">//outputs results from various math expressions
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
 using namespace std;
@@ -822,8 +702,9 @@ main()
 <article class="exercise exercise-like" id="mc_integer_div"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.2</span><span class="period">.</span>
 </h4>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_integer_div" data-multipleanswers="false">
-<div class="para" id="mc_integer_div-1-1">what is the result of dividing <code class="code-inline tex2jax_ignore">3/2</code> in C++?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="mc_integer_div-1-1">what is the result of dividing <code class="code-inline tex2jax_ignore">3/2</code> in C++?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_integer_div" data-multipleanswers="false">
 <li data-component="answer" id="rs-mc_integer_div_opt_a" data-correct=""><div class="para" id="mc_integer_div-2-1-1-1">1</div></li>
 <li data-component="feedback" id="rs-mc_integer_div_opt_a"><div class="para" id="mc_integer_div-2-1-2-1">Right!</div></li>
 <li data-component="answer" id="rs-mc_integer_div_opt_b"><div class="para" id="mc_integer_div-2-2-1-1">1.5</div></li>
@@ -834,11 +715,13 @@ main()
 <li data-component="feedback" id="rs-mc_integer_div_opt_d"><div class="para" id="mc_integer_div-2-4-2-1">No, C++ generally will try to do as you ask.</div></li>
 <li data-component="answer" id="rs-mc_integer_div_opt_e"><div class="para" id="mc_integer_div-2-5-1-1">none of the above</div></li>
 <li data-component="feedback" id="rs-mc_integer_div_opt_e"><div class="para" id="mc_integer_div-2-5-2-1">One of the above is correct.</div></li>
-</ul></div></div></article><article class="exercise exercise-like" id="mc_exponentiation"><h4 class="heading">
+</ul>
+</div></div></article><article class="exercise exercise-like" id="mc_exponentiation"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.3</span><span class="period">.</span>
 </h4>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_exponentiation" data-multipleanswers="false">
-<div class="para" id="mc_exponentiation-1-1">How do I raise 4 to 5th power in C++?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="mc_exponentiation-1-1">How do I raise 4 to 5th power in C++?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_exponentiation" data-multipleanswers="false">
 <li data-component="answer" id="rs-mc_exponentiation_opt_a"><div class="para" id="mc_exponentiation-2-1-1-1">``4**5``</div></li>
 <li data-component="feedback" id="rs-mc_exponentiation_opt_a"><div class="para" id="mc_exponentiation-2-1-2-1">No, ``**`` is used in other languages, but not C++.</div></li>
 <li data-component="answer" id="rs-mc_exponentiation_opt_b"><div class="para" id="mc_exponentiation-2-2-1-1">``5**4``</div></li>
@@ -847,7 +730,8 @@ main()
 <li data-component="feedback" id="rs-mc_exponentiation_opt_c"><div class="para" id="mc_exponentiation-2-3-2-1">No. The ``^`` is a valid operator in C++, but it does something else.</div></li>
 <li data-component="answer" id="rs-mc_exponentiation_opt_d" data-correct=""><div class="para" id="mc_exponentiation-2-4-1-1">``pow(4, 5)``</div></li>
 <li data-component="feedback" id="rs-mc_exponentiation_opt_d"><div class="para" id="mc_exponentiation-2-4-2-1">You got it! Remember the cmath library will need to be included for pow() to work.</div></li>
-</ul></div></div></article></section><section class="subsection" id="introduction_boolean-data"><h3 class="heading hide-type">
+</ul>
+</div></div></article></section><section class="subsection" id="introduction_boolean-data"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.9.2</span><span class="space"> </span><span class="title">Boolean Data</span>
 </h3>
 <div class="para" id="introduction_boolean-data-2">Boolean data types are named after George Boole who was an English mathematician, so the word “Boolean” should be capitalized. However, the Boolean data type in C++ uses the keyword <code class="code-inline tex2jax_ignore">bool</code> which is not capitalized. The possible state values for a C++ Boolean are lower case <code class="code-inline tex2jax_ignore">true</code> and <code class="code-inline tex2jax_ignore">false</code>.</div>
@@ -859,7 +743,7 @@ main()
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="logical-cpp"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code class="language-cpp">//outputs boolean results to the command line
+<pre class="program"><code id="rs-logical_1cpp-prog" class="language-cpp">//outputs boolean results to the command line
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -941,7 +825,7 @@ main()
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="intro_logical-printops"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code class="language-cpp">//outputs the results from the relational and logical operators
+<pre class="program"><code id="rs-locicalcpp-prog" class="language-cpp">//outputs the results from the relational and logical operators
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -968,7 +852,7 @@ main()
 </textarea></div></div></div></article></div>
 </div></div></div></article><div class="para" id="introduction_boolean-data-8">When a C++ variable is declared space in memory is set aside to hold this type of value. A C++ variable can optionally be initialized in the declaration by using a combination of a declaration and an assignment statement.</div>
 <div class="para" id="introduction_boolean-data-9">Consider the following session:</div>
-<pre class="program"><code class="language-cpp">//showcases how variables work in C++
+<pre class="program"><code id="rs-booleanpitfall-prog" class="language-cpp">//showcases how variables work in C++
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -994,8 +878,9 @@ int main(){
 <article class="exercise exercise-like" id="mc_bool"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.5</span><span class="period">.</span>
 </h4>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_bool" data-multipleanswers="false">
-<div class="para" id="mc_bool-1-1">Why did <code class="code-inline tex2jax_ignore">theBool</code> output a value of 1 after being set to 4?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="mc_bool-1-1">Why did <code class="code-inline tex2jax_ignore">theBool</code> output a value of 1 after being set to 4?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_bool" data-multipleanswers="false">
 <li data-component="answer" id="rs-mc_bool_opt_a"><div class="para" id="mc_bool-2-1-1-1">Setting <code class="code-inline tex2jax_ignore">theBool</code> to anything other than true or false is ignored.</div></li>
 <li data-component="feedback" id="rs-mc_bool_opt_a"><div class="para" id="mc_bool-2-1-2-1">No. Try changing the code and setting <code class="code-inline tex2jax_ignore">theBool</code> to 0.</div></li>
 <li data-component="answer" id="rs-mc_bool_opt_b"><div class="para" id="mc_bool-2-2-1-1">Setting <code class="code-inline tex2jax_ignore">theBool</code> to anything &gt; 0 will be true and false otherwise.</div></li>
@@ -1004,7 +889,8 @@ int main(){
 <li data-component="feedback" id="rs-mc_bool_opt_c"><div class="para" id="mc_bool-2-3-2-1">Correct!</div></li>
 <li data-component="answer" id="rs-mc_bool_opt_d"><div class="para" id="mc_bool-2-4-1-1">None of the above.</div></li>
 <li data-component="feedback" id="rs-mc_bool_opt_d"><div class="para" id="mc_bool-2-4-2-1">Try again. One of the above is correct. You might try changing the code and rerunning.</div></li>
-</ul></div></div></article></section><section class="subsection" id="introduction_character-data"><h3 class="heading hide-type">
+</ul>
+</div></div></article></section><section class="subsection" id="introduction_character-data"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.9.3</span><span class="space"> </span><span class="title">Character Data</span>
 </h3>
 <div class="para" id="introduction_character-data-2">In C++ single quotes are used for the character (<code class="code-inline tex2jax_ignore">char</code>) data type, and double quotes are used for the string data type.</div>
@@ -1016,7 +902,7 @@ int main(){
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="logical-printchar"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code class="language-cpp">//outputs the boolean results to show how strings and chars differ in C++
+<pre class="program"><code id="rs-charpy-prog" class="language-cpp">//outputs the boolean results to show how strings and chars differ in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -1052,8 +938,9 @@ main()
 <article class="exercise exercise-like" id="mc_cpp_strings"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.6</span><span class="period">.</span>
 </h4>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_cpp_strings" data-multipleanswers="false">
-<div class="para" id="mc_cpp_strings-1-1">If I want to create a string in C++, what set of symbols may be used?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="mc_cpp_strings-1-1">If I want to create a string in C++, what set of symbols may be used?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_cpp_strings" data-multipleanswers="false">
 <li data-component="answer" id="rs-mc_cpp_strings_opt_a"><div class="para" id="mc_cpp_strings-2-1-1-1"><code class="code-inline tex2jax_ignore">' '</code></div></li>
 <li data-component="feedback" id="rs-mc_cpp_strings_opt_a"><div class="para" id="mc_cpp_strings-2-1-2-1">No, single quotes are only used for single characters.</div></li>
 <li data-component="answer" id="rs-mc_cpp_strings_opt_b" data-correct=""><div class="para" id="mc_cpp_strings-2-2-1-1"><code class="code-inline tex2jax_ignore">" "</code></div></li>
@@ -1065,7 +952,8 @@ main()
 <li data-component="feedback" id="rs-mc_cpp_strings_opt_d"><div class="para" id="mc_cpp_strings-2-4-2-1">No. No matter what, the implementation is consistent.</div></li>
 <li data-component="answer" id="rs-mc_cpp_strings_opt_e"><div class="para" id="mc_cpp_strings-2-5-1-1">none of the above</div></li>
 <li data-component="feedback" id="rs-mc_cpp_strings_opt_e"><div class="para" id="mc_cpp_strings-2-5-2-1">One of the above is indeed correct.</div></li>
-</ul></div></div></article></section><section class="subsection" id="introduction_pointers"><h3 class="heading hide-type">
+</ul>
+</div></div></article></section><section class="subsection" id="introduction_pointers"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.9.4</span><span class="space"> </span><span class="title">Pointers</span>
 </h3>
 <section class="introduction" id="introduction_pointers-2"><div class="para" id="introduction_pointers-2-1">A C++ <dfn class="terminology">pointer</dfn> is a variable that stores a memory address.</div>
@@ -1091,7 +979,7 @@ int varN = 100;
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="print-ptr"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code class="language-cpp">//outputs both the value of varN and the location in memory of varN
+<pre class="program"><code id="rs-address_cpp-prog" class="language-cpp">//outputs both the value of varN and the location in memory of varN
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -1150,7 +1038,7 @@ ptrN = &amp;varN;
 <div class="para" id="introduction_accessing-values-from-pointers-2">So, once you have a C++ pointer, how do you access the values associated with that location? You use the asterisk before the pointer variable, which goes to that address, effectively <em class="emphasis">dereferencing</em> the pointer, meaning that it will find the location of the value stored where the pointer was pointing.</div>
 <div class="para" id="introduction_accessing-values-from-pointers-3">In other words, <code class="code-inline tex2jax_ignore">varN</code> and <code class="code-inline tex2jax_ignore">*ptrN</code> (note the asterisk in front!) reference the same value in the code above.</div>
 <div class="para" id="introduction_accessing-values-from-pointers-4">Let’s extend the example above to output the value of a variable and its address in memory: … _dereferencing.</div>
-<blockquote class="blockquote" id="introduction_accessing-values-from-pointers-5"><pre class="program"><code class="language-cpp">//prints a variable by pointer and value
+<blockquote class="blockquote" id="introduction_accessing-values-from-pointers-5"><pre class="program"><code id="rs-firstptr-prog" class="language-cpp">//prints a variable by pointer and value
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -1169,8 +1057,9 @@ int main( ) {
 <article class="exercise exercise-like" id="mc_pntrhlp"><h5 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.9</span><span class="period">.</span>
 </h5>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_pntrhlp" data-multipleanswers="false">
-<div class="para" id="mc_pntrhlp-1-1">If the lines (varN = 50;) and  (cout &lt;&lt; *ptrN &lt;&lt; endl;) were inserted into line 7-8, what would it cout?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="mc_pntrhlp-1-1">If the lines (varN = 50;) and  (cout &lt;&lt; *ptrN &lt;&lt; endl;) were inserted into line 7-8, what would it cout?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_pntrhlp" data-multipleanswers="false">
 <li data-component="answer" id="rs-mc_pntrhlp_opt_a"><div class="para" id="mc_pntrhlp-2-1-1-1">varPntr: 100</div></li>
 <li data-component="feedback" id="rs-mc_pntrhlp_opt_a"><div class="para" id="mc_pntrhlp-2-1-2-1">Not quite, the variable varN no longer equals 100 past line 7!</div></li>
 <li data-component="answer" id="rs-mc_pntrhlp_opt_b" data-correct=""><div class="para" id="mc_pntrhlp-2-2-1-1">varPntr: 50</div></li>
@@ -1181,10 +1070,11 @@ int main( ) {
 <li data-component="feedback" id="rs-mc_pntrhlp_opt_d"><div class="para" id="mc_pntrhlp-2-4-2-1">We are dereferencing the pointer, so you would not get the address of varN. Try again!</div></li>
 <li data-component="answer" id="rs-mc_pntrhlp_opt_e"><div class="para" id="mc_pntrhlp-2-5-1-1">none of the above</div></li>
 <li data-component="feedback" id="rs-mc_pntrhlp_opt_e"><div class="para" id="mc_pntrhlp-2-5-2-1">One of the above is indeed correct.</div></li>
-</ul></div></div></article><div class="para" id="introduction_accessing-values-from-pointers-7">Compiling and running the above code will have the program output the value in varN, what is in ptrN (the memory address of varN), and what value is located at that memory location.</div>
+</ul>
+</div></div></article><div class="para" id="introduction_accessing-values-from-pointers-7">Compiling and running the above code will have the program output the value in varN, what is in ptrN (the memory address of varN), and what value is located at that memory location.</div>
 <div class="para" id="introduction_accessing-values-from-pointers-8">The second output sentence is the address of varN, which would most likely be different if you run the program on your machine.</div>
 <div class="para" id="introduction_accessing-values-from-pointers-9">WARNING: What happens if you forget the ampersand (&amp;) and accidentally assign a raw integer value to a pointer instead of a valid address?</div>
-<blockquote class="blockquote" id="introduction_accessing-values-from-pointers-10"><pre class="program"><code class="language-cpp">//showcases what happens when reading from unknown memory locations
+<blockquote class="blockquote" id="introduction_accessing-values-from-pointers-10"><pre class="program"><code id="rs-cpp_address_error1-prog" class="language-cpp">//showcases what happens when reading from unknown memory locations
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -1212,16 +1102,16 @@ int main() {
 </pre>
 <div class="para" id="introduction_accessing-values-from-pointers-15">which is expected because you changed where ptrN is pointing to and NOT the contents of where it is pointing.</div>
 <div class="para" id="introduction_accessing-values-from-pointers-16">The second <code class="code-inline tex2jax_ignore">cout</code> instruction is a disaster because</div>
-<ol class="decimal" id="introduction_accessing-values-from-pointers-17">
+<ol class="decimal ol-marker-1" id="introduction_accessing-values-from-pointers-17">
 <li id="introduction_accessing-values-from-pointers-17-1"><div class="para" id="introduction_accessing-values-from-pointers-17-1-1">You don’t know what is stored in location 100 in memory, and</div></li>
 <li id="introduction_accessing-values-from-pointers-17-2"><div class="para" id="introduction_accessing-values-from-pointers-17-2-1">that location is outside of your segment (area in memory reserved for your program), so the operating system will jump in with a message about a “segmentation fault”. Although such an error message looks bad, a “seg fault” is in fact, a helpful error because unlike the elusive logical errors, the reason is fairly localized.</div></li>
 </ol></section><section class="subsubsection" id="introduction_the-null-pointer"><h4 class="heading hide-type">
-<span class="type">Subsubsection</span><span class="space"> </span><span class="codenumber">1.9.4.4</span><span class="space"> </span><span class="title">The NULL pointer</span>
+<span class="type">Subsubsection</span><span class="space"> </span><span class="codenumber">1.9.4.4</span><span class="space"> </span><span class="title">The null pointer</span>
 </h4>
-<div class="para" id="introduction_the-null-pointer-2">The <code class="code-inline tex2jax_ignore">NULL</code> pointer in C++ points to nothing and is often denoted by the keyword <code class="code-inline tex2jax_ignore">NULL</code> (all caps) or by 0. The NULL pointer is often used in conditions and/or in logical operations.</div>
-<div class="para" id="introduction_the-null-pointer-3">
-<a href="introduction_built-in-atomic-data-types.html#NULLexamplecpp" class="xref" data-knowl="./knowl/xref/NULLexamplecpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.9.11">Listing 1.9.11</a> demonstrates how the NULL pointer works. The variable ptrx initially has the address of x when it is declared. On the first iteration of the loop, it is assigned the value of <code class="code-inline tex2jax_ignore">NULL</code> (i.e. 0) thereby ending the loop:</div>
-<figure class="listing figure-like" id="NULLexamplecpp"><pre class="program"><code class="language-cpp">//showcases how you can use NULL.
+<div class="para" id="introduction_the-null-pointer-3">The null pointer in C++ points to nothing and is often denoted by the value <code class="code-inline tex2jax_ignore">nullptr</code>. In older C code, you will often find the value <code class="code-inline tex2jax_ignore">NULL</code> or even 0 used to represent this concept. Numerically, <code class="code-inline tex2jax_ignore">nullptr</code> has the value of 0. <code class="code-inline tex2jax_ignore">nullptr</code> pointer is often used in conditions and/or in logical operations.</div>
+<div class="para" id="introduction_the-null-pointer-4">
+<a href="introduction_built-in-atomic-data-types.html#NULLexamplecpp" class="xref" data-knowl="./knowl/xref/NULLexamplecpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.9.11: Using the null pointer: nullptr">Listing 1.9.11</a> demonstrates how <code class="code-inline tex2jax_ignore">nullptr</code> is used. The variable ptrx initially has the address of x when it is declared. On the first iteration of the loop, it is assigned the value of <code class="code-inline tex2jax_ignore">nullptr</code> (i.e. 0) thereby ending the loop:</div>
+<figure class="listing figure-like" id="NULLexamplecpp"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.9.11<span class="period">.</span></span><span class="space"> </span>Using the null pointer: <code class="code-inline tex2jax_ignore">nullptr</code></figcaption><div class="listing__contents"><pre class="program"><code id="rs-NULLexamplecpp-prog" class="language-cpp">//showcases how you can use nullptr
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -1231,20 +1121,20 @@ int main( ) {
 
     while (ptrx) {
         cout &lt;&lt; "Pointer ptrx points to " &lt;&lt; ptrx &lt;&lt; endl;
-        ptrx = NULL;
+        ptrx = nullptr;
     }
 
     cout &lt;&lt; "Pointer ptrx points to nothing!" &lt;&lt;endl;
 
     return 0;
 }
-</code></pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.9.11<span class="period">.</span></span><span class="space"> </span>Using <code class="code-inline tex2jax_ignore">NULL</code> Pointer</figcaption></figure><div class="para" id="introduction_the-null-pointer-5">Helpful Tip: The <code class="code-inline tex2jax_ignore">NULL</code> pointer becomes very useful when you must test the state of a pointer, such as whether the assignment to an address is valid or not.</div>
+</code></pre></div></figure><div class="para" id="introduction_the-null-pointer-6">Helpful Tip: <code class="code-inline tex2jax_ignore">nullptr</code> becomes very useful when you must test the state of a pointer, such as whether the assignment to an address is valid or not.</div>
 <article class="exercise exercise-like" id="mc_characters"><h5 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.12</span><span class="period">.</span>
 </h5>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_characters" data-multipleanswers="false">
-<div class="para" id="mc_characters-1-1">If I want to use the <code class="code-inline tex2jax_ignore">char</code> type in C++, what set of symbols must be used?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="mc_characters-1-1">If I want to use the <code class="code-inline tex2jax_ignore">char</code> type in C++, what set of symbols must be used?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_characters" data-multipleanswers="false">
 <li data-component="answer" id="rs-mc_characters_opt_a" data-correct=""><div class="para" id="mc_characters-2-1-1-1"><code class="code-inline tex2jax_ignore">' '</code></div></li>
 <li data-component="feedback" id="rs-mc_characters_opt_a"><div class="para" id="mc_characters-2-1-2-1">Right!</div></li>
 <li data-component="answer" id="rs-mc_characters_opt_b"><div class="para" id="mc_characters-2-2-1-1"><code class="code-inline tex2jax_ignore">" "</code></div></li>
@@ -1256,7 +1146,8 @@ int main( ) {
 <li data-component="feedback" id="rs-mc_characters_opt_d"><div class="para" id="mc_characters-2-4-2-1">No. The implementation is consistent.</div></li>
 <li data-component="answer" id="rs-mc_characters_opt_e"><div class="para" id="mc_characters-2-5-1-1">none of the above</div></li>
 <li data-component="feedback" id="rs-mc_characters_opt_e"><div class="para" id="mc_characters-2-5-2-1">One of the above is indeed correct.</div></li>
-</ul></div></div></article><article class="exercise exercise-like" id="memoryvar"><h5 class="heading">
+</ul>
+</div></div></article><article class="exercise exercise-like" id="memoryvar"><h5 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.13</span><span class="period">.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone fillintheblank_section"><div data-component="fillintheblank" data-question_label="" id="rs-memoryvar">
@@ -1266,8 +1157,9 @@ int main( ) {
 </div></div></div></article><article class="exercise exercise-like" id="mc_memory"><h5 class="heading">
 <span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.9.14</span><span class="period">.</span>
 </h5>
-<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" id="rs-mc_memory" data-multipleanswers="false">
-<div class="para" id="mc_memory-1-1">How may one reference a variable’s memory address in C++?</div>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="mc_memory-1-1">How may one reference a variable’s memory address in C++?</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_memory" data-multipleanswers="false">
 <li data-component="answer" id="rs-mc_memory_opt_a" data-correct=""><div class="para" id="mc_memory-2-1-1-1">using ``&amp;``</div></li>
 <li data-component="feedback" id="rs-mc_memory_opt_a"><div class="para" id="mc_memory-2-1-2-1">Right! ``&amp;`` is the "address-of" operator, used to reference an address.</div></li>
 <li data-component="answer" id="rs-mc_memory_opt_b"><div class="para" id="mc_memory-2-2-1-1">using ``*``</div></li>
@@ -1278,13 +1170,14 @@ int main( ) {
 <li data-component="feedback" id="rs-mc_memory_opt_d"><div class="para" id="mc_memory-2-4-2-1">No. The implementation remains consistent.</div></li>
 <li data-component="answer" id="rs-mc_memory_opt_e"><div class="para" id="mc_memory-2-5-1-1">none of the above</div></li>
 <li data-component="feedback" id="rs-mc_memory_opt_e"><div class="para" id="mc_memory-2-5-2-1">One of the above is indeed correct.</div></li>
-</ul></div></div></article></section></section><section class="conclusion" id="introduction_built-in-atomic-data-types-8"><div class="para" id="introduction_built-in-atomic-data-types-8-1"></div></section></section></div>
-<div class="ptx-content-footer">
+</ul>
+</div></div></article></section></section><section class="conclusion" id="introduction_built-in-atomic-data-types-8"><div class="para" id="introduction_built-in-atomic-data-types-8-1"></div></section></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="introduction_getting-started-with-data.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_collections.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

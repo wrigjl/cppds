@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,36 +18,29 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program"><code class="language-cpp">string get(int key){
-    if (this-&gt;root){
-        TreeNode *res = this-&gt;_get(key, this-&gt;root);
-        if (res){
-            return res-&gt;payload;
-        }
-        else{
-            return 0;
-        }
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.7<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">get</code> and <code class="code-inline tex2jax_ignore">_get</code> Methods</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-bst_lst-bst4-prog" class="language-cpp">string get(int key){
+    if (root){
+        TreeNode *res = _get(key, root);
+        if (res)
+            return res-&gt;value;
     }
-    else{
-        return 0;
-    }
+    throw runtime_error("missing key");
 }
 
 TreeNode  *_get(int key, TreeNode *currentNode){
     if (!currentNode){
-        return NULL;
+        return nullptr;
     }
     else if (currentNode-&gt;key == key){
         return currentNode;
     }
     else if (key &lt; currentNode-&gt;key){
-        return this-&gt;_get(key, currentNode-&gt;leftChild);
+        return _get(key, currentNode-&gt;leftChild);
     }
     else{
-        return this-&gt;_get(key, currentNode-&gt;rightChild);
+        return _get(key, currentNode-&gt;rightChild);
     }
 }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.7<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">get</code> and <code class="code-inline tex2jax_ignore">_get</code> Methods</figcaption></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst4">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst4">in-context</a></span>
 </body>
 </html>

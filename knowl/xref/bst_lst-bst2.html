@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,68 +18,67 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><div class="code-box"><pre class="program"><code class="language-cpp">class TreeNode{
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.3<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">TreeNode</code> Class</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-bst_lst-bst2-prog" class="language-cpp">class TreeNode{
     public:
         int key;
-        string payload;
+        string value;
         TreeNode *leftChild;
         TreeNode *rightChild;
         TreeNode *parent;
 
-        TreeNode(int key, string val, TreeNode *parent = NULL, TreeNode *left = NULL, TreeNode *right = NULL){
+        TreeNode(int key, string val, TreeNode *parent = nullptr, TreeNode *left = nullptr, TreeNode *right = nullptr){
             this-&gt;key = key;
-            this-&gt;payload = val;
+            this-&gt;value = val;
             this-&gt;leftChild = left;
             this-&gt;rightChild = right;
             this-&gt;parent = parent;
         }
 
         TreeNode *hasLeftChild(){
-            return this-&gt;leftChild;
+            return leftChild;
         }
 
         TreeNode *hasRightChild(){
-            return this-&gt;rightChild;
+            return rightChild;
         }
 
         bool isLeftChild(){
-            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;leftChild == this;
+            return parent &amp;&amp; parent-&gt;leftChild == this;
         }
 
         bool isRightChild(){
-            return this-&gt;parent &amp;&amp; this-&gt;parent-&gt;rightChild == this;
+            return parent &amp;&amp; parent-&gt;rightChild == this;
         }
 
         bool isRoot(){
-            return !this-&gt;parent;
+            return !parent;
         }
 
         bool isLeaf(){
-            return !(this-&gt;rightChild || this-&gt;leftChild);
+            return !(rightChild || leftChild);
         }
 
         bool hasAnyChildren(){
-            return this-&gt;rightChild || this-&gt;leftChild;
+            return rightChild || leftChild;
         }
 
         bool hasBothChildren(){
-            return this-&gt;rightChild &amp;&amp; this-&gt;leftChild;
+            return rightChild &amp;&amp; leftChild;
         }
 
-        void replaceNodeData(int key, string value, TreeNode *lc = NULL, TreeNode *rc = NULL){
+        void replaceNodeData(int key, string val, TreeNode *lc = nullptr, TreeNode *rc = nullptr){
             this-&gt;key = key;
-            this-&gt;payload = value;
+            this-&gt;value = val;
             this-&gt;leftChild = lc;
             this-&gt;rightChild = rc;
-            if (this-&gt;hasLeftChild()){
-                this-&gt;leftChild-&gt;parent = this;
+            if (hasLeftChild()){
+                leftChild-&gt;parent = this;
             }
-            if (this-&gt;hasRightChild()){
-                this-&gt;rightChild-&gt;parent = this;
+            if (hasRightChild()){
+                rightChild-&gt;parent = this;
             }
         }
     }
-</code></pre></div>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.13.3<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">TreeNode</code> Class</figcaption></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst2">in-context</a></span>
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="trees_search-tree-implementation.html#bst_lst-bst2">in-context</a></span>
 </body>
 </html>
