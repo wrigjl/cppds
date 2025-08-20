@@ -5,7 +5,7 @@
             some real problems. In this section we will look at parse trees. Parse
             trees can be used to represent real-world constructions like sentences or mathematical expressions.</p>
         
-        <figure align="center" xml:id="fig-nlparse">
+        <figure xml:id="fig-nlparse">
             <caption>A Parse Tree for a Simple Sentence.</caption>
                 <image source="Trees/nlParse.png" width="50%">
                 <description><p>Diagram of a parse tree for linguistic analysis. The root of the tree is labeled 'Sentence' which splits into two branches: 'Noun Phrase' and 'Verb Phrase'. The 'Noun Phrase' branch further breaks down into 'Proper Noun', which leads to the word 'Homer'. The 'Verb Phrase' branch divides into 'Verb', leading to the word 'Hit', and another 'Noun Phrase', which further breaks down into 'Proper Noun', leading to the word 'Bart'. The structure illustrates the grammatical relationships in a simple sentence.</p></description>
@@ -15,7 +15,7 @@
             sentence. Representing a sentence as a tree structure allows us to work
             with the individual parts of the sentence by using subtrees.</p>
         
-        <figure align="center" xml:id="fig-meparse">
+        <figure xml:id="fig-meparse">
             <caption>Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meParse.png" width="50%">
                 <description><p>Diagram of a parse tree for an arithmetic expression. The root node is an asterisk '*', indicating multiplication. It has two child nodes: on the left, a plus sign '+' connects the numbers 7 and 3, and on the right, a minus sign '-' connects the numbers 5 and 2. This tree represents the mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 2: Parse Tree for ((7 + 3) * (5 - 2)).</p></description>
@@ -41,7 +41,7 @@
         
 
 
-        <figure align="center" xml:id="fig-mesimple">
+        <figure xml:id="fig-mesimple">
             <caption>A Simplified Parse Tree for <m>((7+3)*(5-2))</m>.</caption>
                 <image source="Trees/meSimple.png" width="50%">
                 <description><p>Diagram of a simplified parse tree for an arithmetic expression after evaluation. The root node is an asterisk '*', indicating multiplication. It has two child nodes, which are the results of the arithmetic operations: the number 10 on the left, which is the sum of 7 and 3, and the number 3 on the right, which is the result of subtracting 2 from 5. This tree represents the evaluated mathematical expression ((7 + 3) * (5 - 2)). The image is labeled 'Figure 3: A Simplified Parse Tree for ((7 + 3) * (5 - 2)).</p></description>
@@ -102,45 +102,61 @@
             illustrates the structure and contents of the parse tree, as each new
             token is processed.</p>
     
-        <figure align="center" xml:id="parse_fig-bldexpstep">
+        <figure xml:id="parse_fig-bldexpstep">
             <caption>Tracing Parse Tree Construction.</caption>
-                <image source="Trees/buildExp1.png" width="15%">
+            <sbsgroup widths="25%">
+              <sidebyside>
+                <image source="Trees/buildExp1.png" width="25%">
                 <shortdescription>
                 First image of a vertical sequence of diagrams illustrating the construction of a binary search tree with numerical values. 
                 It shows a single circular node, shaded, representing the starting point of the tree.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp2.png" width="25%">
                 <shortdescription>
                     Second image showing the addition of a new node below the initial node.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp3.png" width="25%">
                 <shortdescription>
                     Third image showing the tree with an additional node labeled &quot;3&quot;.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp4.png" width="25%">
                 <shortdescription>
                     Fourth image showing the partially constructed binary parse tree with a root node labeled &quot;+,&quot; two child nodes: the left child labeled &quot;3&quot; and a newly added right child, which is shaded to indicate it is the most recently added node.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp5.png" width="25%">
                 <shortdescription>
                     Fifth image showing a binary parse tree with a root node labeled &quot;+.&quot; The left child is labeled &quot;3,&quot; the right child is connected to a newly added shaded node, which has a single child below it.
                 </shortdescription>
                 </image>
+              </sidebyside>
+              <sidebyside>
                 <image source="Trees/buildExp6.png" width="25%">
                 <shortdescription>
                     Sixth image showing the binary parse tree with a root node labeled &quot;+.&quot; The left child remains labeled &quot;3,&quot; while the right child is connected to a node that now has a newly added shaded child labeled &quot;4.&quot;
                 </shortdescription>
                 </image>
-                <image source="Trees/buildExp7.png" width="50%">
+              </sidebyside>
+              <sidebyside>
+                <image source="Trees/buildExp7.png" width="25%">
                 <shortdescription>
                     Seventh image showing a binary parse tree with a root node labeled &quot;+.&quot; The left child is labeled &quot;3,&quot; and the right child is labeled &quot;*.&quot; The node labeled &quot;*&quot; has two children: the left child labeled &quot;4&quot; and a newly added shaded right child.
                 </shortdescription>
                 </image>
-                <image source="Trees/buildExp8.png" width="50%">
+              </sidebyside>
+              <sidebyside>
+                <image source="Trees/buildExp8.png" width="25%">
                 <description>
                     <p>
                         A sequence of images showing the steps of completing a binary parse tree representing the construction of a mathematical expression. 
@@ -151,7 +167,8 @@
                     </p>
                 </description>
                 </image>
-            </figure>
+              </sidebyside>
+            </sbsgroup></figure>
 
 
         <p>Using <xref ref="parse_fig-bldexpstep"/>, let's walk through the example step by
