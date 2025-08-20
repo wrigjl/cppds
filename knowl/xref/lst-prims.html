@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">9.22.3<span class="period">.</span></span><span class="space"> </span>Prim’s algorithm</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-lst-prims-py" class="language-py">from pythonds.graphs import PriorityQueue, Graph, Vertex
+
+def prim(G,start):
+    pq = PriorityQueue()
+    for v in G:
+        v.setDistance(sys.maxsize)
+        v.setPred(None)
+    start.setDistance(0)
+    pq.buildHeap([(v.getDistance(),v) for v in G])
+    while not pq.isEmpty():
+        currentVert = pq.delMin()
+        for nextVert in currentVert.getConnections():
+          newCost = currentVert.getWeight(nextVert)
+          if nextVert in pq and newCost&lt;nextVert.getDistance():
+              nextVert.setPred(currentVert)
+              nextVert.setDistance(newCost)
+              pq.decreaseKey(nextVert,newCost)
+</code></pre></div></div></figure><span class="incontext"><a class="internal" href="graphs_prims-spanning-tree-algorithm.html#lst-prims">in-context</a></span>
+</body>
+</html>
