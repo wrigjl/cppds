@@ -6829,7 +6829,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "9.4",
   "title": "An Adjacency Matrix",
-  "body": " An Adjacency Matrix  One of the easiest ways to implement a graph is to use a two-dimensional matrix. In this matrix implementation, each of the rows and columns represent a vertex in the graph. The value that is stored in the cell at the intersection of row and column indicates if there is an edge from vertex to vertex . When two vertices are connected by an edge, we say that they are adjacent adjacent . illustrates the adjacency matrix for the graph in . A value in a cell represents the weight of the edge from vertex to vertex .   An Adjacency Matrix Representation for a Graph.     V0  V1  V2  V3  V4  V5    V0   5     2    V1    4       V2     9      V3      7  3    V4  1         V5    1   8      The advantage of the adjacency matrix is that it is simple, and for small graphs it is easy to see which nodes are connected to other nodes. However, notice that most of the cells in the matrix are empty. Because most of the cells are empty we say that this matrix is sparse. A matrix is not a very efficient way to store sparse data. In fact, in C++ you must go out of your way to even create a matrix structure like the one in .  The adjacency matrix is a good implementation for a graph when the number of edges is large. But what do we mean by large? How many edges would be needed to fill the matrix? Since there is one row and one column for every vertex in the graph, the number of edges required to fill the matrix is . A matrix is full when every vertex is connected to every other vertex. There are few real problems that approach this sort of connectivity. The problems we will look at in this chapter all involve graphs that are sparsely connected.  "
+  "body": " An Adjacency Matrix  One of the easiest ways to implement a graph is to use a two-dimensional matrix. In this matrix implementation, each of the rows and columns represent a vertex in the graph. The value that is stored in the cell at the intersection of row and column indicates if there is an edge from vertex to vertex . When two vertices are connected by an edge, we say that they are adjacent adjacent . illustrates the adjacency matrix for the graph in . A value in a cell represents the weight of the edge from vertex to vertex .   An Adjacency Matrix Representation for a Graph.   Image showing an adjacency matrix representation for a graph. The matrix is a square grid labeled from V0 to V5 along both the top row and the left column, representing vertices of the graph. The cells within the matrix are mostly empty, indicating no edge between those vertex pairs, with a few cells filled with numbers indicating the weight of the edge between the vertices. Specifically, V0 has an edge to V1 with a weight of 5. V1 has an edge to V5 with a weight of 4. V2 has an edge to V3 with a weight of 9. V3 has edges to V4 and V5 with weights of 7 and 3, respectively. V4 has an edge to V0 with a weight of 1. V5 has edges to V2 and V4 with weights of 1 and 8, respectively.    The advantage of the adjacency matrix is that it is simple, and for small graphs it is easy to see which nodes are connected to other nodes. However, notice that most of the cells in the matrix are empty. Because most of the cells are empty we say that this matrix is sparse. A matrix is not a very efficient way to store sparse data. In fact, in C++ you must go out of your way to even create a matrix structure like the one in .  The adjacency matrix is a good implementation for a graph when the number of edges is large. But what do we mean by large? How many edges would be needed to fill the matrix? Since there is one row and one column for every vertex in the graph, the number of edges required to fill the matrix is . A matrix is full when every vertex is connected to every other vertex. There are few real problems that approach this sort of connectivity. The problems we will look at in this chapter all involve graphs that are sparsely connected.  "
 },
 {
   "id": "graphs_an-adjacency-matrix-2",
@@ -6841,13 +6841,13 @@ var ptx_lunr_docs = [
   "body": "adjacent "
 },
 {
-  "id": "tab-adjmat",
+  "id": "fig-adjmat",
   "level": "2",
-  "url": "graphs_an-adjacency-matrix.html#tab-adjmat",
-  "type": "Table",
+  "url": "graphs_an-adjacency-matrix.html#fig-adjmat",
+  "type": "Figure",
   "number": "9.4.1",
-  "title": "An Adjacency Matrix Representation for a Graph.",
-  "body": " An Adjacency Matrix Representation for a Graph.     V0  V1  V2  V3  V4  V5    V0   5     2    V1    4       V2     9      V3      7  3    V4  1         V5    1   8     "
+  "title": "",
+  "body": " An Adjacency Matrix Representation for a Graph.   Image showing an adjacency matrix representation for a graph. The matrix is a square grid labeled from V0 to V5 along both the top row and the left column, representing vertices of the graph. The cells within the matrix are mostly empty, indicating no edge between those vertex pairs, with a few cells filled with numbers indicating the weight of the edge between the vertices. Specifically, V0 has an edge to V1 with a weight of 5. V1 has an edge to V5 with a weight of 4. V2 has an edge to V3 with a weight of 9. V3 has edges to V4 and V5 with weights of 7 and 3, respectively. V4 has an edge to V0 with a weight of 1. V5 has edges to V2 and V4 with weights of 1 and 8, respectively.   "
 },
 {
   "id": "graphs_an-adjacency-list",
