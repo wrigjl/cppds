@@ -2,6 +2,10 @@
 # ensure this file is tracked
 !.gitignore
 
+.cache/
+pretext/GenFigs/
+build_success
+
 # don't track unpublished builds or stage
 output
 
