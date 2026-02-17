@@ -101,21 +101,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.14';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.d892923478694492.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -630,52 +630,84 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="introduction_collections"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.10</span><span class="space"> </span><span class="title">Collections</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Collections</span>
 </h2>
-<section class="introduction" id="introduction_collections-2"><div class="para" id="introduction_collections-2-1">In addition to the numeric, Boolean, and character types, C++ also offers built-in collection types. A <dfn class="terminology">collection</dfn> data type is a grouping of some number of other data items (possibly only zero or one) that have some shared significance or need to be operated upon together.</div>
-<div class="para" id="introduction_collections-2-2">Arrays, vectors, strings, sets, and hash tables are among these useful C++ collection types.</div></section><section class="subsection" id="introduction_arrays"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.1</span><span class="space"> </span><span class="title">Arrays</span>
+<section class="introduction" id="introduction_collections-2"><div class="para" id="introduction_collections-2-1">In addition to the numeric, Boolean, and character types, C++ also offers built-in collection types. A <dfn class="terminology">collection</dfn> data type is a grouping of some number of other data items (possibly only zero or one) that have some shared significance or need to be operated upon together.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_collections-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_collections-2-2">Arrays, vectors, strings, sets, and hash tables are among these useful C++ collection types.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_collections-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="introduction_arrays"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Arrays</span>
 </h3>
 <div class="para" id="introduction_arrays-2">
-<dfn class="terminology">What is an Array?</dfn> An array is a data structure consisting of an ordered collection of data elements, of identical type in which each element can be identified by an array index. More technically, an array data structure is an ordered arrangement of values located at equally spaced addresses in contiguous computer memory.</div>
-<div class="para" id="introduction_arrays-3">NOTE: A C++ <dfn class="terminology">array</dfn> is always stored in contiguous memory. C++ arrays can be allocated in two different ways:</div>
-<blockquote class="blockquote" id="introduction_arrays-4"><div class="para logical" id="introduction_arrays-4-1"><ol class="decimal ol-marker-1" id="introduction_arrays-4-1-1">
-<li id="introduction_arrays-4-1-1-1"><div class="para" id="introduction_arrays-4-1-1-1-1">
-<em class="emphasis">statically allocated</em> in which the array size is fixed at compile-time and cannot change</div></li>
-<li id="introduction_arrays-4-1-1-2"><div class="para" id="introduction_arrays-4-1-1-2-1">
-<em class="emphasis">dynamically allocated</em> in which pointers are used in the allocation process so the size can change at run-time</div></li>
-</ol></div></blockquote>
-<div class="para" id="introduction_arrays-5">In modern C++, the statically allocated array is typically used in situations when speed is essential or where hardware constraints exist, and a data structure called a vector is typically used when more flexibility is required.</div>
-<div class="para" id="introduction_arrays-6">Because C++ stores variables directly, each element of a C++ array must be of identical data type. The indices for arrays start counting with 0.</div>
-<div class="para" id="introduction_arrays-7">The use of arrays permits us to utilize an ordered set of memory locations that we can then manipulate as a single entity, and that at the same time gives us direct access to each individual component.</div>
-<div class="para" id="introduction_arrays-8"><dfn class="terminology">Why use an Array?</dfn></div>
-<div class="para" id="introduction_arrays-9">C++ is a language often used for real-time or low-level processing where speed is essential and/or there is only a fixed amount of space available.</div>
-<div class="para" id="introduction_arrays-10">The fact that array elements are stored in memory in contiguous memory locations making look-up via index very, very fast. In computing, a <dfn class="terminology">word</dfn> is the unit of data used by a particular processor design, such as 32 or 64 bits. For example, an array of 100 integer variables, with indices 0 through 99, might be stored as 100 words at memory addresses 20000, 20004, 20008, … 20396. The element with index i would be located at the address 20000 + 4 <span class="times-sign">×</span> i.</div>
-<div class="para" id="introduction_arrays-11">Statically allocated C++ arrays must be declared with both a type and a size at compile-time.</div>
-<pre class="code-block tex2jax_ignore">double darray[4];
+<dfn class="terminology">What is an Array?</dfn> An array is a data structure consisting of an ordered collection of data elements, of identical type in which each element can be identified by an array index. More technically, an array data structure is an ordered arrangement of values located at equally spaced addresses in contiguous computer memory.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-3">NOTE: A C++ <dfn class="terminology">array</dfn> is always stored in contiguous memory. C++ arrays can be allocated in two different ways:<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="introduction_arrays-4">
+<div class="para logical" id="introduction_arrays-4-1">
+<ol class="decimal ol-marker-1" id="introduction_arrays-4-1-1">
+<li id="introduction_arrays-4-1-1-1">
+<div class="para" id="introduction_arrays-4-1-1-1-1">
+<em class="emphasis">statically allocated</em> in which the array size is fixed at compile-time and cannot change<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-4-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#introduction_arrays-4-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="introduction_arrays-4-1-1-2">
+<div class="para" id="introduction_arrays-4-1-1-2-1">
+<em class="emphasis">dynamically allocated</em> in which pointers are used in the allocation process so the size can change at run-time<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-4-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#introduction_arrays-4-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#introduction_arrays-4" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="introduction_arrays-5">In modern C++, the statically allocated array is typically used in situations when speed is essential or where hardware constraints exist, and a data structure called a vector is typically used when more flexibility is required.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-6">Because C++ stores variables directly, each element of a C++ array must be of identical data type. The indices for arrays start counting with 0.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-7">The use of arrays permits us to utilize an ordered set of memory locations that we can then manipulate as a single entity, and that at the same time gives us direct access to each individual component.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-8">
+<dfn class="terminology">Why use an Array?</dfn><div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-9">C++ is a language often used for real-time or low-level processing where speed is essential and/or there is only a fixed amount of space available.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-10">The fact that array elements are stored in memory in contiguous memory locations making look-up via index very, very fast. In computing, a <dfn class="terminology">word</dfn> is the unit of data used by a particular processor design, such as 32 or 64 bits. For example, an array of 100 integer variables, with indices 0 through 99, might be stored as 100 words at memory addresses 20000, 20004, 20008, … 20396. The element with index i would be located at the address 20000 + 4 <span class="times-sign">×</span> i.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-11">Statically allocated C++ arrays must be declared with both a type and a size at compile-time.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">double darray[4];
 int iarray[10];
 char arr2[3000];
 </pre>
-<div class="para" id="introduction_arrays-13">It is also possible to initialize statically allocated arrays at compile time, in which case the number of items determines the array’s size.</div>
-<pre class="code-block tex2jax_ignore">int arr[] = {1, 2, 3, 4};  // This is size 4.
+<div class="para" id="introduction_arrays-13">It is also possible to initialize statically allocated arrays at compile time, in which case the number of items determines the array’s size.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">int arr[] = {1, 2, 3, 4};  // This is size 4.
 char arr2[] = {'a', 'b', 'c'}; // This is size 3.
 string arr3[] = {"this", "is", "an", "array"}; // This is size 4.
 </pre>
-<div class="para" id="introduction_arrays-15">Note that an array with a single element is not the same type as the <dfn class="terminology">atomic</dfn> type, so the following are not the same.</div>
-<pre class="code-block tex2jax_ignore">double darray[] = {1.2};  // must use index to access value
+<div class="para" id="introduction_arrays-15">Note that an array with a single element is not the same type as the <dfn class="terminology">atomic</dfn> type, so the following are not the same.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">double darray[] = {1.2};  // must use index to access value
 double ddouble = 1.2;     // can't use index to access value
 </pre>
-<div class="para" id="introduction_arrays-17"><dfn class="terminology">Be Cautious with Arrays</dfn></div>
-<div class="para" id="introduction_arrays-18">The speed and low-level control that arrays offer us as programmers is powerful… and dangerous. C++ is designed for speed, and using a C++ array will help you better understand the trade-offs inherent in this.</div>
-<div class="para" id="introduction_arrays-19">Here are examples of iteration.</div>
+<div class="para" id="introduction_arrays-17">
+<dfn class="terminology">Be Cautious with Arrays</dfn><div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-18">The speed and low-level control that arrays offer us as programmers is powerful… and dangerous. C++ is designed for speed, and using a C++ array will help you better understand the trade-offs inherent in this.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-19">Here are examples of iteration.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-listarray"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Iteration Examples.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Iteration Examples.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-listarray">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="listarray_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-listarray_cpp-prog" class="language-cpp">//showcases an iteration through an array in C++
+<pre class="program clipboardable"><code id="rs-listarray_cpp-prog" class="language-cpp">//showcases an iteration through an array in C++
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -686,9 +718,10 @@ int main(){
     }
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.1.a: C++ Implementation"><a href="#listarray_cpp" title="Copy heading and permalink for Task 1.10.1.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.10.1.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="listarray_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-listarray_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-listarray_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#showcases an iteration through an array in Python
 def main():
@@ -697,17 +730,21 @@ def main():
         print(mylist[i])
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_arrays-21">C++ is designed for speed. C++ will not only let you iterate beyond either end of an array, but it will let you change the values beyond either end of the array with sometimes catastrophic results.</div>
-<div class="para" id="introduction_arrays-22">The phrase, “be careful what you wish for” is a great one to remember when programming in C++. Because C++ will generally try to do everything you ask for.</div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.1.b: Python Implementation"><a href="#listarray_py" title="Copy heading and permalink for Task 1.10.1.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.1.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.1: Iteration Examples"><a href="#expl-listarray" title="Copy heading and permalink for Exploration 1.10.1: Iteration Examples" aria-label="Copy heading and permalink for Exploration 1.10.1: Iteration Examples">🔗</a></div></article><div class="para" id="introduction_arrays-21">C++ is designed for speed. C++ will not only let you iterate beyond either end of an array, but it will let you change the values beyond either end of the array with sometimes catastrophic results.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-22">The phrase, “be careful what you wish for” is a great one to remember when programming in C++. Because C++ will generally try to do everything you ask for.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-array_error"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.2</span><span class="period">.</span><span class="space"> </span><span class="title">Accessing Elements Outside the Array.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Accessing Elements Outside the Array.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-array_error">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="array_error_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implemenetation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implemenetation.</span>
 </h5>
-<pre class="program"><code id="rs-array_error_cpp-prog" class="language-cpp">//outputs the result of trying to access a value outside of an array
+<pre class="program clipboardable"><code id="rs-array_error_cpp-prog" class="language-cpp">//outputs the result of trying to access a value outside of an array
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -719,9 +756,10 @@ int main(){
     }
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.2.a: C++ Implemenetation"><a href="#array_error_cpp" title="Copy heading and permalink for Task 1.10.2.a: C++ Implemenetation" aria-label="Copy heading and permalink for Task 1.10.2.a: C++ Implemenetation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="array_error_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-array_error_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-array_error_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#outputs the result of trying to access a value outside of an array
 def main():
@@ -732,17 +770,21 @@ def main():
         print("id: "+str(id(mylist[i])))
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_arrays-24">The speed of C++ comes at the cost of minimal to no error checking. Sometimes this can have perplexing results such as in the next example.</div>
-<div class="para" id="introduction_arrays-25">You should use an array when you have a need for speed or you need to work with hardware constraints. Otherwise, you may want to consider using another collection data type, the <em class="emphasis">vector</em>.</div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.2.b: Python Implementation"><a href="#array_error_py" title="Copy heading and permalink for Task 1.10.2.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.2.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.2: Accessing Elements Outside the Array"><a href="#expl-array_error" title="Copy heading and permalink for Exploration 1.10.2: Accessing Elements Outside the Array" aria-label="Copy heading and permalink for Exploration 1.10.2: Accessing Elements Outside the Array">🔗</a></div></article><div class="para" id="introduction_arrays-24">The speed of C++ comes at the cost of minimal to no error checking. Sometimes this can have perplexing results such as in the next example.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_arrays-25">You should use an array when you have a need for speed or you need to work with hardware constraints. Otherwise, you may want to consider using another collection data type, the <em class="emphasis">vector</em>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_arrays-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-arrayoflow"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.3</span><span class="period">.</span><span class="space"> </span><span class="title">Array Overflow.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Array Overflow.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-arrayoflow">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="array_werror_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-array_werror_cpp-prog" class="language-cpp">/*shows how C++ allows you to easily overwrite values in memory even when
+<pre class="program clipboardable"><code id="rs-array_werror_cpp-prog" class="language-cpp">/*shows how C++ allows you to easily overwrite values in memory even when
 you don't mean to. */
 #include &lt;iostream&gt;
 using namespace std;
@@ -765,9 +807,10 @@ int main(){
 
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.3.a: C++ Implementation"><a href="#array_werror_cpp" title="Copy heading and permalink for Task 1.10.3.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.10.3.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="array_werror_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-array_werror_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-array_werror_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">"""shows how C++ allows you to easily
 overwrite values in memory even when
@@ -784,48 +827,65 @@ def main():
           print("id: "+str(id(otherdata[i])))
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><article class="exercise exercise-like" id="mc_werror"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.1</span><span class="period">.</span>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.3.b: Python Implementation"><a href="#array_werror_py" title="Copy heading and permalink for Task 1.10.3.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.3.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.3: Array Overflow"><a href="#expl-arrayoflow" title="Copy heading and permalink for Exploration 1.10.3: Array Overflow" aria-label="Copy heading and permalink for Exploration 1.10.3: Array Overflow">🔗</a></div></article><article class="exercise exercise-like" id="mc_werror"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="mc_werror-1-1">In the above example, what happened to otherdata[ ] in C++?</div></div>
+<div class="exercise-statement"><div class="para" id="mc_werror-1-1">In the above example, what happened to otherdata[ ] in C++?<div class="autopermalink" data-description="Paragraph"><a href="#mc_werror-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_werror" data-multipleanswers="false">
-<li data-component="answer" id="rs-mc_werror_opt_a"><div class="para" id="mc_werror-2-1-1-1">Nothing. Everything is fine.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_a"><div class="para" id="mc_werror-2-1-1-1">Nothing. Everything is fine.<div class="autopermalink" data-description="Paragraph"><a href="#mc_werror-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_werror_opt_a"><div class="para" id="mc_werror-2-1-2-1">Actually, there is a problem. Look carefully.</div></li>
-<li data-component="answer" id="rs-mc_werror_opt_b"><div class="para" id="mc_werror-2-2-1-1">All data was automatically reinitialized.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_b"><div class="para" id="mc_werror-2-2-1-1">All data was automatically reinitialized.<div class="autopermalink" data-description="Paragraph"><a href="#mc_werror-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_werror_opt_b"><div class="para" id="mc_werror-2-2-2-1">No. C++ just does what you tell it to do.</div></li>
-<li data-component="answer" id="rs-mc_werror_opt_c"><div class="para" id="mc_werror-2-3-1-1">I have no idea. Please give me a hint.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_c"><div class="para" id="mc_werror-2-3-1-1">I have no idea. Please give me a hint.<div class="autopermalink" data-description="Paragraph"><a href="#mc_werror-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_werror_opt_c"><div class="para" id="mc_werror-2-3-2-1">Try again. One of these is indeed correct. Look at the memory addresses.</div></li>
-<li data-component="answer" id="rs-mc_werror_opt_d" data-correct=""><div class="para" id="mc_werror-2-4-1-1">The first loop went out of bounds and wrote over the values in otherdata.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_d" data-correct=""><div class="para" id="mc_werror-2-4-1-1">The first loop went out of bounds and wrote over the values in otherdata.<div class="autopermalink" data-description="Paragraph"><a href="#mc_werror-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_werror_opt_d"><div class="para" id="mc_werror-2-4-2-1">Right!</div></li>
-<li data-component="answer" id="rs-mc_werror_opt_e"><div class="para" id="mc_werror-2-5-1-1">None of the above.</div></li>
+<li data-component="answer" id="rs-mc_werror_opt_e"><div class="para" id="mc_werror-2-5-1-1">None of the above.<div class="autopermalink" data-description="Paragraph"><a href="#mc_werror-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_werror_opt_e"><div class="para" id="mc_werror-2-5-2-1">One of the above is indeed correct.</div></li>
 </ul>
-</div></div></article><article class="exercise exercise-like" id="mc_array"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.2</span><span class="period">.</span>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.1"><a href="#mc_werror" title="Copy heading and permalink for Checkpoint 1.10.1" aria-label="Copy heading and permalink for Checkpoint 1.10.1">🔗</a></div></article><article class="exercise exercise-like" id="mc_array"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="mc_array-1-1">What is the correct way to declare an array in C++?</div></div>
+<div class="exercise-statement"><div class="para" id="mc_array-1-1">What is the correct way to declare an array in C++?<div class="autopermalink" data-description="Paragraph"><a href="#mc_array-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_array" data-multipleanswers="false">
-<li data-component="answer" id="rs-mc_array_opt_a"><div class="para" id="mc_array-2-1-1-1">int myarray(5);</div></li>
+<li data-component="answer" id="rs-mc_array_opt_a"><div class="para" id="mc_array-2-1-1-1">int myarray(5);<div class="autopermalink" data-description="Paragraph"><a href="#mc_array-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_opt_a"><div class="para" id="mc_array-2-1-2-1">Check the characters at the end of the array! Right now that is a function!</div></li>
-<li data-component="answer" id="rs-mc_array_opt_b"><div class="para" id="mc_array-2-2-1-1">myarray[5];</div></li>
+<li data-component="answer" id="rs-mc_array_opt_b"><div class="para" id="mc_array-2-2-1-1">myarray[5];<div class="autopermalink" data-description="Paragraph"><a href="#mc_array-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_opt_b"><div class="para" id="mc_array-2-2-2-1">You are forgetting something important!</div></li>
-<li data-component="answer" id="rs-mc_array_opt_c" data-correct=""><div class="para" id="mc_array-2-3-1-1">int myarray[5];</div></li>
+<li data-component="answer" id="rs-mc_array_opt_c" data-correct=""><div class="para" id="mc_array-2-3-1-1">int myarray[5];<div class="autopermalink" data-description="Paragraph"><a href="#mc_array-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_opt_c"><div class="para" id="mc_array-2-3-2-1">Good work!</div></li>
-<li data-component="answer" id="rs-mc_array_opt_d"><div class="para" id="mc_array-2-4-1-1">None of the above.</div></li>
+<li data-component="answer" id="rs-mc_array_opt_d"><div class="para" id="mc_array-2-4-1-1">None of the above.<div class="autopermalink" data-description="Paragraph"><a href="#mc_array-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_opt_d"><div class="para" id="mc_array-2-4-2-1">Check the characters at the end of the array!</div></li>
 </ul>
-</div></div></article></section><section class="subsection" id="introduction_vectors"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.2</span><span class="space"> </span><span class="title">Vectors</span>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.2"><a href="#mc_array" title="Copy heading and permalink for Checkpoint 1.10.2" aria-label="Copy heading and permalink for Checkpoint 1.10.2">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.10.1: Arrays"><a href="#introduction_arrays" title="Copy heading and permalink for Subsection 1.10.1: Arrays" aria-label="Copy heading and permalink for Subsection 1.10.1: Arrays">🔗</a></div></section><section class="subsection" id="introduction_vectors"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vectors</span>
 </h3>
 <div class="para" id="introduction_vectors-2">
-<dfn class="terminology">Vectors</dfn> use a dynamically allocated array to store their elements, so they can change size, and they have other friendly features as well. Because they use a dynamically allocated array, they use contiguous storage locations which means that their elements can be accessed and traversed, and they can also be accessed randomly using indexes. However, vectors are dynamically sized, so their size can change automatically. A new element can be inserted into or deleted from any part of a vector, and automatic reallocation for other existing items in the vector will be applied. Vectors are homogeneous, so every element in the vector must be of the same type.</div>
-<div class="para" id="introduction_vectors-3">Vectors are a class that is available through a library called the Standard Template Library (STL), and one uses a <code class="code-inline tex2jax_ignore">&lt; &gt;</code> notation to indicate the data type of the elements. In order to use vectors, One needs to include the vector library.</div>
-<pre class="code-block tex2jax_ignore">#include &lt;vector&gt;
+<dfn class="terminology">Vectors</dfn> use a dynamically allocated array to store their elements, so they can change size, and they have other friendly features as well. Because they use a dynamically allocated array, they use contiguous storage locations which means that their elements can be accessed and traversed, and they can also be accessed randomly using indexes. However, vectors are dynamically sized, so their size can change automatically. A new element can be inserted into or deleted from any part of a vector, and automatic reallocation for other existing items in the vector will be applied. Vectors are homogeneous, so every element in the vector must be of the same type.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_vectors-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_vectors-3">Vectors are a class that is available through a library called the Standard Template Library (STL), and one uses a <code class="code-inline tex2jax_ignore">&lt; &gt;</code> notation to indicate the data type of the elements. In order to use vectors, One needs to include the vector library.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_vectors-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">#include &lt;vector&gt;
 </pre>
-<figure class="table table-like" id="introduction_id4"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.3<span class="period">.</span></span><span class="space"> </span>Common C++ Vector Operators</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="introduction_id4"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Common C++ Vector Operators<div class="autopermalink" data-description="Table 1.10.3: Common C++ Vector Operators"><a href="#introduction_id4" title="Copy heading and permalink for Table 1.10.3: Common C++ Vector Operators" aria-label="Copy heading and permalink for Table 1.10.3: Common C++ Vector Operators">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Vector Operation</dfn></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
@@ -876,12 +936,14 @@ main()
 <td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">myvect.reserve(amount)</code></td>
 <td class="l m b0 r0 l0 t0 lines">Request a change in capacity to amount</td>
 </tr>
-</table></div></figure><div class="para" id="introduction_vectors-6">A very common programming task is to grow a vector using the <code class="code-inline tex2jax_ignore">push_back()</code> method to append to the vector as we see in the next example. Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth. Thus the vector typically has an actual <em class="emphasis">capacity</em> greater than the storage <em class="emphasis">size</em> strictly needed to contain its elements.</div>
+</table></div></figure><div class="para" id="introduction_vectors-6">A very common programming task is to grow a vector using the <code class="code-inline tex2jax_ignore">push_back()</code> method to append to the vector as we see in the next example. Because vectors can change size, vectors typically allocate some extra storage to accommodate for possible growth. Thus the vector typically has an actual <em class="emphasis">capacity</em> greater than the storage <em class="emphasis">size</em> strictly needed to contain its elements.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_vectors-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exercise exercise-like" id="matching_vectors"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.4</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_vectors">
-<span data-subcomponent="question"><div class="para" id="matching_vectors-1-1">Match the Vector operations with their corresponding explanation.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_vectors-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_vectors_drag1" data-category="1">[ ]</li>
+<span data-subcomponent="question"><div class="para" id="matching_vectors-1-1">Match the Vector operations with their corresponding explanation.<div class="autopermalink" data-description="Paragraph"><a href="#matching_vectors-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="matching_vectors-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_vectors_drag1" data-category="1">[ ]</li>
 <li data-subcomponent="dropzone" for="rs-matching_vectors_drag1" data-category="1">Accesses value of an element.</li>
 <li data-subcomponent="draggable" id="rs-matching_vectors_drag2" data-category="2">=</li>
 <li data-subcomponent="dropzone" for="rs-matching_vectors_drag2" data-category="2">Assigns value to an element.</li>
@@ -889,11 +951,13 @@ main()
 <li data-subcomponent="dropzone" for="rs-matching_vectors_drag3" data-category="3">Appends item to the end of the vector.</li>
 <li data-subcomponent="draggable" id="rs-matching_vectors_drag4" data-category="4">pop_back</li>
 <li data-subcomponent="dropzone" for="rs-matching_vectors_drag4" data-category="4">Deletes last item of the vector.</li>
-</ul></div></div></article><article class="exercise exercise-like" id="matching_vectors2"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.5</span><span class="period">.</span>
+</ul></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.4"><a href="#matching_vectors" title="Copy heading and permalink for Checkpoint 1.10.4" aria-label="Copy heading and permalink for Checkpoint 1.10.4">🔗</a></div></article><article class="exercise exercise-like" id="matching_vectors2"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_vectors2">
-<span data-subcomponent="question"><div class="para" id="matching_vectors2-1-1">Match the Vector operations with their corresponding explanation.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_vectors2-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_vectors2_drag1" data-category="1">insert</li>
+<span data-subcomponent="question"><div class="para" id="matching_vectors2-1-1">Match the Vector operations with their corresponding explanation.<div class="autopermalink" data-description="Paragraph"><a href="#matching_vectors2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="matching_vectors2-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_vectors2_drag1" data-category="1">insert</li>
 <li data-subcomponent="dropzone" for="rs-matching_vectors2_drag1" data-category="1">Injects an item into the vector.</li>
 <li data-subcomponent="draggable" id="rs-matching_vectors2_drag2" data-category="2">erase</li>
 <li data-subcomponent="dropzone" for="rs-matching_vectors2_drag2" data-category="2">Deletes an element from the choosen index.</li>
@@ -903,14 +967,15 @@ main()
 <li data-subcomponent="dropzone" for="rs-matching_vectors2_drag4" data-category="4">Returns the ammount of allocated storage space.</li>
 <li data-subcomponent="draggable" id="rs-matching_vectors2_drag5" data-category="5">reserve</li>
 <li data-subcomponent="dropzone" for="rs-matching_vectors2_drag5" data-category="5">Request a change in space to amount.</li>
-</ul></div></div></article><article class="exploration project-like" id="expl-introvector"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.4</span><span class="period">.</span><span class="space"> </span><span class="title">Using <code class="code-inline tex2jax_ignore">reserve</code>.</span>
+</ul></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.5"><a href="#matching_vectors2" title="Copy heading and permalink for Checkpoint 1.10.5" aria-label="Copy heading and permalink for Checkpoint 1.10.5">🔗</a></div></article><article class="exploration project-like" id="expl-introvector"><h4 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using <code class="code-inline tex2jax_ignore">reserve</code>.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-introvector">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introvector_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-introvector_cpp-prog" class="language-cpp">/*shows the use of the reserve member, and how it
+<pre class="program clipboardable"><code id="rs-introvector_cpp-prog" class="language-cpp">/*shows the use of the reserve member, and how it
 can be effective in saving time with a growing vector.*/
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -927,9 +992,10 @@ int main(){
     }
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.4.a: C++ Implementation"><a href="#introvector_cpp" title="Copy heading and permalink for Task 1.10.4.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.10.4.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introvector_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-introvector_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-introvector_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#Python doesn't have vectors, simply stating the limit is enough
 def main():
@@ -939,9 +1005,12 @@ def main():
         print(intlist[i])
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_vectors-10">In the above example, the use of <code class="code-inline tex2jax_ignore">reserve</code> was optional. However, it is a good idea to use it before growing a vector in this way because it will save time. Because vectors are stored in underlying arrays which require contiguous memory, every time the vector’s size gets too large for the capacity, the entire vector must be moved to a larger location in memory, and all that copying takes time. In a typical implementation, the capacity is doubled each time. as in <a href="introduction_collections.html#vector_no_reserve_cpp" class="xref" data-knowl="./knowl/xref/vector_no_reserve_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.10.6: reserve is optional">Listing 1.10.6</a>.</div>
-<figure class="listing figure-like" id="vector_no_reserve_cpp"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.10.6<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">reserve</code> is optional</figcaption><div class="listing__contents"><pre class="program"><code id="rs-vector_no_reserve_cpp-prog" class="language-cpp">//code from above but without the reserve
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.4.b: Python Implementation"><a href="#introvector_py" title="Copy heading and permalink for Task 1.10.4.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.4.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.4: Using reserve"><a href="#expl-introvector" title="Copy heading and permalink for Exploration 1.10.4: Using reserve" aria-label="Copy heading and permalink for Exploration 1.10.4: Using reserve">🔗</a></div></article><div class="para" id="introduction_vectors-10">In the above example, the use of <code class="code-inline tex2jax_ignore">reserve</code> was optional. However, it is a good idea to use it before growing a vector in this way because it will save time. Because vectors are stored in underlying arrays which require contiguous memory, every time the vector’s size gets too large for the capacity, the entire vector must be moved to a larger location in memory, and all that copying takes time. In a typical implementation, the capacity is doubled each time. as in <a href="introduction_collections.html#vector_no_reserve_cpp" class="xref" data-knowl="./knowl/xref/vector_no_reserve_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.10.6: reserve is optional">Listing 1.10.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_vectors-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="listing figure-like" id="vector_no_reserve_cpp"><figcaption><span class="type">Listing</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><code class="code-inline tex2jax_ignore">reserve</code> is optional<div class="autopermalink" data-description="Listing 1.10.6: reserve is optional"><a href="#vector_no_reserve_cpp" title="Copy heading and permalink for Listing 1.10.6: reserve is optional" aria-label="Copy heading and permalink for Listing 1.10.6: reserve is optional">🔗</a></div></figcaption><div class="listing__contents"><pre class="program clipboardable"><code id="rs-vector_no_reserve_cpp-prog" class="language-cpp">//code from above but without the reserve
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -958,15 +1027,16 @@ int main(){
     }
     return 0;
 }
-</code></pre></div></figure><div class="para" id="introduction_vectors-12">Remembering that C++ is designed for speed, not protection, we will likely not be surprised by the following:</div>
+</code></pre></div></figure><div class="para" id="introduction_vectors-12">Remembering that C++ is designed for speed, not protection, we will likely not be surprised by the following:<div class="autopermalink" data-description="Paragraph"><a href="#introduction_vectors-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="vector_errors"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.5</span><span class="period">.</span><span class="space"> </span><span class="title">Vector Error.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector Error.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-vector_errors">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="vector_errors_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-vector_errors_cpp-prog" class="language-cpp">//shows errors when a vector goes out of bounds
+<pre class="program clipboardable"><code id="rs-vector_errors_cpp-prog" class="language-cpp">//shows errors when a vector goes out of bounds
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
@@ -986,9 +1056,10 @@ int main(){
 
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.5.a: C++ Implementation"><a href="#vector_errors_cpp" title="Copy heading and permalink for Task 1.10.5.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.10.5.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="vector_errors_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-vector_errors_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-vector_errors_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#shows errors when a vector goes out of bounds
 def main():
@@ -1000,66 +1071,90 @@ def main():
         print("intlist[" + str(i) + "]=" + str(intlist[i]))
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><article class="exercise exercise-like" id="mc_array_vector"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.7</span><span class="period">.</span>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.5.b: Python Implementation"><a href="#vector_errors_py" title="Copy heading and permalink for Task 1.10.5.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.5.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.5: Vector Error"><a href="#vector_errors" title="Copy heading and permalink for Exploration 1.10.5: Vector Error" aria-label="Copy heading and permalink for Exploration 1.10.5: Vector Error">🔗</a></div></article><article class="exercise exercise-like" id="mc_array_vector"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="mc_array_vector-1-1">Which of the following is the biggest difference between a C++ array and a C++ vector?</div></div>
+<div class="exercise-statement"><div class="para" id="mc_array_vector-1-1">Which of the following is the biggest difference between a C++ array and a C++ vector?<div class="autopermalink" data-description="Paragraph"><a href="#mc_array_vector-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_array_vector" data-multipleanswers="false">
-<li data-component="answer" id="rs-mc_array_vector_opt_a"><div class="para" id="mc_array_vector-2-1-1-1">Vectors can change size.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_a"><div class="para" id="mc_array_vector-2-1-1-1">Vectors can change size.<div class="autopermalink" data-description="Paragraph"><a href="#mc_array_vector-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_vector_opt_a"><div class="para" id="mc_array_vector-2-1-2-1">Yes, however, there are more benefits to using vectors.</div></li>
-<li data-component="answer" id="rs-mc_array_vector_opt_b"><div class="para" id="mc_array_vector-2-2-1-1">Vectors offer many more features and protections than arrays.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_b"><div class="para" id="mc_array_vector-2-2-1-1">Vectors offer many more features and protections than arrays.<div class="autopermalink" data-description="Paragraph"><a href="#mc_array_vector-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_vector_opt_b"><div class="para" id="mc_array_vector-2-2-2-1">Not all of the protections of arrays are offered by vectors; one can still iterate off of either end.</div></li>
-<li data-component="answer" id="rs-mc_array_vector_opt_c"><div class="para" id="mc_array_vector-2-3-1-1">Vectors don’t use contiguous memory, so elements can be inserted.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_c"><div class="para" id="mc_array_vector-2-3-1-1">Vectors don’t use contiguous memory, so elements can be inserted.<div class="autopermalink" data-description="Paragraph"><a href="#mc_array_vector-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_vector_opt_c"><div class="para" id="mc_array_vector-2-3-2-1">No. Although elements can be inserted in vectors, they do require contiguous memory.</div></li>
-<li data-component="answer" id="rs-mc_array_vector_opt_d" data-correct=""><div class="para" id="mc_array_vector-2-4-1-1">More than one of the above.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_d" data-correct=""><div class="para" id="mc_array_vector-2-4-1-1">More than one of the above.<div class="autopermalink" data-description="Paragraph"><a href="#mc_array_vector-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_vector_opt_d"><div class="para" id="mc_array_vector-2-4-2-1">Right! Good job!</div></li>
-<li data-component="answer" id="rs-mc_array_vector_opt_e"><div class="para" id="mc_array_vector-2-5-1-1">None of the above.</div></li>
+<li data-component="answer" id="rs-mc_array_vector_opt_e"><div class="para" id="mc_array_vector-2-5-1-1">None of the above.<div class="autopermalink" data-description="Paragraph"><a href="#mc_array_vector-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_array_vector_opt_e"><div class="para" id="mc_array_vector-2-5-2-1">One of the above is indeed correct.</div></li>
 </ul>
-</div></div></article><article class="exercise exercise-like" id="mc_vector1"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.8</span><span class="period">.</span>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.7"><a href="#mc_array_vector" title="Copy heading and permalink for Checkpoint 1.10.7" aria-label="Copy heading and permalink for Checkpoint 1.10.7">🔗</a></div></article><article class="exercise exercise-like" id="mc_vector1"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="mc_vector1-1-1">What good is the <code class="code-inline tex2jax_ignore">reserve</code> method in a vector?</div></div>
+<div class="exercise-statement"><div class="para" id="mc_vector1-1-1">What good is the <code class="code-inline tex2jax_ignore">reserve</code> method in a vector?<div class="autopermalink" data-description="Paragraph"><a href="#mc_vector1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_vector1" data-multipleanswers="false">
-<li data-component="answer" id="rs-mc_vector1_opt_a"><div class="para" id="mc_vector1-2-1-1-1">Nothing. It is completely optional.</div></li>
+<li data-component="answer" id="rs-mc_vector1_opt_a"><div class="para" id="mc_vector1-2-1-1-1">Nothing. It is completely optional.<div class="autopermalink" data-description="Paragraph"><a href="#mc_vector1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_vector1_opt_a"><div class="para" id="mc_vector1-2-1-2-1">It is optional but it does serve a purpose. Try again.</div></li>
-<li data-component="answer" id="rs-mc_vector1_opt_b" data-correct=""><div class="para" id="mc_vector1-2-2-1-1">Using it will save time if you know the maximum size needed.</div></li>
+<li data-component="answer" id="rs-mc_vector1_opt_b" data-correct=""><div class="para" id="mc_vector1-2-2-1-1">Using it will save time if you know the maximum size needed.<div class="autopermalink" data-description="Paragraph"><a href="#mc_vector1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_vector1_opt_b"><div class="para" id="mc_vector1-2-2-2-1">Right!</div></li>
-<li data-component="answer" id="rs-mc_vector1_opt_c"><div class="para" id="mc_vector1-2-3-1-1">It is required so memory can be allocated.</div></li>
+<li data-component="answer" id="rs-mc_vector1_opt_c"><div class="para" id="mc_vector1-2-3-1-1">It is required so memory can be allocated.<div class="autopermalink" data-description="Paragraph"><a href="#mc_vector1-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_vector1_opt_c"><div class="para" id="mc_vector1-2-3-2-1">It is not required.</div></li>
-<li data-component="answer" id="rs-mc_vector1_opt_d"><div class="para" id="mc_vector1-2-4-1-1">None of the above.</div></li>
+<li data-component="answer" id="rs-mc_vector1_opt_d"><div class="para" id="mc_vector1-2-4-1-1">None of the above.<div class="autopermalink" data-description="Paragraph"><a href="#mc_vector1-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_vector1_opt_d"><div class="para" id="mc_vector1-2-4-2-1">One of the above is indeed correct.</div></li>
 </ul>
-</div></div></article></section><section class="subsection" id="introduction_strings"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.3</span><span class="space"> </span><span class="title">Strings</span>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.8"><a href="#mc_vector1" title="Copy heading and permalink for Checkpoint 1.10.8" aria-label="Copy heading and permalink for Checkpoint 1.10.8">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.10.2: Vectors"><a href="#introduction_vectors" title="Copy heading and permalink for Subsection 1.10.2: Vectors" aria-label="Copy heading and permalink for Subsection 1.10.2: Vectors">🔗</a></div></section><section class="subsection" id="introduction_strings"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Strings</span>
 </h3>
 <div class="para" id="introduction_strings-2">
-<dfn class="terminology">Strings</dfn> are sequential collections of zero or more characters such as letters, numbers and other symbols. There are actually two types of strings in C++ . The <em class="emphasis">C++ string</em> or just <em class="emphasis">string</em> from the <code class="code-inline tex2jax_ignore">&lt;string&gt;</code> library is the more modern type. The old style <em class="emphasis">C-string</em> which is essentially an array of <code class="code-inline tex2jax_ignore">char</code> type. The char type itself is actually distinct from both types of strings.</div>
-<pre class="code-block tex2jax_ignore">char cppchar = 'a';   // char values use single quotes
+<dfn class="terminology">Strings</dfn> are sequential collections of zero or more characters such as letters, numbers and other symbols. There are actually two types of strings in C++ . The <em class="emphasis">C++ string</em> or just <em class="emphasis">string</em> from the <code class="code-inline tex2jax_ignore">&lt;string&gt;</code> library is the more modern type. The old style <em class="emphasis">C-string</em> which is essentially an array of <code class="code-inline tex2jax_ignore">char</code> type. The char type itself is actually distinct from both types of strings.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_strings-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">char cppchar = 'a';   // char values use single quotes
 string cppstring = "Hello World!";  // C++ strings use double quotes
 char cstring[] = {"Hello World!"};    // C-string or char array uses double quotes
 </pre>
-<div class="para" id="introduction_strings-4">In older versions of C++, you must use a <code class="code-inline tex2jax_ignore">char</code> array to work with filenames. In modern C++ (from C++11 onward), however, you can use a C++ string for everything. Since C++ strings are so much nicer, I would not recommend using C-strings unless you have a reason.</div>
-<div class="para" id="introduction_strings-5">Because strings are sequences, all of the typical sequence operations work as you would expect. In addition, the string library offers a huge number of methods, some of the most useful of which are shown in <a href="introduction_collections.html#introduction_tab-stringmethods" class="xref" data-knowl="./knowl/xref/introduction_tab-stringmethods.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.10: String Methods Provided in C++">Table 1.10.10</a>.</div>
+<div class="para" id="introduction_strings-4">In older versions of C++, you must use a <code class="code-inline tex2jax_ignore">char</code> array to work with filenames. In modern C++ (from C++11 onward), however, you can use a C++ string for everything. Since C++ strings are so much nicer, I would not recommend using C-strings unless you have a reason.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_strings-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_strings-5">Because strings are sequences, all of the typical sequence operations work as you would expect. In addition, the string library offers a huge number of methods, some of the most useful of which are shown in <a href="introduction_collections.html#introduction_tab-stringmethods" class="xref" data-knowl="./knowl/xref/introduction_tab-stringmethods.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.10: String Methods Provided in C++">Table 1.10.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_strings-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exercise exercise-like" id="cstringquestion1_1"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.9</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="cstringquestion1_1-1-1">What is the correct definition of c-strings?</div></div>
+<div class="exercise-statement"><div class="para" id="cstringquestion1_1-1-1">What is the correct definition of c-strings?<div class="autopermalink" data-description="Paragraph"><a href="#cstringquestion1_1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-cstringquestion1_1" data-multipleanswers="false">
-<li data-component="answer" id="rs-cstringquestion1_1_opt_a" data-correct=""><div class="para" id="cstringquestion1_1-2-1-1-1">An array of characters that ends with a terminating null character. For instance, "\0".</div></li>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_a" data-correct=""><div class="para" id="cstringquestion1_1-2-1-1-1">An array of characters that ends with a terminating null character. For instance, "\0".<div class="autopermalink" data-description="Paragraph"><a href="#cstringquestion1_1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-cstringquestion1_1_opt_a"><div class="para" id="cstringquestion1_1-2-1-2-1">Correct! a c-string is different from a string.</div></li>
-<li data-component="answer" id="rs-cstringquestion1_1_opt_b"><div class="para" id="cstringquestion1_1-2-2-1-1">A sequential data structure consisting of zero or more characters.</div></li>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_b"><div class="para" id="cstringquestion1_1-2-2-1-1">A sequential data structure consisting of zero or more characters.<div class="autopermalink" data-description="Paragraph"><a href="#cstringquestion1_1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-cstringquestion1_1_opt_b"><div class="para" id="cstringquestion1_1-2-2-2-1">Close, but that is the definition of a string, not a c-string.</div></li>
-<li data-component="answer" id="rs-cstringquestion1_1_opt_c"><div class="para" id="cstringquestion1_1-2-3-1-1">A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.</div></li>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_c"><div class="para" id="cstringquestion1_1-2-3-1-1">A data structure consisting of an ordered collection of data elements of identical type in which each element can be identified by an array index.<div class="autopermalink" data-description="Paragraph"><a href="#cstringquestion1_1-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-cstringquestion1_1_opt_c"><div class="para" id="cstringquestion1_1-2-3-2-1">Sorry, thats not a string or a c-string.</div></li>
-<li data-component="answer" id="rs-cstringquestion1_1_opt_d"><div class="para" id="cstringquestion1_1-2-4-1-1">Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.</div></li>
+<li data-component="answer" id="rs-cstringquestion1_1_opt_d"><div class="para" id="cstringquestion1_1-2-4-1-1">Sequence container storing data of a single type that is stored in a dynamically allocated array which can change in size.<div class="autopermalink" data-description="Paragraph"><a href="#cstringquestion1_1-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-cstringquestion1_1_opt_d"><div class="para" id="cstringquestion1_1-2-4-2-1">No, that’s a vector.</div></li>
 </ul>
-</div></div></article><figure class="table table-like" id="introduction_tab-stringmethods"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.10<span class="period">.</span></span><span class="space"> </span>String Methods Provided in C++</figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.9"><a href="#cstringquestion1_1" title="Copy heading and permalink for Checkpoint 1.10.9" aria-label="Copy heading and permalink for Checkpoint 1.10.9">🔗</a></div></article><figure class="table table-like" id="introduction_tab-stringmethods"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>String Methods Provided in C++<div class="autopermalink" data-description="Table 1.10.10: String Methods Provided in C++"><a href="#introduction_tab-stringmethods" title="Copy heading and permalink for Table 1.10.10: String Methods Provided in C++" aria-label="Copy heading and permalink for Table 1.10.10: String Methods Provided in C++">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Method Name</dfn></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
@@ -1116,10 +1211,11 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
 <td class="l m b0 r0 l0 t0 lines">Returns the size of the string</td>
 </tr>
 </table></div></figure><article class="exercise exercise-like" id="matching_strings1"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.11</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_strings1">
-<span data-subcomponent="question"><div class="para" id="matching_strings1-1-1">Match the basic String operations with their corresponding explanation.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_strings1-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_strings1_drag1" data-category="1">[ ]</li>
+<span data-subcomponent="question"><div class="para" id="matching_strings1-1-1">Match the basic String operations with their corresponding explanation.<div class="autopermalink" data-description="Paragraph"><a href="#matching_strings1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="matching_strings1-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_strings1_drag1" data-category="1">[ ]</li>
 <li data-subcomponent="dropzone" for="rs-matching_strings1_drag1" data-category="1">Accesses value of an element.</li>
 <li data-subcomponent="draggable" id="rs-matching_strings1_drag2" data-category="2">=</li>
 <li data-subcomponent="dropzone" for="rs-matching_strings1_drag2" data-category="2">Assigns value to an element.</li>
@@ -1129,11 +1225,13 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
 <li data-subcomponent="dropzone" for="rs-matching_strings1_drag4" data-category="4">Removes the last character from the end of the string.</li>
 <li data-subcomponent="draggable" id="rs-matching_strings1_drag5" data-category="5">+</li>
 <li data-subcomponent="dropzone" for="rs-matching_strings1_drag5" data-category="5">connects strings.</li>
-</ul></div></div></article><article class="exercise exercise-like" id="matching_strings2"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.12</span><span class="period">.</span>
+</ul></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.11"><a href="#matching_strings1" title="Copy heading and permalink for Checkpoint 1.10.11" aria-label="Copy heading and permalink for Checkpoint 1.10.11">🔗</a></div></article><article class="exercise exercise-like" id="matching_strings2"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_strings2">
-<span data-subcomponent="question"><div class="para" id="matching_strings2-1-1">Match the additional String operations with their corresponding explanation.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_strings2-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_strings2_drag1" data-category="1">find</li>
+<span data-subcomponent="question"><div class="para" id="matching_strings2-1-1">Match the additional String operations with their corresponding explanation.<div class="autopermalink" data-description="Paragraph"><a href="#matching_strings2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="matching_strings2-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_strings2_drag1" data-category="1">find</li>
 <li data-subcomponent="dropzone" for="rs-matching_strings2_drag1" data-category="1">Returns the index of the first occurrence of item.</li>
 <li data-subcomponent="draggable" id="rs-matching_strings2_drag2" data-category="2">insert</li>
 <li data-subcomponent="dropzone" for="rs-matching_strings2_drag2" data-category="2">Injects a string at a specific index.</li>
@@ -1143,14 +1241,15 @@ char cstring[] = {"Hello World!"};    // C-string or char array uses double quot
 <li data-subcomponent="dropzone" for="rs-matching_strings2_drag4" data-category="4">Returns the capacity of the string.</li>
 <li data-subcomponent="draggable" id="rs-matching_strings2_drag5" data-category="5">append</li>
 <li data-subcomponent="dropzone" for="rs-matching_strings2_drag5" data-category="5">Adjoins a string to the end of the string.</li>
-</ul></div></div></article><article class="exploration project-like" id="introstring"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.6</span><span class="period">.</span><span class="space"> </span><span class="title"><code class="code-inline tex2jax_ignore">string</code> introduction.</span>
+</ul></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.12"><a href="#matching_strings2" title="Copy heading and permalink for Checkpoint 1.10.12" aria-label="Copy heading and permalink for Checkpoint 1.10.12">🔗</a></div></article><article class="exploration project-like" id="introstring"><h4 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><code class="code-inline tex2jax_ignore">string</code> introduction.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-introstring">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introstring_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-introstring_cpp-prog" class="language-cpp">//shows basic string usage in C++
+<pre class="program clipboardable"><code id="rs-introstring_cpp-prog" class="language-cpp">//shows basic string usage in C++
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
@@ -1169,9 +1268,10 @@ int main(){
 
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.6.a: C++ Implementation"><a href="#introstring_cpp" title="Copy heading and permalink for Task 1.10.6.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.10.6.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introstring_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-introstring_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-introstring_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#shows basic string usage in Python
 def main():
@@ -1186,35 +1286,44 @@ def main():
     print(str(mystring3.find(mystring2)))
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_strings-11">Check your understanding by completing the following question.</div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.6.b: Python Implementation"><a href="#introstring_py" title="Copy heading and permalink for Task 1.10.6.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.6.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.6: string introduction"><a href="#introstring" title="Copy heading and permalink for Exploration 1.10.6: string introduction" aria-label="Copy heading and permalink for Exploration 1.10.6: string introduction">🔗</a></div></article><div class="para" id="introduction_strings-11">Check your understanding by completing the following question.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_strings-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exercise exercise-like" id="string_types"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.13</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-string_types">
-<span data-subcomponent="question"><div class="para" id="string_types-1-1">Drag each data type to its’ corresponding C++ initialization syntax.</div></span><span data-subcomponent="feedback"><div class="para" id="string_types-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-string_types_drag1" data-category="1">char</li>
+<span data-subcomponent="question"><div class="para" id="string_types-1-1">Drag each data type to its’ corresponding C++ initialization syntax.<div class="autopermalink" data-description="Paragraph"><a href="#string_types-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="string_types-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-string_types_drag1" data-category="1">char</li>
 <li data-subcomponent="dropzone" for="rs-string_types_drag1" data-category="1">’a’</li>
 <li data-subcomponent="draggable" id="rs-string_types_drag2" data-category="2">char array</li>
 <li data-subcomponent="dropzone" for="rs-string_types_drag2" data-category="2">{’a’}</li>
 <li data-subcomponent="draggable" id="rs-string_types_drag3" data-category="3">string</li>
 <li data-subcomponent="dropzone" for="rs-string_types_drag3" data-category="3">"a"</li>
-</ul></div></div></article></section><section class="subsection" id="introduction_hash-tables"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.4</span><span class="space"> </span><span class="title">Hash Tables</span>
+</ul></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.13"><a href="#string_types" title="Copy heading and permalink for Checkpoint 1.10.13" aria-label="Copy heading and permalink for Checkpoint 1.10.13">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.10.3: Strings"><a href="#introduction_strings" title="Copy heading and permalink for Subsection 1.10.3: Strings" aria-label="Copy heading and permalink for Subsection 1.10.3: Strings">🔗</a></div></section><section class="subsection" id="introduction_hash-tables"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hash Tables</span>
 </h3>
-<div class="para" id="introduction_hash-tables-2">A <dfn class="terminology">hash table</dfn> is a collection of associated pairs of items where each pair consists of a <em class="emphasis">key</em> and a <em class="emphasis">value</em>. Hash tables are often called the more general term <em class="emphasis">map</em> because the associated hash function “maps” the key to the value. Nevertheless, it is better to use the more precise term, <em class="emphasis">hash table</em> because other kinds of maps are sometimes implemented with a different underlying data structure.</div>
-<div class="para" id="introduction_hash-tables-3">Each hash table has a <em class="emphasis">hash function</em> which given the key as input to the hash function returns the location of the associated value as the output. This makes look up fast.</div>
-<div class="para" id="introduction_hash-tables-4">In C++, the <em class="emphasis">unordered_map</em> implements the hash table, and the <code class="code-inline tex2jax_ignore">&lt;unordered_map&gt;</code> library must be included as follows:</div>
-<pre class="code-block tex2jax_ignore">#include &lt;unordered_map&gt;
+<div class="para" id="introduction_hash-tables-2">A <dfn class="terminology">hash table</dfn> is a collection of associated pairs of items where each pair consists of a <em class="emphasis">key</em> and a <em class="emphasis">value</em>. Hash tables are often called the more general term <em class="emphasis">map</em> because the associated hash function “maps” the key to the value. Nevertheless, it is better to use the more precise term, <em class="emphasis">hash table</em> because other kinds of maps are sometimes implemented with a different underlying data structure.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_hash-tables-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_hash-tables-3">Each hash table has a <em class="emphasis">hash function</em> which given the key as input to the hash function returns the location of the associated value as the output. This makes look up fast.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_hash-tables-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_hash-tables-4">In C++, the <em class="emphasis">unordered_map</em> implements the hash table, and the <code class="code-inline tex2jax_ignore">&lt;unordered_map&gt;</code> library must be included as follows:<div class="autopermalink" data-description="Paragraph"><a href="#introduction_hash-tables-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">#include &lt;unordered_map&gt;
 </pre>
-<div class="para" id="introduction_hash-tables-6">The syntax for hash table access is much like we might expect except that instead of using the index of the item for look-up, we use the key. Hash tables can be initialized with key-value pairs and key-value pairs can also be added later as we see in the following example. In C++, the keyword <code class="code-inline tex2jax_ignore">first</code> is used for the key, and <code class="code-inline tex2jax_ignore">second</code> is used for the associated value.</div>
+<div class="para" id="introduction_hash-tables-6">The syntax for hash table access is much like we might expect except that instead of using the index of the item for look-up, we use the key. Hash tables can be initialized with key-value pairs and key-value pairs can also be added later as we see in the following example. In C++, the keyword <code class="code-inline tex2jax_ignore">first</code> is used for the key, and <code class="code-inline tex2jax_ignore">second</code> is used for the associated value.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_hash-tables-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="hashtable1"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.7</span><span class="period">.</span><span class="space"> </span><span class="title">Hash Table Introduction.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hash Table Introduction.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-hashtable1">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="hashtable1_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-hashtable1_cpp-prog" class="language-cpp">//shows how hash tables can be used in C++
+<pre class="program clipboardable"><code id="rs-hashtable1_cpp-prog" class="language-cpp">//shows how hash tables can be used in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
 #include &lt;string&gt;
@@ -1235,9 +1344,10 @@ int main() {
 
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.7.a: C++ Implementation"><a href="#hashtable1_cpp" title="Copy heading and permalink for Task 1.10.7.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.10.7.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="hashtable1_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-hashtable1_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-hashtable1_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#shows how hash tables can be used in python
 def main():
@@ -1251,16 +1361,19 @@ def main():
 
     print(len(spnumbers))
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_hash-tables-8">It is important to note that hash tables are organized by the location given by the hash function rather than being in any particular order with respect to the keys. This makes look-up extremely fast. Hence, although it is possible to iterate through a hash table, it is an odd thing to do because the data is not typically stored sequentially. Iterators of an <code class="code-inline tex2jax_ignore">unordered_map</code> are implemented using pointers to point to elements of the value type as we see in the following example.</div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.7.b: Python Implementation"><a href="#hashtable1_py" title="Copy heading and permalink for Task 1.10.7.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.7.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.7: Hash Table Introduction"><a href="#hashtable1" title="Copy heading and permalink for Exploration 1.10.7: Hash Table Introduction" aria-label="Copy heading and permalink for Exploration 1.10.7: Hash Table Introduction">🔗</a></div></article><div class="para" id="introduction_hash-tables-8">It is important to note that hash tables are organized by the location given by the hash function rather than being in any particular order with respect to the keys. This makes look-up extremely fast. Hence, although it is possible to iterate through a hash table, it is an odd thing to do because the data is not typically stored sequentially. Iterators of an <code class="code-inline tex2jax_ignore">unordered_map</code> are implemented using pointers to point to elements of the value type as we see in the following example.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_hash-tables-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="hashtable2"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.10.8</span><span class="period">.</span><span class="space"> </span><span class="title">Iterating Over a Hash Table.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Iterating Over a Hash Table.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-hashtable2">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="hashtable2_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-hashtable2_cpp-prog" class="language-cpp">//shows how to iterate through a hash table in C++
+<pre class="program clipboardable"><code id="rs-hashtable2_cpp-prog" class="language-cpp">//shows how to iterate through a hash table in C++
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
 #include &lt;string&gt;
@@ -1278,9 +1391,10 @@ int main() {
 
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.10.8.a: C++ Implementation"><a href="#hashtable2_cpp" title="Copy heading and permalink for Task 1.10.8.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.10.8.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="hashtable2_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-hashtable2_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-hashtable2_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#shows how to iterate through a hash table in python
 def main():
@@ -1291,9 +1405,12 @@ def main():
         print(spnumbers[key])
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_hash-tables-10">Hash Tables have both methods and operators. <a href="introduction_collections.html#introduction_tab-hashopers" class="xref" data-knowl="./knowl/xref/introduction_tab-hashopers.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.14: Important Hash Table Operators Provided in C++">Table 1.10.14</a> describes them, and the session shows them in action.</div>
-<figure class="table table-like" id="introduction_tab-hashopers"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.14<span class="period">.</span></span><span class="space"> </span>Important Hash Table Operators Provided in C++</figcaption><div class="tabular-box natural-width"><table class="tabular">
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.10.8.b: Python Implementation"><a href="#hashtable2_py" title="Copy heading and permalink for Task 1.10.8.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.10.8.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.10.8: Iterating Over a Hash Table"><a href="#hashtable2" title="Copy heading and permalink for Exploration 1.10.8: Iterating Over a Hash Table" aria-label="Copy heading and permalink for Exploration 1.10.8: Iterating Over a Hash Table">🔗</a></div></article><div class="para" id="introduction_hash-tables-10">Hash Tables have both methods and operators. <a href="introduction_collections.html#introduction_tab-hashopers" class="xref" data-knowl="./knowl/xref/introduction_tab-hashopers.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.14: Important Hash Table Operators Provided in C++">Table 1.10.14</a> describes them, and the session shows them in action.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_hash-tables-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="introduction_tab-hashopers"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Important Hash Table Operators Provided in C++<div class="autopermalink" data-description="Table 1.10.14: Important Hash Table Operators Provided in C++"><a href="#introduction_tab-hashopers" title="Copy heading and permalink for Table 1.10.14: Important Hash Table Operators Provided in C++" aria-label="Copy heading and permalink for Table 1.10.14: Important Hash Table Operators Provided in C++">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Operator</dfn></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
@@ -1328,10 +1445,11 @@ main()
 </td>
 </tr>
 </table></div></figure><article class="exercise exercise-like" id="matching_ht"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.15</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_ht">
-<span data-subcomponent="question"><div class="para" id="matching_ht-1-1">Match the Hash Table operations with their corresponding explanation.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_ht-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_ht_drag1" data-category="1">begin</li>
+<span data-subcomponent="question"><div class="para" id="matching_ht-1-1">Match the Hash Table operations with their corresponding explanation.<div class="autopermalink" data-description="Paragraph"><a href="#matching_ht-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="matching_ht-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_ht_drag1" data-category="1">begin</li>
 <li data-subcomponent="dropzone" for="rs-matching_ht_drag1" data-category="1">An iterator to the first element in the hash table.</li>
 <li data-subcomponent="draggable" id="rs-matching_ht_drag2" data-category="2">[ ]</li>
 <li data-subcomponent="dropzone" for="rs-matching_ht_drag2" data-category="2">Returns the value associated with the key, creating a default entry if necessary.</li>
@@ -1343,16 +1461,21 @@ main()
 <li data-subcomponent="dropzone" for="rs-matching_ht_drag5" data-category="5">An iterator pointing to past-the-end element of the hash table.</li>
 <li data-subcomponent="draggable" id="rs-matching_ht_drag6" data-category="6">count</li>
 <li data-subcomponent="dropzone" for="rs-matching_ht_drag6" data-category="6">Returns true if key is in the hash table, and false otherwise.</li>
-</ul></div></div></article></section><section class="subsection" id="introduction_unordered-sets"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.10.5</span><span class="space"> </span><span class="title">Unordered Sets</span>
+</ul></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.15"><a href="#matching_ht" title="Copy heading and permalink for Checkpoint 1.10.15" aria-label="Copy heading and permalink for Checkpoint 1.10.15">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.10.4: Hash Tables"><a href="#introduction_hash-tables" title="Copy heading and permalink for Subsection 1.10.4: Hash Tables" aria-label="Copy heading and permalink for Subsection 1.10.4: Hash Tables">🔗</a></div></section><section class="subsection" id="introduction_unordered-sets"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unordered Sets</span>
 </h3>
-<div class="para" id="introduction_unordered-sets-2">An <dfn class="terminology">unordered_set</dfn> is an unordered collection of zero or more unique C++ data values of a particular type. To use unordered_sets, you import <code class="code-inline tex2jax_ignore">unordered_set</code> from the Standard template library with <code class="code-inline tex2jax_ignore">#include &lt;unorderd_set&gt;</code>.</div>
-<div class="para" id="introduction_unordered-sets-3">Unordered_sets allow for fast retrieval of individual elements based on their value. In an unordered_set, the value of an element is at the same time its key, that identifies it uniquely. <code class="code-inline tex2jax_ignore">Keys</code> are <dfn class="terminology">immutable</dfn>, therefore, the elements in an <code class="code-inline tex2jax_ignore">unordered_set</code> cannot be modified once in the container - However, they can be inserted and removed.</div>
-<div class="para" id="introduction_unordered-sets-4">Unordered sets do not allow duplicates and are initialized using comma-delimited values enclosed in curly braces. The collection can be assigned to a variable as shown below.</div>
-<pre class="code-block tex2jax_ignore">set&lt;int&gt; mySet = {3, 6, 4, 78, 10}
+<div class="para" id="introduction_unordered-sets-2">An <dfn class="terminology">unordered_set</dfn> is an unordered collection of zero or more unique C++ data values of a particular type. To use unordered_sets, you import <code class="code-inline tex2jax_ignore">unordered_set</code> from the Standard template library with <code class="code-inline tex2jax_ignore">#include &lt;unorderd_set&gt;</code>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_unordered-sets-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_unordered-sets-3">Unordered_sets allow for fast retrieval of individual elements based on their value. In an unordered_set, the value of an element is at the same time its key, that identifies it uniquely. <code class="code-inline tex2jax_ignore">Keys</code> are <dfn class="terminology">immutable</dfn>, therefore, the elements in an <code class="code-inline tex2jax_ignore">unordered_set</code> cannot be modified once in the container - However, they can be inserted and removed.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_unordered-sets-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_unordered-sets-4">Unordered sets do not allow duplicates and are initialized using comma-delimited values enclosed in curly braces. The collection can be assigned to a variable as shown below.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_unordered-sets-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">set&lt;int&gt; mySet = {3, 6, 4, 78, 10}
 </pre>
-<div class="para" id="introduction_unordered-sets-6">Unordered sets support a number of methods that should be familiar to those who have worked with sets in a mathematics setting. <a href="introduction_collections.html#introduction_tab-setmethods" class="xref" data-knowl="./knowl/xref/introduction_tab-setmethods.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.16: Methods Provided by Sets in C++">Table 1.10.16</a> provides a summary. Examples of their use follow.</div>
-<figure class="table table-like" id="introduction_tab-setmethods"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.10.16<span class="period">.</span></span><span class="space"> </span>Methods Provided by Sets in C++</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="introduction_unordered-sets-6">Unordered sets support a number of methods that should be familiar to those who have worked with sets in a mathematics setting. <a href="introduction_collections.html#introduction_tab-setmethods" class="xref" data-knowl="./knowl/xref/introduction_tab-setmethods.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.10.16: Methods Provided by Sets in C++">Table 1.10.16</a> provides a summary. Examples of their use follow.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_unordered-sets-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="introduction_tab-setmethods"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Methods Provided by Sets in C++<div class="autopermalink" data-description="Table 1.10.16: Methods Provided by Sets in C++"><a href="#introduction_tab-setmethods" title="Copy heading and permalink for Table 1.10.16: Methods Provided by Sets in C++" aria-label="Copy heading and permalink for Table 1.10.16: Methods Provided by Sets in C++">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Method Name</dfn></th>
 <th scope="col" class="l m b0 r0 l0 t0 lines"><dfn class="terminology">Use</dfn></th>
@@ -1388,8 +1511,9 @@ main()
 <td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">aset.clear()</code></td>
 <td class="l m b0 r0 l0 t0 lines">Removes all elements from the set</td>
 </tr>
-</table></div></figure><div class="para" id="introduction_unordered-sets-8">The code below is an example of a program that can detect if a specific char is in an unordered set.</div>
-<pre class="program"><code id="rs-UnorderedSetExample-prog" class="language-cpp">//code detects if a specific char is in an unordered set.
+</table></div></figure><div class="para" id="introduction_unordered-sets-8">The code below is an example of a program that can detect if a specific char is in an unordered set.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_unordered-sets-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="program clipboardable"><code id="rs-UnorderedSetExample-prog" class="language-cpp">//code detects if a specific char is in an unordered set.
 #include &lt;iostream&gt;
 #include &lt;unordered_set&gt;
 using namespace std;
@@ -1413,12 +1537,14 @@ int main(){
     return 0;
 }
 </code></pre>
-<div class="para" id="introduction_unordered-sets-10">the <code class="code-inline tex2jax_ignore">find</code> method used for a conditional in <code class="code-inline tex2jax_ignore">Checker</code> compares each item in the set with the given parameter until there is a match. the <code class="code-inline tex2jax_ignore">set.find(letter) == set.end()</code> section means that if <code class="code-inline tex2jax_ignore">find</code> cannot find the letter before reaching the end of the set, then <code class="code-inline tex2jax_ignore">letter</code> is not contained in the set.</div>
+<div class="para" id="introduction_unordered-sets-10">the <code class="code-inline tex2jax_ignore">find</code> method used for a conditional in <code class="code-inline tex2jax_ignore">Checker</code> compares each item in the set with the given parameter until there is a match. the <code class="code-inline tex2jax_ignore">set.find(letter) == set.end()</code> section means that if <code class="code-inline tex2jax_ignore">find</code> cannot find the letter before reaching the end of the set, then <code class="code-inline tex2jax_ignore">letter</code> is not contained in the set.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_unordered-sets-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exercise exercise-like" id="matching_us"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.10.17</span><span class="period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-matching_us">
-<span data-subcomponent="question"><div class="para" id="matching_us-1-1">Match the Unordered Sets operations with their corresponding explanation.</div></span><span data-subcomponent="feedback"><div class="para" id="matching_us-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_us_drag1" data-category="1">union</li>
+<span data-subcomponent="question"><div class="para" id="matching_us-1-1">Match the Unordered Sets operations with their corresponding explanation.<div class="autopermalink" data-description="Paragraph"><a href="#matching_us-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="matching_us-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-matching_us_drag1" data-category="1">union</li>
 <li data-subcomponent="dropzone" for="rs-matching_us_drag1" data-category="1">Returns a new set with all elements from both sets.</li>
 <li data-subcomponent="draggable" id="rs-matching_us_drag2" data-category="2">intersection</li>
 <li data-subcomponent="dropzone" for="rs-matching_us_drag2" data-category="2">Returns a new set with only those elements common to both sets.</li>
@@ -1430,27 +1556,36 @@ int main(){
 <li data-subcomponent="dropzone" for="rs-matching_us_drag5" data-category="5">erases item from the set.</li>
 <li data-subcomponent="draggable" id="rs-matching_us_drag6" data-category="6">clear</li>
 <li data-subcomponent="dropzone" for="rs-matching_us_drag6" data-category="6">Removes all elements from the set.</li>
-</ul></div></div></article><section class="reading-questions" id="rq-collection-data"><h4 class="heading hide-type">
-<span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
+</ul></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.10.17"><a href="#matching_us" title="Copy heading and permalink for Checkpoint 1.10.17" aria-label="Copy heading and permalink for Checkpoint 1.10.17">🔗</a></div></article><section class="reading-questions" id="rq-collection-data"><h4 class="heading hide-type">
+<span class="type">Reading Questions</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reading Questions</span>
 </h4>
-<article class="exercise exercise-like" id="mc_fixed"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<article class="exercise exercise-like" id="mc_fixed"><h5 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="mc_fixed-1-1">Which C++ structure is the best choice for a group of ordered data of a fixed length?</div></div>
+<div class="exercise-statement"><div class="para" id="mc_fixed-1-1">Which C++ structure is the best choice for a group of ordered data of a fixed length?<div class="autopermalink" data-description="Paragraph"><a href="#mc_fixed-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-mc_fixed" data-multipleanswers="false">
-<li data-component="answer" id="rs-mc_fixed_opt_a" data-correct=""><div class="para" id="mc_fixed-2-1-1-1">An array</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_a" data-correct=""><div class="para" id="mc_fixed-2-1-1-1">An array<div class="autopermalink" data-description="Paragraph"><a href="#mc_fixed-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_fixed_opt_a"><div class="para" id="mc_fixed-2-1-2-1">Correct!</div></li>
-<li data-component="answer" id="rs-mc_fixed_opt_b"><div class="para" id="mc_fixed-2-2-1-1">A hash table</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_b"><div class="para" id="mc_fixed-2-2-1-1">A hash table<div class="autopermalink" data-description="Paragraph"><a href="#mc_fixed-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_fixed_opt_b"><div class="para" id="mc_fixed-2-2-2-1">No. hash tables are not ordered.</div></li>
-<li data-component="answer" id="rs-mc_fixed_opt_c"><div class="para" id="mc_fixed-2-3-1-1">A string</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_c"><div class="para" id="mc_fixed-2-3-1-1">A string<div class="autopermalink" data-description="Paragraph"><a href="#mc_fixed-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_fixed_opt_c"><div class="para" id="mc_fixed-2-3-2-1">A string would only work for character data. Try again.</div></li>
-<li data-component="answer" id="rs-mc_fixed_opt_d"><div class="para" id="mc_fixed-2-4-1-1">A vector</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_d"><div class="para" id="mc_fixed-2-4-1-1">A vector<div class="autopermalink" data-description="Paragraph"><a href="#mc_fixed-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_fixed_opt_d"><div class="para" id="mc_fixed-2-4-2-1">There is a better choice given that the group is fixed length</div></li>
-<li data-component="answer" id="rs-mc_fixed_opt_e"><div class="para" id="mc_fixed-2-5-1-1">More than one of the above</div></li>
+<li data-component="answer" id="rs-mc_fixed_opt_e"><div class="para" id="mc_fixed-2-5-1-1">More than one of the above<div class="autopermalink" data-description="Paragraph"><a href="#mc_fixed-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-mc_fixed_opt_e"><div class="para" id="mc_fixed-2-5-2-1">Only of the above is best.</div></li>
 </ul>
-</div></div></article><article class="exercise exercise-like" id="collect_data_types"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+</div></div>
+<div class="autopermalink" data-description="Reading Question 1.10.5.1"><a href="#mc_fixed" title="Copy heading and permalink for Reading Question 1.10.5.1" aria-label="Copy heading and permalink for Reading Question 1.10.5.1">🔗</a></div></article><article class="exercise exercise-like" id="collect_data_types"><h5 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-collect_data_types">
-<span data-subcomponent="question"><div class="para" id="collect_data_types-1-1">Drag each data type to its’ corresponding C++ initialization syntax.</div></span><span data-subcomponent="feedback"><div class="para" id="collect_data_types-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-collect_data_types_drag1" data-category="1">Array</li>
+<span data-subcomponent="question"><div class="para" id="collect_data_types-1-1">Drag each data type to its’ corresponding C++ initialization syntax.<div class="autopermalink" data-description="Paragraph"><a href="#collect_data_types-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="collect_data_types-2-1">Feedback shows incorrect matches.</div></span><li data-subcomponent="draggable" id="rs-collect_data_types_drag1" data-category="1">Array</li>
 <li data-subcomponent="dropzone" for="rs-collect_data_types_drag1" data-category="1">{"What", "am", "I", "am"}</li>
 <li data-subcomponent="draggable" id="rs-collect_data_types_drag2" data-category="2">Set</li>
 <li data-subcomponent="dropzone" for="rs-collect_data_types_drag2" data-category="2">{"What", "am", "I"}</li>
@@ -1458,7 +1593,8 @@ int main(){
 <li data-subcomponent="dropzone" for="rs-collect_data_types_drag3" data-category="3">"What am I"</li>
 <li data-subcomponent="draggable" id="rs-collect_data_types_drag4" data-category="4">Hash Table</li>
 <li data-subcomponent="dropzone" for="rs-collect_data_types_drag4" data-category="4">{ {"What", "am I"} }</li>
-</ul></div></div></article></section></section><section class="conclusion" id="introduction_collections-8"><div class="para" id="introduction_collections-8-1"></div></section></section></div>
+</ul></div></div>
+<div class="autopermalink" data-description="Reading Question 1.10.5.2"><a href="#collect_data_types" title="Copy heading and permalink for Reading Question 1.10.5.2" aria-label="Copy heading and permalink for Reading Question 1.10.5.2">🔗</a></div></article><div class="autopermalink" data-description="Reading Questions 1.10.5: Reading Questions"><a href="#rq-collection-data" title="Copy heading and permalink for Reading Questions 1.10.5: Reading Questions" aria-label="Copy heading and permalink for Reading Questions 1.10.5: Reading Questions">🔗</a></div></section><div class="autopermalink" data-description="Subsection 1.10.5: Unordered Sets"><a href="#introduction_unordered-sets" title="Copy heading and permalink for Subsection 1.10.5: Unordered Sets" aria-label="Copy heading and permalink for Subsection 1.10.5: Unordered Sets">🔗</a></div></section><section class="conclusion" id="introduction_collections-8"><div class="para" id="introduction_collections-8-1"><div class="autopermalink" data-description="Paragraph"><a href="#introduction_collections-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><div class="autopermalink" data-description="Section 1.10: Collections"><a href="#introduction_collections" title="Copy heading and permalink for Section 1.10: Collections" aria-label="Copy heading and permalink for Section 1.10: Collections">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="introduction_built-in-atomic-data-types.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_defining-c-functions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

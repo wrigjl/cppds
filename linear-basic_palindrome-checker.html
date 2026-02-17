@@ -101,21 +101,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.14';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.d892923478694492.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -630,22 +630,26 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="linear-basic_palindrome-checker"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.18</span><span class="space"> </span><span class="title">Palindrome-Checker</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Palindrome-Checker</span>
 </h2>
-<div class="para" id="linear-basic_palindrome-checker-2">An interesting problem that can be easily solved using the deque data structure is the classic palindrome problem. A <dfn class="terminology">palindrome</dfn> is a string that reads the same forward and backward, for example, <em class="emphasis">radar</em>, <em class="emphasis">toot</em>, and <em class="emphasis">madam</em>. We would like to construct an algorithm to input a string of characters and check whether it is a palindrome.</div>
-<div class="para" id="linear-basic_palindrome-checker-3">The solution to this problem will use a deque to store the characters of the string. We will process the string from left to right and add each character to the rear of the deque. At this point, the deque will be acting very much like an ordinary queue. However, we can now make use of the dual functionality of the deque. The front of the deque will hold the first character of the string and the rear of the deque will hold the last character (see <a href="linear-basic_palindrome-checker.html#fig-palindrome" class="xref" data-knowl="./knowl/xref/fig-palindrome.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.18.1">Figure 3.18.1</a>).</div>
-<figure class="figure figure-like" id="fig-palindrome"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
-<img src="external/LinearBasic/palindromesetup.png" class="contained" alt="described in detail following the image" aria-describedby="fig-palindrome-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-palindrome-2-description"><div class="para" id="fig-palindrome-2-1-1">The image depicts adding the word "radar" to a dequeue. Each character is added to the rear of the queue during initialization, when all the characters have been added character afters are removed from each end of the queue: R is removed from the rear and another R is removed from the head of the queue.</div></div></details>
+<div class="para" id="linear-basic_palindrome-checker-2">An interesting problem that can be easily solved using the deque data structure is the classic palindrome problem. A <dfn class="terminology">palindrome</dfn> is a string that reads the same forward and backward, for example, <em class="emphasis">radar</em>, <em class="emphasis">toot</em>, and <em class="emphasis">madam</em>. We would like to construct an algorithm to input a string of characters and check whether it is a palindrome.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_palindrome-checker-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.18.1<span class="period">.</span></span><span class="space"> </span>A Deque</figcaption></figure><div class="para" id="linear-basic_palindrome-checker-5">Since we can remove both of them directly, we can compare them and continue only if they match. If we can keep matching first and the last items, we will eventually either run out of characters or be left with a deque of size 1 depending on whether the length of the original string was even or odd. In either case, the string must be a palindrome. The complete function for palindrome-checking appears in <a href="linear-basic_palindrome-checker.html#linear-basic_palinedrome-cpp" class="xref" data-knowl="./knowl/xref/linear-basic_palinedrome-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.18.1.a: C++ Implementation">Task 3.18.1.a</a>.</div>
+<div class="para" id="linear-basic_palindrome-checker-3">The solution to this problem will use a deque to store the characters of the string. We will process the string from left to right and add each character to the rear of the deque. At this point, the deque will be acting very much like an ordinary queue. However, we can now make use of the dual functionality of the deque. The front of the deque will hold the first character of the string and the rear of the deque will hold the last character (see <a href="linear-basic_palindrome-checker.html#fig-palindrome" class="xref" data-knowl="./knowl/xref/fig-palindrome.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.18.1">Figure 3.18.1</a>).<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_palindrome-checker-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-palindrome"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+<img src="external/LinearBasic/palindromesetup.png" class="contained" alt="described in detail following the image" aria-describedby="fig-palindrome-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-palindrome-2-description"><div class="para" id="fig-palindrome-2-1-1">The image depicts adding the word "radar" to a dequeue. Each character is added to the rear of the queue during initialization, when all the characters have been added character afters are removed from each end of the queue: R is removed from the rear and another R is removed from the head of the queue.<div class="autopermalink" data-description="Paragraph"><a href="#fig-palindrome-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.18.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A Deque<div class="autopermalink" data-description="Figure 3.18.1"><a href="#fig-palindrome" title="Copy heading and permalink for Figure 3.18.1" aria-label="Copy heading and permalink for Figure 3.18.1">🔗</a></div></figcaption></figure><div class="para" id="linear-basic_palindrome-checker-5">Since we can remove both of them directly, we can compare them and continue only if they match. If we can keep matching first and the last items, we will eventually either run out of characters or be left with a deque of size 1 depending on whether the length of the original string was even or odd. In either case, the string must be a palindrome. The complete function for palindrome-checking appears in <a href="linear-basic_palindrome-checker.html#linear-basic_palinedrome-cpp" class="xref" data-knowl="./knowl/xref/linear-basic_palinedrome-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.18.1.a: C++ Implementation">Task 3.18.1.a</a>.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_palindrome-checker-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-linear-basic_palinedrome"><h3 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.18.1</span><span class="period">.</span><span class="space"> </span><span class="title">Basic Palindrome Checker.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.18.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Basic Palindrome Checker.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-linear-basic_palinedrome">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="linear-basic_palinedrome-cpp"><h4 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h4>
-<pre class="program"><code id="rs-palinedrome_cpp-prog" class="language-cpp">//program that detects palindromes.
+<pre class="program clipboardable"><code id="rs-palinedrome_cpp-prog" class="language-cpp">//program that detects palindromes.
 
 #include &lt;deque&gt;
 #include &lt;iostream&gt;
@@ -681,9 +685,10 @@ int main() {
     cout &lt;&lt; palchecker("lsdkjfskf") &lt;&lt; endl;
     cout &lt;&lt; palchecker("radar") &lt;&lt; endl;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 3.18.1.a: C++ Implementation"><a href="#linear-basic_palinedrome-cpp" title="Copy heading and permalink for Task 3.18.1.a: C++ Implementation" aria-label="Copy heading and permalink for Task 3.18.1.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="linear-basic_palinedrome-py"><h4 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-palchecker-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-palchecker-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#Program that detects palindromes.
 
@@ -712,11 +717,15 @@ def main():
     print(palchecker("lsdkjfskf"))
     print(palchecker("radar"))
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="linear-basic_palindrome-checker-7">Below we can see an upgraded code for checking palindromes, which is able to handle strings with capital letters, spaces, and special characters.</div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 3.18.1.b: Python Implementation"><a href="#linear-basic_palinedrome-py" title="Copy heading and permalink for Task 3.18.1.b: Python Implementation" aria-label="Copy heading and permalink for Task 3.18.1.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 3.18.1: Basic Palindrome Checker"><a href="#expl-linear-basic_palinedrome" title="Copy heading and permalink for Exploration 3.18.1: Basic Palindrome Checker" aria-label="Copy heading and permalink for Exploration 3.18.1: Basic Palindrome Checker">🔗</a></div></article><div class="para" id="linear-basic_palindrome-checker-7">Below we can see an upgraded code for checking palindromes, which is able to handle strings with capital letters, spaces, and special characters.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_palindrome-checker-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="para" id="linear-basic_palindrome-checker-8">
-<a href="linear-basic_palindrome-checker.html#advanced-linear-basic_palinedrome-cpp" class="xref" data-knowl="./knowl/xref/advanced-linear-basic_palinedrome-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 3.18.2: Advanced Palindrome Checker">Listing 3.18.2</a>.</div>
-<figure class="listing figure-like" id="advanced-linear-basic_palinedrome-cpp"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.18.2<span class="period">.</span></span><span class="space"> </span>Advanced Palindrome Checker</figcaption><div class="listing__contents"><pre class="program"><code id="rs-advanced_palinedrome_cpp-prog" class="language-cpp">//program that detects palindromes.
+<a href="linear-basic_palindrome-checker.html#advanced-linear-basic_palinedrome-cpp" class="xref" data-knowl="./knowl/xref/advanced-linear-basic_palinedrome-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 3.18.2: Advanced Palindrome Checker">Listing 3.18.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_palindrome-checker-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="listing figure-like" id="advanced-linear-basic_palinedrome-cpp"><figcaption><span class="type">Listing</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.18.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Advanced Palindrome Checker<div class="autopermalink" data-description="Listing 3.18.2: Advanced Palindrome Checker"><a href="#advanced-linear-basic_palinedrome-cpp" title="Copy heading and permalink for Listing 3.18.2: Advanced Palindrome Checker" aria-label="Copy heading and permalink for Listing 3.18.2: Advanced Palindrome Checker">🔗</a></div></figcaption><div class="listing__contents"><pre class="program clipboardable"><code id="rs-advanced_palinedrome_cpp-prog" class="language-cpp">//program that detects palindromes.
 
 /*
 The Advanced Palindrome Checker
@@ -792,41 +801,53 @@ int main() {
     cout &lt;&lt; palchecker("not a palindrome") &lt;&lt; endl;
 }
 </code></pre></div></figure><section class="reading-questions" id="rqs-"><h3 class="heading hide-type">
-<span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
+<span class="type">Reading Questions</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reading Questions</span>
 </h3>
-<article class="exercise exercise-like" id="orderingPrinciples"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<article class="exercise exercise-like" id="orderingPrinciples"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-orderingPrinciples">
-<span data-subcomponent="question"><div class="para" id="orderingPrinciples-1-1">Drag each data structure to its corresponding ordering principle</div></span><span data-subcomponent="feedback"><div class="para" id="orderingPrinciples-2-1">This is feedback.</div></span><li data-subcomponent="draggable" id="rs-orderingPrinciples_drag1" data-category="1">Stack</li>
+<span data-subcomponent="question"><div class="para" id="orderingPrinciples-1-1">Drag each data structure to its corresponding ordering principle<div class="autopermalink" data-description="Paragraph"><a href="#orderingPrinciples-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="orderingPrinciples-2-1">This is feedback.</div></span><li data-subcomponent="draggable" id="rs-orderingPrinciples_drag1" data-category="1">Stack</li>
 <li data-subcomponent="dropzone" for="rs-orderingPrinciples_drag1" data-category="1">last-in first-out</li>
 <li data-subcomponent="draggable" id="rs-orderingPrinciples_drag2" data-category="2">Deque</li>
 <li data-subcomponent="dropzone" for="rs-orderingPrinciples_drag2" data-category="2">mixed depending upon input order</li>
 <li data-subcomponent="draggable" id="rs-orderingPrinciples_drag3" data-category="3">Queue</li>
 <li data-subcomponent="dropzone" for="rs-orderingPrinciples_drag3" data-category="3">first-in first-out</li>
-</ul></div></div></article><article class="exercise exercise-like" id="Remembertypes"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+</ul></div></div>
+<div class="autopermalink" data-description="Reading Question 3.18.1"><a href="#orderingPrinciples" title="Copy heading and permalink for Reading Question 3.18.1" aria-label="Copy heading and permalink for Reading Question 3.18.1">🔗</a></div></article><article class="exercise exercise-like" id="Remembertypes"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="ptx-runestone-container"><div class="runestone clickablearea_section"><div data-component="clickablearea" data-question_label="" style="visibility: hidden;" id="rs-Remembertypes">
-<span data-question=""><div class="para" id="Remembertypes-1-1">Click on the cause of a syntax error in the following code.</div></span><span data-feedback=""><div class="para" id="Remembertypes-2-1">Remember how we declare variables</div></span><pre><span data-correct="">deque&lt;int&gt; d;</span>:
+<span data-question=""><div class="para" id="Remembertypes-1-1">Click on the cause of a syntax error in the following code.<div class="autopermalink" data-description="Paragraph"><a href="#Remembertypes-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-feedback=""><div class="para" id="Remembertypes-2-1">Remember how we declare variables</div></span><pre><span data-correct="">deque&lt;int&gt; d;</span>:
 <span data-correct="">d.push_back("Zebra");</span>:
 <span data-correct="">d.push_front("Turtle");</span>:
 <span data-correct="">d.push_front("Panda");</span>:
 <span data-correct="">d.push_back("Catfish");</span>:
 <span data-correct="">d.push_back("Giraffe");</span>:
 </pre>
-</div></div></div></article><article class="exercise exercise-like" id="structureefficiency"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+</div></div></div>
+<div class="autopermalink" data-description="Reading Question 3.18.2"><a href="#Remembertypes" title="Copy heading and permalink for Reading Question 3.18.2" aria-label="Copy heading and permalink for Reading Question 3.18.2">🔗</a></div></article><article class="exercise exercise-like" id="structureefficiency"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="structureefficiency-1-1">If you add five items to your code in this order “potato”, “rutabaga”, “avocado”, “squash”, “eggplant” which structure would take the least steps to retrieve “rutabaga”?</div></div>
+<div class="exercise-statement"><div class="para" id="structureefficiency-1-1">If you add five items to your code in this order “potato”, “rutabaga”, “avocado”, “squash”, “eggplant” which structure would take the least steps to retrieve “rutabaga”?<div class="autopermalink" data-description="Paragraph"><a href="#structureefficiency-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-structureefficiency" data-multipleanswers="false">
-<li data-component="answer" id="rs-structureefficiency_opt_a"><div class="para" id="structureefficiency-2-1-1-1">Deque</div></li>
+<li data-component="answer" id="rs-structureefficiency_opt_a"><div class="para" id="structureefficiency-2-1-1-1">Deque<div class="autopermalink" data-description="Paragraph"><a href="#structureefficiency-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-structureefficiency_opt_a"><div class="para" id="structureefficiency-2-1-2-1">Yes, but it is not the only option.</div></li>
-<li data-component="answer" id="rs-structureefficiency_opt_b"><div class="para" id="structureefficiency-2-2-1-1">Stack</div></li>
+<li data-component="answer" id="rs-structureefficiency_opt_b"><div class="para" id="structureefficiency-2-2-1-1">Stack<div class="autopermalink" data-description="Paragraph"><a href="#structureefficiency-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-structureefficiency_opt_b"><div class="para" id="structureefficiency-2-2-2-1">No, a stack would pop from the top, thus having more entries in the way before it gets to rutabega.</div></li>
-<li data-component="answer" id="rs-structureefficiency_opt_c"><div class="para" id="structureefficiency-2-3-1-1">Queue</div></li>
+<li data-component="answer" id="rs-structureefficiency_opt_c"><div class="para" id="structureefficiency-2-3-1-1">Queue<div class="autopermalink" data-description="Paragraph"><a href="#structureefficiency-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-structureefficiency_opt_c"><div class="para" id="structureefficiency-2-3-2-1">Yes, but it is not the only option.</div></li>
-<li data-component="answer" id="rs-structureefficiency_opt_d"><div class="para" id="structureefficiency-2-4-1-1">Both B &amp; C</div></li>
+<li data-component="answer" id="rs-structureefficiency_opt_d"><div class="para" id="structureefficiency-2-4-1-1">Both B &amp; C<div class="autopermalink" data-description="Paragraph"><a href="#structureefficiency-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-structureefficiency_opt_d"><div class="para" id="structureefficiency-2-4-2-1">One of these two would be correct, but the other would not.</div></li>
-<li data-component="answer" id="rs-structureefficiency_opt_e" data-correct=""><div class="para" id="structureefficiency-2-5-1-1">Both A &amp; C</div></li>
+<li data-component="answer" id="rs-structureefficiency_opt_e" data-correct=""><div class="para" id="structureefficiency-2-5-1-1">Both A &amp; C<div class="autopermalink" data-description="Paragraph"><a href="#structureefficiency-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-structureefficiency_opt_e"><div class="para" id="structureefficiency-2-5-2-1">Correct!</div></li>
 </ul>
-</div></div></article></section><div class="para" id="linear-basic_palindrome-checker-11"></div></section></div>
+</div></div>
+<div class="autopermalink" data-description="Reading Question 3.18.3"><a href="#structureefficiency" title="Copy heading and permalink for Reading Question 3.18.3" aria-label="Copy heading and permalink for Reading Question 3.18.3">🔗</a></div></article><div class="autopermalink" data-description="Reading Questions 3.18: Reading Questions"><a href="#rqs-" title="Copy heading and permalink for Reading Questions 3.18: Reading Questions" aria-label="Copy heading and permalink for Reading Questions 3.18: Reading Questions">🔗</a></div></section><div class="para" id="linear-basic_palindrome-checker-11"><div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_palindrome-checker-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Section 3.18: Palindrome-Checker"><a href="#linear-basic_palindrome-checker" title="Copy heading and permalink for Section 3.18: Palindrome-Checker" aria-label="Copy heading and permalink for Section 3.18: Palindrome-Checker">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="linear-basic_using-a-deque-in-c.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="linear-basic_summary.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

@@ -101,21 +101,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.14';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.d892923478694492.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -630,43 +630,54 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="linear-basic_simple-balanced-parentheses"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.6</span><span class="space"> </span><span class="title">Simple Balanced Parentheses</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Simple Balanced Parentheses</span>
 </h2>
-<div class="para" id="linear-basic_simple-balanced-parentheses-2">We now turn our attention to using stacks to solve real computer science problems. You have no doubt written arithmetic expressions such as</div>
-<div class="para" id="linear-basic_simple-balanced-parentheses-3"><span class="process-math">\((5+6)*(7+8)/(4+3)\)</span></div>
-<div class="para" id="linear-basic_simple-balanced-parentheses-4">where parentheses are used to order the performance of operations. You may also have some experience programming in a language such as Lisp or Scheme with constructs like:</div>
-<pre class="code-block tex2jax_ignore">(defun square(n)
+<div class="para" id="linear-basic_simple-balanced-parentheses-2">We now turn our attention to using stacks to solve real computer science problems. You have no doubt written arithmetic expressions such as<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="linear-basic_simple-balanced-parentheses-3">
+<span class="process-math">\((5+6)*(7+8)/(4+3)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="linear-basic_simple-balanced-parentheses-4">where parentheses are used to order the performance of operations. You may also have some experience programming in a language such as Lisp or Scheme with constructs like:<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">(defun square(n)
      (* n n))
 </pre>
-<div class="para" id="linear-basic_simple-balanced-parentheses-6">This defines a function called <code class="code-inline tex2jax_ignore">square</code> that will return the square of its argument <code class="code-inline tex2jax_ignore">n</code>. Scheme and Lisp are both notorious for using lots and lots of parentheses.</div>
-<div class="para" id="linear-basic_simple-balanced-parentheses-7">In both of these examples, parentheses must appear in a balanced fashion. "Balanced parentheses" means that each opening symbol has a corresponding closing symbol and the pairs of parentheses are properly nested. Consider the following correctly balanced strings of parentheses:</div>
-<pre class="code-block tex2jax_ignore">(()()()())
+<div class="para" id="linear-basic_simple-balanced-parentheses-6">This defines a function called <code class="code-inline tex2jax_ignore">square</code> that will return the square of its argument <code class="code-inline tex2jax_ignore">n</code>. Scheme and Lisp are both notorious for using lots and lots of parentheses.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="linear-basic_simple-balanced-parentheses-7">In both of these examples, parentheses must appear in a balanced fashion. "Balanced parentheses" means that each opening symbol has a corresponding closing symbol and the pairs of parentheses are properly nested. Consider the following correctly balanced strings of parentheses:<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">(()()()())
 
 (((())))
 
 (()((())()))
 </pre>
-<div class="para" id="linear-basic_simple-balanced-parentheses-9">Compare those with the following, which are not balanced:</div>
-<pre class="code-block tex2jax_ignore">((((((())
+<div class="para" id="linear-basic_simple-balanced-parentheses-9">Compare those with the following, which are not balanced:<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">((((((())
 
 ()))
 
 (()()(()
 </pre>
-<div class="para" id="linear-basic_simple-balanced-parentheses-11">The ability to differentiate between parentheses that are correctly balanced and those that are unbalanced is an important part of recognizing many programming language structures.</div>
-<div class="para" id="linear-basic_simple-balanced-parentheses-12">The challenge then is to write an algorithm that will read a string of parentheses from left to right and decide whether the symbols are balanced. To solve this problem we need to make an important observation. As you process symbols from left to right, the most recent opening parenthesis must match the next closing symbol (see <a href="linear-basic_simple-balanced-parentheses.html#fig-parmatch" class="xref" data-knowl="./knowl/xref/fig-parmatch.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.6.1">Figure 3.6.1</a>). Also, the first opening symbol processed may have to wait until the very last symbol for its match. Closing symbols match opening symbols in the reverse order of their appearance; they match from the inside out. This is a clue that stacks can be used to solve the problem.</div>
-<figure class="figure figure-like" id="fig-parmatch"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
-<img src="external/LinearBasic/simpleparcheck.png" class="contained" alt="described in detail following the image" aria-describedby="fig-parmatch-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-parmatch-2-description"><div class="para" id="fig-parmatch-2-1-1">The image illustrates the process of matching parentheses to determine if they are balanced. It shows a sequence of parentheses where the most recent open parenthesis matches the first close parenthesis. Arrows point to the corresponding pairs to indicate the matching process. The diagram also highlights that the first open parenthesis may wait until the very last close parenthesis for its match. This visual emphasizes that closing symbols match opening symbols in reverse order of their appearance, matching from the inside out. This demonstrates the use of a stack to solve the problem of balancing parentheses.</div></div></details>
+<div class="para" id="linear-basic_simple-balanced-parentheses-11">The ability to differentiate between parentheses that are correctly balanced and those that are unbalanced is an important part of recognizing many programming language structures.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.6.1<span class="period">.</span></span><span class="space"> </span>Matching Parentheses</figcaption></figure><div class="para" id="linear-basic_simple-balanced-parentheses-14">Once you agree that a stack is the appropriate data structure for keeping the parentheses, the statement of the algorithm is straightforward. Starting with an empty stack, process the parenthesis strings from left to right. If a symbol is an opening parenthesis, push it on the stack as a signal that a corresponding closing symbol needs to appear later. If, on the other hand, a symbol is a closing parenthesis, pop the stack. As long as it is possible to pop the stack to match every closing symbol, the parentheses remain balanced. If at any time there is no opening symbol on the stack to match a closing symbol, the string is not balanced properly. At the end of the string, when all symbols have been processed, the stack should be empty. The C++ and Python code to implement this algorithm is shown in <a href="linear-basic_simple-balanced-parentheses.html#task-parcheck1_cpp" class="xref" data-knowl="./knowl/xref/task-parcheck1_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.6.1.a: C++ Implementation">Task 3.6.1.a</a>.</div>
+<div class="para" id="linear-basic_simple-balanced-parentheses-12">The challenge then is to write an algorithm that will read a string of parentheses from left to right and decide whether the symbols are balanced. To solve this problem we need to make an important observation. As you process symbols from left to right, the most recent opening parenthesis must match the next closing symbol (see <a href="linear-basic_simple-balanced-parentheses.html#fig-parmatch" class="xref" data-knowl="./knowl/xref/fig-parmatch.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.6.1">Figure 3.6.1</a>). Also, the first opening symbol processed may have to wait until the very last symbol for its match. Closing symbols match opening symbols in the reverse order of their appearance; they match from the inside out. This is a clue that stacks can be used to solve the problem.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-parmatch"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+<img src="external/LinearBasic/simpleparcheck.png" class="contained" alt="described in detail following the image" aria-describedby="fig-parmatch-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-parmatch-2-description"><div class="para" id="fig-parmatch-2-1-1">The image illustrates the process of matching parentheses to determine if they are balanced. It shows a sequence of parentheses where the most recent open parenthesis matches the first close parenthesis. Arrows point to the corresponding pairs to indicate the matching process. The diagram also highlights that the first open parenthesis may wait until the very last close parenthesis for its match. This visual emphasizes that closing symbols match opening symbols in reverse order of their appearance, matching from the inside out. This demonstrates the use of a stack to solve the problem of balancing parentheses.<div class="autopermalink" data-description="Paragraph"><a href="#fig-parmatch-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Matching Parentheses<div class="autopermalink" data-description="Figure 3.6.1"><a href="#fig-parmatch" title="Copy heading and permalink for Figure 3.6.1" aria-label="Copy heading and permalink for Figure 3.6.1">🔗</a></div></figcaption></figure><div class="para" id="linear-basic_simple-balanced-parentheses-14">Once you agree that a stack is the appropriate data structure for keeping the parentheses, the statement of the algorithm is straightforward. Starting with an empty stack, process the parenthesis strings from left to right. If a symbol is an opening parenthesis, push it on the stack as a signal that a corresponding closing symbol needs to appear later. If, on the other hand, a symbol is a closing parenthesis, pop the stack. As long as it is possible to pop the stack to match every closing symbol, the parentheses remain balanced. If at any time there is no opening symbol on the stack to match a closing symbol, the string is not balanced properly. At the end of the string, when all symbols have been processed, the stack should be empty. The C++ and Python code to implement this algorithm is shown in <a href="linear-basic_simple-balanced-parentheses.html#task-parcheck1_cpp" class="xref" data-knowl="./knowl/xref/task-parcheck1_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.6.1.a: C++ Implementation">Task 3.6.1.a</a>.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-lst-parcheck1"><h3 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.6.1</span><span class="period">.</span><span class="space"> </span><span class="title">Parenthesis checker.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.6.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Parenthesis checker.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-lst-parcheck1">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="task-parcheck1_cpp"><h4 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h4>
-<pre class="program"><code id="rs-parcheck1_cpp-prog" class="language-cpp">//simple program that checks for missing parentheses
+<pre class="program clipboardable"><code id="rs-parcheck1_cpp-prog" class="language-cpp">//simple program that checks for missing parentheses
 #include &lt;iostream&gt;
 #include &lt;stack&gt;
 #include &lt;string&gt;
@@ -708,9 +719,10 @@ int main() {
     cout &lt;&lt; parChecker("((()))") &lt;&lt; endl;
     cout &lt;&lt; parChecker("(()") &lt;&lt; endl;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 3.6.1.a: C++ Implementation"><a href="#task-parcheck1_cpp" title="Copy heading and permalink for Task 3.6.1.a: C++ Implementation" aria-label="Copy heading and permalink for Task 3.6.1.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="task-parcheck1_py"><h4 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-parcheck1_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-parcheck1_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#Program that detects if a set of parentheses is complete.
 
@@ -748,9 +760,13 @@ def main():
     print(parChecker('(()'))
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="linear-basic_simple-balanced-parentheses-16">This function, <code class="code-inline tex2jax_ignore">parChecker</code>, assumes that a <code class="code-inline tex2jax_ignore">Stack</code> class is available and returns a Boolean result as to whether the string of parentheses is balanced. Note that the Boolean variable <code class="code-inline tex2jax_ignore">balanced</code> is initialized to <code class="code-inline tex2jax_ignore">true</code> as there is no reason to assume otherwise at the start. If the current symbol is <code class="code-inline tex2jax_ignore">(</code>, then it is pushed on the stack (lines 15-16). Note also in line 22 that <code class="code-inline tex2jax_ignore">pop</code> removes a symbol from the stack. At the end (lines 28-31), as long as the expression is balanced and the stack has been completely emptied, the string represents a correctly balanced sequence of parentheses.</div>
-<div class="para" id="linear-basic_simple-balanced-parentheses-17"></div></section></div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 3.6.1.b: Python Implementation"><a href="#task-parcheck1_py" title="Copy heading and permalink for Task 3.6.1.b: Python Implementation" aria-label="Copy heading and permalink for Task 3.6.1.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 3.6.1: Parenthesis checker"><a href="#expl-lst-parcheck1" title="Copy heading and permalink for Exploration 3.6.1: Parenthesis checker" aria-label="Copy heading and permalink for Exploration 3.6.1: Parenthesis checker">🔗</a></div></article><div class="para" id="linear-basic_simple-balanced-parentheses-16">This function, <code class="code-inline tex2jax_ignore">parChecker</code>, assumes that a <code class="code-inline tex2jax_ignore">Stack</code> class is available and returns a Boolean result as to whether the string of parentheses is balanced. Note that the Boolean variable <code class="code-inline tex2jax_ignore">balanced</code> is initialized to <code class="code-inline tex2jax_ignore">true</code> as there is no reason to assume otherwise at the start. If the current symbol is <code class="code-inline tex2jax_ignore">(</code>, then it is pushed on the stack (lines 15-16). Note also in line 22 that <code class="code-inline tex2jax_ignore">pop</code> removes a symbol from the stack. At the end (lines 28-31), as long as the expression is balanced and the stack has been completely emptied, the string represents a correctly balanced sequence of parentheses.<div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="linear-basic_simple-balanced-parentheses-17"><div class="autopermalink" data-description="Paragraph"><a href="#linear-basic_simple-balanced-parentheses-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Section 3.6: Simple Balanced Parentheses"><a href="#linear-basic_simple-balanced-parentheses" title="Copy heading and permalink for Section 3.6: Simple Balanced Parentheses" aria-label="Copy heading and permalink for Section 3.6: Simple Balanced Parentheses">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="linear-basic_using-a-stack-in-c.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="linear-basic_balanced-symbols-a-general-case.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

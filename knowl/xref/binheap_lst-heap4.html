@@ -18,7 +18,7 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">8.10.8<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">percDown</code> and <code class="code-inline tex2jax_ignore">minChild</code> Methods</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-binheap_lst-heap4-prog" class="language-cpp">void percDown(int i){
+<figure class="listing figure-like"><figcaption><span class="type">Listing</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.10.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><code class="code-inline tex2jax_ignore">percDown</code> and <code class="code-inline tex2jax_ignore">minChild</code> Methods<div class="autopermalink" data-description="Listing 8.10.8: percDown and minChild Methods"><a href="#binheap_lst-heap4" title="Copy heading and permalink for Listing 8.10.8: percDown and minChild Methods" aria-label="Copy heading and permalink for Listing 8.10.8: percDown and minChild Methods">🔗</a></div></figcaption><div class="listing__contents"><div class="code-box"><pre class="program clipboardable"><code id="rs-binheap_lst-heap4-prog" class="language-cpp">void percDown(int i){
     while ((i*2) &lt;= this-&gt;currentSize){
         int mc = this-&gt;minChild(i);
         if (this-&gt;heapvector[i] &gt; this-&gt;heapvector[mc]){

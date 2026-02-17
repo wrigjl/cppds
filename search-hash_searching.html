@@ -101,21 +101,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.14';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.d892923478694492.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -630,20 +630,24 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="search-hash_searching"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">6.2</span><span class="space"> </span><span class="title">Searching</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Searching</span>
 </h2>
-<div class="para" id="search-hash_searching-2">In the next two chapters we will turn our attention to some of the most common problems that arise in computing: searching and sorting. In this chapter we will study searching and return to sorting in the next chapter.</div>
+<div class="para" id="search-hash_searching-2">In the next two chapters we will turn our attention to some of the most common problems that arise in computing: searching and sorting. In this chapter we will study searching and return to sorting in the next chapter.<div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="para" id="search-hash_searching-3">
-<dfn class="terminology">Searching</dfn> is the algorithmic process of finding a particular item in a collection of items. A search typically answers either <code class="code-inline tex2jax_ignore">True</code> or <code class="code-inline tex2jax_ignore">False</code> as to whether the item is present. On occasion it may be modified to return where the item is found. For our purposes here, we will simply concern ourselves with the question of membership.</div>
-<div class="para" id="search-hash_searching-4">In many languages, libraries provide very easy ways to ask whether an item is in a container of items. In Python one uses the <code class="code-inline tex2jax_ignore">in</code> operator on a list:</div>
-<pre class="code-block tex2jax_ignore">&gt;&gt;&gt; 15 in [3,5,2,4,1]
+<dfn class="terminology">Searching</dfn> is the algorithmic process of finding a particular item in a collection of items. A search typically answers either <code class="code-inline tex2jax_ignore">True</code> or <code class="code-inline tex2jax_ignore">False</code> as to whether the item is present. On occasion it may be modified to return where the item is found. For our purposes here, we will simply concern ourselves with the question of membership.<div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="search-hash_searching-4">In many languages, libraries provide very easy ways to ask whether an item is in a container of items. In Python one uses the <code class="code-inline tex2jax_ignore">in</code> operator on a list:<div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">&gt;&gt;&gt; 15 in [3,5,2,4,1]
 False
 &gt;&gt;&gt; 3 in [3,5,2,4,1]
 True
 &gt;&gt;&gt;
 </pre>
-<div class="para" id="search-hash_searching-6">In C++, the standard library provides, the <code class="code-inline tex2jax_ignore">find</code> function which works on several C++ data types (e.g. arrays, vector, etc. <a href="search-hash_searching.html#find-example" class="xref" data-knowl="./knowl/xref/find-example.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.2.1: Using find">Listing 6.2.1</a> shows how <code class="code-inline tex2jax_ignore">find</code> can be used to search an array or a <code class="code-inline tex2jax_ignore">vector</code>. The first argument to <code class="code-inline tex2jax_ignore">find</code> is the base object to search, the second argument is the element past the end (this is how find knows where to stop), and the third argument value to <code class="code-inline tex2jax_ignore">find</code> is the item to locate. If the item is not found, the second argument is returned. If it is found, an iterator is returned.</div>
-<figure class="listing figure-like" id="find-example"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">6.2.1<span class="period">.</span></span><span class="space"> </span>Using <code class="code-inline tex2jax_ignore">find</code></figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code class="language-cpp">#include &lt;iostream&gt;
+<div class="para" id="search-hash_searching-6">In C++, the standard library provides, the <code class="code-inline tex2jax_ignore">find</code> function which works on several C++ data types (e.g. arrays, vector, etc. <a href="search-hash_searching.html#find-example" class="xref" data-knowl="./knowl/xref/find-example.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 6.2.1: Using find">Listing 6.2.1</a> shows how <code class="code-inline tex2jax_ignore">find</code> can be used to search an array or a <code class="code-inline tex2jax_ignore">vector</code>. The first argument to <code class="code-inline tex2jax_ignore">find</code> is the base object to search, the second argument is the element past the end (this is how find knows where to stop), and the third argument value to <code class="code-inline tex2jax_ignore">find</code> is the item to locate. If the item is not found, the second argument is returned. If it is found, an iterator is returned.<div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="listing figure-like" id="find-example"><figcaption><span class="type">Listing</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Using <code class="code-inline tex2jax_ignore">find</code><div class="autopermalink" data-description="Listing 6.2.1: Using find"><a href="#find-example" title="Copy heading and permalink for Listing 6.2.1: Using find" aria-label="Copy heading and permalink for Listing 6.2.1: Using find">🔗</a></div></figcaption><div class="listing__contents"><div class="code-box"><pre class="program clipboardable"><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;vector&gt;
 
@@ -657,9 +661,11 @@ int main() {
     cout &lt;&lt; (find(myvec.begin(), myvec.end(), 3) != myvec.end()) &lt;&lt; endl;
     return 0;
 }
-</code></pre></div></div></figure><div class="para" id="search-hash_searching-8">How does this work? Even though this is easy to write, an underlying process must be carried out to do the search.</div>
-<div class="para" id="search-hash_searching-9">A function can be created for C++ arrays by passing in the array, the size of the array, and the value to search for as arguments.</div>
-<pre class="code-block tex2jax_ignore">bool isIn(int alist[], int size, int value) {
+</code></pre></div></div></figure><div class="para" id="search-hash_searching-8">How does this work? Even though this is easy to write, an underlying process must be carried out to do the search.<div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="search-hash_searching-9">A function can be created for C++ arrays by passing in the array, the size of the array, and the value to search for as arguments.<div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">bool isIn(int alist[], int size, int value) {
     for (unsigned i=0; i&lt;size; i++) {
         if (alist[i] == value) {
             return true;
@@ -677,8 +683,10 @@ int main() {
     return 0;
 }
 </pre>
-<div class="para" id="search-hash_searching-11">This works, but it is not the only way to search! It turns out that there are multiple different ways to search for the item. What we are interested in here is how these algorithms work and how they compare to one another.</div>
-<div class="para" id="search-hash_searching-12"></div></section></div>
+<div class="para" id="search-hash_searching-11">This works, but it is not the only way to search! It turns out that there are multiple different ways to search for the item. What we are interested in here is how these algorithms work and how they compare to one another.<div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="search-hash_searching-12"><div class="autopermalink" data-description="Paragraph"><a href="#search-hash_searching-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Section 6.2: Searching"><a href="#search-hash_searching" title="Copy heading and permalink for Section 6.2: Searching" aria-label="Copy heading and permalink for Section 6.2: Searching">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="search-hash_objectives.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="search-hash_the-sequential-search.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

@@ -18,52 +18,61 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.7.1<span class="period">.</span></span><span class="space"> </span>Big-O Efficiency of C++ String Operations</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Big-O Efficiency of C++ String Operations<div class="autopermalink" data-description="Table 2.7.1: Big-O Efficiency of C++ String Operations"><a href="#algorithm-analysis_tbl-strbigocpp" title="Copy heading and permalink for Table 2.7.1: Big-O Efficiency of C++ String Operations" aria-label="Copy heading and permalink for Table 2.7.1: Big-O Efficiency of C++ String Operations">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b0 r0 l0 t0 lines">Operation</th>
 <th scope="col" class="l m b0 r0 l0 t0 lines">Big-O Efficiency</th>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">index []</td>
-<td class="l m b0 r0 l0 t0 lines">O(1)</td>
+<td class="l m b0 r0 l0 t0 lines">
+<code class="code-inline tex2jax_ignore">at</code>, <code class="code-inline tex2jax_ignore">[]</code>
+</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">index assignment =</td>
-<td class="l m b0 r0 l0 t0 lines">O(1)</td>
+<td class="l m b0 r0 l0 t0 lines">
+<code class="code-inline tex2jax_ignore">at</code> and <code class="code-inline tex2jax_ignore">[]</code> assignment</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">push_back()</td>
-<td class="l m b0 r0 l0 t0 lines">typically O(1)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">push_back()</code></td>
+<td class="l m b0 r0 l0 t0 lines">typically <span class="process-math">\(O(1)\)</span>
+</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">pop_back()</td>
-<td class="l m b0 r0 l0 t0 lines">O(1)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">pop_back()</code></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">erase(i)</td>
-<td class="l m b0 r0 l0 t0 lines">O(n)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">erase(i)</code></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(n)\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">insert(i, item)</td>
-<td class="l m b0 r0 l0 t0 lines">O(n)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">insert(i, item)</code></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(n)\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">find(srt, stp, item)</td>
-<td class="l m b0 r0 l0 t0 lines">O(log n) or O(n)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">find(srt, stp, item)</code></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(O(\log n)\)</span> or <span class="process-math">\(O(n)\)</span>
+</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">reserve()</td>
-<td class="l m b0 r0 l0 t0 lines">O(n)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">reserve()</code></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(n)\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">begin()</td>
-<td class="l m b0 r0 l0 t0 lines">O(1)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">begin()</code></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">end()</td>
-<td class="l m b0 r0 l0 t0 lines">O(1)</td>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">end()</code></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(1)\)</span></td>
 </tr>
-<tr><td class="l m b0 r0 l0 t0 lines">size()               O(1)</td></tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">size()</code></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(O(1)\)</span></td>
+</tr>
 </table></div></figure><span class="incontext"><a class="internal" href="algorithm-analysis_analysis-of-string-operators.html#algorithm-analysis_tbl-strbigocpp">in-context</a></span>
 </body>
 </html>

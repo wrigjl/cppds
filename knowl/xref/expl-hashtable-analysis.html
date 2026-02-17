@@ -19,61 +19,72 @@
 </head>
 <body class="ignore-math">
 <article class="exploration project-like"><h3 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.8.1</span><span class="period">.</span><span class="space"> </span><span class="title">Hash Table Analysis.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.8.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hash Table Analysis.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-expl-hashtable-analysis">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-hashtable-analysis-cpp"><h4 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h4>
-<div class="code-box"><pre class="program"><code id="rs-HashTableAnalysis-prog" class="language-cpp">#include &lt;iostream&gt;
+<div class="code-box"><pre class="program clipboardable line-numbers"><code id="rs-HashTableAnalysis-prog" class="language-cpp">#include &lt;iostream&gt;
 #include &lt;ctime&gt;
 #include &lt;vector&gt;
 #include &lt;unordered_map&gt;
 using namespace std;
 
 int main() {
+    for(int a = 10000; a &lt; 1000001; a = a + 20000) {
+        vector&lt;int&gt; avector;
+        unordered_map&lt;int, int&gt; amap;
 
-for(int a = 10000; a &lt; 1000001; a = a + 20000) {
-    // vector Part
-    clock_t begin = clock();
-    vector&lt;int&gt; avector;
-    for( int i = 0; i &lt; a; i++){
-        avector.push_back(i);
+        // create the vector and map
+        for( int i = 0; i &lt; a; i++){
+            avector.push_back(i);
+            amap[i] = -1;
+        }
+
+        // timing for vector access
+        srand(1);
+        clock_t begin = clock();
+        for( int i = 0; i &lt; a; i++){
+            find(avector.begin(), avector.end(), rand() % a);
+        }
+        clock_t end = clock();
+        double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+
+        // timing for hash table
+        srand(1);
+        clock_t  begin_ht = clock();
+        for( int i = 0; i &lt; a; i++ ){
+            amap.contains(rand() % a);
+        }
+        clock_t end_ht = clock();
+        double elapsed_secs_ht = double(end_ht - begin_ht) / CLOCKS_PER_SEC;
+
+        // Printing final output
+        cout &lt;&lt; a &lt;&lt; "\t" &lt;&lt; elapsed_secs &lt;&lt; "\t" &lt;&lt; elapsed_secs_ht &lt;&lt; endl;
     }
-    clock_t end = clock();
-    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
 
-    // Hash Table Part
-    clock_t  begin_ht = clock();
-    unordered_map&lt;int, int&gt; y;
-    for( int j = 0; j &lt; a; j++ ){
-        y[j] = nullptr;
-    }
-    clock_t end_ht = clock();
-    double elapsed_secs_ht = double(end_ht - begin_ht) / CLOCKS_PER_SEC;
-
-    // Printing final output
-    cout &lt;&lt; a &lt;&lt; "\t" &lt;&lt; elapsed_secs &lt;&lt; "\t" &lt;&lt; elapsed_secs_ht &lt;&lt; endl;
+    return 0;
 }
-
-return 0;
-}
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 2.8.1.a: C++ Implementation"><a href="#lst-hashtable-analysis-cpp" title="Copy heading and permalink for Task 2.8.1.a: C++ Implementation" aria-label="Copy heading and permalink for Task 2.8.1.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-hashtable-analysis-py"><h4 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h4>
-<div class="code-box"><pre class="program"><code id="rs-HashTableAnalysis-prog-2" class="language-py">import timeit
+<div class="code-box"><pre class="program clipboardable line-numbers"><code id="rs-HashTableAnalysis-prog-2" class="language-py">import timeit
 import random
 
 for i in range(10000,1000001,20000):
-t = timeit.Timer("random.randrange(%d) in x"%i,
-                 "from __main__ import random,x")
-x = list(range(i))
-lst_time = t.timeit(number=1000)
-x = {j:None for j in range(i)}
-d_time = t.timeit(number=1000)
-print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
-</code></pre></div></article></div>
-</div></div></div></article><span class="incontext"><a class="internal" href="algorithm-analysis_analysis-of-hash-tables.html#expl-hashtable-analysis">in-context</a></span>
+  t = timeit.Timer("random.randrange(%d) in x"%i,
+                   "from __main__ import random,x")
+  x = list(range(i))
+  lst_time = t.timeit(number=1000)
+  x = {j:None for j in range(i)}
+  d_time = t.timeit(number=1000)
+  print("%d,%10.3f,%10.3f" % (i, lst_time, d_time))
+</code></pre></div>
+<div class="autopermalink" data-description="Task 2.8.1.b: Python Implementation"><a href="#lst-hashtable-analysis-py" title="Copy heading and permalink for Task 2.8.1.b: Python Implementation" aria-label="Copy heading and permalink for Task 2.8.1.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 2.8.1: Hash Table Analysis"><a href="#expl-hashtable-analysis" title="Copy heading and permalink for Exploration 2.8.1: Hash Table Analysis" aria-label="Copy heading and permalink for Exploration 2.8.1: Hash Table Analysis">🔗</a></div></article><span class="incontext"><a class="internal" href="algorithm-analysis_analysis-of-hash-tables.html#expl-hashtable-analysis">in-context</a></span>
 </body>
 </html>

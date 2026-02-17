@@ -101,21 +101,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.14';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.d892923478694492.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -630,31 +630,56 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="recursion_converting-an-integer-to-a-string-in-any-base"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.5</span><span class="space"> </span><span class="title">Converting an Integer to a String in Any Base</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Converting an Integer to a String in Any Base</span>
 </h2>
-<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-2">Suppose you want to convert an integer to a string in some base between binary and hexadecimal. For example, convert the integer 10 to its string representation in decimal as <code class="code-inline tex2jax_ignore">"10"</code>, or to its string representation in binary as <code class="code-inline tex2jax_ignore">"1010"</code>. While there are many algorithms to solve this problem, including the algorithm discussed in the stack section, the recursive formulation of the problem is very elegant.</div>
-<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-3">Let’s look at a concrete example using base 10 and the number 769. Suppose we have a sequence of characters corresponding to the first 10 digits, like <code class="code-inline tex2jax_ignore">convString = "0123456789"</code>. It is easy to convert a number less than 10 to its string equivalent by looking it up in the sequence. For example, if the number is 9, then the string is <code class="code-inline tex2jax_ignore">convString[9]</code> or <code class="code-inline tex2jax_ignore">"9"</code>. If we can arrange to break up the number 769 into three single-digit numbers, 7, 6, and 9, then converting it to a string is simple. A number less than 10 sounds like a good base case.</div>
-<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-4">Knowing what our base is suggests that the overall algorithm will involve three components:</div>
-<blockquote class="blockquote" id="recursion_converting-an-integer-to-a-string-in-any-base-5"><div class="para logical" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1"><ol class="decimal ol-marker-1" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1">
-<li id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-1"><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-1-1">Reduce the original number to a series of single-digit numbers.</div></li>
-<li id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-2"><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-2-1">Convert the single digit-number to a string using a lookup.</div></li>
-<li id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-3"><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-3-1">Concatenate the single-digit strings together to form the final result.</div></li>
-</ol></div></blockquote>
-<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-6">The next step is to figure out how to change state and make progress toward the base case. Since we are working with an integer, let’s consider what mathematical operations might reduce a number. The most likely candidates are division and subtraction. While subtraction might work, it is unclear what we should subtract from what. Integer division with remainders gives us a clear direction. Let’s look at what happens if we divide a number by the base we are trying to convert to.</div>
-<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-7">Using integer division to divide 769 by 10, we get 76 with a remainder of 9. This gives us two good results. First, the remainder is a number less than our base that can be converted to a string immediately by lookup. Second, we get a number that is smaller than our original and moves us toward the base case of having a single number less than our base. Now our job is to convert 76 to its string representation. Again we will use integer division plus remainder to get results of 7 and 6 respectively. Finally, we have reduced the problem to converting 7, which we can do easily since it satisfies the base case condition of <span class="process-math">\(n &lt; base\text{,}\)</span> where <span class="process-math">\(base = 10\text{.}\)</span> The series of operations we have just performed is illustrated in <a href="recursion_converting-an-integer-to-a-string-in-any-base.html#fig-tostr" class="xref" data-knowl="./knowl/xref/fig-tostr.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.1">Figure 5.5.1</a>. Notice that the numbers we want to remember are in the remainder boxes along the right side of the diagram.</div>
-<figure class="figure figure-like" id="fig-tostr"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
-<img src="external/Recursion/toStr.png" class="contained" alt="described in detail following the image" aria-describedby="fig-tostr-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-tostr-2-description"><div class="para" id="fig-tostr-2-1-1">Flowchart demonstrating the conversion of an integer to a string in base 10 using recursion. The process starts with ’toStr(769)’, which divides ’769’ by ’10’ and adds the remainder ’g’. The result feeds into ’toStr(76)’, which again divides by ’10’ to add the remainder ’6’. The final call is ’toStr(7)’, which is less than ’10’ and therefore converts directly to ’7’. The remainders at each step are used to build the string representation of the integer.</div></div></details>
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-2">Suppose you want to convert an integer to a string in some base between binary and hexadecimal. For example, convert the integer 10 to its string representation in decimal as <code class="code-inline tex2jax_ignore">"10"</code>, or to its string representation in binary as <code class="code-inline tex2jax_ignore">"1010"</code>. While there are many algorithms to solve this problem, including the algorithm discussed in the stack section, the recursive formulation of the problem is very elegant.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.1<span class="period">.</span></span><span class="space"> </span>Converting an Integer to a String in Base 10.</figcaption></figure><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-9">
-<a href="recursion_converting-an-integer-to-a-string-in-any-base.html#expl-rectostr" class="xref" data-knowl="./knowl/xref/expl-rectostr.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 5.5.1: Convert Integer to String">Exploration 5.5.1</a> shows the C++ and Python code that implements the algorithm outlined above for any base between 2 and 16.</div>
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-3">Let’s look at a concrete example using base 10 and the number 769. Suppose we have a sequence of characters corresponding to the first 10 digits, like <code class="code-inline tex2jax_ignore">convString = "0123456789"</code>. It is easy to convert a number less than 10 to its string equivalent by looking it up in the sequence. For example, if the number is 9, then the string is <code class="code-inline tex2jax_ignore">convString[9]</code> or <code class="code-inline tex2jax_ignore">"9"</code>. If we can arrange to break up the number 769 into three single-digit numbers, 7, 6, and 9, then converting it to a string is simple. A number less than 10 sounds like a good base case.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-4">Knowing what our base is suggests that the overall algorithm will involve three components:<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="recursion_converting-an-integer-to-a-string-in-any-base-5">
+<div class="para logical" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1">
+<ol class="decimal ol-marker-1" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1">
+<li id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-1">
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-1-1">Reduce the original number to a series of single-digit numbers.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-2">
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-2-1">Convert the single digit-number to a string using a lookup.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-3">
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-3-1">Concatenate the single-digit strings together to form the final result.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-5" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-6">The next step is to figure out how to change state and make progress toward the base case. Since we are working with an integer, let’s consider what mathematical operations might reduce a number. The most likely candidates are division and subtraction. While subtraction might work, it is unclear what we should subtract from what. Integer division with remainders gives us a clear direction. Let’s look at what happens if we divide a number by the base we are trying to convert to.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-7">Using integer division to divide 769 by 10, we get 76 with a remainder of 9. This gives us two good results. First, the remainder is a number less than our base that can be converted to a string immediately by lookup. Second, we get a number that is smaller than our original and moves us toward the base case of having a single number less than our base. Now our job is to convert 76 to its string representation. Again we will use integer division plus remainder to get results of 7 and 6 respectively. Finally, we have reduced the problem to converting 7, which we can do easily since it satisfies the base case condition of <span class="process-math">\(n &lt; base\text{,}\)</span> where <span class="process-math">\(base = 10\text{.}\)</span> The series of operations we have just performed is illustrated in <a href="recursion_converting-an-integer-to-a-string-in-any-base.html#fig-tostr" class="xref" data-knowl="./knowl/xref/fig-tostr.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.1">Figure 5.5.1</a>. Notice that the numbers we want to remember are in the remainder boxes along the right side of the diagram.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-tostr"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+<img src="external/Recursion/toStr.png" class="contained" alt="described in detail following the image" aria-describedby="fig-tostr-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-tostr-2-description"><div class="para" id="fig-tostr-2-1-1">Flowchart demonstrating the conversion of an integer to a string in base 10 using recursion. The process starts with ’toStr(769)’, which divides ’769’ by ’10’ and adds the remainder ’g’. The result feeds into ’toStr(76)’, which again divides by ’10’ to add the remainder ’6’. The final call is ’toStr(7)’, which is less than ’10’ and therefore converts directly to ’7’. The remainders at each step are used to build the string representation of the integer.<div class="autopermalink" data-description="Paragraph"><a href="#fig-tostr-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Converting an Integer to a String in Base 10.<div class="autopermalink" data-description="Figure 5.5.1"><a href="#fig-tostr" title="Copy heading and permalink for Figure 5.5.1" aria-label="Copy heading and permalink for Figure 5.5.1">🔗</a></div></figcaption></figure><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-9">
+<a href="recursion_converting-an-integer-to-a-string-in-any-base.html#expl-rectostr" class="xref" data-knowl="./knowl/xref/expl-rectostr.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 5.5.1: Convert Integer to String">Exploration 5.5.1</a> shows the C++ and Python code that implements the algorithm outlined above for any base between 2 and 16.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-rectostr"><h3 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Convert Integer to String.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Convert Integer to String.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-rectostr">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="lst-rectostr-cpp"><h4 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h4>
-<pre class="program"><code id="rs-lst_rectostrcpp-prog" class="language-cpp">//Recursive example of converting from int to string.
+<pre class="program clipboardable"><code id="rs-lst_rectostrcpp-prog" class="language-cpp">//Recursive example of converting from int to string.
 
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -672,9 +697,10 @@ string toStr(int n, int base) {
 int main() {
   cout &lt;&lt; toStr(1453, 16);
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 5.5.1.a: C++ Implementation"><a href="#lst-rectostr-cpp" title="Copy heading and permalink for Task 5.5.1.a: C++ Implementation" aria-label="Copy heading and permalink for Task 5.5.1.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="lst-rectostr-py"><h4 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-lst_rectostrpy-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-lst_rectostrpy-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">#Recursive example of converting an int to str.
 
@@ -689,28 +715,40 @@ def main():
    print(toStr(1453,16))
 
 main()
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-11">Notice that in line 7 we check for the base case where <code class="code-inline tex2jax_ignore">n</code> is less than the base we are converting to. When we detect the base case, we stop recursing and simply return the string from the <code class="code-inline tex2jax_ignore">convertString</code> sequence. In line 10 we satisfy both the second and third laws–by making the recursive call and by reducing the problem size–using division.</div>
-<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-12">Let’s trace the algorithm again; this time we will convert the number 10 to its base 2 string representation (<code class="code-inline tex2jax_ignore">"1010"</code>).</div>
-<figure class="figure figure-like" id="fig-tostr2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
-<img src="external/Recursion/toStrBase2.png" class="contained" alt="described in detail following the image" aria-describedby="fig-tostr2-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-tostr2-2-description"><div class="para" id="fig-tostr2-2-1-1">Flowchart depicting the recursive process of converting the number 10 to its binary (base 2) string representation. The topmost operation ’toStr(10)’ shows the division ’10 / 2’ with a remainder ’0’. This leads to ’toStr(5)’, with division ’5 / 2’ and remainder ’1’, followed by ’toStr(2)’ with division ’2 / 2’ and remainder ’0’, and finally ’toStr(1)’ indicating ’1 &lt; 2’ and yielding a remainder ’1’. The remainders collected at each step form the binary representation of the number 10.</div></div></details>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 5.5.1.b: Python Implementation"><a href="#lst-rectostr-py" title="Copy heading and permalink for Task 5.5.1.b: Python Implementation" aria-label="Copy heading and permalink for Task 5.5.1.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 5.5.1: Convert Integer to String"><a href="#expl-rectostr" title="Copy heading and permalink for Exploration 5.5.1: Convert Integer to String" aria-label="Copy heading and permalink for Exploration 5.5.1: Convert Integer to String">🔗</a></div></article><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-11">Notice that in line 7 we check for the base case where <code class="code-inline tex2jax_ignore">n</code> is less than the base we are converting to. When we detect the base case, we stop recursing and simply return the string from the <code class="code-inline tex2jax_ignore">convertString</code> sequence. In line 10 we satisfy both the second and third laws–by making the recursive call and by reducing the problem size–using division.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.5.2<span class="period">.</span></span><span class="space"> </span>Converting the Number 10 to its Base 2 String Representation.</figcaption></figure><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-14">
-<a href="recursion_converting-an-integer-to-a-string-in-any-base.html#fig-tostr2" class="xref" data-knowl="./knowl/xref/fig-tostr2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.2">Figure 5.5.2</a> shows that we get the results we are looking for, but it looks like the digits are in the wrong order. The algorithm works correctly because we make the recursive call first on line 6, then we add the string representation of the remainder. If we reversed returning the <code class="code-inline tex2jax_ignore">convertString</code> lookup and returning the <code class="code-inline tex2jax_ignore">toStr</code> call, the resulting string would be backward! But by delaying the concatenation operation until after the recursive call has returned, we get the result in the proper order. This should remind you of our discussion of stacks back in the previous chapter.</div>
+<div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-12">Let’s trace the algorithm again; this time we will convert the number 10 to its base 2 string representation (<code class="code-inline tex2jax_ignore">"1010"</code>).<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-tostr2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+<img src="external/Recursion/toStrBase2.png" class="contained" alt="described in detail following the image" aria-describedby="fig-tostr2-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-tostr2-2-description"><div class="para" id="fig-tostr2-2-1-1">Flowchart depicting the recursive process of converting the number 10 to its binary (base 2) string representation. The topmost operation ’toStr(10)’ shows the division ’10 / 2’ with a remainder ’0’. This leads to ’toStr(5)’, with division ’5 / 2’ and remainder ’1’, followed by ’toStr(2)’ with division ’2 / 2’ and remainder ’0’, and finally ’toStr(1)’ indicating ’1 &lt; 2’ and yielding a remainder ’1’. The remainders collected at each step form the binary representation of the number 10.<div class="autopermalink" data-description="Paragraph"><a href="#fig-tostr2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Converting the Number 10 to its Base 2 String Representation.<div class="autopermalink" data-description="Figure 5.5.2"><a href="#fig-tostr2" title="Copy heading and permalink for Figure 5.5.2" aria-label="Copy heading and permalink for Figure 5.5.2">🔗</a></div></figcaption></figure><div class="para" id="recursion_converting-an-integer-to-a-string-in-any-base-14">
+<a href="recursion_converting-an-integer-to-a-string-in-any-base.html#fig-tostr2" class="xref" data-knowl="./knowl/xref/fig-tostr2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.5.2">Figure 5.5.2</a> shows that we get the results we are looking for, but it looks like the digits are in the wrong order. The algorithm works correctly because we make the recursive call first on line 6, then we add the string representation of the remainder. If we reversed returning the <code class="code-inline tex2jax_ignore">convertString</code> lookup and returning the <code class="code-inline tex2jax_ignore">toStr</code> call, the resulting string would be backward! But by delaying the concatenation operation until after the recursive call has returned, we get the result in the proper order. This should remind you of our discussion of stacks back in the previous chapter.<div class="autopermalink" data-description="Paragraph"><a href="#recursion_converting-an-integer-to-a-string-in-any-base-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <section class="reading-questions" id="rq-converting-integer-to-string"><h3 class="heading hide-type">
-<span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
+<span class="type">Reading Questions</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reading Questions</span>
 </h3>
-<article class="exercise exercise-like" id="RecursiveQ1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<article class="exercise exercise-like" id="RecursiveQ1"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
-<div class="exercise-statement"><div class="para" id="RecursiveQ1-1-1">Is the process of stepping through a recursive function similar to the construct of a stack or a queue?</div></div>
+<div class="exercise-statement"><div class="para" id="RecursiveQ1-1-1">Is the process of stepping through a recursive function similar to the construct of a stack or a queue?<div class="autopermalink" data-description="Paragraph"><a href="#RecursiveQ1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-RecursiveQ1" data-multipleanswers="false">
-<li data-component="answer" id="rs-RecursiveQ1_opt_a" data-correct=""><div class="para" id="RecursiveQ1-2-1-1-1">A stack, because a recursive function will complete the final function call before any of the other function calls, similar to how a stack has the Last-in-First-out principle.</div></li>
+<li data-component="answer" id="rs-RecursiveQ1_opt_a" data-correct=""><div class="para" id="RecursiveQ1-2-1-1-1">A stack, because a recursive function will complete the final function call before any of the other function calls, similar to how a stack has the Last-in-First-out principle.<div class="autopermalink" data-description="Paragraph"><a href="#RecursiveQ1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-RecursiveQ1_opt_a"><div class="para" id="RecursiveQ1-2-1-2-1">Correct! a recursive function will complete the final function call first, because the rest of the calls are waiting for the results of the calls they made.</div></li>
-<li data-component="answer" id="rs-RecursiveQ1_opt_b"><div class="para" id="RecursiveQ1-2-2-1-1">A queue, because a recursive function will complete its intial function call before any of the other function calls, similar to how a queue has the First-in-First-out principle.</div></li>
+<li data-component="answer" id="rs-RecursiveQ1_opt_b"><div class="para" id="RecursiveQ1-2-2-1-1">A queue, because a recursive function will complete its intial function call before any of the other function calls, similar to how a queue has the First-in-First-out principle.<div class="autopermalink" data-description="Paragraph"><a href="#RecursiveQ1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></li>
 <li data-component="feedback" id="rs-RecursiveQ1_opt_b"><div class="para" id="RecursiveQ1-2-2-2-1">Incorrect. Think of it this way, when a function is called and it calls itself, the original function call cannot be completed until the new function call is completed.</div></li>
 </ul>
-</div></div></article><div class="para" id="rq-converting-integer-to-string-2">Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string. Hint: using the substr(strIndex1, strIndex2) method for returning specific sections of a string can help.</div>
-<blockquote class="blockquote" id="rq-converting-integer-to-string-3"><pre class="program"><code id="rs-recursion_sc_1cpp-prog" class="language-cpp">#include &lt;iostream&gt;
+</div></div>
+<div class="autopermalink" data-description="Reading Question 5.5.1"><a href="#RecursiveQ1" title="Copy heading and permalink for Reading Question 5.5.1" aria-label="Copy heading and permalink for Reading Question 5.5.1">🔗</a></div></article><div class="para" id="rq-converting-integer-to-string-2">Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string. Hint: using the substr(strIndex1, strIndex2) method for returning specific sections of a string can help.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="rq-converting-integer-to-string-3">
+<pre class="program clipboardable"><code id="rs-recursion_sc_1cpp-prog" class="language-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
 
@@ -736,19 +774,58 @@ int main(){
 
     return 0;
 }
-</code></pre></blockquote>
-<div class="para" id="rq-converting-integer-to-string-4">Write a function that takes a string as a parameter and returns True if the string is a palindrome, False otherwise.  Remember that a string is a palindrome if it is spelled the same both forward and backward.  For example:  radar is a palindrome.  for bonus points palindromes can also be phrases, but you need to remove the spaces and punctuation before checking.  for example:  madam i’m adam  is a palindrome.  Other fun palindromes include:</div>
-<div class="para logical" id="rq-converting-integer-to-string-5"><ul class="disc" id="rq-converting-integer-to-string-5-1">
-<li id="rq-converting-integer-to-string-5-1-1"><div class="para" id="rq-converting-integer-to-string-5-1-1-1">kayak.</div></li>
-<li id="rq-converting-integer-to-string-5-1-2"><div class="para" id="rq-converting-integer-to-string-5-1-2-1">aibohphobia.</div></li>
-<li id="rq-converting-integer-to-string-5-1-3"><div class="para" id="rq-converting-integer-to-string-5-1-3-1">Live not on evil.</div></li>
-<li id="rq-converting-integer-to-string-5-1-4"><div class="para" id="rq-converting-integer-to-string-5-1-4-1">Reviled did I live, said I, as evil I did deliver.</div></li>
-<li id="rq-converting-integer-to-string-5-1-5"><div class="para" id="rq-converting-integer-to-string-5-1-5-1">Go hang a salami; I’m a lasagna hog.</div></li>
-<li id="rq-converting-integer-to-string-5-1-6"><div class="para" id="rq-converting-integer-to-string-5-1-6-1">Able was I ere I saw Elba.</div></li>
-<li id="rq-converting-integer-to-string-5-1-7"><div class="para" id="rq-converting-integer-to-string-5-1-7-1">Kanakanak –  a town in Alaska.</div></li>
-<li id="rq-converting-integer-to-string-5-1-8"><div class="para" id="rq-converting-integer-to-string-5-1-8-1">Wassamassaw – a town in South Dakota.</div></li>
-</ul></div>
-<blockquote class="blockquote" id="rq-converting-integer-to-string-6"><pre class="program"><code id="rs-recursion_sc_2cpp-prog" class="language-cpp">#include &lt;iostream&gt;
+</code></pre>
+<div class="autopermalink" data-description="Quotation"><a href="#rq-converting-integer-to-string-3" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="rq-converting-integer-to-string-4">Write a function that takes a string as a parameter and returns True if the string is a palindrome, False otherwise.  Remember that a string is a palindrome if it is spelled the same both forward and backward.  For example:  radar is a palindrome.  for bonus points palindromes can also be phrases, but you need to remove the spaces and punctuation before checking.  for example:  madam i’m adam  is a palindrome.  Other fun palindromes include:<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="rq-converting-integer-to-string-5">
+<ul class="disc" id="rq-converting-integer-to-string-5-1">
+<li id="rq-converting-integer-to-string-5-1-1">
+<div class="para" id="rq-converting-integer-to-string-5-1-1-1">kayak.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rq-converting-integer-to-string-5-1-2">
+<div class="para" id="rq-converting-integer-to-string-5-1-2-1">aibohphobia.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rq-converting-integer-to-string-5-1-3">
+<div class="para" id="rq-converting-integer-to-string-5-1-3-1">Live not on evil.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rq-converting-integer-to-string-5-1-4">
+<div class="para" id="rq-converting-integer-to-string-5-1-4-1">Reviled did I live, said I, as evil I did deliver.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rq-converting-integer-to-string-5-1-5">
+<div class="para" id="rq-converting-integer-to-string-5-1-5-1">Go hang a salami; I’m a lasagna hog.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rq-converting-integer-to-string-5-1-6">
+<div class="para" id="rq-converting-integer-to-string-5-1-6-1">Able was I ere I saw Elba.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rq-converting-integer-to-string-5-1-7">
+<div class="para" id="rq-converting-integer-to-string-5-1-7-1">Kanakanak –  a town in Alaska.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-7" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="rq-converting-integer-to-string-5-1-8">
+<div class="para" id="rq-converting-integer-to-string-5-1-8-1">Wassamassaw – a town in South Dakota.<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5-1-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#rq-converting-integer-to-string-5-1-8" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#rq-converting-integer-to-string-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="rq-converting-integer-to-string-6">
+<pre class="program clipboardable"><code id="rs-recursion_sc_2cpp-prog" class="language-cpp">#include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
 
@@ -781,7 +858,10 @@ int main(){
 
     return 0;
 }
-</code></pre></blockquote></section></section></div>
+</code></pre>
+<div class="autopermalink" data-description="Quotation"><a href="#rq-converting-integer-to-string-6" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="autopermalink" data-description="Reading Questions 5.5"><a href="#rq-converting-integer-to-string" title="Copy heading and permalink for Reading Questions 5.5" aria-label="Copy heading and permalink for Reading Questions 5.5">🔗</a></div></section><div class="autopermalink" data-description="Section 5.5: Converting an Integer to a String in Any Base"><a href="#recursion_converting-an-integer-to-a-string-in-any-base" title="Copy heading and permalink for Section 5.5: Converting an Integer to a String in Any Base" aria-label="Copy heading and permalink for Section 5.5: Converting an Integer to a String in Any Base">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="recursion_the-three-laws-of-recursion.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="recursion_stack-frames-implementing-recursion.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

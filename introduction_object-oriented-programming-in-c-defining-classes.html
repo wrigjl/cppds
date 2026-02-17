@@ -101,21 +101,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.8';
+eBookConfig.runestone_version = '7.11.14';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="_static/prefix-runtime.d892923478694492.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="cppds2" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++:</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
+<h1 class="heading"><a href="cppds2.html"><span class="title">Problem Solving with Algorithms and Data Structures using C++</span> <span class="subtitle">The PreTeXt Interactive Edition</span></a></h1>
 <p class="byline"></p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="cppds2-12-1.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -630,52 +630,87 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="introduction_object-oriented-programming-in-c-defining-classes"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.12</span><span class="space"> </span><span class="title">Object-Oriented Programming in C++: Defining Classes</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Object-Oriented Programming in C++: Defining Classes</span>
 </h2>
-<section class="introduction" id="introduction_object-oriented-programming-in-c-defining-classes-2"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-1">We stated earlier that C++ is an <dfn class="terminology">object-oriented programming language</dfn>. Object-oriented programming is a programming technique based on real world things such as turtles, airplanes, customers, etc. Each object has its own characteristics or attributes as well as its own set of behaviors.</div>
-<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-2">So far, we have used a number of built-in classes to show examples of data and control structures. One of the most powerful features in an object-oriented programming language is the ability to allow a programmer (problem solver) to create new classes that model data that is needed to solve the problem. Each <dfn class="terminology">object</dfn> created with the class data type is called an <dfn class="terminology">instance</dfn> of  the class.</div>
-<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-3">Remember that we use abstract data types to provide the logical description or blueprint for what a data object looks like (its state given by <dfn class="terminology">object attributes</dfn>) and what it can do (its behaviors given by <dfn class="terminology">class methods</dfn>). Defining a class creates the blueprint which defines the behaviors and attributes of objects of that new data type. By building a <dfn class="terminology">class</dfn> that implements an abstract data type, a programmer can take advantage of the abstraction process and at the same time provide the details necessary to actually use the abstraction in a program. Hence, whenever we want to implement an abstract data type, we will do so with a new class which will provide the blueprint or template for all of the objects of that type.</div>
-<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-4">Four key principles are associated with object-oriented programming:</div>
-<blockquote class="blockquote" id="introduction_object-oriented-programming-in-c-defining-classes-2-5"><div class="para logical" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1"><ol class="decimal ol-marker-1" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1">
-<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-1"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-1-1">abstraction</div></li>
-<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-2"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-2-1">encapsulation</div></li>
-<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-3"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-3-1">inheritance</div></li>
-<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-4"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-4-1">polymorphism</div></li>
-</ol></div></blockquote>
-<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-6">We will highlight each principle via examples.</div></section><section class="subsection" id="introduction_a-fraction-class"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.12.1</span><span class="space"> </span><span class="title">A <code class="code-inline tex2jax_ignore">Fraction</code> Class</span>
+<section class="introduction" id="introduction_object-oriented-programming-in-c-defining-classes-2"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-1">We stated earlier that C++ is an <dfn class="terminology">object-oriented programming language</dfn>. Object-oriented programming is a programming technique based on real world things such as turtles, airplanes, customers, etc. Each object has its own characteristics or attributes as well as its own set of behaviors.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-2">So far, we have used a number of built-in classes to show examples of data and control structures. One of the most powerful features in an object-oriented programming language is the ability to allow a programmer (problem solver) to create new classes that model data that is needed to solve the problem. Each <dfn class="terminology">object</dfn> created with the class data type is called an <dfn class="terminology">instance</dfn> of  the class.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-3">Remember that we use abstract data types to provide the logical description or blueprint for what a data object looks like (its state given by <dfn class="terminology">object attributes</dfn>) and what it can do (its behaviors given by <dfn class="terminology">class methods</dfn>). Defining a class creates the blueprint which defines the behaviors and attributes of objects of that new data type. By building a <dfn class="terminology">class</dfn> that implements an abstract data type, a programmer can take advantage of the abstraction process and at the same time provide the details necessary to actually use the abstraction in a program. Hence, whenever we want to implement an abstract data type, we will do so with a new class which will provide the blueprint or template for all of the objects of that type.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-4">Four key principles are associated with object-oriented programming:<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="introduction_object-oriented-programming-in-c-defining-classes-2-5">
+<div class="para logical" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1">
+<ol class="decimal ol-marker-1" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1">
+<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-1">
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-1-1">abstraction<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-2">
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-2-1">encapsulation<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-3">
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-3-1">inheritance<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-4">
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-4-1">polymorphism<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-5" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-2-6">We will highlight each principle via examples.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="introduction_a-fraction-class"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A <code class="code-inline tex2jax_ignore">Fraction</code> Class</span>
 </h3>
-<div class="para" id="introduction_a-fraction-class-2">A very common example to show the details of implementing a user-defined class is to construct a class to implement the abstract data type <code class="code-inline tex2jax_ignore">Fraction</code>. We have already seen that C++ provides a number of numeric data types for our use. There are times, however, that it would be most appropriate to be able to create data objects that both  look and act like fractions.</div>
-<div class="para" id="introduction_a-fraction-class-3">A fraction such as <span class="process-math">\(\frac {3}{5}\)</span> consists of two parts. The top value, known as the numerator, can be any integer. The bottom value, called the denominator, can be any integer greater than 0 (negative fractions have a negative numerator). Although it is possible to create a floating point approximation for any fraction, we would like to represent the fraction using exact values to avoid problems inherent in approximations.</div>
-<div class="para" id="introduction_a-fraction-class-4">Since defining a class makes a new data type, the operations for the <code class="code-inline tex2jax_ignore">Fraction</code> type will allow a <code class="code-inline tex2jax_ignore">Fraction</code> data object to behave like any other numeric type. We need to be able to add, subtract, multiply, and divide fractions. We also want to be able to print fractions using the standard “slash” form, for example 3/5. In addition, all fraction methods should return results in their lowest terms so that no matter what computation is performed, we always end up with the most common form.</div>
-<div class="para" id="introduction_a-fraction-class-5">In C++, we define a new class by providing a name and a set of method definitions that are syntactically similar to function definitions. For example, see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#defn-classes" class="xref" data-knowl="./knowl/xref/defn-classes.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.1: Defining Classes">Exploration 1.12.1</a>.</div>
+<div class="para" id="introduction_a-fraction-class-2">A very common example to show the details of implementing a user-defined class is to construct a class to implement the abstract data type <code class="code-inline tex2jax_ignore">Fraction</code>. We have already seen that C++ provides a number of numeric data types for our use. There are times, however, that it would be most appropriate to be able to create data objects that both  look and act like fractions.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_a-fraction-class-3">A fraction such as <span class="process-math">\(\frac {3}{5}\)</span> consists of two parts. The top value, known as the numerator, can be any integer. The bottom value, called the denominator, can be any integer greater than 0 (negative fractions have a negative numerator). Although it is possible to create a floating point approximation for any fraction, we would like to represent the fraction using exact values to avoid problems inherent in approximations.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_a-fraction-class-4">Since defining a class makes a new data type, the operations for the <code class="code-inline tex2jax_ignore">Fraction</code> type will allow a <code class="code-inline tex2jax_ignore">Fraction</code> data object to behave like any other numeric type. We need to be able to add, subtract, multiply, and divide fractions. We also want to be able to print fractions using the standard “slash” form, for example 3/5. In addition, all fraction methods should return results in their lowest terms so that no matter what computation is performed, we always end up with the most common form.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_a-fraction-class-5">In C++, we define a new class by providing a name and a set of method definitions that are syntactically similar to function definitions. For example, see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#defn-classes" class="xref" data-knowl="./knowl/xref/defn-classes.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.1: Defining Classes">Exploration 1.12.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="defn-classes"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.1</span><span class="period">.</span><span class="space"> </span><span class="title">Defining Classes.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Defining Classes.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-defn-classes">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="defn-classes-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-defn-classes-cpp-prog" class="language-cpp">class Fraction {
+<div class="code-box"><pre class="program clipboardable"><code id="rs-defn-classes-cpp-prog" class="language-cpp">class Fraction {
     // The class methods and class variables go here
 };  // The ";" is required by C++ to end a class definition
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.1.a: C++ Implementation"><a href="#defn-classes-cpp" title="Copy heading and permalink for Task 1.12.1.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.12.1.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="defn-classes-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-defn-classes-py-prog" class="language-py">class Fraction:
+<div class="code-box"><pre class="program clipboardable"><code id="rs-defn-classes-py-prog" class="language-py">class Fraction:
 
 #the methods go here
-</code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_a-fraction-class-7">provides the framework for us to define the methods. The first method that all classes should provide is the <dfn class="terminology">constructor</dfn>. The constructor defines the way in which data objects are created. It’s considered good practice to have a constructor completely setup a class object, so that it’s impossible to create an object in an invalid state. To create a <code class="code-inline tex2jax_ignore">Fraction</code> object, we will need to initialize two pieces of data, the numerator and the denominator. In C++, the constructor method is always named with the same name as the class it creates and is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-constructor-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-constructor-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.2.a: C++">Task 1.12.2.a</a>.</div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.1.b: Python Implementation"><a href="#defn-classes-py" title="Copy heading and permalink for Task 1.12.1.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.12.1.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.1: Defining Classes"><a href="#defn-classes" title="Copy heading and permalink for Exploration 1.12.1: Defining Classes" aria-label="Copy heading and permalink for Exploration 1.12.1: Defining Classes">🔗</a></div></article><div class="para" id="introduction_a-fraction-class-7">provides the framework for us to define the methods. The first method that all classes should provide is the <dfn class="terminology">constructor</dfn>. The constructor defines the way in which data objects are created. It’s considered good practice to have a constructor completely setup a class object, so that it’s impossible to create an object in an invalid state. To create a <code class="code-inline tex2jax_ignore">Fraction</code> object, we will need to initialize two pieces of data, the numerator and the denominator. In C++, the constructor method is always named with the same name as the class it creates and is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-constructor-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-constructor-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.2.a: C++">Task 1.12.2.a</a>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="introduction_lst-constructor"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.2</span><span class="period">.</span><span class="space"> </span><span class="title">Constructor for <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Constructor for <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-introduction_lst-constructor">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-constructor-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-introduction_lst-constructor-cpp-prog" class="language-cpp">class Fraction {
+<div class="code-box"><pre class="program clipboardable"><code id="rs-introduction_lst-constructor-cpp-prog" class="language-cpp">class Fraction {
     public:
       Fraction(int top, int bottom) {
          /** Fraction constructor method */
@@ -686,51 +721,67 @@ eBookConfig.enable_chatcodes =  false;
        int num; // num attribute
        int den; // den attribute
 };
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.2.a: C++"><a href="#introduction_lst-constructor-cpp" title="Copy heading and permalink for Task 1.12.2.a: C++" aria-label="Copy heading and permalink for Task 1.12.2.a: C++">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introduction_lst-constructor-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-introduction_lst-constructor-py-prog" class="language-none">class Fraction:
+<div class="code-box"><pre class="program clipboardable"><code id="rs-introduction_lst-constructor-py-prog" class="language-none">class Fraction:
 
     def __init__(self,top,bottom):
 
         self.num = top
         self.den = bottom
-</code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_a-fraction-class-9">As described earlier, fractions require two pieces of state data, the numerator and the denominator. The notation <code class="code-inline tex2jax_ignore">int num</code> outside the constructor defines the <code class="code-inline tex2jax_ignore">fraction</code> object to have an internal data object called <code class="code-inline tex2jax_ignore">num</code> as part of its state. Likewise, <code class="code-inline tex2jax_ignore">int den</code> creates the denominator. The values of the two formal parameters are initially assigned to the state, allowing the new <code class="code-inline tex2jax_ignore">fraction</code> object to know its starting values.</div>
-<div class="para" id="introduction_a-fraction-class-10">To create an object or instance of the <code class="code-inline tex2jax_ignore">Fraction</code> class, we must invoke the constructor. This happens by using the name of the class and passing actual values for the necessary state after the variable name. For example, see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#invoking-constructor" class="xref" data-knowl="./knowl/xref/invoking-constructor.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.3: Invoking Constructor">Exploration 1.12.3</a>.</div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.2.b: Python"><a href="#introduction_lst-constructor-py" title="Copy heading and permalink for Task 1.12.2.b: Python" aria-label="Copy heading and permalink for Task 1.12.2.b: Python">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.2: Constructor for Fraction class"><a href="#introduction_lst-constructor" title="Copy heading and permalink for Exploration 1.12.2: Constructor for Fraction class" aria-label="Copy heading and permalink for Exploration 1.12.2: Constructor for Fraction class">🔗</a></div></article><div class="para" id="introduction_a-fraction-class-9">As described earlier, fractions require two pieces of state data, the numerator and the denominator. The notation <code class="code-inline tex2jax_ignore">int num</code> outside the constructor defines the <code class="code-inline tex2jax_ignore">fraction</code> object to have an internal data object called <code class="code-inline tex2jax_ignore">num</code> as part of its state. Likewise, <code class="code-inline tex2jax_ignore">int den</code> creates the denominator. The values of the two formal parameters are initially assigned to the state, allowing the new <code class="code-inline tex2jax_ignore">fraction</code> object to know its starting values.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_a-fraction-class-10">To create an object or instance of the <code class="code-inline tex2jax_ignore">Fraction</code> class, we must invoke the constructor. This happens by using the name of the class and passing actual values for the necessary state after the variable name. For example, see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#invoking-constructor" class="xref" data-knowl="./knowl/xref/invoking-constructor.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.3: Invoking Constructor">Exploration 1.12.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="invoking-constructor"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.3</span><span class="period">.</span><span class="space"> </span><span class="title">Invoking Constructor.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Invoking Constructor.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-invoking-constructor">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="invoking-constructor-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-invoking-constructor-cpp-prog" class="language-cpp">Fraction myfraction(3, 5);
-</code></pre></div></article></div>
+<div class="code-box"><pre class="program clipboardable"><code id="rs-invoking-constructor-cpp-prog" class="language-cpp">Fraction myfraction(3, 5);
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.3.a: C++ Implementation"><a href="#invoking-constructor-cpp" title="Copy heading and permalink for Task 1.12.3.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.12.3.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="invoking-constructor-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-invoking-constructor-py-prog" class="language-py">myfraction = Fraction(3, 5)
-</code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_a-fraction-class-12">creates an object called <code class="code-inline tex2jax_ignore">myfraction</code> representing the fraction <span class="process-math">\(\frac {3}{5}\)</span> (three-fifths). <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction1cpp" class="xref" data-knowl="./knowl/xref/fig-fraction1cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.1">Figure 1.12.1</a> shows this object as it is now implemented.</div>
+<div class="code-box"><pre class="program clipboardable"><code id="rs-invoking-constructor-py-prog" class="language-py">myfraction = Fraction(3, 5)
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.3.b: Python Implementation"><a href="#invoking-constructor-py" title="Copy heading and permalink for Task 1.12.3.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.12.3.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.3: Invoking Constructor"><a href="#invoking-constructor" title="Copy heading and permalink for Exploration 1.12.3: Invoking Constructor" aria-label="Copy heading and permalink for Exploration 1.12.3: Invoking Constructor">🔗</a></div></article><div class="para" id="introduction_a-fraction-class-12">creates an object called <code class="code-inline tex2jax_ignore">myfraction</code> representing the fraction <span class="process-math">\(\frac {3}{5}\)</span> (three-fifths). <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction1cpp" class="xref" data-knowl="./knowl/xref/fig-fraction1cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.1">Figure 1.12.1</a> shows this object as it is now implemented.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_a-fraction-class-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <figure class="figure figure-like" id="fig-fraction1cpp"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
-<img src="external/Introduction/fraction1cpp.png" class="contained" alt="described in detail following the image" aria-describedby="fig-fraction1cpp-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-fraction1cpp-2-description"><div class="para" id="fig-fraction1cpp-2-1-1">Diagram showing an instance of the Fraction class. The instance is named ’myfraction’ and is depicted as a set of concentric circles. The innermost circle is labeled ’State’ and contains two segments: ’num’ with the number 3 above ’den’ with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled ’Methods’, indicating the functionality associated with the fraction instance.</div></div></details>
+<img src="external/Introduction/fraction1cpp.png" class="contained" alt="described in detail following the image" aria-describedby="fig-fraction1cpp-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-fraction1cpp-2-description"><div class="para" id="fig-fraction1cpp-2-1-1">Diagram showing an instance of the Fraction class. The instance is named ’myfraction’ and is depicted as a set of concentric circles. The innermost circle is labeled ’State’ and contains two segments: ’num’ with the number 3 above ’den’ with the number 5, representing the numerator and denominator of a fraction. The middle circle is labeled ’Methods’, indicating the functionality associated with the fraction instance.<div class="autopermalink" data-description="Paragraph"><a href="#fig-fraction1cpp-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.1<span class="period">.</span></span><span class="space"> </span>An instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class</figcaption></figure></section><section class="subsection" id="introduction_abstraction-and-encapsulation"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.12.2</span><span class="space"> </span><span class="title">Abstraction and Encapsulation</span>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class<div class="autopermalink" data-description="Figure 1.12.1"><a href="#fig-fraction1cpp" title="Copy heading and permalink for Figure 1.12.1" aria-label="Copy heading and permalink for Figure 1.12.1">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 1.12.1: A Fraction Class"><a href="#introduction_a-fraction-class" title="Copy heading and permalink for Subsection 1.12.1: A Fraction Class" aria-label="Copy heading and permalink for Subsection 1.12.1: A Fraction Class">🔗</a></div></section><section class="subsection" id="introduction_abstraction-and-encapsulation"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Abstraction and Encapsulation</span>
 </h3>
-<div class="para" id="introduction_abstraction-and-encapsulation-2">Another way to think about fractions is as “parts of a whole” as shown in the following figure:</div>
-<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
-<img src="external/Introduction/fractions_partsofwhole.png" class="contained" alt="described in detail following the image" aria-describedby="introduction_abstraction-and-encapsulation-3-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="introduction_abstraction-and-encapsulation-3-description"><div class="para" id="introduction_abstraction-and-encapsulation-3-1-1">Image showing a visual representation of fractions as "parts of a whole." The diagram begins with a full circle labeled "1," followed by a circle divided into two equal parts labeled "1/2," then into four parts labeled "1/4," and finally into eight parts labeled "1/8." The sequence visually illustrates how a whole can be divided into progressively smaller fractions.</div></div></details>
+<div class="para" id="introduction_abstraction-and-encapsulation-2">Another way to think about fractions is as “parts of a whole” as shown in the following figure:<div class="autopermalink" data-description="Paragraph"><a href="#introduction_abstraction-and-encapsulation-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="introduction_abstraction-and-encapsulation-4">Because we are using classes to create abstract data types, we should probably define the term “abstract” in this context. In object-oriented programming, <dfn class="terminology">abstraction</dfn> requires you to focus solely on the desired properties and behaviors of the objects, discarding everything else that is unimportant or irrelevant. As a result, if we don’t need to consider the “parts of a whole” visual metaphor of a fraction, we won’t include it in the <code class="code-inline tex2jax_ignore">Fraction</code> class. If a given metaphor is important, we will include it. For our purposes, we want to think of fractions as numbers, so we will avoid using the “parts of a whole” visual metaphor.</div>
-<div class="para" id="introduction_abstraction-and-encapsulation-5">The object-oriented principle of <dfn class="terminology">encapsulation</dfn> refers to the practice of grouping or encapsulating related data and the methods that operate on that data into a single unit, typically a class. Encapsulation also requires we hide most of the internal contents of that class, except what is absolutely necessary to expose. Hence, we will restrict the access to our class as much as we can, so that a user can change the class properties and behaviors only from methods provided by the class.  C++ allows us to control access with the <dfn class="terminology">access keywords</dfn> <code class="code-inline tex2jax_ignore">public</code> and <code class="code-inline tex2jax_ignore">private</code>. It is typical in C++ to make all data attributes <code class="code-inline tex2jax_ignore">private</code> and most methods <code class="code-inline tex2jax_ignore">public</code>. All attribute variables under the <code class="code-inline tex2jax_ignore">private</code> keyword will only be able to be accessed by the object’s class methods, not by the user. Only C++’s <code class="code-inline tex2jax_ignore">public</code> methods can be accessed and used by the user. Because we want our user to be able to call every constructor directly, we always place the constructor under <code class="code-inline tex2jax_ignore">public</code>. A third access keyword, <code class="code-inline tex2jax_ignore">protected</code> will be discussed later.</div></section><section class="subsection" id="introduction_polymorphism"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.12.3</span><span class="space"> </span><span class="title">Polymorphism</span>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+<img src="external/Introduction/fractions_partsofwhole.png" class="contained" alt="described in detail following the image" aria-describedby="introduction_abstraction-and-encapsulation-3-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="introduction_abstraction-and-encapsulation-3-description"><div class="para" id="introduction_abstraction-and-encapsulation-3-1-1">Image showing a visual representation of fractions as "parts of a whole." The diagram begins with a full circle labeled "1," followed by a circle divided into two equal parts labeled "1/2," then into four parts labeled "1/4," and finally into eight parts labeled "1/8." The sequence visually illustrates how a whole can be divided into progressively smaller fractions.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_abstraction-and-encapsulation-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<div class="para" id="introduction_abstraction-and-encapsulation-4">Because we are using classes to create abstract data types, we should probably define the term “abstract” in this context. In object-oriented programming, <dfn class="terminology">abstraction</dfn> requires you to focus solely on the desired properties and behaviors of the objects, discarding everything else that is unimportant or irrelevant. As a result, if we don’t need to consider the “parts of a whole” visual metaphor of a fraction, we won’t include it in the <code class="code-inline tex2jax_ignore">Fraction</code> class. If a given metaphor is important, we will include it. For our purposes, we want to think of fractions as numbers, so we will avoid using the “parts of a whole” visual metaphor.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_abstraction-and-encapsulation-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_abstraction-and-encapsulation-5">The object-oriented principle of <dfn class="terminology">encapsulation</dfn> refers to the practice of grouping or encapsulating related data and the methods that operate on that data into a single unit, typically a class. Encapsulation also requires we hide most of the internal contents of that class, except what is absolutely necessary to expose. Hence, we will restrict the access to our class as much as we can, so that a user can change the class properties and behaviors only from methods provided by the class.  C++ allows us to control access with the <dfn class="terminology">access keywords</dfn> <code class="code-inline tex2jax_ignore">public</code> and <code class="code-inline tex2jax_ignore">private</code>. It is typical in C++ to make all data attributes <code class="code-inline tex2jax_ignore">private</code> and most methods <code class="code-inline tex2jax_ignore">public</code>. All attribute variables under the <code class="code-inline tex2jax_ignore">private</code> keyword will only be able to be accessed by the object’s class methods, not by the user. Only C++’s <code class="code-inline tex2jax_ignore">public</code> methods can be accessed and used by the user. Because we want our user to be able to call every constructor directly, we always place the constructor under <code class="code-inline tex2jax_ignore">public</code>. A third access keyword, <code class="code-inline tex2jax_ignore">protected</code> will be discussed later.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_abstraction-and-encapsulation-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 1.12.2: Abstraction and Encapsulation"><a href="#introduction_abstraction-and-encapsulation" title="Copy heading and permalink for Subsection 1.12.2: Abstraction and Encapsulation" aria-label="Copy heading and permalink for Subsection 1.12.2: Abstraction and Encapsulation">🔗</a></div></section><section class="subsection" id="introduction_polymorphism"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Polymorphism</span>
 </h3>
 <div class="para" id="introduction_polymorphism-2">
-<dfn class="terminology">Polymorphism</dfn> means the ability to appear in many forms. In object-oriented programming, <dfn class="terminology">polymorphism</dfn> refers to the ability to handle objects or methods differently depending on their data type, class, number of arguments, etc. For example, we can overload a constructor with different numbers and types of arguments to give us multiple ways to instantiate an object of a class as shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#frac-poly" class="xref" data-knowl="./knowl/xref/frac-poly.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.2: Example of Polymorphism">Listing 1.12.2</a> for the <code class="code-inline tex2jax_ignore">Fraction</code> class.</div>
-<figure class="listing figure-like" id="frac-poly"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.12.2<span class="period">.</span></span><span class="space"> </span>Example of Polymorphism</figcaption><div class="listing__contents"><div class="code-box"><pre class="program"><code id="rs-frac-poly-prog" class="language-cpp">Fraction(int top, int bottom){
+<dfn class="terminology">Polymorphism</dfn> means the ability to appear in many forms. In object-oriented programming, <dfn class="terminology">polymorphism</dfn> refers to the ability to handle objects or methods differently depending on their data type, class, number of arguments, etc. For example, we can overload a constructor with different numbers and types of arguments to give us multiple ways to instantiate an object of a class as shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#frac-poly" class="xref" data-knowl="./knowl/xref/frac-poly.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.2: Example of Polymorphism">Listing 1.12.2</a> for the <code class="code-inline tex2jax_ignore">Fraction</code> class.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="listing figure-like" id="frac-poly"><figcaption><span class="type">Listing</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Example of Polymorphism<div class="autopermalink" data-description="Listing 1.12.2: Example of Polymorphism"><a href="#frac-poly" title="Copy heading and permalink for Listing 1.12.2: Example of Polymorphism" aria-label="Copy heading and permalink for Listing 1.12.2: Example of Polymorphism">🔗</a></div></figcaption><div class="listing__contents"><div class="code-box"><pre class="program clipboardable"><code id="rs-frac-poly-prog" class="language-cpp">Fraction(int top, int bottom){
     num = top;
     den = bottom;
 }
@@ -742,15 +793,18 @@ Fraction (){
     num = 0;
     den = 1;
 }
-</code></pre></div></div></figure><div class="para" id="introduction_polymorphism-4">Calling the constructor with two arguments will invoke the first method, calling it with a single argument will invoke the second method, and calling it with no arguments will invoke the third method.</div>
-<div class="para" id="introduction_polymorphism-5">Using optional parameters will accomplish the same task in this case. Since the class will behave the same no matter which implementation you use and the user will have no idea which implementation was chosen, this is an example of encapsulation.</div>
-<pre class="code-block tex2jax_ignore">Fraction(int top = 0, int bottom = 1){
+</code></pre></div></div></figure><div class="para" id="introduction_polymorphism-4">Calling the constructor with two arguments will invoke the first method, calling it with a single argument will invoke the second method, and calling it with no arguments will invoke the third method.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-5">Using optional parameters will accomplish the same task in this case. Since the class will behave the same no matter which implementation you use and the user will have no idea which implementation was chosen, this is an example of encapsulation.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="code-block tex2jax_ignore clipboardable">Fraction(int top = 0, int bottom = 1){
     num = top;
     den = bottom;
 }
 </pre>
-<div class="para" id="introduction_polymorphism-7">The next thing we need to do is implement some behaviors that the abstract data type requires. To begin, let’s consider what happens when we try to print a <code class="code-inline tex2jax_ignore">Fraction</code> object.</div>
-<div class="code-box"><pre class="program"><code id="rs-ObjectOrientedProgrammingDefiningClasses-prog" class="language-cpp">int main() {
+<div class="para" id="introduction_polymorphism-7">The next thing we need to do is implement some behaviors that the abstract data type requires. To begin, let’s consider what happens when we try to print a <code class="code-inline tex2jax_ignore">Fraction</code> object.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="code-box"><pre class="program clipboardable"><code id="rs-ObjectOrientedProgrammingDefiningClasses-prog" class="language-cpp">int main() {
     Fraction myfraction(3, 5);
 
     // Throws an error
@@ -759,16 +813,18 @@ Fraction (){
     return 0;
 }
 </code></pre></div>
-<div class="para" id="introduction_polymorphism-9">The <code class="code-inline tex2jax_ignore">fraction</code> object, <code class="code-inline tex2jax_ignore">myfraction</code>, does not know how to respond to this request to print to the console. The <code class="code-inline tex2jax_ignore">cout</code> function requires that the object knows how to interact with the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator so that the string can be sent to the output stream. Without this, our class will throw an error, which is obviously not what we want.</div>
-<div class="para" id="introduction_polymorphism-10">There are two ways we can solve this problem. One is to define a method called something like <code class="code-inline tex2jax_ignore">show</code> that will allow the <code class="code-inline tex2jax_ignore">Fraction</code> object to print itself as a string. We can implement this method as shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#showmethod-cpp" class="xref" data-knowl="./knowl/xref/showmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.4.a: C++">Task 1.12.4.a</a>. If we create a <code class="code-inline tex2jax_ignore">Fraction</code> object as before, we can ask it to show itself, in other words, print itself in the proper format by invoking the show method on our fractions.</div>
+<div class="para" id="introduction_polymorphism-9">The <code class="code-inline tex2jax_ignore">fraction</code> object, <code class="code-inline tex2jax_ignore">myfraction</code>, does not know how to respond to this request to print to the console. The <code class="code-inline tex2jax_ignore">cout</code> function requires that the object knows how to interact with the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator so that the string can be sent to the output stream. Without this, our class will throw an error, which is obviously not what we want.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-10">There are two ways we can solve this problem. One is to define a method called something like <code class="code-inline tex2jax_ignore">show</code> that will allow the <code class="code-inline tex2jax_ignore">Fraction</code> object to print itself as a string. We can implement this method as shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#showmethod-cpp" class="xref" data-knowl="./knowl/xref/showmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.4.a: C++">Task 1.12.4.a</a>. If we create a <code class="code-inline tex2jax_ignore">Fraction</code> object as before, we can ask it to show itself, in other words, print itself in the proper format by invoking the show method on our fractions.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="introduction_polymorphism-11"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.4</span><span class="period">.</span><span class="space"> </span><span class="title">Implementing a <code class="code-inline tex2jax_ignore">show</code> method.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Implementing a <code class="code-inline tex2jax_ignore">show</code> method.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="showmethod-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++.</span>
 </h5>
-<pre class="program"><code id="rs-showmethod-cpp-prog" class="language-cpp">//using functions to print fractions to the command line.
+<pre class="program clipboardable"><code id="rs-showmethod-cpp-prog" class="language-cpp">//using functions to print fractions to the command line.
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -796,25 +852,32 @@ int main() {
     fracc.show();
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.12.4.a: C++"><a href="#showmethod-cpp" title="Copy heading and permalink for Task 1.12.4.a: C++" aria-label="Copy heading and permalink for Task 1.12.4.a: C++">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="showmethod_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-showmethod_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-showmethod_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">def show(self):
   print(self.num,"/",self.den)
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-12">The downside of this approach is that it is not how we expect to print to the console. In C++, there are many operators that are provided for atomic and STL data types that may not work as expected with a user defined class until you <dfn class="terminology">overload</dfn> them. One of these, <code class="code-inline tex2jax_ignore">&lt;&lt;</code>, is the operator to send data to the output stream. It would be nicer to provide a “better” implementation for this method via operator overloading.</div>
-<div class="para" id="introduction_polymorphism-13">Like function overloading, <dfn class="terminology">operator overloading</dfn> allows us to make operators work for user defined classes by defining a special meaning for that operator when applied to objects of the class as operands. This is a form of polymorphism because it enables the same operator to have different behaviors depending on the class of the objects involved, demonstrating how the same operation can be adapted to various types.</div>
-<div class="para" id="introduction_polymorphism-14">In C++ this new operator needs to be implemented as a <dfn class="terminology">friend</dfn> of the class in order to define the operator’s behavior on objects of the class from a non-class method <code class="code-inline tex2jax_ignore">&lt;&lt;</code>. Operator overloading is yet another example of polymorphism in object-oriented programming.</div>
-<div class="para" id="introduction_polymorphism-15">A <dfn class="terminology">friend function</dfn> of a class is a function defined outside that class’ scope but with the right to access all private and protected members of the class. In C++, we overload an operator by declaring it a <dfn class="terminology">friend</dfn> function in the class definition and giving it a new implementation. <a href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-overload" class="xref" data-knowl="./knowl/xref/expl-overload.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.5: Operator Overloading Example">Exploration 1.12.5</a> shows an example of the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator being overloaded in the <code class="code-inline tex2jax_ignore">Fraction</code> class. Note that stream operators need to return the address of the stream because of the fact that the stream is changed by the stream operator.</div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.12.4.b: Python"><a href="#showmethod_py" title="Copy heading and permalink for Task 1.12.4.b: Python" aria-label="Copy heading and permalink for Task 1.12.4.b: Python">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.4: Implementing a show method"><a href="#introduction_polymorphism-11" title="Copy heading and permalink for Exploration 1.12.4: Implementing a show method" aria-label="Copy heading and permalink for Exploration 1.12.4: Implementing a show method">🔗</a></div></article><div class="para" id="introduction_polymorphism-12">The downside of this approach is that it is not how we expect to print to the console. In C++, there are many operators that are provided for atomic and STL data types that may not work as expected with a user defined class until you <dfn class="terminology">overload</dfn> them. One of these, <code class="code-inline tex2jax_ignore">&lt;&lt;</code>, is the operator to send data to the output stream. It would be nicer to provide a “better” implementation for this method via operator overloading.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-13">Like function overloading, <dfn class="terminology">operator overloading</dfn> allows us to make operators work for user defined classes by defining a special meaning for that operator when applied to objects of the class as operands. This is a form of polymorphism because it enables the same operator to have different behaviors depending on the class of the objects involved, demonstrating how the same operation can be adapted to various types.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-14">In C++ this new operator needs to be implemented as a <dfn class="terminology">friend</dfn> of the class in order to define the operator’s behavior on objects of the class from a non-class method <code class="code-inline tex2jax_ignore">&lt;&lt;</code>. Operator overloading is yet another example of polymorphism in object-oriented programming.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-15">A <dfn class="terminology">friend function</dfn> of a class is a function defined outside that class’ scope but with the right to access all private and protected members of the class. In C++, we overload an operator by declaring it a <dfn class="terminology">friend</dfn> function in the class definition and giving it a new implementation. <a href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-overload" class="xref" data-knowl="./knowl/xref/expl-overload.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.5: Operator Overloading Example">Exploration 1.12.5</a> shows an example of the <code class="code-inline tex2jax_ignore">&lt;&lt;</code> operator being overloaded in the <code class="code-inline tex2jax_ignore">Fraction</code> class. Note that stream operators need to return the address of the stream because of the fact that the stream is changed by the stream operator.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-overload"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.5</span><span class="period">.</span><span class="space"> </span><span class="title">Operator Overloading Example.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Operator Overloading Example.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-overload">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="overloaded-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-overloaded_cpp-prog" class="language-cpp">/*overloading functions to take in different
+<pre class="program clipboardable"><code id="rs-overloaded_cpp-prog" class="language-cpp">/*overloading functions to take in different
 inputs and output the correct results*/
 #include &lt;iostream&gt;
 using namespace std;
@@ -845,86 +908,102 @@ int main() {
 
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.12.5.a: C++ Implementation"><a href="#overloaded-cpp" title="Copy heading and permalink for Task 1.12.5.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.12.5.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="overloaded-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-overloaded-py-prog" class="language-py">def __str__(self):
+<div class="code-box"><pre class="program clipboardable"><code id="rs-overloaded-py-prog" class="language-py">def __str__(self):
     return str(self.num)+"/"+str(self.den)
 
     myf = Fraction(3,5)
     print(myf)
     print("I ate", myf, "of the pizza")
-</code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-17">We can overload many other operators for our new <code class="code-inline tex2jax_ignore">Fraction</code> class. Some of the most important of these are the basic arithmetic operations. We would like to be able to create two <code class="code-inline tex2jax_ignore">Fraction</code> objects and then be able to add them together using the standard “+” notation. At this point, if we try to add two fractions using “+”, we get the following:</div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.5.b: Python Implementation"><a href="#overloaded-py" title="Copy heading and permalink for Task 1.12.5.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.12.5.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.5: Operator Overloading Example"><a href="#expl-overload" title="Copy heading and permalink for Exploration 1.12.5: Operator Overloading Example" aria-label="Copy heading and permalink for Exploration 1.12.5: Operator Overloading Example">🔗</a></div></article><div class="para" id="introduction_polymorphism-17">We can overload many other operators for our new <code class="code-inline tex2jax_ignore">Fraction</code> class. Some of the most important of these are the basic arithmetic operations. We would like to be able to create two <code class="code-inline tex2jax_ignore">Fraction</code> objects and then be able to add them together using the standard “+” notation. At this point, if we try to add two fractions using “+”, we get the following:<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-adderror"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.6</span><span class="period">.</span><span class="space"> </span><span class="title">Error Before Overloading Addition.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Error Before Overloading Addition.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-expl-adderror">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="adderror-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Addition Error.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Addition Error.</span>
 </h5>
-<div class="code-box"><pre class="console"><b>Fraction f1(1, 4);
+<div class="code-box"><pre class="console clipboardable"><b>Fraction f1(1, 4);
 Fraction f2(1, 2);
 Fraction f3 = f1 + f2;
 </b>&gt;&gt; error: no match for `operator+' (operand types are `Fraction' and `Fraction'))
-</pre></div></article></div>
+</pre></div>
+<div class="autopermalink" data-description="Task 1.12.6.a: C++ Addition Error"><a href="#adderror-cpp" title="Copy heading and permalink for Task 1.12.6.a: C++ Addition Error" aria-label="Copy heading and permalink for Task 1.12.6.a: C++ Addition Error">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="adderror-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Addition Error.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Addition Error.</span>
 </h5>
-<div class="code-box"><pre class="console"><b>f1 = Fraction(1,4)
+<div class="code-box"><pre class="console clipboardable"><b>f1 = Fraction(1,4)
 f2 = Fraction(1,2)
 f1+f2
 </b>Traceback (most recent call last):
 File "&lt;pyshell#173&gt;", line 1, in -toplevel- f1+f2
 TypeError: unsupported operand type(s) for +: 'instance' and 'instance'
-</pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-19">If you look closely at the error, you see that the problem is that the “+” operator does not understand the <code class="code-inline tex2jax_ignore">Fraction</code> operands.</div>
-<div class="para" id="introduction_polymorphism-20">We can, of course create something like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-addmodel" class="xref" data-knowl="./knowl/xref/expl-addmodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.7: Function for Addition">Exploration 1.12.7</a>.</div>
+</pre></div>
+<div class="autopermalink" data-description="Task 1.12.6.b: Python Addition Error"><a href="#adderror-py" title="Copy heading and permalink for Task 1.12.6.b: Python Addition Error" aria-label="Copy heading and permalink for Task 1.12.6.b: Python Addition Error">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.6: Error Before Overloading Addition"><a href="#expl-adderror" title="Copy heading and permalink for Exploration 1.12.6: Error Before Overloading Addition" aria-label="Copy heading and permalink for Exploration 1.12.6: Error Before Overloading Addition">🔗</a></div></article><div class="para" id="introduction_polymorphism-19">If you look closely at the error, you see that the problem is that the “+” operator does not understand the <code class="code-inline tex2jax_ignore">Fraction</code> operands.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-20">We can, of course create something like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#expl-addmodel" class="xref" data-knowl="./knowl/xref/expl-addmodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.7: Function for Addition">Exploration 1.12.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-addmodel"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.7</span><span class="period">.</span><span class="space"> </span><span class="title">Function for Addition.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Function for Addition.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-expl-addmodel">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="addmodel-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-addmodel-cpp-prog" class="language-cpp">f1.add(f2)
-</code></pre></div></article></div>
+<div class="code-box"><pre class="program clipboardable"><code id="rs-addmodel-cpp-prog" class="language-cpp">f1.add(f2)
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.7.a: C++"><a href="#addmodel-cpp" title="Copy heading and permalink for Task 1.12.7.a: C++" aria-label="Copy heading and permalink for Task 1.12.7.a: C++">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="addmodel-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-addmodel-py-prog" class="language-py">f1.__add__(f2)
-</code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-22">which would ask the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f1</code> to add the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f2</code> to itself. It would be much better to be written in the standard notation, <code class="code-inline tex2jax_ignore">f1 + f2</code>. We can fix this by providing the <code class="code-inline tex2jax_ignore">Fraction</code> class with a friend that overloads the <code class="code-inline tex2jax_ignore">+</code>  operator.</div>
-<div class="para" id="introduction_polymorphism-23">As you know, two fractions must have the same denominator to be added. The easiest way to make sure they have the same denominator is to simply use the product of the two denominators as a common denominator so that <span class="process-math">\(\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}\)</span> The implementation is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-addmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-addmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.8.a: C++ Implementation">Task 1.12.8.a</a>. The addition function returns a new <code class="code-inline tex2jax_ignore">Fraction</code> object with the numerator and denominator of the sum. We can use this method by writing a standard arithmetic expression involving fractions, assigning the result of the addition, and then printing our result.</div>
+<div class="code-box"><pre class="program clipboardable"><code id="rs-addmodel-py-prog" class="language-py">f1.__add__(f2)
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.7.b: Python"><a href="#addmodel-py" title="Copy heading and permalink for Task 1.12.7.b: Python" aria-label="Copy heading and permalink for Task 1.12.7.b: Python">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.7: Function for Addition"><a href="#expl-addmodel" title="Copy heading and permalink for Exploration 1.12.7: Function for Addition" aria-label="Copy heading and permalink for Exploration 1.12.7: Function for Addition">🔗</a></div></article><div class="para" id="introduction_polymorphism-22">which would ask the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f1</code> to add the <code class="code-inline tex2jax_ignore">Fraction</code> object <code class="code-inline tex2jax_ignore">f2</code> to itself. It would be much better to be written in the standard notation, <code class="code-inline tex2jax_ignore">f1 + f2</code>. We can fix this by providing the <code class="code-inline tex2jax_ignore">Fraction</code> class with a friend that overloads the <code class="code-inline tex2jax_ignore">+</code>  operator.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-23">As you know, two fractions must have the same denominator to be added. The easiest way to make sure they have the same denominator is to simply use the product of the two denominators as a common denominator so that <span class="process-math">\(\frac {a}{b} + \frac {c}{d} = \frac {ad}{bd} + \frac {cb}{bd} = \frac{ad+cb}{bd}\)</span> The implementation is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-addmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-addmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.8.a: C++ Implementation">Task 1.12.8.a</a>. The addition function returns a new <code class="code-inline tex2jax_ignore">Fraction</code> object with the numerator and denominator of the sum. We can use this method by writing a standard arithmetic expression involving fractions, assigning the result of the addition, and then printing our result.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-lst-addmethod"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.8</span><span class="period">.</span><span class="space"> </span><span class="title">Adding an addition method.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Adding an addition method.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-lst-addmethod">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-addmethod-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-introduction_lst-addmethod-cpp-prog" class="language-cpp">Fraction operator +(const Fraction &amp;otherFrac){
+<div class="code-box"><pre class="program clipboardable"><code id="rs-introduction_lst-addmethod-cpp-prog" class="language-cpp">Fraction operator +(const Fraction &amp;otherFrac){
     //Note the return type is a Fraction
     int newnum = num*otherFrac.den + den*otherFrac.num;
     int newden = den*otherFrac.den;
     return Fraction(newnum, newden);
 }
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.8.a: C++ Implementation"><a href="#introduction_lst-addmethod-cpp" title="Copy heading and permalink for Task 1.12.8.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.12.8.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introduction_lst-addmethod-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-introduction_lst-addmethod-py-prog" class="language-py">def __add__(self, otherfraction):
+<div class="code-box"><pre class="program clipboardable"><code id="rs-introduction_lst-addmethod-py-prog" class="language-py">def __add__(self, otherfraction):
 
   newnum = self.num*otherfraction.den + self.den*otherfraction.num
   newden = self.den * otherfraction.den
 
   return Fraction(newnum,newden)
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.8.b: Python Implementation"><a href="#introduction_lst-addmethod-py" title="Copy heading and permalink for Task 1.12.8.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.12.8.b: Python Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(c)"><article class="task exercise-like" id="introduction_lst-addmethod-cpp-usage"><h5 class="heading">
-<span class="codenumber">(c)</span><span class="space"> </span><span class="title">C++ Usage Example.</span>
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Usage Example.</span>
 </h5>
-<pre class="program"><code id="rs-addfrac_cpp" class="language-cpp">//using functions to abstract the idea of a fraction
+<pre class="program clipboardable"><code id="rs-addfrac_cpp" class="language-cpp">//using functions to abstract the idea of a fraction
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -958,41 +1037,47 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.12.8.c: C++ Usage Example"><a href="#introduction_lst-addmethod-cpp-usage" title="Copy heading and permalink for Task 1.12.8.c: C++ Usage Example" aria-label="Copy heading and permalink for Task 1.12.8.c: C++ Usage Example">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(d)"><article class="task exercise-like" id="introduction_lst-addmethod-py-usage"><h5 class="heading">
-<span class="codenumber">(d)</span><span class="space"> </span><span class="title">Python Usage Example.</span>
+<span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Usage Example.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-addfrac_py"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-addfrac_py_editor" data-question_label="" data-codelens="true" data-timelimit="25000">f1=Fraction(1,4)
 f2=Fraction(1,2)
 f3=f1+f2
 print(f3)
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-25">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code>, we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators (such as <code class="code-inline tex2jax_ignore">&lt;&lt;</code> and <code class="code-inline tex2jax_ignore">&gt;&gt;</code>) must be either member functions of the stream class or friend functions of the class they are used with. However, that is not true for the <code class="code-inline tex2jax_ignore">+</code> operator. Let’s rewrite the addition operator as a friend function.</div>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.12.8.d: Python Usage Example"><a href="#introduction_lst-addmethod-py-usage" title="Copy heading and permalink for Task 1.12.8.d: Python Usage Example" aria-label="Copy heading and permalink for Task 1.12.8.d: Python Usage Example">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.8: Adding an addition method"><a href="#expl-lst-addmethod" title="Copy heading and permalink for Exploration 1.12.8: Adding an addition method" aria-label="Copy heading and permalink for Exploration 1.12.8: Adding an addition method">🔗</a></div></article><div class="para" id="introduction_polymorphism-25">The addition method works as we desire, but a couple of things can be improved. When we use a binary operator like <code class="code-inline tex2jax_ignore">+</code>, we like more symmetry. Binary operators can either be members of their left-hand argument’s class or friend functions. Since the stream operators’ left-hand argument is a stream, stream operators (such as <code class="code-inline tex2jax_ignore">&lt;&lt;</code> and <code class="code-inline tex2jax_ignore">&gt;&gt;</code>) must be either member functions of the stream class or friend functions of the class they are used with. However, that is not true for the <code class="code-inline tex2jax_ignore">+</code> operator. Let’s rewrite the addition operator as a friend function.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="expl-addoverload"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.9</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading Addition.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Overloading Addition.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-expl-addoverload">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="addoverload-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-addoverload-cpp-prog" class="language-cpp">Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
+<div class="code-box"><pre class="program clipboardable"><code id="rs-addoverload-cpp-prog" class="language-cpp">Fraction operator +(const Fraction &amp;frac1, const Fraction &amp;frac2) {
     int newnum = frac1.num * frac2.den + frac1.den * frac2.num;
     int newden = frac1.den * frac2.den;
     return Fraction(newnum, newden);
 }
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.9.a: C++ Implementation"><a href="#addoverload-cpp" title="Copy heading and permalink for Task 1.12.9.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.12.9.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="addoverload-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-addoverload-py-prog" class="language-py">def __add__(self,otherfraction):
+<div class="code-box"><pre class="program clipboardable"><code id="rs-addoverload-py-prog" class="language-py">def __add__(self,otherfraction):
     newnum = self.num*otherfraction.den + self.den*otherfraction.num
     newden = self.den * otherfraction.den
     return Fraction(newnum,newden)
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.9.b: Python Implementation"><a href="#addoverload-py" title="Copy heading and permalink for Task 1.12.9.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.12.9.b: Python Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(c)"><article class="task exercise-like" id="addoverload-usage"><h5 class="heading">
-<span class="codenumber">(c)</span><span class="space"> </span><span class="title">C++ Usage.</span>
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Usage.</span>
 </h5>
-<pre class="program"><code id="rs-addoverload-usage-prog" class="language-cpp">//overloading the addition operator to create clearer syntax
+<pre class="program clipboardable"><code id="rs-addoverload-usage-prog" class="language-cpp">//overloading the addition operator to create clearer syntax
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -1029,18 +1114,23 @@ int main(){
     cout &lt;&lt; f3 &lt;&lt; " is "&lt;&lt; f1 &lt;&lt; " + " &lt;&lt; f2 &lt;&lt; endl;
     return 0;
 }
-</code></pre></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-27">How you choose to overload operators  like <code class="code-inline tex2jax_ignore">+</code> is a design choice since both methods will work perfectly well. This is another example of encapsulation; your user does not need to know which you choose to use!</div>
-<div class="para" id="introduction_polymorphism-28">There is one more thing we can improve in our addition function. Note that <span class="process-math">\(6/8\)</span> is the correct result (<span class="process-math">\(\frac {1}{4} + \frac {1}{2}\)</span>) but that it is not in the “lowest terms” representation. The best representation would be <span class="process-math">\(3/4\text{.}\)</span> In order to be sure that our results are always in the lowest terms, we need a helper function that knows how to reduce fractions. This function will need to look for the greatest common divisor, or GCD. We can then divide the numerator and the denominator by the GCD and the result will be reduced to lowest terms.</div>
-<div class="para" id="introduction_polymorphism-29">The best-known algorithm for finding a greatest common divisor is Euclid’s Algorithm, which will be discussed in detail in <a href="ch-trees.html" class="internal" title="Chapter 8: Trees and Tree Algorithms">Chapter 8</a>. Euclid’s Algorithm states that the greatest common divisor of two integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> is <span class="process-math">\(n\)</span> if <span class="process-math">\(n\)</span> divides <span class="process-math">\(m\)</span> evenly. However, if <span class="process-math">\(n\)</span> does not divide <span class="process-math">\(m\)</span> evenly, then the answer is the greatest common divisor of <span class="process-math">\(n\)</span> and the remainder of <span class="process-math">\(m\)</span> divided by <span class="process-math">\(n\text{.}\)</span> We will simply provide an iterative implementation here (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#gcdalg" class="xref" data-knowl="./knowl/xref/gcdalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.10: Greatest Common Divisor">Exploration 1.12.10</a>). Note that this implementation of the GCD algorithm only works when the denominator is positive. This is acceptable for our fraction class because we have said that a negative fraction will be represented by a negative numerator.</div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.12.9.c: C++ Usage"><a href="#addoverload-usage" title="Copy heading and permalink for Task 1.12.9.c: C++ Usage" aria-label="Copy heading and permalink for Task 1.12.9.c: C++ Usage">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.9: Overloading Addition"><a href="#expl-addoverload" title="Copy heading and permalink for Exploration 1.12.9: Overloading Addition" aria-label="Copy heading and permalink for Exploration 1.12.9: Overloading Addition">🔗</a></div></article><div class="para" id="introduction_polymorphism-27">How you choose to overload operators  like <code class="code-inline tex2jax_ignore">+</code> is a design choice since both methods will work perfectly well. This is another example of encapsulation; your user does not need to know which you choose to use!<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-28">There is one more thing we can improve in our addition function. Note that <span class="process-math">\(6/8\)</span> is the correct result (<span class="process-math">\(\frac {1}{4} + \frac {1}{2}\)</span>) but that it is not in the “lowest terms” representation. The best representation would be <span class="process-math">\(3/4\text{.}\)</span> In order to be sure that our results are always in the lowest terms, we need a helper function that knows how to reduce fractions. This function will need to look for the greatest common divisor, or GCD. We can then divide the numerator and the denominator by the GCD and the result will be reduced to lowest terms.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-29">The best-known algorithm for finding a greatest common divisor is Euclid’s Algorithm, which will be discussed in detail in <a href="ch-trees.html" class="internal" title="Chapter 8: Trees and Tree Algorithms">Chapter 8</a>. Euclid’s Algorithm states that the greatest common divisor of two integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> is <span class="process-math">\(n\)</span> if <span class="process-math">\(n\)</span> divides <span class="process-math">\(m\)</span> evenly. However, if <span class="process-math">\(n\)</span> does not divide <span class="process-math">\(m\)</span> evenly, then the answer is the greatest common divisor of <span class="process-math">\(n\)</span> and the remainder of <span class="process-math">\(m\)</span> divided by <span class="process-math">\(n\text{.}\)</span> We will simply provide an iterative implementation here (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#gcdalg" class="xref" data-knowl="./knowl/xref/gcdalg.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 1.12.10: Greatest Common Divisor">Exploration 1.12.10</a>). Note that this implementation of the GCD algorithm only works when the denominator is positive. This is acceptable for our fraction class because we have said that a negative fraction will be represented by a negative numerator.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="gcdalg"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.10</span><span class="period">.</span><span class="space"> </span><span class="title">Greatest Common Divisor.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Greatest Common Divisor.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-gcdalg">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="gcd-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++ Implementation.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++ Implementation.</span>
 </h5>
-<pre class="program"><code id="rs-gcd-cpp-prog" class="language-cpp">#include &lt;iostream&gt;
+<pre class="program clipboardable"><code id="rs-gcd-cpp-prog" class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int gcd(int m, int n) {
@@ -1059,9 +1149,10 @@ int main() {
     cout &lt;&lt; gcd(20, 10) &lt;&lt; endl;
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.12.10.a: C++ Implementation"><a href="#gcd-cpp" title="Copy heading and permalink for Task 1.12.10.a: C++ Implementation" aria-label="Copy heading and permalink for Task 1.12.10.a: C++ Implementation">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="gcd-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python Implementation.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Implementation.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-gcd-py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-gcd-py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">def gcd(m,n):
     while m%n != 0:
@@ -1073,9 +1164,12 @@ int main() {
     return n
 
 print(gcd(20,10))
-</textarea></div></div></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-31">Now we can use this function to help reduce any fraction. To put a fraction in lowest terms, we will divide the numerator and the denominator by their greatest common divisor. So, for the fraction <span class="process-math">\(6/8\text{,}\)</span> the greatest common divisor is 2. Dividing the top and the bottom by 2 creates a new fraction, <span class="process-math">\(3/4\)</span> (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-newaddmethod" class="xref" data-knowl="./knowl/xref/introduction_lst-newaddmethod.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.3: New addition implementation using gcd">Listing 1.12.3</a>).</div>
-<figure class="listing figure-like" id="introduction_lst-newaddmethod"><figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">1.12.3<span class="period">.</span></span><span class="space"> </span>New addition implementation using <code class="code-inline tex2jax_ignore">gcd</code></figcaption><div class="listing__contents"><pre class="program"><code id="rs-gcdadd" class="language-cpp">#include &lt;iostream&gt;
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.12.10.b: Python Implementation"><a href="#gcd-py" title="Copy heading and permalink for Task 1.12.10.b: Python Implementation" aria-label="Copy heading and permalink for Task 1.12.10.b: Python Implementation">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.10: Greatest Common Divisor"><a href="#gcdalg" title="Copy heading and permalink for Exploration 1.12.10: Greatest Common Divisor" aria-label="Copy heading and permalink for Exploration 1.12.10: Greatest Common Divisor">🔗</a></div></article><div class="para" id="introduction_polymorphism-31">Now we can use this function to help reduce any fraction. To put a fraction in lowest terms, we will divide the numerator and the denominator by their greatest common divisor. So, for the fraction <span class="process-math">\(6/8\text{,}\)</span> the greatest common divisor is 2. Dividing the top and the bottom by 2 creates a new fraction, <span class="process-math">\(3/4\)</span> (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-newaddmethod" class="xref" data-knowl="./knowl/xref/introduction_lst-newaddmethod.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 1.12.3: New addition implementation using gcd">Listing 1.12.3</a>).<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="listing figure-like" id="introduction_lst-newaddmethod"><figcaption><span class="type">Listing</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>New addition implementation using <code class="code-inline tex2jax_ignore">gcd</code><div class="autopermalink" data-description="Listing 1.12.3: New addition implementation using gcd"><a href="#introduction_lst-newaddmethod" title="Copy heading and permalink for Listing 1.12.3: New addition implementation using gcd" aria-label="Copy heading and permalink for Listing 1.12.3: New addition implementation using gcd">🔗</a></div></figcaption><div class="listing__contents"><pre class="program clipboardable"><code id="rs-gcdadd" class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int gcd(int m, int n){
@@ -1130,43 +1224,51 @@ int main(){
     return 0;
 }
 </code></pre></div></figure><figure class="figure figure-like" id="fig-fraction2cpp"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
-<img src="external/Introduction/fraction2cpp.png" class="contained" alt="described in detail following the image" aria-describedby="fig-fraction2cpp-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-fraction2cpp-2-description"><div class="para" id="fig-fraction2cpp-2-1-1">Visual representation of a Fraction class instance called ’myfraction’. It features concentric circles with the innermost labeled ’State’ showcasing ’num’ with a value of 3 above ’den’ with a value of 5, indicating the fraction’s numerator and denominator. The outer circle is labeled ’Methods’, suggesting the object’s functionality. Two symbols, ’&lt;&lt;’ and ’+’, are shown outside the Methods circle, implying additional methods.</div></div></details>
+<img src="external/Introduction/fraction2cpp.png" class="contained" alt="described in detail following the image" aria-describedby="fig-fraction2cpp-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-fraction2cpp-2-description"><div class="para" id="fig-fraction2cpp-2-1-1">Visual representation of a Fraction class instance called ’myfraction’. It features concentric circles with the innermost labeled ’State’ showcasing ’num’ with a value of 3 above ’den’ with a value of 5, indicating the fraction’s numerator and denominator. The outer circle is labeled ’Methods’, suggesting the object’s functionality. Two symbols, ’&lt;&lt;’ and ’+’, are shown outside the Methods circle, implying additional methods.<div class="autopermalink" data-description="Paragraph"><a href="#fig-fraction2cpp-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.12.4<span class="period">.</span></span><span class="space"> </span>An Instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class with Two Methods</figcaption></figure><div class="para" id="introduction_polymorphism-34">Our <code class="code-inline tex2jax_ignore">Fraction</code> object now has two very useful methods and looks like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction2cpp" class="xref" data-knowl="./knowl/xref/fig-fraction2cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.4">Figure 1.12.4</a>. An additional group of methods that we need to include in our example <code class="code-inline tex2jax_ignore">Fraction</code> class will allow two fractions to compare themselves to one another using <code class="code-inline tex2jax_ignore">==</code>.</div>
-<div class="para" id="introduction_polymorphism-35">We want the <code class="code-inline tex2jax_ignore">==</code> operator to compare Fraction objects and to return <code class="code-inline tex2jax_ignore">true</code> if they are equivalent in value, <code class="code-inline tex2jax_ignore">false</code> otherwise. This is a design choice because we want <span class="process-math">\(\frac {1}{2}\)</span> to be considered equal to <span class="process-math">\(\frac {2}{4}\)</span> as well as <span class="process-math">\(\frac {3}{6}\text{,}\)</span> etc. Hence, in the <code class="code-inline tex2jax_ignore">Fraction</code> class, we can implement the <code class="code-inline tex2jax_ignore">==</code> method by cross-multiplying (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-cmpmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-cmpmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.11.a: C++">Task 1.12.11.a</a>) rather than by just comparing numerators and denominators.</div>
-<div class="para" id="introduction_polymorphism-36">Of course there are other relational operators that can be overridden. For example, the <code class="code-inline tex2jax_ignore">&lt;=</code> operator could be overridden to provide the less than or equal functionality.</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An Instance of the <code class="code-inline tex2jax_ignore">Fraction</code> Class with Two Methods<div class="autopermalink" data-description="Figure 1.12.4"><a href="#fig-fraction2cpp" title="Copy heading and permalink for Figure 1.12.4" aria-label="Copy heading and permalink for Figure 1.12.4">🔗</a></div></figcaption></figure><div class="para" id="introduction_polymorphism-34">Our <code class="code-inline tex2jax_ignore">Fraction</code> object now has two very useful methods and looks like <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fig-fraction2cpp" class="xref" data-knowl="./knowl/xref/fig-fraction2cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.12.4">Figure 1.12.4</a>. An additional group of methods that we need to include in our example <code class="code-inline tex2jax_ignore">Fraction</code> class will allow two fractions to compare themselves to one another using <code class="code-inline tex2jax_ignore">==</code>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-35">We want the <code class="code-inline tex2jax_ignore">==</code> operator to compare Fraction objects and to return <code class="code-inline tex2jax_ignore">true</code> if they are equivalent in value, <code class="code-inline tex2jax_ignore">false</code> otherwise. This is a design choice because we want <span class="process-math">\(\frac {1}{2}\)</span> to be considered equal to <span class="process-math">\(\frac {2}{4}\)</span> as well as <span class="process-math">\(\frac {3}{6}\text{,}\)</span> etc. Hence, in the <code class="code-inline tex2jax_ignore">Fraction</code> class, we can implement the <code class="code-inline tex2jax_ignore">==</code> method by cross-multiplying (see <a href="introduction_object-oriented-programming-in-c-defining-classes.html#introduction_lst-cmpmethod-cpp" class="xref" data-knowl="./knowl/xref/introduction_lst-cmpmethod-cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.11.a: C++">Task 1.12.11.a</a>) rather than by just comparing numerators and denominators.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="introduction_polymorphism-36">Of course there are other relational operators that can be overridden. For example, the <code class="code-inline tex2jax_ignore">&lt;=</code> operator could be overridden to provide the less than or equal functionality.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-36" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="introduction_lst-cmpmethod"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.11</span><span class="period">.</span><span class="space"> </span><span class="title">Overloading the comparison operator.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Overloading the comparison operator.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section"><div data-component="tabbedStuff" id="rs-introduction_lst-cmpmethod">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="introduction_lst-cmpmethod-cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-introduction_lst-cmpmethod-cpp-prog" class="language-cpp">bool operator ==(const Fraction &amp;otherFrac) {
+<div class="code-box"><pre class="program clipboardable"><code id="rs-introduction_lst-cmpmethod-cpp-prog" class="language-cpp">bool operator ==(const Fraction &amp;otherFrac) {
     int firstnum = num*otherFrac.den;
     int secondnum = otherFrac.num*den;
 
     return firstnum==secondnum;
 }
-</code></pre></div></article></div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.11.a: C++"><a href="#introduction_lst-cmpmethod-cpp" title="Copy heading and permalink for Task 1.12.11.a: C++" aria-label="Copy heading and permalink for Task 1.12.11.a: C++">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="introduction_lst-cmpmethod-py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python.</span>
 </h5>
-<div class="code-box"><pre class="program"><code id="rs-introduction_lst-cmpmethod-py-prog" class="language-py">def __eq__(self, other):
+<div class="code-box"><pre class="program clipboardable"><code id="rs-introduction_lst-cmpmethod-py-prog" class="language-py">def __eq__(self, other):
     firstnum = self.num * other.den
     secondnum = other.num * self.den
 
     return firstnum == secondnum
-</code></pre></div></article></div>
-</div></div></div></article><div class="para" id="introduction_polymorphism-38">The complete <code class="code-inline tex2jax_ignore">Fraction</code> class, up to this point, is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fraction_class_cpp" class="xref" data-knowl="./knowl/xref/fraction_class_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.12.a: C++">Task 1.12.12.a</a>. We leave the remaining arithmetic and relational methods as exercises.</div>
+</code></pre></div>
+<div class="autopermalink" data-description="Task 1.12.11.b: Python"><a href="#introduction_lst-cmpmethod-py" title="Copy heading and permalink for Task 1.12.11.b: Python" aria-label="Copy heading and permalink for Task 1.12.11.b: Python">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.11: Overloading the comparison operator"><a href="#introduction_lst-cmpmethod" title="Copy heading and permalink for Exploration 1.12.11: Overloading the comparison operator" aria-label="Copy heading and permalink for Exploration 1.12.11: Overloading the comparison operator">🔗</a></div></article><div class="para" id="introduction_polymorphism-38">The complete <code class="code-inline tex2jax_ignore">Fraction</code> class, up to this point, is shown in <a href="introduction_object-oriented-programming-in-c-defining-classes.html#fraction_class_cpp" class="xref" data-knowl="./knowl/xref/fraction_class_cpp.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 1.12.12.a: C++">Task 1.12.12.a</a>. We leave the remaining arithmetic and relational methods as exercises.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_polymorphism-38" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exploration project-like" id="fraction_class"><h4 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">1.12.12</span><span class="period">.</span><span class="space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Complete <code class="code-inline tex2jax_ignore">Fraction</code> class.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone tabbed_section contains-wide"><div data-component="tabbedStuff" id="rs-fraction_class">
 <div data-component="tab" data-tabname="(a)"><article class="task exercise-like" id="fraction_class_cpp"><h5 class="heading">
-<span class="codenumber">(a)</span><span class="space"> </span><span class="title">C++.</span>
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">C++.</span>
 </h5>
-<pre class="program"><code id="rs-fraction_class_cpp-prog" class="language-cpp">#include &lt;iostream&gt;
+<pre class="program clipboardable"><code id="rs-fraction_class_cpp-prog" class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int gcd(int m, int n) {
@@ -1232,9 +1334,10 @@ int main(){
     }
     return 0;
 }
-</code></pre></article></div>
+</code></pre>
+<div class="autopermalink" data-description="Task 1.12.12.a: C++"><a href="#fraction_class_cpp" title="Copy heading and permalink for Task 1.12.12.a: C++" aria-label="Copy heading and permalink for Task 1.12.12.a: C++">🔗</a></div></article></div>
 <div data-component="tab" data-tabname="(b)"><article class="task exercise-like" id="fraction_class_py"><h5 class="heading">
-<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Python.</span>
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python.</span>
 </h5>
 <div class="ptx-runestone-container"><div class="runestone explainer ac_section "><div data-component="activecode" id="rs-fraction_class_py-prog"><textarea data-lang="python" data-audio="" data-coach="true" style="visibility: hidden;" id="rs-fraction_class_py-prog_editor" data-question_label="" data-codelens="true" data-timelimit="25000">def gcd(m,n):
     while m%n != 0:
@@ -1273,12 +1376,15 @@ x = Fraction(1,2)
 y = Fraction(2,3)
 print(x + y)
 print(x == y)
-</textarea></div></div></div></article></div>
-</div></div></div></article></section><section class="subsection" id="introduction_self-check"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">1.12.4</span><span class="space"> </span><span class="title">Self-Check</span>
+</textarea></div></div></div>
+<div class="autopermalink" data-description="Task 1.12.12.b: Python"><a href="#fraction_class_py" title="Copy heading and permalink for Task 1.12.12.b: Python" aria-label="Copy heading and permalink for Task 1.12.12.b: Python">🔗</a></div></article></div>
+</div></div></div>
+<div class="autopermalink" data-description="Exploration 1.12.12: Complete Fraction class"><a href="#fraction_class" title="Copy heading and permalink for Exploration 1.12.12: Complete Fraction class" aria-label="Copy heading and permalink for Exploration 1.12.12: Complete Fraction class">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.12.3: Polymorphism"><a href="#introduction_polymorphism" title="Copy heading and permalink for Subsection 1.12.3: Polymorphism" aria-label="Copy heading and permalink for Subsection 1.12.3: Polymorphism">🔗</a></div></section><section class="subsection" id="introduction_self-check"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Self-Check</span>
 </h3>
-<div class="para" id="introduction_self-check-2">To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement <code class="code-inline tex2jax_ignore">*</code>, <code class="code-inline tex2jax_ignore">/</code>, and <code class="code-inline tex2jax_ignore">-</code>.  Also implement comparison operators <code class="code-inline tex2jax_ignore">&gt;</code> and <code class="code-inline tex2jax_ignore">&lt;</code>.</div>
-<pre class="program"><code id="rs-self_check_4cpp-prog" class="language-cpp">#include &lt;iostream&gt;
+<div class="para" id="introduction_self-check-2">To make sure you understand how operators are implemented in C++ classes, and how to properly write methods, write some methods to implement <code class="code-inline tex2jax_ignore">*</code>, <code class="code-inline tex2jax_ignore">/</code>, and <code class="code-inline tex2jax_ignore">-</code>.  Also implement comparison operators <code class="code-inline tex2jax_ignore">&gt;</code> and <code class="code-inline tex2jax_ignore">&lt;</code>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_self-check-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<pre class="program clipboardable"><code id="rs-self_check_4cpp-prog" class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int gcd(int m, int n) {
@@ -1345,19 +1451,23 @@ int main(){
     return 0;
 }
 </code></pre>
-<div class="para" id="introduction_self-check-4">Our the next section will introduce another important aspect of object-oriented programming, namely <dfn class="terminology">inheritance</dfn>.</div>
+<div class="para" id="introduction_self-check-4">Our the next section will introduce another important aspect of object-oriented programming, namely <dfn class="terminology">inheritance</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#introduction_self-check-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <section class="reading-questions" id="rq-oop"><h4 class="heading hide-type">
-<span class="type">Reading Questions</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reading Questions</span>
+<span class="type">Reading Questions</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reading Questions</span>
 </h4>
-<article class="exercise exercise-like" id="aande"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<article class="exercise exercise-like" id="aande"><h5 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-aande">
-<span data-subcomponent="question"><div class="para" id="aande-1-1">Match the corresponding key word to the appropriate scenario.</div></span><span data-subcomponent="feedback"><div class="para" id="aande-2-1">Review the definitions of the key words.</div></span><li data-subcomponent="draggable" id="rs-aande_drag1" data-category="1">Encapsulation</li>
+<span data-subcomponent="question"><div class="para" id="aande-1-1">Match the corresponding key word to the appropriate scenario.<div class="autopermalink" data-description="Paragraph"><a href="#aande-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="aande-2-1">Review the definitions of the key words.</div></span><li data-subcomponent="draggable" id="rs-aande_drag1" data-category="1">Encapsulation</li>
 <li data-subcomponent="dropzone" for="rs-aande_drag1" data-category="1">A situation where bank software programmers want to protect users’ personal information.</li>
 <li data-subcomponent="draggable" id="rs-aande_drag2" data-category="2">Abstraction</li>
 <li data-subcomponent="dropzone" for="rs-aande_drag2" data-category="2">A situation where software programmers want to develop similar objects without having to redefine the most similar properties.</li>
-</ul></div></div></article><article class="exercise exercise-like" id="class_syntax"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+</ul></div></div>
+<div class="autopermalink" data-description="Reading Question 1.12.4.1"><a href="#aande" title="Copy heading and permalink for Reading Question 1.12.4.1" aria-label="Copy heading and permalink for Reading Question 1.12.4.1">🔗</a></div></article><article class="exercise exercise-like" id="class_syntax"><h5 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="ptx-runestone-container"><div class="runestone clickablearea_section"><div data-component="clickablearea" data-question_label="" style="visibility: hidden;" id="rs-class_syntax">
-<span data-question=""><div class="para" id="class_syntax-1-1">Click on the line where there is a syntax error when defining the following class</div></span><span data-feedback=""><div class="para" id="class_syntax-2-1">C++ class definitions end with a certain symbol</div></span><pre><span data-incorrect="">class Fraction {</span>
+<span data-question=""><div class="para" id="class_syntax-1-1">Click on the line where there is a syntax error when defining the following class<div class="autopermalink" data-description="Paragraph"><a href="#class_syntax-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-feedback=""><div class="para" id="class_syntax-2-1">C++ class definitions end with a certain symbol</div></span><pre><span data-incorrect="">class Fraction {</span>
   <span data-incorrect="">public:</span>
       <span data-incorrect="">Fraction(int top, int bottom) {</span>
           <span data-incorrect="">/** Fraction constructor method */</span>
@@ -1369,17 +1479,21 @@ int main(){
       <span data-incorrect="">int den; // den attribute</span>
 <span data-correct="">}</span>
 </pre>
-</div></div></div></article><article class="exercise exercise-like" id="elements_of_OOP"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+</div></div></div>
+<div class="autopermalink" data-description="Reading Question 1.12.4.2"><a href="#class_syntax" title="Copy heading and permalink for Reading Question 1.12.4.2" aria-label="Copy heading and permalink for Reading Question 1.12.4.2">🔗</a></div></article><article class="exercise exercise-like" id="elements_of_OOP"><h5 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-elements_of_OOP">
-<span data-subcomponent="question"><div class="para" id="elements_of_OOP-1-1">Drag the word on the left to its corresponding definition</div></span><span data-subcomponent="feedback"><div class="para" id="elements_of_OOP-2-1">Review the elements of object oriented programming</div></span><li data-subcomponent="draggable" id="rs-elements_of_OOP_drag1" data-category="1">Encapsulation</li>
+<span data-subcomponent="question"><div class="para" id="elements_of_OOP-1-1">Drag the word on the left to its corresponding definition<div class="autopermalink" data-description="Paragraph"><a href="#elements_of_OOP-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="elements_of_OOP-2-1">Review the elements of object oriented programming</div></span><li data-subcomponent="draggable" id="rs-elements_of_OOP_drag1" data-category="1">Encapsulation</li>
 <li data-subcomponent="dropzone" for="rs-elements_of_OOP_drag1" data-category="1">hiding the contents of a class except when absolutely necessary</li>
 <li data-subcomponent="draggable" id="rs-elements_of_OOP_drag2" data-category="2">Abstraction</li>
 <li data-subcomponent="dropzone" for="rs-elements_of_OOP_drag2" data-category="2">focusing on desired behaviors and properties while disregarding what is irrelevant/unimportant</li>
 <li data-subcomponent="draggable" id="rs-elements_of_OOP_drag3" data-category="3">Polymorphism</li>
 <li data-subcomponent="dropzone" for="rs-elements_of_OOP_drag3" data-category="3">processing objects or methods differently depending on their data type, class, number of arguments, etc.</li>
-</ul></div></div></article><article class="exercise exercise-like" id="elements_of_classses"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+</ul></div></div>
+<div class="autopermalink" data-description="Reading Question 1.12.4.3"><a href="#elements_of_OOP" title="Copy heading and permalink for Reading Question 1.12.4.3" aria-label="Copy heading and permalink for Reading Question 1.12.4.3">🔗</a></div></article><article class="exercise exercise-like" id="elements_of_classses"><h5 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="ptx-runestone-container"><div class="runestone cardsort_section"><ul data-component="dragndrop" data-question_label="" style="visibility: hidden;" id="rs-elements_of_classses">
-<span data-subcomponent="question"><div class="para" id="elements_of_classses-1-1">Drag the word on the left to its corresponding definition</div></span><span data-subcomponent="feedback"><div class="para" id="elements_of_classses-2-1">Review classes and their properties</div></span><li data-subcomponent="draggable" id="rs-elements_of_classses_drag1" data-category="1">instance</li>
+<span data-subcomponent="question"><div class="para" id="elements_of_classses-1-1">Drag the word on the left to its corresponding definition<div class="autopermalink" data-description="Paragraph"><a href="#elements_of_classses-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-subcomponent="feedback"><div class="para" id="elements_of_classses-2-1">Review classes and their properties</div></span><li data-subcomponent="draggable" id="rs-elements_of_classses_drag1" data-category="1">instance</li>
 <li data-subcomponent="dropzone" for="rs-elements_of_classses_drag1" data-category="1">an object of a class</li>
 <li data-subcomponent="draggable" id="rs-elements_of_classses_drag2" data-category="2">constructor</li>
 <li data-subcomponent="dropzone" for="rs-elements_of_classses_drag2" data-category="2">an special function to initialize</li>
@@ -1387,7 +1501,8 @@ int main(){
 <li data-subcomponent="dropzone" for="rs-elements_of_classses_drag3" data-category="3">private and public</li>
 <li data-subcomponent="draggable" id="rs-elements_of_classses_drag4" data-category="4">class</li>
 <li data-subcomponent="dropzone" for="rs-elements_of_classses_drag4" data-category="4">a template for creating objects</li>
-</ul></div></div></article></section></section><section class="conclusion" id="introduction_object-oriented-programming-in-c-defining-classes-7"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-7-1"></div></section></section></div>
+</ul></div></div>
+<div class="autopermalink" data-description="Reading Question 1.12.4.4"><a href="#elements_of_classses" title="Copy heading and permalink for Reading Question 1.12.4.4" aria-label="Copy heading and permalink for Reading Question 1.12.4.4">🔗</a></div></article><div class="autopermalink" data-description="Reading Questions 1.12.4: Reading Questions"><a href="#rq-oop" title="Copy heading and permalink for Reading Questions 1.12.4: Reading Questions" aria-label="Copy heading and permalink for Reading Questions 1.12.4: Reading Questions">🔗</a></div></section><div class="autopermalink" data-description="Subsection 1.12.4: Self-Check"><a href="#introduction_self-check" title="Copy heading and permalink for Subsection 1.12.4: Self-Check" aria-label="Copy heading and permalink for Subsection 1.12.4: Self-Check">🔗</a></div></section><section class="conclusion" id="introduction_object-oriented-programming-in-c-defining-classes-7"><div class="para" id="introduction_object-oriented-programming-in-c-defining-classes-7-1"><div class="autopermalink" data-description="Paragraph"><a href="#introduction_object-oriented-programming-in-c-defining-classes-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><div class="autopermalink" data-description="Section 1.12: Object-Oriented Programming in C++: Defining Classes"><a href="#introduction_object-oriented-programming-in-c-defining-classes" title="Copy heading and permalink for Section 1.12: Object-Oriented Programming in C++: Defining Classes" aria-label="Copy heading and permalink for Section 1.12: Object-Oriented Programming in C++: Defining Classes">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="introduction_defining-c-functions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="introduction_inheritance-in-c.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
