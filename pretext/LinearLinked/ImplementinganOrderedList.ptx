@@ -5,7 +5,7 @@
         <idx>ordered linked list</idx>
             <statement>
              <p>
-              An <term>ordered linked list</term> is a linear data structure consisting of a collection of nodes, each containing two main components: a data element, often referred to as the &quot;value&quot; or &quot;key&quot;, and a &quot;reference&quot; or &quot;link&quot; to the next node in the sequence. These nodes are organized in a specific order based on the values of their data elements, typically in ascending or descending order.
+              An <term>ordered linked list</term> is a linear data structure consisting of a collection of nodes, each containing two main components: a data element, often referred to as the &quot;value&quot; or &quot;key&quot;, and a &quot;pointer&quot; or &quot;link&quot; to the next node in the sequence. These nodes are organized in a specific order based on the values of their data elements, typically in ascending or descending order.
              </p>
             </statement>
         </definition>
@@ -33,7 +33,7 @@
             <program language="cpp" label="linear-linked_lst-orderlist-prog"><code>
 class OrderedList {
     Node* head;
-}
+};
             </code></program>
         </listing>
         <p>As we consider the operations for the ordered linked list, we should note that
@@ -59,7 +59,7 @@ class OrderedList {
             for, our former strategy would be to move forward. However, due to the
             fact that this is an ordered linked list, that will not be necessary. Once the
             value in the node becomes greater than the item we are searching for,
-            the search can stop and return <c>False</c>. There is no way the item could
+            the search can stop and return <c>false</c>. There is no way the item could
             exist further out in the linked list.</p>
         
         <figure xml:id="fig-stopearly">
@@ -71,16 +71,16 @@ class OrderedList {
 
         <p><xref ref="linear-linked_lst-ordersearch"/> shows the complete <c>search</c> method. It is
             easy to incorporate the new condition discussed above by adding another
-            boolean variable, <c>stop</c>, and initializing it to <c>False</c> (line 4).
-            While <c>stop</c> is <c>False</c> (in other words, while the search is still ongoing) we can continue to look
+            boolean variable, <c>stop</c>, and initializing it to <c>false</c> (line 4).
+            While <c>stop</c> is <c>false</c> (in other words, while the search is still ongoing) we can continue to look
             forward in the linked list (line 5). If any node is ever discovered that
             contains data greater than the item we are looking for, we will set
-            <c>stop</c> to <c>True</c> (lines 9<ndash/>10). The remaining lines are identical to
-            the unordered linked list search.</p>
+            <c>stop</c> to <c>true</c> (lines 9<ndash/>10). The check for a match in lines 6<ndash/>7 works just as it
+            does in the unordered linked list search.</p>
         
         <listing xml:id="linear-linked_lst-ordersearch">
             <title><c>search</c> Method</title>
-            <program language="cpp" label="linear-linked_lst-ordersearch-prog"><code>
+            <program language="cpp" line-numbers="yes" label="linear-linked_lst-ordersearch-prog"><code>
 bool search(int item) {
     Node *current = head;
     bool found = false;
@@ -125,54 +125,55 @@ bool search(int item) {
             </figure>
 
         <p>As we saw with unordered linked lists, it is necessary to have an additional
-            reference, again called <c>previous</c>, since <c>current</c> will not provide
+            pointer, again called <c>previous</c>, since <c>current</c> will not provide
             access to the node that must be modified. <xref ref="linear-linked_lst-orderadd"/> shows
             the complete <c>add</c> method. Lines 2<ndash/>3 set up the two external
-            references and lines 9<ndash/>10 again allow <c>previous</c> to follow one node
-            behind <c>current</c> every time through the iteration. The condition (line
-            5) allows the iteration to continue as long as there are more nodes and
-            the value in the current node is not larger than the item. In either
-            case, when the iteration fails, we have found the location for the new
-            node.</p>
+            pointers and lines 5<ndash/>6 again allow <c>previous</c> to follow one node
+            behind <c>current</c> every time through the iteration. The condition in
+            line 4 allows the iteration to continue as long as there are more nodes and
+            the value in the current node is smaller than the item. When the iteration
+            stops, we have found the location for the new node: <c>current</c> points to
+            the node that should come after it (or is <c>nullptr</c> if the new item belongs
+            at the end), and <c>previous</c> points to the node that should come before it
+            (or is <c>nullptr</c> if the new item belongs at the front).</p>
         <p>The remainder of the method completes the two-step process shown in
-            <xref ref="fig-orderinsert"/>. Once a new node has been created for the item,
-            the only remaining question is whether the new node will be added at the
-            beginning of the linked list or some place in the middle. Again,
-            <c>previous == nullptr</c> (line 13) can be used to provide the answer.</p>
+            <xref ref="fig-orderinsert"/>. Line 8 creates a new node for the item, and
+            line 9 links it to <c>current</c> (step 1). Next, the node before the new one
+            must be linked to it (step 2). If <c>previous</c> is <c>nullptr</c> (line 10),
+            there is no node before it, so the new node becomes the head of the linked
+            list (line 11). Otherwise, line 13 links <c>previous</c> to the new node.</p>
+        <p>Notice that there is no special case for an empty linked list. If <c>head</c>
+            is <c>nullptr</c>, the loop never runs, so <c>previous</c> and <c>current</c>
+            are both <c>nullptr</c>. Line 9 sets the new node's <c>next</c> to
+            <c>nullptr</c> and line 11 makes it the head, which is exactly right. These
+            few lines handle all four cases: adding to an empty linked list, adding a new
+            smallest item, adding in the middle, and adding a new largest item. Trace
+            through each one to convince yourself.</p>
         
         <listing xml:id="linear-linked_lst-orderadd">
             <title><c>add</c> Method</title>
-            <program language="cpp" label="linear-linked_lst-orderadd-prog"><code>
+            <program language="cpp" line-numbers="yes" label="linear-linked_lst-orderadd-prog"><code>
 void add(int item) {
-    if (head == nullptr) {
-        Node *newNode = new Node(item);
-        head = newNode;
-    } else {
-        Node *current = head;
-        Node *previous = nullptr;
-        bool stop = false;
-        while (current != nullptr &amp;&amp; !stop) {
-            if (current-&gt;getData() &gt; item) {
-                stop = true;
-            } else {
-                previous = current;
-                current = current-&gt;getNext();
-            }
-        }
-        Node *temp = new Node(item);
-        if (previous == nullptr) {
-            temp-&gt;setNext(head);
-            head = temp;
-        } else {
-            temp-&gt;setNext(current);
-            previous-&gt;setNext(temp);
-        }
+    Node *previous = nullptr;
+    Node *current = head;
+    while (current != nullptr &amp;&amp; current-&gt;getData() &lt; item) {
+        previous = current;
+        current = current-&gt;getNext();
     }
+    Node *temp = new Node(item);
+    temp-&gt;setNext(current);
+    if (previous == nullptr)
+        head = temp;
+    else
+        previous-&gt;setNext(temp);
 }
             </code></program>
         </listing>
         <p>The <c>OrderedList</c> class with methods discussed thus far can be found
-            in ActiveCode 1.
+            in ActiveCode 1. Like <c>UnorderedList</c>, it needs a destructor to delete
+            its nodes when the list is destroyed. The destructor does not depend on the
+            order of the items, so it is the same as the <c>UnorderedList</c> destructor
+            from the previous section.
             We leave the remaining methods as exercises. You should carefully
             consider whether the unordered implementations will work given that the
             linked list is now ordered.</p>
@@ -224,6 +225,16 @@ class OrderedList {
                 head = nullptr;
         }
 
+        ~OrderedList() {
+            //deletes every Node when the list is destroyed.
+            Node *current = head;
+            while (current != nullptr) {
+                Node *next = current-&gt;getNext();
+                delete current;
+                current = next;
+            }
+        }
+
         bool search(int item) {
             //finds a Node that contains item in the linked list.
             Node *current = head;
@@ -246,34 +257,20 @@ class OrderedList {
         }
 
         void add(int item) {
-            if (head == nullptr) {
-                Node *newNode = new Node(item);
-                head = newNode;
-            } else {
-                Node *current = head;
-                Node *previous = nullptr;
-                bool stop = false;
-                while (current != nullptr &amp;&amp; !stop) {
-                    if (current-&gt;getData() &gt; item) { //if the data of the current Node is greater than item:
-                        stop = true;
-                    } else {
-                        previous = current;
-                        current = current-&gt;getNext();
-                    }
-                }
-                Node *temp = new Node(item);
-                if (previous == nullptr) {
-                    //sets the current head as temp's next item,
-                    //sets temp as the new head.
-                    temp-&gt;setNext(head);
-                    head = temp;
-                } else {
-                    //sets the current Node as temp's next Node,
-                    //sets temp to previous's next Node.
-                    temp-&gt;setNext(current);
-                    previous-&gt;setNext(temp);
-                }
+            //finds the first Node whose data is not less than item,
+            //and inserts a new Node just before it.
+            Node *previous = nullptr;
+            Node *current = head;
+            while (current != nullptr &amp;&amp; current-&gt;getData() &lt; item) {
+                previous = current;
+                current = current-&gt;getNext();
             }
+            Node *temp = new Node(item);
+            temp-&gt;setNext(current);
+            if (previous == nullptr)
+                head = temp; //temp is the new first Node.
+            else
+                previous-&gt;setNext(temp);
         }
 
         bool isEmpty() {
@@ -330,7 +327,7 @@ int main() {
             <p>To analyze the complexity of the linked list operations, we need to
                 consider whether they require traversal. Consider a linked list that has
                 <em>n</em> nodes. The <c>isEmpty</c> method is <m>O(1)</m> since it requires
-                one step to check the head reference for <c>nullptr</c>. <c>size</c>, on the
+                one step to check the head pointer for <c>nullptr</c>. <c>size</c>, on the
                 other hand, will always require <em>n</em> steps since there is no way to know
                 how many nodes are in the linked list without traversing from head to
                 end. Therefore, <c>size</c> is <m>O(n)</m>. Adding an item to an
@@ -342,7 +339,7 @@ int main() {
                 process every node in the linked list.</p>
 
 <exercise label="LinkedlistAnalysis">
-    <statement><p>Match the Big O() analysis to their corresponding  opperation.</p></statement>
+    <statement><p>Match the Big O() analysis to their corresponding operation.</p></statement>
     <feedback><p>Try again!</p></feedback>
     <cardsort>
         <match>
@@ -351,7 +348,7 @@ int main() {
         </match>
         <match>
             <premise order="2"><p><m>O(n)</m></p></premise>
-            <response>length,add, search, and remove(ordered linked list)</response>
+            <response>size, add, search, and remove (ordered linked list)</response>
         </match>
     </cardsort>
 </exercise>
